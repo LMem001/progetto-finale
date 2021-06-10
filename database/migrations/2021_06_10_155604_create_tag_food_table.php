@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTagsTable extends Migration
+class CreateTagFoodTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('tag_food', function (Blueprint $table) {
             $table->id();
-            $table->string('tagCourse', 25);
-            $table->string('allergens')->nullable();
-            $table->boolean('veggie')->default(0);
-            $table->boolean('vegan')->default(0);
-            $table->boolean('spicy')->default(0);
+            $table->foreignId('food_id')->constrained('foods')->onDelete('cascade');
+            $table->foreignId('tag_id')->constrained('tags')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('tag_food');
     }
 }
