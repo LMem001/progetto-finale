@@ -98,7 +98,7 @@
                             <label for="vat" class="col-md-4 col-form-label text-md-right">{{ __('VAT') }}</label>
 
                             <div class="col-md-6">
-                                <input id="vat" type="number" class="form-control @error('vat') is-invalid @enderror" name="vat" value="{{ old('vat') }}"  autofocus>
+                                <input id="vat" type="text" class="form-control @error('vat') is-invalid @enderror" name="vat" value="{{ old('vat') }}"  autofocus>
 
                                 @error('vat')
                                     <span class="invalid-feedback" role="alert">
