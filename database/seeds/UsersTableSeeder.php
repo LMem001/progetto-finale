@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use Faker\Generator as Faker;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
             $newUser->vat = $faker->unique()->creditCardNumber();
             $newUser->billing_address = $faker->address();
             $newUser->iban = $faker->unique()->iban();
-            $newUser->password = "12345678";
+            $newUser->password = Hash::make("12345678");
             $newUser->save();
         }
     }
