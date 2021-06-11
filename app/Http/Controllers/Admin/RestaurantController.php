@@ -7,6 +7,7 @@ use App\Restaurant;
 use App\ResType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 
 class RestaurantController extends Controller
@@ -55,8 +56,10 @@ class RestaurantController extends Controller
 
         $data = $request->all();
 
+        $data['user_id'] = Auth::id();
+
         //slug
-        $data['slug'] = Str::slug($data['title'], '-');
+        $data['slug'] = Str::slug($data['rest_name'], '-');
 
         //passare immagine
         // if(isset($data['image'])){
@@ -64,11 +67,11 @@ class RestaurantController extends Controller
         // }
 
         //inserisco dati in db
-        $newPost = Restaurant::create($data); 
+        $newRestaurant = Restaurant::create($data); 
 
         //"collego" i tag
         if(isset($data['$types'])){
-            $newPost ->restaurant_types()->attach($data['types']);
+            $newRestaurant ->restaurant_types()->attach($data['types']);
         }
         
         return redirect()->route('admin.restaurant.create');
