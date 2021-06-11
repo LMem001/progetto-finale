@@ -21,8 +21,8 @@ class RestaurantsTableSeeder extends Seeder
             $newRestaurant = new Restaurant();
             $newRestaurant->user_id = $user->id;
             $newRestaurant->rest_name = $faker->firstname();
-            $newRestaurant->open_time = $faker->date();
-            $newRestaurant->close_time = $faker->date();
+            $newRestaurant->open_time = '10:00';
+            $newRestaurant->close_time = '24:00';
             $newRestaurant->phone = $faker->phoneNumber();
             $newRestaurant->img_cover = $faker->imageUrl(640, 480, 'animals', true);
             $newRestaurant->img_profile = $faker->imageUrl(640, 480, 'animals', true);
