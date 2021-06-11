@@ -11,11 +11,11 @@ class Restaurant extends Model
     ];
     public function restaurant_types()
     {
-        return $this->belongsToMany('App\ResType')
+        return $this->belongsToMany('App\ResType');
     }
     public function foods()
     {
-        return $this->hasMany('App\Food')
+        return $this->hasMany('App\Food');
     }
 }
 
