@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('email', 50)->unique();
             $table->string('phone', 20)->unique();
             $table->string('vat', 30)->unique();
-            $table->string('billing_address', 30);
-            $table->string('iban', 27)->unique();
+            $table->string('billing_address', 100);
+            $table->string('iban', 40)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
