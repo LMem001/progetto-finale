@@ -21,7 +21,7 @@ class FoodsTableSeeder extends Seeder
                 $newFood = new Food();
                 $newFood->restaurant_id = $rest->id;
                 $newFood->name = $food_name[$i];
-                $newFood->food_price = "10";
+                $newFood->food_price = rand(0, 1000) / 10;
                 $newFood->save();
             }
         }
