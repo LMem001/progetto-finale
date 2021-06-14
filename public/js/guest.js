@@ -35,6 +35,6 @@ function changeBgJb() {
   jumbo.style.backgroundImage = bgJb;
 }
 
-setInterval(changeBgJb, 2000);
+setInterval(changeBgJb, 5000);
 /******/ })()
 ;

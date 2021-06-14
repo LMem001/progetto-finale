@@ -26,7 +26,7 @@
         </div>
     </div>
     {{-- //banner --}}
-    {{-- jumbotron --}}
+    {{-- jumbo --}}
     <section id="jumbotron">
         <div class="jumbo-content">
 
@@ -44,7 +44,7 @@
             
         </div>
     </section>
-    <!-- end jumboron -->
+    <!-- end jumbo -->
 @endsection
 
 @section('script')
