@@ -1,0 +1,19 @@
+.banner{
+   background-color: $indigo;
+   .container{
+      width:90%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      p, .closeBanner{
+         padding: 20px 0;
+         color: white;
+      }
+      .closeBanner{
+         cursor: pointer;
+      }
+   }
+}
+.bannerDisplayNone{
+   display: none;
+}

@@ -8,4 +8,29 @@ h1 {
   margin: 0;
 }
 
+.banner {
+  background-color: #6574cd;
+}
+
+.banner .container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.banner .container p,
+.banner .container .closeBanner {
+  padding: 20px 0;
+  color: white;
+}
+
+.banner .container .closeBanner {
+  cursor: pointer;
+}
+
+.bannerDisplayNone {
+  display: none;
+}
+
 

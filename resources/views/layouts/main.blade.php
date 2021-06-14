@@ -24,4 +24,5 @@
     <!-- footer -->
     @yield('footer')
 </body>
+    @yield('script')
 </html>
