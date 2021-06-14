@@ -18,8 +18,4 @@ class Food extends Model
     {
         return $this->belongsToMany('App\Order');
     }
-    public function tagfoods()
-    {
-        return $this->belongsToMany('App\TagFood');
-    }
 }

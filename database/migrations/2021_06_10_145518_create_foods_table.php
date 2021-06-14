@@ -18,6 +18,12 @@ class CreateFoodsTable extends Migration
             $table->foreignId('restaurant_id')->constrained()->onDelete('cascade');
             $table->string('name', 50);
             $table->float('food_price', 5, 2);
+            $table->string('tagCourse', 25);
+            $table->string('allergens')->nullable();
+            $table->boolean('veggie')->default(0);
+            $table->boolean('vegan')->default(0);
+            $table->boolean('spicy')->default(0);
+            $table->boolean('glutenfree')->default(0);
             $table->timestamps();
         });
     }
