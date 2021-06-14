@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Restaurant;
-use App\User;
 use App\Food;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +29,7 @@ class FoodController extends Controller
 
         // get the food of the user's restaurant 
         $food = Food::where('restaurant_id', $restaurant->id)->get();
-
+        
         return view('admin.food.index', compact('food'));
     }
 
@@ -87,9 +86,9 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Food $food)
     {
-        //
+        return view('admin.food.edit', compact('food'));
     }
 
     /**
@@ -99,9 +98,24 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Food $food)
     {
-        //
+        $validation = $this->validation;
+
+        $request->validate($this->validation);
+
+        $data = $request->all();
+
+        $user_id = Auth::id();
+
+        $restaurant = Restaurant::where('user_id', $user_id)->first();
+
+        $data['restaurant_id'] = $restaurant->id;
+
+        //inserisco dati in db
+        $food->update($data);
+        
+        return redirect()->route('admin.food.index');
     }
 
     /**
@@ -110,8 +124,9 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Food $food)
     {
-        //
+        $food -> delete();
+        return redirect()->route('admin.food.index');
     }
 }
