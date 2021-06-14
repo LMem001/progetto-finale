@@ -23,4 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
     Route::resource('restaurant', 'RestaurantController');
+    Route::resource('restaurant/food', 'FoodController');
 });
