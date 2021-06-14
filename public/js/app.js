@@ -34450,9 +34450,12 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************!*\
   !*** ./resources/sass/guest/guest.scss ***!
   \*****************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n  ╷\n4 │ @import 'partials/banner';\n  │                          ^\n  ╵\n  /Users/davidevignozzi/Desktop/Boolean/GitHub/progetto-finale/resources/sass/guest/guest.scss 4:26  root stylesheet\n    at processResult (/Users/davidevignozzi/Desktop/Boolean/GitHub/progetto-finale/node_modules/webpack/lib/NormalModule.js:703:19)\n    at /Users/davidevignozzi/Desktop/Boolean/GitHub/progetto-finale/node_modules/webpack/lib/NormalModule.js:809:5\n    at /Users/davidevignozzi/Desktop/Boolean/GitHub/progetto-finale/node_modules/loader-runner/lib/LoaderRunner.js:399:11\n    at /Users/davidevignozzi/Desktop/Boolean/GitHub/progetto-finale/node_modules/loader-runner/lib/LoaderRunner.js:251:18\n    at context.callback (/Users/davidevignozzi/Desktop/Boolean/GitHub/progetto-finale/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at /Users/davidevignozzi/Desktop/Boolean/GitHub/progetto-finale/node_modules/sass-loader/dist/index.js:73:7\n    at Function.call$2 (/Users/davidevignozzi/Desktop/Boolean/GitHub/progetto-finale/node_modules/sass/sass.dart.js:93283:16)\n    at _render_closure1.call$2 (/Users/davidevignozzi/Desktop/Boolean/GitHub/progetto-finale/node_modules/sass/sass.dart.js:81648:12)\n    at _RootZone.runBinary$3$3 (/Users/davidevignozzi/Desktop/Boolean/GitHub/progetto-finale/node_modules/sass/sass.dart.js:27468:18)\n    at _FutureListener.handleError$1 (/Users/davidevignozzi/Desktop/Boolean/GitHub/progetto-finale/node_modules/sass/sass.dart.js:26017:19)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -37403,7 +37406,8 @@ process.umask = function() { return 0; };
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/app": 0
+/******/ 			"css/app": 0,
+/******/ 			"css/guest": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -37451,9 +37455,9 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/guest/guest.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/guest"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/guest"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/guest"], () => (__webpack_require__("./resources/sass/guest/guest.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

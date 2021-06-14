@@ -4,7 +4,6 @@
   margin: 0;
 }
 
-<<<<<<< Updated upstream
 .banner {
   background-color: #6574cd;
 }
@@ -28,7 +27,61 @@
 
 .bannerDisplayNone {
   display: none;
-=======
+}
+
+.navbar {
+  width: 90%;
+  background-color: transparent;
+  position: fixed;
+  left: 5%;
+  top: 50px;
+}
+
+.navbar .logo {
+  display: inline-block;
+  width: 15%;
+  height: 60px;
+  margin: 0 20px;
+  background-color: blue;
+}
+
+.navbar .logo img {
+  width: 100%;
+}
+
+.navbar nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar nav ul li {
+  display: inline-block;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 19px;
+  font-weight: bold;
+  color: white;
+  padding: 0 20px;
+}
+
+.navbar nav ul li .fa-chevron-down {
+  font-size: 15px;
+  padding-left: 5px;
+}
+
+.navbar nav .nav_login {
+  margin-right: 20px;
+}
+
+.btn_primary {
+  padding: 8px 12px;
+  border: solid black 2px;
+  border-radius: 5px;
+  background-color: yellow;
+}
+
 #jumbotron {
   background-image: url("https://wallpaperaccess.com/full/462860.jpg");
   background-size: cover;
@@ -84,7 +137,6 @@
 
 #jumbotron .jumbo-content .input-jumbotron-container input:focus {
   outline: 0;
->>>>>>> Stashed changes
 }
 
 

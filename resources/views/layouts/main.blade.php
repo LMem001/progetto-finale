@@ -14,15 +14,16 @@
     <title>@yield('page-title')</title>
     
 </head>
-<body>
-    <!-- navbar -->
-    @yield('navbar')
+    <body>
+        <div id="app">
+            @include('guest.partials.navbar')
+            <!-- main -->
+            @yield('content')
 
-    <!-- main -->
-    @yield('content')
+            <!-- footer -->
+            {{-- @include('partials.footer') --}}
+        </div>
+    </body>
 
-    <!-- footer -->
-    @yield('footer')
-</body>
     @yield('script')
 </html>
