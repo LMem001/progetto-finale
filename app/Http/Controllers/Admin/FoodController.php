@@ -29,7 +29,7 @@ class FoodController extends Controller
 
         // get the food of the user's restaurant 
         $food = Food::where('restaurant_id', $restaurant->id)->get();
-        
+    
         return view('admin.food.index', compact('food'));
     }
 
