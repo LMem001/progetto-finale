@@ -5,6 +5,9 @@
 }
 
 .banner {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: #6574cd;
 }
 
@@ -31,10 +34,10 @@
 
 .navbar {
   width: 90%;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
   left: 5%;
-  top: 50px;
+  top: 70px;
 }
 
 .navbar .logo {
@@ -137,6 +140,62 @@
 
 #jumbotron .jumbo-content .input-jumbotron-container input:focus {
   outline: 0;
+}
+
+#introduction {
+  background-color: #F8DC2A;
+  padding: 50px 0;
+}
+
+#introduction .content {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+#introduction .content h2 {
+  color: #F67F41;
+  font-size: 36px;
+}
+
+#introduction .content p {
+  padding: 20px;
+  font-size: 19px;
+  color: #F6b425;
+}
+
+#presentation {
+  background-color: #01CF1E;
+}
+
+#presentation .content {
+  width: 85%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+#presentation .content .box {
+  width: 30%;
+  height: 300px;
+  background-color: #2BA4C3;
+}
+
+#presentation .content .box .box_content {
+  padding: 30px;
+}
+
+#presentation .content .box .box_content p {
+  margin-top: 50px;
+}
+
+#presentation .content .box .box_content p.img {
+  background-color: black;
+  color: white;
+  width: 80%;
+  height: 100px;
+  margin: auto;
 }
 
 

@@ -1,11 +1,11 @@
 .navbar{
    width: 90%;
-   // margin: auto!important;
-   background-color: transparent;
+//    background-color: transparent;
+   background-color: rgba($color: #000000, $alpha: 0.6);
    position: fixed;
    left: 5%;
-   // TODO top : height banner;
-   top: 50px;
+   top: 70px;
+   
    .logo{
        display: inline-block;
        width: 15%;

@@ -25,8 +25,8 @@
             <i class="closeBanner fas fa-times" @click="hideBanner"></i>
         </div>
     </div>
-    {{-- //banner --}}
-    {{-- jumbo --}}
+
+    {{-- jumbotron --}}
     <section id="jumbotron">
         <div class="jumbo-content">
 
@@ -44,7 +44,37 @@
             
         </div>
     </section>
-    <!-- end jumbo -->
+
+    <section id="introduction">
+        <div class="content">
+            <h2><span class="logo_span">DeliBool</span> : tutta la qualità romana a portata di un click </h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa nihil deserunt repudiandae nulla, quas et facilis consectetur eligendi beatae ducimus, at suscipit commodi quam nemo. Quia nobis facilis distinctio eveniet!</p>
+        </div>
+    </section>
+
+    <section id="presentation">
+        <div class="content">
+            <div class="box">
+                <div class="box_content">
+                    <p class="img">placeholder per immagine di consegna con il motorino</p>
+                    <p>Roba scritta tipo "consegnamo a domicialio super veloci" hic quos et libero alias rerum fugiat quod minus.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_content">
+                    <p class="img">placeholder di schermi</p>
+                    <p>Puoi ordinare con <span class="delivebool">Delivebool</span> dove e quando vuoi ! WOW XD</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box_content">
+                    <p class="img">placeholder per immagine di del tipo dallo psicologo che ordina</p>
+                    <p>Puoi ordinare anche dallo psicologo !</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
 @endsection
 
 @section('script')

@@ -2,4 +2,61 @@
 @import 'partials/mix';
 @import 'partials/banner';
 @import 'partials/navbar';
-@import 'partials/jumbotron'
+@import 'partials/jumbotron';
+
+//? Section 1: introduction
+#introduction{
+    background-color: $pallette_yellow;
+    padding: 50px 0;
+    
+    .content{
+        width: 60%;
+        margin: auto;
+        text-align: center;
+
+        h2{
+            color: $pallette_orange;
+            font-size: $font_titles_s;
+        }
+        p {
+            padding: 20px;
+            font-size: $font_text_m;
+            color: $pallette_yellow_dark;
+        }
+    }
+}
+
+//? Section 2 : Presentation
+#presentation {
+    background-color: $pallette_green;
+    
+    .content {
+        width: 85%;
+        margin: auto;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        
+        .box {
+            width: 30%;
+            height: 300px;
+            background-color: $pallette_blue;
+
+            .box_content{
+                padding: 30px;
+                
+                p{
+                    &.img{
+                        background-color: black;
+                        color: white;
+                        width: 80%;
+                        height: 100px;
+                        margin: auto;
+                    }
+                    margin-top: 50px ;
+                }
+            }
+
+        }
+    }
+}
