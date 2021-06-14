@@ -1,0 +1,46 @@
+#jumbotron{
+    background-image: url('https://wallpaperaccess.com/full/462860.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease;
+    .jumbo-content{
+        border: 1px solid white;
+        background-color: rgba($color: #ffffff, $alpha: 0.2);
+        border-radius: 25px;
+        padding: 25px;
+        text-align: center;
+        h1{
+            font-size: 36px;
+            color: #fff;
+        }
+        h2{
+            padding: 25px;
+            color: #fff
+        }
+
+        .input-jumbotron-container{
+            input{
+                border:2px solid #fff;
+                background:transparent;
+                width:250px;
+                height:36px;
+                border-radius:25px;
+                transition:all .3s .4s;
+                color: #fff;
+                padding: 10px;
+                &::placeholder{
+                    color: white;
+                }
+                &:focus{
+                    outline:0;
+                }
+            }
+        }
+        
+    }
+}

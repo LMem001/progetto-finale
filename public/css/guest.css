@@ -1,13 +1,10 @@
-h1 {
-  color: red;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+<<<<<<< Updated upstream
 .banner {
   background-color: #6574cd;
 }
@@ -31,6 +28,63 @@ h1 {
 
 .bannerDisplayNone {
   display: none;
+=======
+#jumbotron {
+  background-image: url("https://wallpaperaccess.com/full/462860.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s ease;
+}
+
+#jumbotron .jumbo-content {
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 25px;
+  text-align: center;
+}
+
+#jumbotron .jumbo-content h1 {
+  font-size: 36px;
+  color: #fff;
+}
+
+#jumbotron .jumbo-content h2 {
+  padding: 25px;
+  color: #fff;
+}
+
+#jumbotron .jumbo-content .input-jumbotron-container input {
+  border: 2px solid #fff;
+  background: transparent;
+  width: 250px;
+  height: 36px;
+  border-radius: 25px;
+  transition: all 0.3s 0.4s;
+  color: #fff;
+  padding: 10px;
+}
+
+#jumbotron .jumbo-content .input-jumbotron-container input::-moz-placeholder {
+  color: white;
+}
+
+#jumbotron .jumbo-content .input-jumbotron-container input:-ms-input-placeholder {
+  color: white;
+}
+
+#jumbotron .jumbo-content .input-jumbotron-container input::placeholder {
+  color: white;
+}
+
+#jumbotron .jumbo-content .input-jumbotron-container input:focus {
+  outline: 0;
+>>>>>>> Stashed changes
 }
 
 
