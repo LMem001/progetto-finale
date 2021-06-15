@@ -51,6 +51,10 @@ class RestaurantController extends Controller
 
         $data['user_id'] = Auth::id();
 
+        if(Auth::id() == null){
+            return redirect()->route('login')->with('message', 'Effettua il Login per visualizzare la pagina');
+        }
+
         //slug
         $data['slug'] = Str::slug($data['rest_name'], '-');
 

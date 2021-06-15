@@ -25,6 +25,11 @@ class FoodController extends Controller
     {
         // get the user's restaurant
         $user_id = Auth::id();
+
+        if(Auth::id() == null){
+            return redirect()->route('login');
+        }
+
         $restaurant = Restaurant::where('user_id', $user_id)->first();
 
         if($restaurant == null) {
@@ -45,6 +50,10 @@ class FoodController extends Controller
     public function create()
     {
         $user_id = Auth::id();
+
+        if(Auth::id() == null){
+            return redirect()->route('login')->with('message', 'Effettua il Login per visualizzare la pagina');
+        }
 
         $restaurant = Restaurant::where('user_id', $user_id)->first();
 
@@ -70,6 +79,10 @@ class FoodController extends Controller
         $data = $request->all();
 
         $user_id = Auth::id();
+
+        if(Auth::id() == null){
+            return redirect()->route('login')->with('message', 'Effettua il Login per visualizzare la pagina');
+        }
 
         $restaurant = Restaurant::where('user_id', $user_id)->first();
 
@@ -122,6 +135,10 @@ class FoodController extends Controller
     {
         $user_id = Auth::id();
 
+        if(Auth::id() == null){
+            return redirect()->route('login')->with('message', 'Effettua il Login per visualizzare la pagina');
+        }
+
         $restaurant = Restaurant::where('user_id', $user_id)->first();
 
         if($restaurant == null) {
@@ -151,6 +168,10 @@ class FoodController extends Controller
         $data = $request->all();
 
         $user_id = Auth::id();
+
+        if(Auth::id() == null){
+            return redirect()->route('login')->with('message', 'Effettua il Login per visualizzare la pagina');
+        }
 
         $restaurant = Restaurant::where('user_id', $user_id)->first();
 
