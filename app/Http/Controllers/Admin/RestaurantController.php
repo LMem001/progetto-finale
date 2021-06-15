@@ -20,16 +20,7 @@ class RestaurantController extends Controller
         'phone' => 'required|string',
         'address' => 'required|string'
     ];
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-
-    }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -79,17 +70,6 @@ class RestaurantController extends Controller
         }
         
         return redirect()->route('admin.restaurant.create');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
