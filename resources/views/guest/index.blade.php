@@ -9,6 +9,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 {{-- moment.js --}}
 <script src="https://momentjs.com/downloads/moment.js"></script>
+{{-- google fonts --}}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+
 @endsection
 
 @section('css')
@@ -30,28 +34,28 @@
     <section id="jumbotron">
         <div class="jumbo-content">
 
-            <h1>Slogan Super Figo</h1>
+            <h1 class="mt_3">Slogan Super Figo</h1>
 
-            <h2>Secondo Slogan Super Figo (solo che un po' più piccolo)</h2>
+            <h2  class="mt_3" >Secondo Slogan Super Figo (solo che un po' più piccolo)</h2>
 
             <!-- search a restaurant -->
-            <div class="input-jumbotron-container">
+            <div class="input-jumbotron-container mt_4">
                 <form action="">
                     <input type="search" placeholder="Inserisci il nome del ristorante"/>
                 </form>
-            </div>
-            <!-- search a restaurant -->
-            
+            </div>            
         </div>
     </section>
 
+    {{-- introduction --}}
     <section id="introduction">
         <div class="content">
             <h2><span class="logo_span">DeliBool</span> : tutta la qualità romana a portata di un click </h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa nihil deserunt repudiandae nulla, quas et facilis consectetur eligendi beatae ducimus, at suscipit commodi quam nemo. Quia nobis facilis distinctio eveniet!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa nihil deserunt repudiandae nulla, quas et facilis consectetur eligendi beatae ducimus, at suscipit commodi quam nemo!</p>
         </div>
     </section>
 
+    {{-- presentation --}}
     <section id="presentation">
         <div class="content">
             <div class="box">

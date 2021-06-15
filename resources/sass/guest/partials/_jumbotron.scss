@@ -8,34 +8,36 @@
     align-items: center;
     justify-content: center;
     transition: 0.5s ease;
-    .jumbo-content{
-        border: 1px solid white;
-        background-color: rgba($color: #ffffff, $alpha: 0.2);
-        border-radius: 25px;
-        padding: 25px;
-        text-align: center;
-        h1{
-            font-size: 36px;
-            color: #fff;
-        }
-        h2{
-            padding: 25px;
-            color: #fff
-        }
 
+    .jumbo-content{
+        margin-right: 200px;
+        background-color: rgba($color: white, $alpha: 0.3);
+        // text-align: center;
+        color: white;
+        padding: 25px;
+        width: 50%;
+        border: 1px solid white;
+        border-radius: 10px;
+
+        h1{
+            font-size: $font_titles_l;
+        }
+        
         .input-jumbotron-container{
+            color: white;
+            
             input{
-                border:2px solid #fff;
-                background:transparent;
-                width:250px;
-                height:36px;
-                border-radius:25px;
-                transition:all .3s .4s;
-                color: #fff;
+                border:2px solid inherit;
+                background:rgba($color: white, $alpha: 0.4);
+                width: 50%;
+                border-radius: 10px;
+                transition: all .3s .4s;
                 padding: 10px;
+
                 &::placeholder{
-                    color: white;
+                    color: $pallette_pink_dark;
                 }
+
                 &:focus{
                     outline:0;
                 }

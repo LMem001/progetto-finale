@@ -3,3 +3,27 @@
     padding: 0;
     margin: 0;
 }
+
+.btn_primary {
+    padding: 8px 12px;
+    border: solid black 2px;
+    border-radius: 5px;
+    background-color: yellow;
+}
+
+//* margins generator: mt_1 => margint-top : 10px;
+@for $i from 1 through 10 {
+    .mt_#{$i} {
+    margin-top: 10px * $i;
+    }
+}
+
+//fonts 
+body {
+    font-family: 'Nunito', sans-serif;
+}
+/* TODO font titoli
+h1, h2, h3, h4, h5, h6 {
+    font-style: ;
+}
+*/
