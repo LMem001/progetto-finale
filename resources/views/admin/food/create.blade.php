@@ -28,9 +28,18 @@
 		<input type="text" class="form-control" id="food_price" name="food_price" placeholder="Prezzo">
 	</div>
    <div class="form-group">
-		<label for="tagCourse">Tipologia di portata</label>
-		<input type="text" class="form-control" id="tagCourse" name="tagCourse" placeholder="Portata">
-	</div>
+      <label for="tagCourse">Tipologia</label>
+      <select class="form-control" id="tagCourse" name="tagCourse">
+        <option>Antipasto</option>
+        <option>Primo</option>
+        <option>Secondo</option>
+        <option>Dessert</option>
+        <option>Piatto unico</option>
+        <option>Fast-food</option>
+        <option>Bevanda</option>
+        <option>Altro</option>
+      </select>
+    </div>
    <div class="form-group">
 		<label for="allergens">Segnala eventuali allergeni</label>
 		<input type="text" class="form-control" id="allergens" name="allergens" placeholder="Allergeni">
