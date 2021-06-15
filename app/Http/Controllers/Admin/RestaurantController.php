@@ -8,7 +8,7 @@ use App\ResType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -61,10 +61,14 @@ class RestaurantController extends Controller
         //slug
         $data['slug'] = Str::slug($data['rest_name'], '-');
 
-        //passare immagine
-        // if(isset($data['image'])){
-        //     $data['image'] = Storage::disk('public')->put('images', $data['image']);
-        // }
+        // passare immagine
+        if(isset($data['img_cover'])){
+            $data['img_cover'] = Storage::disk('public')->put('images', $data['img_cover']);
+        }
+
+        if(isset($data['img_profile'])){
+            $data['img_profile'] = Storage::disk('public')->put('images', $data['img_profile']);
+        }
 
         //inserisco dati in db
         $newRestaurant = Restaurant::create($data); 
