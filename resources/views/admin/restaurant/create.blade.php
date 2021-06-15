@@ -16,7 +16,7 @@
     </div>
 @endif
 
-<form action="{{route('admin.restaurant.store')}}" method="POST">
+<form action="{{route('admin.restaurant.store')}}" method="POST" enctype="multipart/form-data">
 	@csrf
 	@method('POST')
 	<div class="form-group">
@@ -31,14 +31,14 @@
 		<label for="close_time">Orario chiusura</label>
 		<input type="text" class="form-control" id="close_time" name="close_time" placeholder="Orario chiusura">
 	</div>
-   {{-- <div class="form-group">
+   <div class="form-group">
 		<label for="close_time">immagine di copertina</label>
-		<input type="text" class="form-control" id="img_cover" name="img_cover" placeholder="scegli immagine di copertina">
-	</div> --}}
-   {{-- <div class="form-group">
+		<input type="file" id="img_cover" name="img_cover" placeholder="scegli immagine di copertina">
+	</div>
+   <div class="form-group">
 		<label for="img_profile">immagine del profilo</label>
-		<input type="text" class="form-control" id="img_profile" name="img_profile" placeholder="scegli immagine del profilo">
-	</div> --}}
+		<input type="file" id="img_profile" name="img_profile" placeholder="scegli immagine del profilo">
+	</div>
    <div class="form-group">
 		<label for="rest_email">Email ristorante</label>
 		<input type="email" class="form-control" id="rest_email" name="rest_email" placeholder="Email ristorante">

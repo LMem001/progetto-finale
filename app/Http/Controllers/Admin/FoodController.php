@@ -160,6 +160,22 @@ class FoodController extends Controller
 
         $data['restaurant_id'] = $restaurant->id;
 
+        if( isset($data['veggie'])){
+            $data['veggie'] = 1;
+        }
+
+        if(isset($data['vegan']) ){
+            $data['vegan'] = 1;
+        }
+
+        if( isset($data['spicy'])){
+            $data['spicy'] = 1;
+        }
+
+        if( isset($data['glutenfree']) ){
+            $data['glutenfree'] = 1;
+        }
+
         //inserisco dati in db
         $food->update($data);
         
