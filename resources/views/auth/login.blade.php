@@ -70,7 +70,7 @@
         </div>
     </div>
 </div>
-{{-- stampa del messaggio --}}
+{{-- stampa del messaggio x front end da non eliminare quando modificherete aspetto login--}}
 @if (session('message'))
 <div class="alert alert-success" style="position: fixed; bottom: 30px; right: 30px">
     {{ session('message') }}
