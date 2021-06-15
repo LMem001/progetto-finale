@@ -44,6 +44,14 @@ class FoodController extends Controller
      */
     public function create()
     {
+        $user_id = Auth::id();
+
+        $restaurant = Restaurant::where('user_id', $user_id)->first();
+
+        if($restaurant == null) {
+            return redirect()->route('admin.restaurant.create');
+        }
+
         return view('admin.food.create');
     }
 
@@ -112,6 +120,18 @@ class FoodController extends Controller
      */
     public function edit(Food $food)
     {
+        $user_id = Auth::id();
+
+        $restaurant = Restaurant::where('user_id', $user_id)->first();
+
+        if($restaurant == null) {
+            return redirect()->route('admin.restaurant.create');
+        }
+
+        if( $food->restaurant_id != $restaurant->id ) {
+            abort('403');
+        }
+
         return view('admin.food.edit', compact('food'));
     }
 
