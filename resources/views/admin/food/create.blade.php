@@ -30,15 +30,15 @@
    <div class="form-group">
       <label for="tagCourse">Tipologia</label>
       <select class="form-control" id="tagCourse" name="tagCourse">
-        <option>Antipasto</option>
-        <option>Primo</option>
-        <option>Secondo</option>
-        <option>Dessert</option>
-        <option>Piatto unico</option>
-        <option>Fast-food</option>
-        <option>Bevanda</option>
-        <option>Altro</option>
-      </select>
+         <option value="antipasto">Antipasto</option>
+         <option value="primo">Primo</option>
+         <option value="secondo">Secondo</option>
+         <option value="dessert">Dessert</option>
+         <option value="piatto_unico">Piatto unico</option>
+         <option value="fast_food">Fast-food</option>
+         <option value="bevanda">Bevanda</option>
+         <option value="altro">Altro</option>
+       </select>
     </div>
    <div class="form-group">
 		<label for="allergens">Segnala eventuali allergeni</label>
