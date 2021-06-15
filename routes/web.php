@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
     Route::resource('restaurant', 'RestaurantController');
     Route::resource('food', 'FoodController');
+
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 });
+
