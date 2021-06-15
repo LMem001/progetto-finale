@@ -14,6 +14,11 @@ class DashboardController extends Controller
         $user_id = Auth::id();
         $restaurant = Restaurant::where('user_id', $user_id)->first();
 
-        return view('admin.dashboard', compact('restaurant'));
+        // check user's restaurant
+        if($restaurant == null) {
+            return redirect()->route('admin.restaurant.create');
+        }
+
+        return view('admin.dashboard.index', compact('restaurant'));
     }
 }

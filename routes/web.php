@@ -26,6 +26,6 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
     Route::resource('restaurant', 'RestaurantController');
     Route::resource('food', 'FoodController');
 
-    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
 });
 

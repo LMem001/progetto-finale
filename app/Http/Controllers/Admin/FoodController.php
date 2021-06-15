@@ -27,6 +27,10 @@ class FoodController extends Controller
         $user_id = Auth::id();
         $restaurant = Restaurant::where('user_id', $user_id)->first();
 
+        if($restaurant == null) {
+            return redirect()->route('admin.restaurant.create');
+        }
+
         // get the food of the user's restaurant 
         $food = Food::where('restaurant_id', $restaurant->id)->get();
     
@@ -60,6 +64,10 @@ class FoodController extends Controller
         $user_id = Auth::id();
 
         $restaurant = Restaurant::where('user_id', $user_id)->first();
+
+        if($restaurant == null) {
+            return redirect()->route('admin.restaurant.create');
+        }
 
         $data['restaurant_id'] = $restaurant->id;
 
@@ -125,6 +133,10 @@ class FoodController extends Controller
         $user_id = Auth::id();
 
         $restaurant = Restaurant::where('user_id', $user_id)->first();
+
+        if($restaurant == null) {
+            return redirect()->route('admin.restaurant.create');
+        }
 
         $data['restaurant_id'] = $restaurant->id;
 
