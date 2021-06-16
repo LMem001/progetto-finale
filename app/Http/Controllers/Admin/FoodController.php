@@ -14,7 +14,7 @@ class FoodController extends Controller
         'name' => 'required|string',
         'food_price' => 'required|numeric',
         'tagCourse' => 'required|string',
-        'allergens' => 'required|string'
+        'allergens' => 'string'
     ];
     /**
      * Display a listing of the resource.
