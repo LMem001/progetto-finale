@@ -3,12 +3,14 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use App\Restaurant;
+use App\ResType;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
 
 class RestaurantsTableSeeder extends Seeder
 {
+    //$newRestaurant ->restaurant_types()->attach($data['types']);
     /**
      * Run the database seeds.
      *
@@ -17,7 +19,9 @@ class RestaurantsTableSeeder extends Seeder
     public function run(Faker $faker)
     {
         $users = User::all();
-        foreach($users as $user){
+        $types = ResType::all();
+        foreach($users as $user){   
+
             $newRestaurant = new Restaurant();
             $newRestaurant->user_id = $user->id;
             $newRestaurant->rest_name = $faker->firstname();
@@ -30,6 +34,10 @@ class RestaurantsTableSeeder extends Seeder
             $newRestaurant->rest_email = $faker->email();
             $newRestaurant->address = $faker->address();
             $newRestaurant->save();
+
+            $rand_num = rand(1, count($types));
+            $type = ResType::find($rand_num);
+            $newRestaurant ->restaurant_types()->attach($type);
         }
     }
 }
