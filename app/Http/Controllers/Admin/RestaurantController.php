@@ -75,7 +75,7 @@ class RestaurantController extends Controller
             $newRestaurant ->restaurant_types()->attach($data['types']);
         }
         
-        return redirect()->route('admin.restaurant.create');
+        return redirect()->route('admin.dashboard.index');
     }
 
     /**

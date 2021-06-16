@@ -1,3 +1,5 @@
+const { kebabCase } = require("lodash");
+
 var app = new Vue(
    {
       el: "#app",
@@ -12,6 +14,58 @@ var app = new Vue(
          restaurants_type: [],
          search: "",
          // end axios calls data
+
+         // restaurantTypes
+         restaurants_types:[
+            {
+               type: 'kebab',
+               icon: 'kebab.png',
+            },
+            {
+               type: 'vegano',
+               icon: 'vegano.png',
+            },
+            {
+               type: 'sushi/japponese',
+               icon: 'sushi.png',
+            },
+            {
+               type: 'indiano',
+               icon: 'indiano.png',
+            },
+            {
+               type: 'pizza',
+               icon: 'pizza.png',
+            },
+            {
+               type: 'cinese',
+               icon: 'cinese.png',
+            },
+            {
+               type: 'panini/hamburger',
+               icon: 'hamburger.png',
+            },
+            {
+               type: 'pasticceria',
+               icon: 'dessert.png',
+            },
+            {
+               type: 'bevande',
+               icon: 'drinks.png',
+            },
+            {
+               type: 'messicano',
+               icon: 'messicano.png',
+            },
+            {
+               type: 'vegetariano',
+               icon: 'vegetariana.png',
+            },
+            {
+               type: 'tradizionale',
+               icon: 'tradizionale.png',
+            },
+         ],
 
          bannerNone: '',
          date: moment(60 * 30 * 1000)

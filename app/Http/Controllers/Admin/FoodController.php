@@ -14,7 +14,7 @@ class FoodController extends Controller
         'name' => 'required|string',
         'food_price' => 'required|numeric',
         'tagCourse' => 'required|string',
-        'allergens' => 'required|string'
+        'allergens' => 'string'
     ];
     /**
      * Display a listing of the resource.
@@ -111,7 +111,7 @@ class FoodController extends Controller
         //inserisco dati in db
         $newFood = Food::create($data);
         
-        return redirect()->route('admin.food.index');
+        return redirect()->route('admin.dashboard.index');
     }
 
     /**
@@ -200,7 +200,7 @@ class FoodController extends Controller
         //inserisco dati in db
         $food->update($data);
         
-        return redirect()->route('admin.food.index');
+        return redirect()->route('admin.dashboard.index');
     }
 
     /**
@@ -212,6 +212,6 @@ class FoodController extends Controller
     public function destroy(Food $food)
     {
         $food -> delete();
-        return redirect()->route('admin.food.index');
+        return redirect()->route('admin.dashboard.index');
     }
 }

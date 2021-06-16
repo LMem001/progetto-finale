@@ -24,6 +24,7 @@ class RestaurantController extends Controller
             $restaurant['types'] = $types_array;
         }
 
+        
         return response()->json($restaurants);
     }
 
