@@ -71,7 +71,7 @@ class RestaurantController extends Controller
         $newRestaurant = Restaurant::create($data); 
 
         //"collego" i tag
-        if(isset($data['$types'])){
+        if(count($data['types']) > 0){
             $newRestaurant ->restaurant_types()->attach($data['types']);
         }
         
