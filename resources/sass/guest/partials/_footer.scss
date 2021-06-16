@@ -1,5 +1,8 @@
 footer {
-    background-color: $pallette_green_dark;
+    background-color: $pallette_yellow_dark;
+    background-image: url(img/footer_skyline.jpg);
+    background-position: bottom;
+    background-repeat: repeat-x;
     .footer_container {
         width: $div_size;
         margin: auto;
@@ -8,90 +11,94 @@ footer {
         justify-content: space-between;
     
         h3,h4 {
-            // font-family: 'Nunito', sans-serif;
+            position: relative;
+            color: $pallette_red;
+            margin-top: 0;
             font-size: $font_text_s;
             margin: 20px 0 10px 0;
             text-transform: uppercase;
-            font-weight: 300;
+            font-weight: bolder;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        ul {
+            margin-top: 30px;
+            li {
+                list-style: none;
+                color: black;
+                line-height: $font_text_l;
+                padding: 10px 5px;
+            }
         }
 
         .footer_col {
             width: 30%;
             margin: 0 20px;
-                // border: red solid 2px;
-    
+
             &#foot_col1 {
 
                 ul {
                     display: flex;
-                    justify-content: flex-start;
+                    margin-top: -10px;
+                    justify-content: space-between;
     
                     li {
+
+                        
                         display: inline-block;
                         list-style: none;
                         margin: 20px 10px 0 5px;
                     }
                 }
+                img{
+                    width: 100%;
+                }
+                h4::before{
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: -10px;
+                    height: 2px;
+                    background-color: $pallette_red;
+                    box-shadow: 1px 1px 2px rgb(0, 0, 0);
+                }
             }
     
             h3 {
-                position: relative;
-                margin-top: 0;
-                color : $pallette_pink_dark;
+                font-size: $font_text_m;
             }
 
-            // h3::after{
-            //     content: "";
-            //     position: absolute;
-            //     left: 0;
-            //     right: 80%;
-            //     bottom: -30px;
-            //     height: 2px;
-            //     background-color: $pallette_green;
-            // }
+            h3::after{
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 80%;
+                bottom: -10px;
+                height: 2px;
+                background-color: $pallette_red;
+                box-shadow: 1px 1px 2px rgb(0, 0, 0);
+            }
             &#foot_col2 {
                 position: relative;
-                ul li {
-                    list-style: none;
-                    line-height: $font_text_l;
-                    padding: 10px 5px;
-    
-                    i {
-                        padding: 0 5px;
-                        color : $pallette_blue;
-                        font-size: $font_text_l;
-                    }
+
+                i {
+                    padding: 0 5px;
+                    color : $pallette_yellow;
+                    font-size: $font_text_l;
                 }
     
                 .slider_comments {
                     position: absolute;
                     bottom: 0;
-                    height: calc(50% - 100px);
+                    background-color: rgba($color: $pallette_yellow, $alpha: 0.5);
 
                     p {
                         text-align: center;
                         vertical-align: middle;
-                        // padding: 100px;
                         width: 75%;
-                    }
-                }
-            }
-    
-            &#foot_col3{
-                .foot_col_upper, 
-                .foot_col_lower{
-                    margin: 20px 0;
-                    ul li {
-                        color : #2b2b2b;
-                        padding: 10px 0;
-                        list-style: none;
-                        
-                        i {
-                            background-color: black;
-                            padding: 8px 10px;
-                            border-radius: 50%;
-                            margin-right: 10px;
-                        }
+                        margin: auto;
+                        padding: 25px 10px;
                     }
                 }
             }
@@ -99,16 +106,16 @@ footer {
     }
 
     .footer_row {
-        margin-top: 40px;
-        background-color: $blue;
-        padding: 15px 0;
+        margin-top: 100px;
+        background-color: #241e20;
+        padding: 5px 0;
 
         ul {
             li {
                 position: relative;
-                font-size: $font_text_xs;
-                color: $pallette_purple;
                 display: inline-block;
+                font-size: $font_text_xs;
+                color: #a8a9ae;
                 padding: 5px 10px;
             }
 
@@ -119,13 +126,13 @@ footer {
                 top: 5px;
                 bottom: 0;
                 width: 1px;
-                height: 18px;
-                background-color: white;
+                height: 15px;
+                background-color: #a8a9ae;
             }
 
             li#copyright {
                 i {
-                    color: black;
+                    color: inherit;
                     padding: 0 10px;
                 }
             

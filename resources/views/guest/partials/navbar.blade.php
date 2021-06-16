@@ -2,7 +2,7 @@
 <div class="navbar">
    <nav>
          <div class="logo">
-            {{-- <img src="https://via.placeholder.com/60/000000/FFFFFF/?text=imgLogo" alt="logo DeviBool"> --}}
+            <img src="img/big_logo.png" alt="logo di DeviBool">
          </div>
          <ul class="navbar_elements">
             <li >

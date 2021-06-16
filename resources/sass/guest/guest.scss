@@ -17,13 +17,13 @@
         text-align: center;
 
         h2{
-            color: $pallette_orange;
+            color: $pallette_red;
             font-size: $font_titles_s;
         }
         p {
             padding: 20px;
             font-size: $font_text_m;
-            color: $pallette_yellow_dark;
+            color: $pallette_orange;
         }
     }
 }
@@ -59,6 +59,79 @@
                 }
             }
 
+        }
+    }
+}
+//? Section 4 : Restaurants
+#restaurants {
+    .container {
+        max-width: $max_width;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 40px;
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .restaurant_card {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 30%;
+            margin-left: -20px;
+            margin-right: 20px;
+
+
+            .logo_rest {
+                width: 100%;
+
+                img{
+                    width: 100%;
+                    border-radius: 50%;
+                    border: $pallette_red 8px solid;
+                }
+            }
+            .restaurant_info{
+                padding-left: 10px;
+                width: 49%;
+                h3{
+                    position: relative;
+                    margin-bottom: 5px;
+                }
+                h3::before {
+                    content: "";
+                    position: absolute;
+                    left: -140px;
+                    top: 0;
+                    width: 270px;
+                    height: 30px;
+                    background: rgb(255,255,255);
+                    background: linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(243,0,80,1) 100%);
+                    z-index: -1;               
+                }
+                small {
+                    font-size: $font_text_s;
+                }
+            }
+        }
+    }
+    .restaurant_card:nth-child(6n + 4),
+    .restaurant_card:nth-child(6n + 5),
+    .restaurant_card:nth-child(6n + 6) {
+        margin-right: -20px;
+        margin-left: 20px;
+        flex-direction: row-reverse;
+        text-align: right;
+
+        .restaurant_info{
+            padding-right: 10px;
+            
+            h3::before {
+                left: -20px;
+                background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(243,0,80,1) 100%);
+            }
         }
     }
 }
