@@ -82,7 +82,7 @@
         <div class="container-category">
             <!-- row 1 -->
             <!-- card  -->
-            <div class="category-card" v-for="type in restaurants_types">
+            <div class="category-card" v-for="(type, index) in restaurants_types" v-on:mouseover="selectedType = index" @click='filtredRestaurantByType'>
                 <div class="radius-inner">
                     <div class="icon-card-container">
                         <img :src="'img/icon/' + type.restaurant_type + '.png'" alt="type icon">

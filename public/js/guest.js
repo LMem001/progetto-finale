@@ -17286,6 +17286,7 @@ var app = new Vue({
     restaurants: [],
     restaurantProducts: [],
     restaurants_types: [],
+    selectedType: "",
     search: "",
     // end axios calls data
     bannerNone: '',
@@ -17306,21 +17307,29 @@ var app = new Vue({
           _this.restaurantProducts.push(product);
         });
       });
-    } // get {n.} restaurant dishes
+    },
+    // get {n.} restaurant dishes
+    // filterrestaurants by type
+    filtredRestaurantByType: function filtredRestaurantByType() {
+      var _this2 = this;
 
-  },
-  computed: {
-    // banner time
-    time: function time() {
-      return this.date.format('mm:ss');
+      this.restaurants = [], axios.get(this.apiRestaurantURL, {
+        params: {}
+      }).then(function (serverAnswer) {
+        serverAnswer.data.forEach(function (restaurant) {
+          if (restaurant.types.includes(_this2.selectedType + 1)) {
+            _this2.restaurants.push(restaurant);
+          }
+        });
+      });
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this3 = this;
 
     // banner time 
     setInterval(function () {
-      _this2.date = moment(_this2.date.subtract(1, 'seconds'));
+      _this3.date = moment(_this3.date.subtract(1, 'seconds'));
     }, 1000); // end banner time
     // axios call restaurants
 
@@ -17328,7 +17337,7 @@ var app = new Vue({
       params: {}
     }).then(function (serverAnswer) {
       serverAnswer.data.forEach(function (restaurant) {
-        _this2.restaurants.push(restaurant);
+        _this3.restaurants.push(restaurant);
       });
     }); // end axios call restaurants
     // axios call restaurantstype
@@ -17337,9 +17346,15 @@ var app = new Vue({
       params: {}
     }).then(function (serverAnswer) {
       serverAnswer.data.forEach(function (type) {
-        _this2.restaurants_types.push(type);
+        _this3.restaurants_types.push(type);
       });
     }); // end axios call restaurantstype
+  },
+  computed: {
+    // banner time
+    time: function time() {
+      return this.date.format('mm:ss');
+    }
   }
 });
 

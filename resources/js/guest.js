@@ -3,6 +3,7 @@ const { kebabCase } = require("lodash");
 var app = new Vue(
    {
       el: "#app",
+
       data:{
          // axios calls data
          apiRestaurantURL: "http://localhost:8000/api/restaurants",
@@ -12,14 +13,17 @@ var app = new Vue(
          restaurantIndex: 0,
          restaurants: [],
          restaurantProducts:[],
-         restaurants_types: [],
+         restaurants_types:[],
+         selectedType: "",
          search: "",
          // end axios calls data
 
          bannerNone: '',
          date: moment(60 * 30 * 1000)
       },
+
       methods: {
+
          hideBanner: function (){
            this.bannerNone = "bannerDisplayNone";
          },
@@ -37,17 +41,24 @@ var app = new Vue(
                })
          },
          // get {n.} restaurant dishes
-      },
-      computed: {
 
-         // banner time
-
-         time: function(){
-           return this.date.format('mm:ss');
-         }
+         // filterrestaurants by type
          
+         filtredRestaurantByType: function(){
+            this.restaurants = [],
+            axios.get(this.apiRestaurantURL,{
+               params: {
+               }
+            })
+            .then((serverAnswer) =>{
+               serverAnswer.data.forEach((restaurant) =>{
+                  if (restaurant.types.includes(this.selectedType + 1)){
+                     this.restaurants.push(restaurant)
+                  }
+               })
+            })
+         }
       },
-      
       mounted: function(){  
 
          // banner time 
@@ -76,11 +87,21 @@ var app = new Vue(
                serverAnswer.data.forEach((type) =>{
                   this.restaurants_types.push(type)
                })
+
             })
          // end axios call restaurantstype
        },
 
+      computed: {
+
+         // banner time
+
+         time: function(){
+           return this.date.format('mm:ss');
+         },
+      },
    });
+   
 
    function changeBgJb(){
       const imgBgJb = [
