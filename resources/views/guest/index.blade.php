@@ -10,7 +10,8 @@
 {{-- google fonts --}}
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
-
+{{-- axios --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
 @endsection
 
 @section('css')
@@ -76,7 +77,6 @@
             </div>
         </div>
     </section>
-
     {{-- category --}}
     <section id="category">
         <div class="container-category">
@@ -270,6 +270,21 @@
         </div>
     </section>
 
+        {{-- PROVA AXIOS CALLS --}}
+        <section>
+            <DIV CLASS="PROVACHIAMATEAXIOS">
+                <DIV CLASS="RESTAURANTS">
+                    <div v-for="(retsaurant, index) in restaurants" v-on:mouseover="restaurantIndex = index" @click="getProducts">
+                        <h2>@{{retsaurant.rest_name}}</h2>
+                    </div>
+                </DIV>
+                <DIV>
+                    <ul v-if="restaurantProducts.length != 0">
+                        <li v-for="product in restaurantProducts ">@{{product.name}}</li>
+                    </ul>
+                </DIV>
+            </DIV>
+        </section>
 @endsection
 
 @section('script')

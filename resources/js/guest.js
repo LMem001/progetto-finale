@@ -2,6 +2,17 @@ var app = new Vue(
    {
       el: "#app",
       data:{
+         // axios calls data
+         apiRestaurantURL: "http://localhost:8000/api/restaurants",
+         // apiKey: "???",
+         // foodIndex: 0,
+         restaurantIndex: 0,
+         restaurants: [],
+         restaurantProducts:[],
+         restaurants_type: [],
+         search: "",
+         // end axios calls data
+
          bannerNone: '',
          date: moment(60 * 30 * 1000)
       },
@@ -9,17 +20,54 @@ var app = new Vue(
          hideBanner: function (){
            this.bannerNone = "bannerDisplayNone";
          },
+         // get {n.} restaurant products
+         getProducts: function(){
+            this.restaurantProducts = [],
+            axios.get(this.apiRestaurantURL + "/" + this.restaurantIndex,{
+               params: {
+               }
+               })
+               .then((serverAnswer) =>{
+                  console.log(serverAnswer)
+                  serverAnswer.data.forEach((product) =>{
+                     this.restaurantProducts.push(product);
+                  })
+               })
+         },
+         // get {n.} restaurant dishes
       },
       computed: {
+
+         // banner time
+
          time: function(){
            return this.date.format('mm:ss');
          }
+         
       },
-      mounted: function(){   
+      
+      mounted: function(){  
+
+         // banner time 
          setInterval(() => {
            this.date = moment(this.date.subtract(1, 'seconds'))
          }, 1000);
-       }
+         // end banner time
+
+         // axios call restaurants
+         axios.get(this.apiRestaurantURL,{
+            params: {
+            }
+            })
+            .then((serverAnswer) =>{
+               serverAnswer.data.forEach((restaurant) =>{
+                  this.restaurants.push(restaurant)
+               })
+               console.log(this.restaurants)
+            })
+         // end axios call restaurants
+       },
+
    });
 
    function changeBgJb(){

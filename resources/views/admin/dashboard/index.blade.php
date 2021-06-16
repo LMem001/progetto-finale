@@ -1,11 +1,26 @@
 @extends('layouts.base')
 
 @section('pageTitle')
-    Il tuo ristorante
+   {{$restaurant->rest_name}}
+  
 @endsection
+
 
 @section('content')
 <div class="container">
+   <div class="restaurant_opentime">
+      <p>{{$restaurant->open_time}} - {{$restaurant->close_time}}</p> 
+   </div>
+   <div class="contacts">
+      <p class="email">{{$restaurant->rest_email}}</p>
+      <p class="phone">{{$restaurant->phone}}</p>
+      <p class="adress">{{$restaurant->adress}}</p>
+   </div>
+   <div class="social">
+      <p class="facebook">{{$restaurant->rest_facebook}}</p>
+      <p class="instagram">{{$restaurant->rest_instagram}}</p>
+      <p class="tripadvisor">{{$restaurant->rest_tripadvisor}}</p>
+   </div>
     <div class="text-right mb-5">
         <a href="{{route('admin.food.create')}}"><button type="button" class="btn btn-info">Aggiungi Un Prodotto</button></a>
     </div>
@@ -27,7 +42,6 @@
                 <td>{{$food->tagCourse}}</td>
                 <td>{{$food->allergens}}
                 <td class="buttons">
-                    <a href="{{route('admin.food.show', ['food' => $food->id ])}}"><button type="button" class="btn btn-info">Visualizza</button></a>
                     <a href="{{route('admin.food.edit', ['food' => $food->id ])}}"><button type="button" class="btn btn-info">Modifica</button></a>
                     <form action="{{route('admin.food.destroy', [ 'food' => $food->id ])}}" method="POST">
                         @csrf
