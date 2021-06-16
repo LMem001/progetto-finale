@@ -85,7 +85,7 @@
             <div class="category-card" v-for="type in restaurants_types">
                 <div class="radius-inner">
                     <div class="icon-card-container">
-                        <img :src="'img/icon/' + type.restaurant_type= '.png'" alt="type icon">
+                        <img :src="'img/icon/' + type.restaurant_type + '.png'" alt="type icon">
                     </div>
                 </div>
                 <div class="category-card-content">
@@ -102,8 +102,8 @@
         <section>
             <DIV CLASS="PROVACHIAMATEAXIOS">
                 <DIV CLASS="RESTAURANTS">
-                    <div v-for="(retsaurant, index) in restaurants" v-on:mouseover="restaurantIndex = index" @click="getProducts">
-                        <h2>@{{retsaurant.rest_name}}</h2>
+                    <div v-for="(restaurant, index) in restaurants" v-on:mouseover="restaurantIndex = index" @click="getProducts">
+                        <h2>@{{restaurant.rest_name}}</h2>
                     </div>
                 </DIV>
                 <DIV>
