@@ -3,10 +3,11 @@
 @import 'partials/banner';
 @import 'partials/navbar';
 @import 'partials/jumbotron';
+@import 'partials/footer';
 
 //? Section 1: introduction
 #introduction{
-    background-color: $pallette_yellow;
+    // background-color: $pallette_yellow;
     padding: 50px 0;
     
     .content{
@@ -28,7 +29,7 @@
 
 //? Section 2 : Presentation
 #presentation {
-    background-color: $pallette_green;
+    // background-color: $pallette_green;
     
     .content {
         width: 85%;

@@ -21,7 +21,7 @@
             @yield('content')
 
             <!-- footer -->
-            {{-- @include('partials.footer') --}}
+            @include('guest.partials.footer')
         </div>
     </body>
 

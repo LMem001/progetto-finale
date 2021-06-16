@@ -1,3 +1,8 @@
+@font-face {
+  font-family: veganFontStyle;
+  src: url(/fonts/VeganStylePersonalUse-5Y58.ttf?0aec18fe70f7524809cfb7232faeca00);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -55,11 +60,16 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
-/* TODO font titoli
-h1, h2, h3, h4, h5, h6 {
-    font-style: ;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "veganFontStyle";
+  letter-spacing: 2px;
+  font-weight: lighter;
 }
-*/
 
 .banner {
   position: fixed;
@@ -142,17 +152,17 @@ h1, h2, h3, h4, h5, h6 {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   transition: 0.5s ease;
 }
 
 #jumbotron .jumbo-content {
-  margin-right: 200px;
-  background-color: rgba(255, 255, 255, 0.3);
+  margin-left: 20%;
+  background-color: rgba(0, 0, 0, 0.3);
   color: white;
   padding: 25px;
-  width: 50%;
+  width: 40%;
   border: 1px solid white;
   border-radius: 10px;
 }
@@ -166,12 +176,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #jumbotron .jumbo-content .input-jumbotron-container input {
-  border: 2px solid inherit;
-  background: rgba(255, 255, 255, 0.4);
+  border: 2px solid white;
+  background: rgba(0, 0, 0, 0.4);
   width: 50%;
   border-radius: 10px;
   transition: all 0.3s 0.4s;
   padding: 10px;
+  font-size: 19px;
 }
 
 #jumbotron .jumbo-content .input-jumbotron-container input::-moz-placeholder {
@@ -190,8 +201,156 @@ h1, h2, h3, h4, h5, h6 {
   outline: 0;
 }
 
+footer {
+  background-color: #05B92D;
+}
+
+footer .footer_container {
+  width: 80%;
+  margin: auto;
+  padding: 5% 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .footer_container h3,
+footer .footer_container h4 {
+  font-size: 15px;
+  margin: 20px 0 10px 0;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+footer .footer_container .footer_col {
+  width: 30%;
+  margin: 0 20px;
+}
+
+footer .footer_container .footer_col#foot_col1 ul {
+  display: flex;
+  justify-content: start;
+}
+
+footer .footer_container .footer_col#foot_col1 ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 20px 10px 0 5px;
+}
+
+footer .footer_container .footer_col h3 {
+  position: relative;
+  margin-top: 0;
+  color: #F86A71;
+}
+
+footer .footer_container .footer_col#foot_col2 {
+  position: relative;
+}
+
+footer .footer_container .footer_col#foot_col2 ul li {
+  list-style: none;
+  line-height: 23px;
+  padding: 10px 5px;
+}
+
+footer .footer_container .footer_col#foot_col2 ul li i {
+  padding: 0 5px;
+  color: #2BA4C3;
+  font-size: 23px;
+}
+
+footer .footer_container .footer_col#foot_col2 .slider_comments {
+  position: absolute;
+  bottom: 0;
+  height: calc(50% - 100px);
+}
+
+footer .footer_container .footer_col#foot_col2 .slider_comments p {
+  text-align: center;
+  vertical-align: middle;
+  width: 75%;
+}
+
+footer .footer_container .footer_col#foot_col3 .foot_col_upper,
+footer .footer_container .footer_col#foot_col3 .foot_col_lower {
+  margin: 20px 0;
+}
+
+footer .footer_container .footer_col#foot_col3 .foot_col_upper ul li,
+footer .footer_container .footer_col#foot_col3 .foot_col_lower ul li {
+  color: #2b2b2b;
+  padding: 10px 0;
+  list-style: none;
+}
+
+footer .footer_container .footer_col#foot_col3 .foot_col_upper ul li i,
+footer .footer_container .footer_col#foot_col3 .foot_col_lower ul li i {
+  background-color: black;
+  padding: 8px 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+footer .footer_row {
+  margin-top: 40px;
+  background-color: #3490dc;
+  padding: 15px 0;
+}
+
+footer .footer_row ul li {
+  position: relative;
+  font-size: 12px;
+  color: #643863;
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+footer .footer_row ul li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  bottom: 0;
+  width: 1px;
+  height: 18px;
+  background-color: white;
+}
+
+footer .footer_row ul li#copyright i {
+  color: black;
+  padding: 0 10px;
+}
+
+footer .footer_row ul li#copyright::after {
+  background-color: transparent;
+}
+
+i {
+  border-radius: 5px;
+  color: white;
+}
+
+.fa-facebook-f {
+  padding: 10px 12px 10px 14px;
+  background-color: #3c5998;
+}
+
+.fa-twitter {
+  padding: 10px;
+  background-color: #54acee;
+}
+
+.fa-instagram {
+  padding: 10px 11px;
+  background-color: #3f729b;
+}
+
+.fa-youtube {
+  padding: 10px 9px;
+  background-color: #cd201f;
+}
+
 #introduction {
-  background-color: #F8DC2A;
   padding: 50px 0;
 }
 
@@ -210,10 +369,6 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px;
   font-size: 19px;
   color: #F6b425;
-}
-
-#presentation {
-  background-color: #01CF1E;
 }
 
 #presentation .content {

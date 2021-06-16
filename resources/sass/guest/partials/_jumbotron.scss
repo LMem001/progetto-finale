@@ -5,17 +5,17 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     transition: 0.5s ease;
 
     .jumbo-content{
-        margin-right: 200px;
-        background-color: rgba($color: white, $alpha: 0.3);
+        margin-left: 20%;
+        background-color: rgba($color: black, $alpha: 0.3);
         // text-align: center;
         color: white;
         padding: 25px;
-        width: 50%;
+        width: 40%;
         border: 1px solid white;
         border-radius: 10px;
 
@@ -27,12 +27,13 @@
             color: white;
             
             input{
-                border:2px solid inherit;
-                background:rgba($color: white, $alpha: 0.4);
+                border:2px solid white;
+                background:rgba($color: black, $alpha: 0.4);
                 width: 50%;
                 border-radius: 10px;
                 transition: all .3s .4s;
                 padding: 10px;
+                font-size: $font_text_m;
 
                 &::placeholder{
                     color: $pallette_pink_dark;

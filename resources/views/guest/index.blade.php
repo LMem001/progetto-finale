@@ -1,5 +1,3 @@
-
-
 @extends('layouts/main')
 
 @section('cdn')
@@ -36,7 +34,7 @@
 
             <h1 class="mt_3">Slogan Super Figo</h1>
 
-            <h2  class="mt_3" >Secondo Slogan Super Figo (solo che un po' più piccolo)</h2>
+            <h2  class="mt_3" >Secondo Slogan Super Figo (solo che un po' più piccolo e si spera venga anche un po' più lungo)</h2>
 
             <!-- search a restaurant -->
             <div class="input-jumbotron-container mt_4">

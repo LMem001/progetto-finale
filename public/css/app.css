@@ -1,6 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @charset "UTF-8";
 
+@font-face {
+  font-family: veganFontStyle;
+  src: url(/fonts/VeganStylePersonalUse-5Y58.ttf?0aec18fe70f7524809cfb7232faeca00);
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

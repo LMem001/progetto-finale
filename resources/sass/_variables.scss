@@ -38,3 +38,15 @@ $font_text_l: 23px;
 $font_text_m: 19px;
 $font_text_s: 15px;
 $font_text_xs: 12px;
+
+//Font style
+@font-face {
+    font-family: veganFontStyle;
+    src: url(public/fonts/VeganStylePersonalUse-5Y58.ttf);
+}
+
+$veganStyle:'veganFontStyle';
+
+//div sizes
+$div_size : 80%;
+$max_width : 1400px;
