@@ -12,6 +12,7 @@ class RestaurantController extends Controller
     public function allRest()
     {
         $restaurants = Restaurant::all();
+        
         // get every single restaurant
         foreach ($restaurants as $restaurant) {
             // create a support array
@@ -21,6 +22,7 @@ class RestaurantController extends Controller
                 array_push($types_array, $restaurant_type->id);
             }
             // isert the support array into the restaurant obj
+            unset($restaurant->restaurant_types);
             $restaurant['types'] = $types_array;
         }
 
