@@ -14,6 +14,7 @@ class RestaurantController extends Controller
     {
         $restaurants = Restaurant::all();
 
+        
         return response()->json($restaurants);
     }
 
