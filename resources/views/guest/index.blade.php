@@ -77,6 +77,199 @@
         </div>
     </section>
 
+    {{-- category --}}
+    <section id="category">
+        <div class="container-category">
+            <!-- row 1 -->
+            <!-- card 1 -->
+            <div class="category-card">
+                <div class="radius-inner">
+                    <div class="icon-card-container">
+                        <img src="img/icon/cinese.png" alt="">
+                    </div>
+                </div>
+                <div class="category-card-content">
+                    <div class="item-name">
+                        <h4>Restaurant Type</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end card 1 -->
+
+            <!-- card 2 -->
+            <div class="category-card">
+                <div class="radius-inner">
+                    <div class="icon-card-container">
+                        <img src="img/icon/dessert.png" alt="">
+                    </div>
+                </div>
+                <div class="category-card-content">
+                    <div class="item-name">
+                        <h4>Restaurant Type</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end card 2 -->       
+
+            <!-- card 3 -->
+            <div class="category-card">
+                <div class="radius-inner">
+                    <div class="icon-card-container">
+                        <img src="img/icon/drinks.png" alt="">
+                    </div>
+                </div>
+                <div class="category-card-content">
+                    <div class="item-name">
+                        <h4>Restaurant Type</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end card 3 -->       
+
+            <!-- card 4 -->
+            <div class="category-card">
+                <div class="radius-inner">
+                    <div class="icon-card-container">
+                        <img src="img/icon/hamburger.png" alt="">
+                    </div>
+                </div>
+                <div class="category-card-content">
+                    <div class="item-name">
+                        <h4>Restaurant Type</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end card 4 -->         
+            <!-- row 1 -->
+
+            <!-- row 2 -->
+            <!-- card 5 -->
+            <div class="category-card">
+                <div class="radius-inner">
+                    <div class="icon-card-container">
+                        <img src="img/icon/indiano.png" alt="">
+                    </div>
+                </div>
+                <div class="category-card-content">
+                    <div class="item-name">
+                        <h4>Restaurant Type</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end card 5 -->
+
+            <!-- card 6 -->
+            <div class="category-card">
+                <div class="radius-inner">
+                    <div class="icon-card-container">
+                        <img src="img/icon/kebab.png" alt="">
+                    </div>
+                </div>
+                <div class="category-card-content">
+                    <div class="item-name">
+                        <h4>Restaurant Type</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end card 6 -->       
+
+            <!-- card 7 -->
+            <div class="category-card">
+                <div class="radius-inner">
+                    <div class="icon-card-container">
+                        <img src="img/icon/messicano.png" alt="">
+                    </div>
+                </div>
+                <div class="category-card-content">
+                    <div class="item-name">
+                        <h4>Restaurant Type</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end card 7 -->       
+
+            <!-- card 8 -->
+            <div class="category-card">
+                <div class="radius-inner">
+                    <div class="icon-card-container">
+                        <img src="img/icon/pizza.png" alt="">
+                    </div>
+                </div>
+                <div class="category-card-content">
+                    <div class="item-name">
+                        <h4>Restaurant Type</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end card 8 -->         
+            <!-- row 2 -->
+
+            <!-- row 3 -->
+            <!-- card 9 -->
+            <div class="category-card">
+                <div class="radius-inner">
+                    <div class="icon-card-container">
+                        <img src="img/icon/sushi.png" alt="">
+                    </div>
+                </div>
+                <div class="category-card-content">
+                    <div class="item-name">
+                        <h4>Restaurant Type</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end card 9 -->
+
+            <!-- card 10 -->
+            <div class="category-card">
+                <div class="radius-inner">
+                    <div class="icon-card-container">
+                        <img src="img/icon/tradizionale.png" alt="">
+                    </div>
+                </div>
+                <div class="category-card-content">
+                    <div class="item-name">
+                        <h4>Restaurant Type</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end card 10 -->       
+
+            <!-- card 11 -->
+            <div class="category-card">
+                <div class="radius-inner">
+                    <div class="icon-card-container">
+                        <img src="img/icon/vegano.png" alt="">
+                    </div>
+                </div>
+                <div class="category-card-content">
+                    <div class="item-name">
+                        <h4>Restaurant Type</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end card 11 -->       
+
+            <!-- card 12 -->
+            <div class="category-card">
+                <div class="radius-inner">
+                    <div class="icon-card-container">
+                        <img src="img/icon/vegetariana.png" alt="">
+                    </div>
+                </div>
+                <div class="category-card-content">
+                    <div class="item-name">
+                        <h4>Restaurant Type</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end card 12 -->         
+            <!-- row 3 -->
+
+
+        </div>
+    </section>
+
 @endsection
 
 @section('script')
