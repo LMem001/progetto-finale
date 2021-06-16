@@ -17339,7 +17339,6 @@ var app = new Vue({
       serverAnswer.data.forEach(function (type) {
         _this2.restaurants_types.push(type);
       });
-      console.log(_this2.restaurants_types);
     }); // end axios call restaurantstype
   }
 });

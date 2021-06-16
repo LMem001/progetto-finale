@@ -76,7 +76,6 @@ var app = new Vue(
                serverAnswer.data.forEach((type) =>{
                   this.restaurants_types.push(type)
                })
-               console.log(this.restaurants_types)
             })
          // end axios call restaurantstype
        },
