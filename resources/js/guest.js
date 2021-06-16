@@ -6,66 +6,15 @@ var app = new Vue(
       data:{
          // axios calls data
          apiRestaurantURL: "http://localhost:8000/api/restaurants",
+         apiRestaurantType: "http://localhost:8000/api/types",
          // apiKey: "???",
          // foodIndex: 0,
          restaurantIndex: 0,
          restaurants: [],
          restaurantProducts:[],
-         restaurants_type: [],
+         restaurants_types: [],
          search: "",
          // end axios calls data
-
-         // restaurantTypes
-         restaurants_types:[
-            {
-               type: 'kebab',
-               icon: 'kebab.png',
-            },
-            {
-               type: 'vegano',
-               icon: 'vegano.png',
-            },
-            {
-               type: 'sushi/japponese',
-               icon: 'sushi.png',
-            },
-            {
-               type: 'indiano',
-               icon: 'indiano.png',
-            },
-            {
-               type: 'pizza',
-               icon: 'pizza.png',
-            },
-            {
-               type: 'cinese',
-               icon: 'cinese.png',
-            },
-            {
-               type: 'panini/hamburger',
-               icon: 'hamburger.png',
-            },
-            {
-               type: 'pasticceria',
-               icon: 'dessert.png',
-            },
-            {
-               type: 'bevande',
-               icon: 'drinks.png',
-            },
-            {
-               type: 'messicano',
-               icon: 'messicano.png',
-            },
-            {
-               type: 'vegetariano',
-               icon: 'vegetariana.png',
-            },
-            {
-               type: 'tradizionale',
-               icon: 'tradizionale.png',
-            },
-         ],
 
          bannerNone: '',
          date: moment(60 * 30 * 1000)
@@ -82,7 +31,6 @@ var app = new Vue(
                }
                })
                .then((serverAnswer) =>{
-                  console.log(serverAnswer)
                   serverAnswer.data.forEach((product) =>{
                      this.restaurantProducts.push(product);
                   })
@@ -117,9 +65,20 @@ var app = new Vue(
                serverAnswer.data.forEach((restaurant) =>{
                   this.restaurants.push(restaurant)
                })
-               console.log(this.restaurants)
             })
          // end axios call restaurants
+         // axios call restaurantstype
+         axios.get(this.apiRestaurantType,{
+            params: {
+            }
+            })
+            .then((serverAnswer) =>{
+               serverAnswer.data.forEach((type) =>{
+                  this.restaurants_types.push(type)
+               })
+               console.log(this.restaurants_types)
+            })
+         // end axios call restaurantstype
        },
 
    });
@@ -134,7 +93,6 @@ var app = new Vue(
 
           'url("img/bg_hero4.jpeg")',
       ]
-      
       const jumbo = document.getElementById("jumbotron")
       
       const bgJb = imgBgJb[Math.floor(Math.random() * imgBgJb.length)];

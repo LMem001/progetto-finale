@@ -232,7 +232,7 @@ footer .footer_container .footer_col {
 
 footer .footer_container .footer_col#foot_col1 ul {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 footer .footer_container .footer_col#foot_col1 ul li {
@@ -356,7 +356,6 @@ i {
 
 #category .container-category {
   background-color: #F67F41;
-  height: 100vh;
   display: flex;
   justify-content: space-around;
   flex-direction: wrap;
@@ -364,15 +363,13 @@ i {
 }
 
 #category .container-category .category-card {
-  min-width: 250px;
-  width: 250px;
+  width: calc((100%/6) - 20px);
   height: 175px;
   border-radius: 40px;
   background: #fff;
   box-shadow: 0 3.4px 2.7px rgba(0, 0, 0, 0.022), 0 8.7px 6.9px rgba(0, 0, 0, 0.031), 0 17.7px 14.2px rgba(0, 0, 0, 0.039), 0 36.5px 29.2px rgba(0, 0, 0, 0.048), 0 100px 80px rgba(0, 0, 0, 0.07);
   overflow: hidden;
   transition: 0.5s;
-  margin-top: 30px;
 }
 
 #category .container-category .category-card:hover {

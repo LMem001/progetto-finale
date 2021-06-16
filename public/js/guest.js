@@ -17279,52 +17279,15 @@ var app = new Vue({
   data: {
     // axios calls data
     apiRestaurantURL: "http://localhost:8000/api/restaurants",
+    apiRestaurantType: "http://localhost:8000/api/types",
     // apiKey: "???",
     // foodIndex: 0,
     restaurantIndex: 0,
     restaurants: [],
     restaurantProducts: [],
-    restaurants_type: [],
+    restaurants_types: [],
     search: "",
     // end axios calls data
-    // restaurantTypes
-    restaurants_types: [{
-      type: 'kebab',
-      icon: 'kebab.png'
-    }, {
-      type: 'vegano',
-      icon: 'vegano.png'
-    }, {
-      type: 'sushi/japponese',
-      icon: 'sushi.png'
-    }, {
-      type: 'indiano',
-      icon: 'indiano.png'
-    }, {
-      type: 'pizza',
-      icon: 'pizza.png'
-    }, {
-      type: 'cinese',
-      icon: 'cinese.png'
-    }, {
-      type: 'panini/hamburger',
-      icon: 'hamburger.png'
-    }, {
-      type: 'pasticceria',
-      icon: 'dessert.png'
-    }, {
-      type: 'bevande',
-      icon: 'drinks.png'
-    }, {
-      type: 'messicano',
-      icon: 'messicano.png'
-    }, {
-      type: 'vegetariano',
-      icon: 'vegetariana.png'
-    }, {
-      type: 'tradizionale',
-      icon: 'tradizionale.png'
-    }],
     bannerNone: '',
     date: moment(60 * 30 * 1000)
   },
@@ -17339,7 +17302,6 @@ var app = new Vue({
       this.restaurantProducts = [], axios.get(this.apiRestaurantURL + "/" + this.restaurantIndex, {
         params: {}
       }).then(function (serverAnswer) {
-        console.log(serverAnswer);
         serverAnswer.data.forEach(function (product) {
           _this.restaurantProducts.push(product);
         });
@@ -17368,8 +17330,17 @@ var app = new Vue({
       serverAnswer.data.forEach(function (restaurant) {
         _this2.restaurants.push(restaurant);
       });
-      console.log(_this2.restaurants);
     }); // end axios call restaurants
+    // axios call restaurantstype
+
+    axios.get(this.apiRestaurantType, {
+      params: {}
+    }).then(function (serverAnswer) {
+      serverAnswer.data.forEach(function (type) {
+        _this2.restaurants_types.push(type);
+      });
+      console.log(_this2.restaurants_types);
+    }); // end axios call restaurantstype
   }
 });
 

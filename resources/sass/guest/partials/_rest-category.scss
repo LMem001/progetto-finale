@@ -1,15 +1,13 @@
 #category{
     .container-category{
         background-color: $pallette_orange;
-        height: 100vh;
         display: flex;
         justify-content: space-around;
         flex-direction: wrap;
         flex-wrap: wrap;
 
         .category-card {
-            min-width: 250px;
-            width: 250px;
+            width: calc((100%/6) - 20px);
             height: 175px;
             border-radius: 40px;
             background: #fff;
@@ -21,7 +19,7 @@
             0 100px 80px rgba(0, 0, 0, 0.07);
             overflow: hidden;
             transition: 0.5s;
-            margin-top: 30px;
+            // margin: 20px;
             
 
             &:hover {
@@ -61,6 +59,7 @@
                 h4{
                     font-size: 20px;
                     color: #11313c;
+                    
                 }
             }
         }

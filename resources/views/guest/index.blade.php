@@ -85,12 +85,12 @@
             <div class="category-card" v-for="type in restaurants_types">
                 <div class="radius-inner">
                     <div class="icon-card-container">
-                        <img :src="'img/icon/' + type.icon" alt="type icon">
+                        <img :src="'img/icon/' + type.restaurant_type + '.png'" alt="type icon">
                     </div>
                 </div>
                 <div class="category-card-content">
                     <div class="item-name">
-                        <h4>@{{type.type}}</h4>
+                        <h4>@{{type.restaurant_type}}</h4>
                     </div>
                 </div>
             </div>
