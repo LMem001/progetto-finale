@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('guest.index');
 });
 
+Route::get('/show', function () {
+    return view('guest.show');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

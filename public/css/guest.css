@@ -6,6 +6,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 
 .btn_primary {
@@ -469,4 +470,108 @@ i {
 .fa-youtube {
   padding: 10px 9px;
   background-color: #cd201f;
+}
+
+.container-show {
+  height: 600vh;
+  background-color: orange;
+  /* main */
+}
+.container-show .rest-img-background {
+  width: 100%;
+  height: 40vh;
+  background-image: url("https://i.ytimg.com/vi/JqjWaQyKriI/maxresdefault.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+.container-show .rest-info-container {
+  display: flex;
+  justify-content: center;
+}
+.container-show .rest-info-container .rest-info {
+  position: absolute;
+  bottom: 35%;
+  width: 600px;
+  height: 300px;
+  background-color: white;
+  border-radius: 15px;
+}
+.container-show .rest-info-container .rest-info .rest-logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 100%;
+  position: relative;
+}
+.container-show .rest-info-container .rest-info .rest-logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 50%;
+}
+.container-show .rest-info-container .rest-info .rest-info-content {
+  text-align: center;
+}
+.container-show .rest-info-container .rest-info .rest-info-content h2 {
+  padding-bottom: 25px;
+}
+.container-show .rest-info-container .rest-info .rest-info-content h3 {
+  padding-bottom: 10px;
+}
+.container-show main {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 225px;
+  /* selection */
+  /* restaurant menu */
+}
+.container-show main #food-type-selection {
+  width: 250px;
+  display: flex;
+  justify-content: center;
+}
+.container-show main #food-type-selection .food-selection-container {
+  width: 100%;
+  padding: 10px 0;
+  background-color: white;
+  border-radius: 15px;
+}
+.container-show main #rest-menu {
+  display: flex;
+  justify-content: center;
+}
+.container-show main #rest-menu .rest-menu-container {
+  width: 600px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 0 25px;
+}
+.container-show main #rest-menu .rest-menu-container h2 {
+  margin: 25px 0;
+}
+.container-show main #rest-menu .rest-menu-container .rest-menu-item {
+  border: 2px solid darkgray;
+  border-radius: 15px;
+  padding: 10px 15px;
+  margin: 25px 0;
+}
+.container-show main #rest-menu .rest-menu-container .rest-menu-item h3 {
+  margin-bottom: 7px;
+}
+.container-show main #rest-menu .rest-menu-container .rest-menu-item .food-price {
+  padding-top: 10px;
+  color: violet;
+}
+.container-show main #cart {
+  width: 250px;
+  display: flex;
+  justify-content: center;
+}
+.container-show main #cart .cart-container {
+  width: 100%;
+  padding: 10px 0;
+  background-color: white;
+  border-radius: 15px;
 }
