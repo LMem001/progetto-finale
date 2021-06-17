@@ -13,16 +13,22 @@ class RestaurantController extends Controller
     public function allRest(Request $request)
     {
         $restaurants = Restaurant::all();
-        $give_data = [];
+
+        $request['id'] = 11;
         
         // get every single restaurant
-        foreach ($restaurants as $restaurant) {
+        foreach ($restaurants as $key => $restaurant) {
+            $check_type = 0;
             // create a support array
-            $types_array = [];
             foreach ($restaurant->restaurant_types as $restaurant_type) {
+                if($restaurant_type->id == $request->id) {
+                    $check_type = 1;
+                }
+            }
+            if($check_type == 0) {
+                unset($restaurants[$key]);
             }
         }
-        $restaurant = $restaurant::where('restaurant_types', 'like', '$request->id');
         
         return response()->json($restaurants);
     }

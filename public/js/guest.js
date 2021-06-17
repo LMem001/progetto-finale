@@ -17315,12 +17315,10 @@ var app = new Vue({
 
       this.restaurants = [], axios.get(this.apiRestaurantURL, {
         params: {
-          query: this.selectedType + 1
+          id: this.selectedType
         }
       }).then(function (serverAnswer) {
-        serverAnswer.data.forEach(function (restaurant) {
-          _this2.restaurants.push(restaurant);
-        });
+        _this2.restaurants = serverAnswer.data;
       });
     }
   },

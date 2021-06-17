@@ -48,13 +48,11 @@ var app = new Vue(
             this.restaurants = [],
             axios.get(this.apiRestaurantURL,{
                params: {
-                  query: this.selectedType + 1,
+                  id: this.selectedType,
                }
             })
             .then((serverAnswer) =>{
-               serverAnswer.data.forEach((restaurant) =>{
-                  this.restaurants.push(restaurant);
-               })
+               this.restaurants = serverAnswer.data;
             })
          }
       },
