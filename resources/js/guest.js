@@ -43,7 +43,7 @@ var app = new Vue(
          // get {n.} restaurant dishes
 
          // filterrestaurants by type
-         
+
          filtredRestaurantByType: function(){
             this.restaurants = [],
             axios.get(this.apiRestaurantURL,{
@@ -93,7 +93,11 @@ var app = new Vue(
        },
 
       computed: {
-
+         getRestTypeName: function(){
+            if (this.restaurants_types == 0){
+               return  "prova andata ok";
+            }
+         },
          // banner time
 
          time: function(){
@@ -110,8 +114,6 @@ var app = new Vue(
           'url("img/bg_hero2.jpeg")',
       
           'url("img/bg_hero3.jpeg")',
-
-          'url("img/bg_hero4.jpeg")',
       ]
       const jumbo = document.getElementById("jumbotron")
       

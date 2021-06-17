@@ -20,15 +20,6 @@
 
 @section('content')
 
-    {{-- banner --}}
-    <div :class="bannerNone" class="banner">
-        <div class="container">
-            <p>Clicca <a href="#">qui</a> e riceverai 10% di sconto sul tuo primo ordine</p>
-            <p>Affrettati questa offerta scade tra @{{time}}</p>
-            <i class="closeBanner fas fa-times" @click="hideBanner"></i>
-        </div>
-    </div>
-
     {{-- jumbotron --}}
     <section id="jumbotron">
         <div class="jumbo-content">
@@ -48,53 +39,49 @@
 
     {{-- introduction --}}
     <section id="introduction">
-        <div class="content">
+        <div class="titles">
             <h2><span class="logo_span">DeliBool</span> : tutta la qualità romana a portata di un click </h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa nihil deserunt repudiandae nulla, quas et facilis consectetur eligendi beatae ducimus, at suscipit commodi quam nemo!</p>
+            <p>Più di 25 ristoranti da cui ordinare. Goditi promozioni e risparmi illimitati ogni giorno. Deviboo é il più veloce e affidabile servizio di delivery che puoi trovare in cittá, operiamo su tutta Roma!</p>
+        </div>
+        {{-- presentation --}}
+        <div class="presentation">
+            <div class="content">
+                <div class="box">
+                    <div class="box_content">
+                        <img src="img/point_moped.png" alt="scooter">
+                        <h3>velocissimi</h3>
+                        <p>I piatti che prefeisci dai tuoi ristoranti preferiti. in meno di 15 minuti o all'ora che desideri tu</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_content">
+                        <img src="img/phone.png" alt="1 ml delivery">
+                        <h3>fidati</h3>
+                        <p>Nel 2021 <span class="delivebool">Delivebool</span> ha raggiunto un milione di clienti! Siamo i migliori e non abbiamo mai sbagliato una consegna </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_content">
+                        <img src="img/points_relax.png" alt="sofa">
+                        <h3>comodo</h3>
+                        <p>Puoi ordinare comodamente dal tuo dovano in pieno relax allo stesso prezzo di sempre se se orndini nei prossimi  @{{time}} minuti riceverai uno sconto del 20%</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    {{-- presentation --}}
-    <section id="presentation">
-        <div class="content">
-            <div class="box">
-                <div class="box_content">
-                    <p class="img">placeholder per immagine di consegna con il motorino</p>
-                    <h2>I più veloci</h2>
-                    <p>Roba scritta tipo "consegnamo a domicialio super veloci" hic quos et libero alias rerum fugiat quod minus.</p>
-                </div>
-            </div>
-            <div class="box">
-                <div class="box_content">
-                    <p class="img">placeholder di schermi</p>
-                    <h2>I più forniti</h2>
-                    <p>Puoi ordinare con <span class="delivebool">Delivebool</span> dove e quando vuoi ! WOW XD</p>
-                </div>
-            </div>
-            <div class="box">
-                <div class="box_content">
-                    <p class="img">placeholder per immagine di del tipo dallo psicologo che ordina</p>
-                    <h2>I più comodi</h2>
-                    <p>Puoi ordinare anche dallo psicologo !</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     {{-- category --}}
     <section id="category">
-        <div class="container-category">
+        <div class="categories">
             <!-- card  -->
-            <div class="category-card" v-for="type in restaurants_types">
-                <div class="radius-inner">
-                    <div class="icon-card-container">
-                        <img :src="'img/icon/' + type.restaurant_type + '.png'" alt="type icon">
-                    </div>
+            <div class="category-card" v-for="(type, index) in restaurants_types" v-on:mouseover="selectedType = index" @click='filtredRestaurantByType'>
+                <div class="icon">
+                    <img :src="'img/icon/' + type.restaurant_type + '.png'" alt="type icon">
                 </div>
-                <div class="category-card-content">
-                    <div class="item-name">
-                        <h4>@{{type.restaurant_type}}</h4>
-                    </div>
+                <div class="type-name">
+                    <h4>@{{type.restaurant_type}}</h4>
                 </div>
             </div>
         </div>
@@ -110,14 +97,26 @@
                 <div class="restaurant_info">
                     <h3>@{{restaurant.rest_name}}</h3>
                     <small class="orario">@{{restaurant.open_time}} - @{{restaurant.close_time}}</small>
-                    <small>
-                        {restaurant.type}
-                    </small>
-
+                    {{-- <div><small>@{{getRestTypeName}}</small></div> --}}
                 </div>
             </div>
         </div>
     </section>
+        {{-- PROVA AXIOS CALLS --}}
+        {{-- <section>
+            <DIV CLASS="PROVACHIAMATEAXIOS">
+                <DIV CLASS="RESTAURANTS">
+                    <div class="RESTAURANT" v-for="(restaurant, index) in restaurants" v-on:mouseover="restaurantIndex = index" @click="getProducts">
+                        <h3>@{{restaurant.rest_name}}</h3>
+                    </div>
+                </DIV>
+                <DIV>
+                    <ul v-if="restaurantProducts.length != 0">
+                        <li v-for="product in restaurantProducts ">@{{product.name}}</li>
+                    </ul>
+                </DIV>
+            </DIV>
+        </section> --}}
 @endsection
 
 @section('script')

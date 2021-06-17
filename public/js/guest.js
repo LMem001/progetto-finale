@@ -17351,6 +17351,11 @@ var app = new Vue({
     }); // end axios call restaurantstype
   },
   computed: {
+    getRestTypeName: function getRestTypeName() {
+      if (this.restaurants_types == 0) {
+        return "prova andata ok";
+      }
+    },
     // banner time
     time: function time() {
       return this.date.format('mm:ss');
@@ -17359,7 +17364,7 @@ var app = new Vue({
 });
 
 function changeBgJb() {
-  var imgBgJb = ['url("img/bg_hero1.jpeg")', 'url("img/bg_hero2.jpeg")', 'url("img/bg_hero3.jpeg")', 'url("img/bg_hero4.jpeg")'];
+  var imgBgJb = ['url("img/bg_hero1.jpeg")', 'url("img/bg_hero2.jpeg")', 'url("img/bg_hero3.jpeg")'];
   var jumbo = document.getElementById("jumbotron");
   var bgJb = imgBgJb[Math.floor(Math.random() * imgBgJb.length)];
   jumbo.style.backgroundImage = bgJb;

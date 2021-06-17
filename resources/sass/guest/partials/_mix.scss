@@ -28,6 +28,19 @@ h1, h2 {
     letter-spacing: 2px;
     font-weight: lighter;
 }
+
+
+// prove
 .PROVACHIAMATEAXIOS{
-    display: flex;
+    .RESTAURANTS{
+        display: flex;
+        flex-wrap: wrap;
+        width:80%;
+        margin: auto;
+        .RESTAURANT{
+            margin: 40px 0;
+            width: calc(100% / 3);
+            text-align: center;
+        } 
+    }    
 }

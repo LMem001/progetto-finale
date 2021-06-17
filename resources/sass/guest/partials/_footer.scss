@@ -1,8 +1,9 @@
 footer {
     background-color: $pallette_yellow_dark;
-    background-image: url(img/footer_skyline.jpg);
-    background-position: bottom;
-    background-repeat: repeat-x;
+    background-image: url(../img/skyline_roma.png);
+    background-position-y: calc(100% - 36px);
+    background-size: contain;
+    background-repeat: no-repeat;
     .footer_container {
         width: $div_size;
         margin: auto;
@@ -107,7 +108,7 @@ footer {
 
     .footer_row {
         margin-top: 100px;
-        background-color: #241e20;
+        background-color: #000;
         padding: 5px 0;
 
         ul {
