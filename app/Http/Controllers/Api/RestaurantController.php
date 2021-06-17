@@ -14,6 +14,10 @@ class RestaurantController extends Controller
     {
         $restaurants = Restaurant::all();
         
+        if ( $request->id == 0 ){
+            return response()->json($restaurants);
+        }
+        
         // get every single restaurant
         foreach ($restaurants as $key => $restaurant) {
             $check_type = 0;
