@@ -3,29 +3,26 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Food;
 use App\ResType;
 
 class RestaurantController extends Controller
 {
-    public function allRest()
+    public function allRest(Request $request)
     {
         $restaurants = Restaurant::all();
+        $give_data = [];
         
         // get every single restaurant
         foreach ($restaurants as $restaurant) {
             // create a support array
             $types_array = [];
             foreach ($restaurant->restaurant_types as $restaurant_type) {
-                // push all the type's ids into the support array
-                array_push($types_array, $restaurant_type->id);
             }
-            // isert the support array into the restaurant obj
-            unset($restaurant->restaurant_types);
-            $restaurant['types'] = $types_array;
         }
-
+        $restaurant = $restaurant::where('restaurant_types', 'like', '$request->id');
         
         return response()->json($restaurants);
     }
