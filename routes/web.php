@@ -18,13 +18,14 @@ Route::get('/', function () {
     return view('guest.index');
 });
 
-Route::get('/show', function () {
-    return view('guest.show');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/restaurant/show', function () {
+    return view('guest.show');
+})->name('restaurantShow');
+
+
 
 Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
     Route::resource('restaurant', 'RestaurantController');

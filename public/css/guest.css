@@ -141,6 +141,36 @@ header .navbar nav ul li .fa-chevron-down {
 header .navbar nav .nav_login {
   margin-right: 20px;
 }
+header .navbar nav .dropdownLogout {
+  position: relative;
+}
+header .navbar nav .dropdownLogout a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 19px;
+  padding: 10px 0;
+}
+header .navbar nav .dropdownLogout .logout {
+  background-color: white;
+  border-radius: 10px;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  transition: 0.5s;
+  display: none;
+}
+header .navbar nav .dropdownLogout .logout a {
+  color: black;
+  padding: 10px 20px;
+}
+header .navbar nav .dropdownLogout .logout:hover {
+  background-color: #cacaca;
+}
+header .navbar nav .dropdownLogout .logoutDisplay {
+  display: block;
+}
 
 #jumbotron {
   background-image: url("https://wallpaperaccess.com/full/462860.jpg");

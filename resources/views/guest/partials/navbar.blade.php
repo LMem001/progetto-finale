@@ -36,7 +36,21 @@
             <div class="nav_login">
                @if (Route::has('login'))
                @auth
-               <a class="btn_primary" href="{{ url('/home') }}">Home</a>
+               <div class="dropdownLogout" v-on:mouseleave="hidelogout">
+                  <a @click="logouttoggleshow" href="#">{{ Auth::user()->name }} <i class="fas fa-chevron-down"></i></a>
+                     <div :class="logoutshow" class="logout">
+                        <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                         {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                           @csrf
+                        </form>
+                     </div>
+                  </div>
+               </div>
+               {{-- <a class="btn_primary" href="{{ url('/home') }}">Home</a> --}}
                @else
                <a class="btn_primary" href="{{ route('login') }}">Login</a>
                
@@ -51,3 +65,4 @@
       </div>
       {{-- navbar --}}
 </header>
+                            

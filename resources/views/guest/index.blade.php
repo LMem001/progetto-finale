@@ -98,6 +98,7 @@
                     <h3>@{{restaurant.rest_name}}</h3>
                     <small class="orario">@{{restaurant.open_time}} - @{{restaurant.close_time}}</small>
                     {{-- <div><small>@{{getRestTypeName}}</small></div> --}}
+                    <a href="{{route('restaurantShow')}}">menu</a>
                 </div>
             </div>
         </div>

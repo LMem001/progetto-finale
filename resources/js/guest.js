@@ -1,5 +1,5 @@
 const { kebabCase } = require("lodash");
-
++ 1
 var app = new Vue(
    {
       el: "#app",
@@ -14,16 +14,25 @@ var app = new Vue(
          restaurants: [],
          restaurantProducts:[],
          restaurants_types:[],
-         selectedType: "",
+         selectedType: "0",
          search: "",
          // end axios calls data
-
+         logoutshow: "",
          bannerNone: '',
          date: moment(60 * 30 * 1000)
       },
 
       methods: {
-
+         logouttoggleshow: function(){
+            if(this.logoutshow == ""){
+               this.logoutshow = "logoutDisplay";
+            }else{
+            this.logoutshow = "";
+            }
+         },
+         hidelogout: function(){
+            this.logoutshow = "";
+         },
          hideBanner: function (){
            this.bannerNone = "bannerDisplayNone";
          },
@@ -114,7 +123,7 @@ var app = new Vue(
 
    function changeBgJb(){
       const imgBgJb = [
-          'url("img/bg_hero1.jpeg")',
+          'url("img/bg_1.jpg")',
       
           'url("img/bg_hero2.jpeg")',
       

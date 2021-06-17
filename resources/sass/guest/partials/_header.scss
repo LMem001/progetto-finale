@@ -65,7 +65,37 @@ header{
         .nav_login {
             margin-right: 20px;
         }
-        
+        .dropdownLogout{
+            position: relative;
+            a{
+                cursor: pointer;
+                text-decoration: none;
+                color: #fff;
+                text-transform: capitalize;
+                font-size: $font_text_m;  
+                padding: 10px 0;
+            }
+            .logout{
+                background-color: white;
+                border-radius: 10px;
+                position: absolute;
+                top: 30px;
+                right: 0;
+                transition: 0.5s;
+                display: none;
+                a{
+                    color: black;
+                    padding: 10px 20px;
+                }
+                &:hover{
+                    background-color: #cacaca;
+                }
+                // display: none;
+            }
+            .logoutDisplay{
+                display: block;
+             }
+        }
     }
  }
 }

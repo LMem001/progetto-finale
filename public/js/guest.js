@@ -17274,6 +17274,7 @@ var __webpack_exports__ = {};
 var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
     kebabCase = _require.kebabCase;
 
++1;
 var app = new Vue({
   el: "#app",
   data: {
@@ -17286,13 +17287,24 @@ var app = new Vue({
     restaurants: [],
     restaurantProducts: [],
     restaurants_types: [],
-    selectedType: "",
+    selectedType: "0",
     search: "",
     // end axios calls data
+    logoutshow: "",
     bannerNone: '',
     date: moment(60 * 30 * 1000)
   },
   methods: {
+    logouttoggleshow: function logouttoggleshow() {
+      if (this.logoutshow == "") {
+        this.logoutshow = "logoutDisplay";
+      } else {
+        this.logoutshow = "";
+      }
+    },
+    hidelogout: function hidelogout() {
+      this.logoutshow = "";
+    },
     hideBanner: function hideBanner() {
       this.bannerNone = "bannerDisplayNone";
     },
@@ -17370,7 +17382,7 @@ var app = new Vue({
 });
 
 function changeBgJb() {
-  var imgBgJb = ['url("img/bg_hero1.jpeg")', 'url("img/bg_hero2.jpeg")', 'url("img/bg_hero3.jpeg")'];
+  var imgBgJb = ['url("img/bg_1.jpg")', 'url("img/bg_hero2.jpeg")', 'url("img/bg_hero3.jpeg")'];
   var jumbo = document.getElementById("jumbotron");
   var bgJb = imgBgJb[Math.floor(Math.random() * imgBgJb.length)];
   jumbo.style.backgroundImage = bgJb;
