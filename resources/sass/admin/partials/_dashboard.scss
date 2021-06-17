@@ -1,0 +1,45 @@
+.navbar-brand{
+   img{
+      width: 15%;
+   }
+}
+.dashboard{
+   .buttons{
+      display: flex;
+      transition: all 0.2s; 
+      justify-content: flex-end;
+      visibility: hidden;
+      cursor: pointer;
+      
+      > *{
+         &:not(:last-child){
+            margin-right: 10px;
+         }
+      }
+      .edit{
+         svg{
+            fill: $pallette_yellow_dark;
+            opacity: 0.5;
+            &:hover{
+               opacity: 1; 
+            }
+         }
+      }
+      .deletetrash{
+         border: transparent;
+         background-color: transparent;
+         svg{
+            opacity: 0.5;
+            fill: $red;
+            &:hover{
+               opacity: 1; 
+            }
+         }
+      }
+   }
+   .productRow{
+      &:hover .buttons{
+         visibility: visible;
+      }
+   }
+}

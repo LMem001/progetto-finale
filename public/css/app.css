@@ -10009,3 +10009,35 @@ h3 {
 .navbar-brand img {
   width: 15%;
 }
+
+.dashboard .buttons {
+  display: flex;
+  transition: all 0.2s;
+  justify-content: flex-end;
+  visibility: hidden;
+  cursor: pointer;
+}
+.dashboard .buttons > *:not(:last-child) {
+  margin-right: 10px;
+}
+.dashboard .buttons .edit svg {
+  fill: #F6b425;
+  opacity: 0.5;
+}
+.dashboard .buttons .edit svg:hover {
+  opacity: 1;
+}
+.dashboard .buttons .deletetrash {
+  border: transparent;
+  background-color: transparent;
+}
+.dashboard .buttons .deletetrash svg {
+  opacity: 0.5;
+  fill: #e3342f;
+}
+.dashboard .buttons .deletetrash svg:hover {
+  opacity: 1;
+}
+.dashboard .productRow:hover .buttons {
+  visibility: visible;
+}
