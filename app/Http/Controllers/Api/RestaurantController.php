@@ -13,8 +13,6 @@ class RestaurantController extends Controller
     public function allRest(Request $request)
     {
         $restaurants = Restaurant::all();
-
-        $request['id'] = 11;
         
         // get every single restaurant
         foreach ($restaurants as $key => $restaurant) {
