@@ -48,13 +48,12 @@ var app = new Vue(
             this.restaurants = [],
             axios.get(this.apiRestaurantURL,{
                params: {
+                  query: this.selectedType + 1,
                }
             })
             .then((serverAnswer) =>{
                serverAnswer.data.forEach((restaurant) =>{
-                  if (restaurant.types.includes(this.selectedType + 1)){
-                     this.restaurants.push(restaurant)
-                  }
+                  this.restaurants.push(restaurant);
                })
             })
          }
@@ -73,9 +72,17 @@ var app = new Vue(
             }
             })
             .then((serverAnswer) =>{
-               serverAnswer.data.forEach((restaurant) =>{
-                  this.restaurants.push(restaurant)
-               })
+               if (serverAnswer.data != 0){
+                  if (serverAnswer.data.length > 5){
+                     for(let i = 0; i < 12; i++){
+                        this.restaurants.push(serverAnswer.data[i]);
+                     }
+                  }else{
+                     serverAnswer.data.forEach((restaurant) =>{
+                        this.restaurants.push(restaurant);
+                     })
+                  }
+               }
             })
          // end axios call restaurants
          // axios call restaurantstype

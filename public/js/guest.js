@@ -17314,12 +17314,12 @@ var app = new Vue({
       var _this2 = this;
 
       this.restaurants = [], axios.get(this.apiRestaurantURL, {
-        params: {}
+        params: {
+          query: this.selectedType + 1
+        }
       }).then(function (serverAnswer) {
         serverAnswer.data.forEach(function (restaurant) {
-          if (restaurant.types.includes(_this2.selectedType + 1)) {
-            _this2.restaurants.push(restaurant);
-          }
+          _this2.restaurants.push(restaurant);
         });
       });
     }
@@ -17336,9 +17336,17 @@ var app = new Vue({
     axios.get(this.apiRestaurantURL, {
       params: {}
     }).then(function (serverAnswer) {
-      serverAnswer.data.forEach(function (restaurant) {
-        _this3.restaurants.push(restaurant);
-      });
+      if (serverAnswer.data != 0) {
+        if (serverAnswer.data.length > 5) {
+          for (var i = 0; i < 12; i++) {
+            _this3.restaurants.push(serverAnswer.data[i]);
+          }
+        } else {
+          serverAnswer.data.forEach(function (restaurant) {
+            _this3.restaurants.push(restaurant);
+          });
+        }
+      }
     }); // end axios call restaurants
     // axios call restaurantstype
 
