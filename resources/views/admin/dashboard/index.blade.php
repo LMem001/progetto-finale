@@ -9,6 +9,7 @@
 
 @section('content')
 <div class="coverImage">
+    <img src="{{ asset('storage/' . $restaurant->img_cover) }}">
     {{-- <img src="{{ asset('img/' . $restaurant->img_cover) }}" /> --}}
     {{-- <img src="{{$restaurant->img_cover}}" alt=""> --}}
 </div>

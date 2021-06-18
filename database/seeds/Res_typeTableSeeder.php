@@ -14,7 +14,7 @@ class Res_typeTableSeeder extends Seeder
      */
     public function run()
     {
-        $types = ['tutti', 'kebab', 'vegano', 'sushi/japponese', 'indiano', 'pizza', 'cinese', 'panini/hamburger', 'pasticceria', 'messicano', 'vegetariano', 'tradizionale' ];
+        $types = ['kebab', 'vegano', 'sushi/japponese', 'indiano', 'pizza', 'cinese', 'panini/hamburger', 'pasticceria', 'messicano', 'vegetariano', 'tradizionale' ];
 
         foreach($types as $type) {
             $newType = new ResType();

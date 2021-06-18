@@ -57,7 +57,7 @@ var app = new Vue(
             this.restaurants = [],
             axios.get(this.apiRestaurantURL,{
                params: {
-                  id: this.selectedType,
+                  id: this.selectedType + 1,
                }
             })
             .then((serverAnswer) =>{
@@ -106,12 +106,7 @@ var app = new Vue(
          // end axios call restaurantstype
        },
 
-      computed: {
-         getRestTypeName: function(){
-            if (this.restaurants_types == 0){
-               return  "prova andata ok";
-            }
-         },
+      computed: { 
          // banner time
 
          time: function(){

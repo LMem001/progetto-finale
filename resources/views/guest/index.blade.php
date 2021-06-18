@@ -75,6 +75,16 @@
     {{-- category --}}
     <section id="category">
         <div class="categories">
+
+            <div class="category-card" v-on:mouseover="selectedType = -1" @click='filtredRestaurantByType'>
+                <div class="icon">
+                    <img src="img/icon/tutti.png" alt="all types">
+                </div>
+                <div class="type-name">
+                    <h4>tutti</h4>
+                </div>
+            </div>
+            
             <!-- card  -->
             <div class="category-card" v-for="(type, index) in restaurants_types" v-on:mouseover="selectedType = index" @click='filtredRestaurantByType'>
                 <div class="icon">

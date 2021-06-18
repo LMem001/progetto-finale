@@ -17327,7 +17327,7 @@ var app = new Vue({
 
       this.restaurants = [], axios.get(this.apiRestaurantURL, {
         params: {
-          id: this.selectedType
+          id: this.selectedType + 1
         }
       }).then(function (serverAnswer) {
         _this2.restaurants = serverAnswer.data;
@@ -17369,11 +17369,6 @@ var app = new Vue({
     }); // end axios call restaurantstype
   },
   computed: {
-    getRestTypeName: function getRestTypeName() {
-      if (this.restaurants_types == 0) {
-        return "prova andata ok";
-      }
-    },
     // banner time
     time: function time() {
       return this.date.format('mm:ss');
