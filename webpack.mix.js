@@ -14,7 +14,9 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     js('resources/js/guest.js', 'public/js')
+    js('resources/js/info.js', 'public/js')
     .sass('resources/sass/admin/app.scss', 'public/css')
-    .sass('resources/sass/guest/guest.scss', 'public/css').options({
+    .sass('resources/sass/guest/guest.scss', 'public/css')
+    .sass('resources/sass/guest/info.scss', 'public/css').options({
         processCssUrls:false
      });

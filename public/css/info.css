@@ -1,0 +1,385 @@
+@font-face {
+  font-family: veganFontStyle;
+  src: url(../fonts/VeganStylePersonal.ttf);
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.btn_primary {
+  color: black;
+  font-size: 19px;
+  text-decoration: none;
+  padding: 8px 12px;
+  margin: 0 10px;
+  border-radius: 5px;
+  background-color: #F8DC2A;
+  border: solid #F6b425 1px;
+  box-shadow: 3px 3px 0px 0px #f6b425;
+}
+
+.mt_1 {
+  margin-top: 10px;
+}
+
+.mt_2 {
+  margin-top: 20px;
+}
+
+.mt_3 {
+  margin-top: 30px;
+}
+
+.mt_4 {
+  margin-top: 40px;
+}
+
+.mt_5 {
+  margin-top: 50px;
+}
+
+.mt_6 {
+  margin-top: 60px;
+}
+
+.mt_7 {
+  margin-top: 70px;
+}
+
+.mt_8 {
+  margin-top: 80px;
+}
+
+.mt_9 {
+  margin-top: 90px;
+}
+
+.mt_10 {
+  margin-top: 100px;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: rgba(246, 180, 37, 0.2);
+}
+
+h1, h2 {
+  font-family: "veganFontStyle";
+  letter-spacing: 2px;
+  font-weight: lighter;
+}
+
+.PROVACHIAMATEAXIOS .RESTAURANTS {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
+}
+.PROVACHIAMATEAXIOS .RESTAURANTS .RESTAURANT {
+  margin: 40px 0;
+  width: calc(100% / 3);
+  text-align: center;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+header .container {
+  width: 90%;
+  margin: auto;
+}
+header .banner {
+  background-color: #2BA4C3;
+}
+header .banner .container {
+  display: flex;
+  justify-content: space-between;
+}
+header .banner .container p, header .banner .container .closeBanner {
+  padding: 20px 0;
+  color: white;
+}
+header .banner .container .closeBanner {
+  cursor: pointer;
+}
+header .bannerDisplayNone {
+  display: none;
+}
+header .navbar {
+  width: 100%;
+  padding: 5px 10px;
+  margin-top: 30px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+header .navbar .logo {
+  display: inline-block;
+  width: 15%;
+  height: 60px;
+}
+header .navbar .logo img {
+  height: 100%;
+}
+header .navbar .dropdownLogout {
+  position: relative;
+}
+header .navbar .dropdownLogout a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 19px;
+  padding: 10px 0;
+}
+header .navbar .dropdownLogout .logout {
+  background-color: white;
+  border-radius: 10px;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  transition: 0.5s;
+  display: none;
+}
+header .navbar .dropdownLogout .logout a {
+  color: black;
+  padding: 10px 20px;
+}
+header .navbar .dropdownLogout .logout:hover {
+  background-color: #cacaca;
+}
+header .navbar .dropdownLogout .logoutDisplay {
+  display: block;
+}
+header .navbar nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+header .navbar nav ul li {
+  display: inline-block;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 19px;
+  font-weight: bolder;
+  color: black;
+  padding: 0 20px;
+}
+header .navbar nav ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+header .navbar nav ul li i {
+  color: #F30050;
+}
+header .navbar nav ul li .fa-chevron-down {
+  font-size: 15px;
+  padding-left: 5px;
+}
+header .navbar nav .nav_login {
+  margin-right: 20px;
+}
+
+.on_scroll {
+  margin-top: 0px !important;
+  background-color: #F67F41 !important;
+}
+.on_scroll ul li {
+  color: #F30050;
+  font-weight: 500;
+}
+
+#introduction {
+  padding: 150px 0;
+}
+#introduction .titles {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+#introduction .titles h2 {
+  color: #F67F41;
+  font-size: 36px;
+}
+#introduction .titles p {
+  padding: 20px;
+  font-size: 19px;
+  color: #F6b425;
+}
+#introduction .presentation .content {
+  width: 85%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+#introduction .presentation .content .box {
+  width: calc((100% / 3)- 60);
+  margin: 0px 30px;
+}
+#introduction .presentation .content .box .box_content img {
+  width: 100%;
+  margin-bottom: 40px;
+}
+#introduction .presentation .content .box .box_content h3 {
+  font-size: 36px;
+  color: #F67F41;
+  text-transform: uppercase;
+}
+
+footer {
+  background-color: #F6b425;
+  background-image: url(../img/skyline_roma.png);
+  background-position-y: calc(100% - 36px);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+footer .footer_container {
+  width: 80%;
+  margin: auto;
+  padding: 5% 0;
+  display: flex;
+  justify-content: space-between;
+}
+footer .footer_container h3, footer .footer_container h4 {
+  position: relative;
+  color: #F30050;
+  margin-top: 0;
+  font-size: 15px;
+  margin: 20px 0 10px 0;
+  text-transform: uppercase;
+  font-weight: bolder;
+  text-shadow: 1px 1px 2px black;
+}
+footer .footer_container ul {
+  margin-top: 30px;
+}
+footer .footer_container ul li {
+  list-style: none;
+  color: black;
+  line-height: 23px;
+  padding: 10px 5px;
+}
+footer .footer_container .footer_col {
+  width: 30%;
+  margin: 0 20px;
+}
+footer .footer_container .footer_col#foot_col1 ul {
+  display: flex;
+  margin-top: -10px;
+  justify-content: space-between;
+}
+footer .footer_container .footer_col#foot_col1 ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 20px 10px 0 5px;
+}
+footer .footer_container .footer_col#foot_col1 img {
+  width: 100%;
+}
+footer .footer_container .footer_col#foot_col1 h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 2px;
+  background-color: #F30050;
+  box-shadow: 1px 1px 2px black;
+}
+footer .footer_container .footer_col h3 {
+  font-size: 19px;
+}
+footer .footer_container .footer_col h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 80%;
+  bottom: -10px;
+  height: 2px;
+  background-color: #F30050;
+  box-shadow: 1px 1px 2px black;
+}
+footer .footer_container .footer_col#foot_col2 {
+  position: relative;
+}
+footer .footer_container .footer_col#foot_col2 i {
+  padding: 0 5px;
+  color: #F8DC2A;
+  font-size: 23px;
+}
+footer .footer_container .footer_col#foot_col2 .slider_comments {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(248, 220, 42, 0.5);
+}
+footer .footer_container .footer_col#foot_col2 .slider_comments p {
+  text-align: center;
+  vertical-align: middle;
+  width: 75%;
+  margin: auto;
+  padding: 25px 10px;
+}
+footer .footer_row {
+  margin-top: 100px;
+  background-color: #000;
+  padding: 5px 0;
+}
+footer .footer_row ul li {
+  position: relative;
+  display: inline-block;
+  font-size: 12px;
+  color: #a8a9ae;
+  padding: 5px 10px;
+}
+footer .footer_row ul li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  bottom: 0;
+  width: 1px;
+  height: 15px;
+  background-color: #a8a9ae;
+}
+footer .footer_row ul li#copyright i {
+  color: inherit;
+  padding: 0 10px;
+}
+footer .footer_row ul li#copyright::after {
+  background-color: transparent;
+}
+
+i {
+  border-radius: 5px;
+  color: white;
+}
+
+.fa-facebook-f {
+  padding: 10px 12px 10px 14px;
+  background-color: #3c5998;
+}
+
+.fa-twitter {
+  padding: 10px;
+  background-color: #54acee;
+}
+
+.fa-instagram {
+  padding: 10px 11px;
+  background-color: #3f729b;
+}
+
+.fa-youtube {
+  padding: 10px 9px;
+  background-color: #cd201f;
+}
+
+#info {
+  background-color: blue;
+}
