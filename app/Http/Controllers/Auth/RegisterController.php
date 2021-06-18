@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'lastname' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
             'phone' => ['required', 'string', 'max:20', 'unique:users'],
-            'vat' => ['required', 'string', 'max:30', 'unique:users'],
+            'vat' => ['required', 'numeric', 'digits:11', 'unique:users'],
             'billing_address' => ['required', 'string', 'max:30'],
             'iban' => ['required', 'string', 'max:27', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],

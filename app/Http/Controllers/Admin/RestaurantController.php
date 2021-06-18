@@ -16,8 +16,8 @@ class RestaurantController extends Controller
         'rest_name' => 'required|string|unique:restaurants',
         'open_time' => 'required|string',
         'close_time' => 'required|string',
-        'rest_email' => 'required|string|unique:restaurants',
-        'phone' => 'required|string|unique:restaurants',
+        'rest_email' => 'required|string|email|unique:restaurants',
+        'phone' => 'required|string|digits:16|unique:restaurants',
         'address' => 'required|string',
         'img_cover' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'img_profile' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'

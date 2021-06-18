@@ -12,7 +12,7 @@ class FoodController extends Controller
 {
     protected $validation = [
         'name' => 'required|string',
-        'food_price' => 'required|numeric',
+        'food_price' => 'required|numeric|min:1',
         'tagCourse' => 'required|string',
         'allergens' => 'string'
     ];

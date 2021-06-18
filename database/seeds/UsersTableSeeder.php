@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
             $newUser->lastname = $faker->lastname();
             $newUser->email = $faker->unique()->email();
             $newUser->phone = $faker->unique()->phoneNumber();
-            $newUser->vat = $faker->unique()->creditCardNumber();
+            $newUser->vat = $faker->unique()->randomNumber(9, true).'12';
             $newUser->billing_address = $faker->address();
             $newUser->iban = $faker->unique()->iban();
             $newUser->password = Hash::make("12345678");
