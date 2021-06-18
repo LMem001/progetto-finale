@@ -10,10 +10,15 @@
 }
 
 .btn_primary {
+  color: black;
+  font-size: 19px;
+  text-decoration: none;
   padding: 8px 12px;
-  border: solid black 2px;
+  margin: 0 10px;
   border-radius: 5px;
-  background-color: yellow;
+  background-color: #F8DC2A;
+  border: solid #F6b425 1px;
+  box-shadow: 3px 3px 0px 0px #f6b425;
 }
 
 .mt_1 {
@@ -108,8 +113,9 @@ header .bannerDisplayNone {
 }
 header .navbar {
   width: 100%;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5px 10px;
+  margin-top: 30px;
+  background-color: rgba(255, 255, 255, 0.6);
 }
 header .navbar .logo {
   display: inline-block;
@@ -118,6 +124,36 @@ header .navbar .logo {
 }
 header .navbar .logo img {
   height: 100%;
+}
+header .navbar .dropdownLogout {
+  position: relative;
+}
+header .navbar .dropdownLogout a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 19px;
+  padding: 10px 0;
+}
+header .navbar .dropdownLogout .logout {
+  background-color: white;
+  border-radius: 10px;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  transition: 0.5s;
+  display: none;
+}
+header .navbar .dropdownLogout .logout a {
+  color: black;
+  padding: 10px 20px;
+}
+header .navbar .dropdownLogout .logout:hover {
+  background-color: #cacaca;
+}
+header .navbar .dropdownLogout .logoutDisplay {
+  display: block;
 }
 header .navbar nav {
   display: flex;
@@ -130,9 +166,16 @@ header .navbar nav ul li {
   position: relative;
   text-transform: uppercase;
   font-size: 19px;
-  font-weight: bold;
-  color: white;
+  font-weight: bolder;
+  color: black;
   padding: 0 20px;
+}
+header .navbar nav ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+header .navbar nav ul li i {
+  color: #F30050;
 }
 header .navbar nav ul li .fa-chevron-down {
   font-size: 15px;
@@ -141,35 +184,14 @@ header .navbar nav ul li .fa-chevron-down {
 header .navbar nav .nav_login {
   margin-right: 20px;
 }
-header .navbar nav .dropdownLogout {
-  position: relative;
+
+.on_scroll {
+  margin-top: 0px !important;
+  background-color: #F67F41 !important;
 }
-header .navbar nav .dropdownLogout a {
-  cursor: pointer;
-  text-decoration: none;
-  color: #fff;
-  text-transform: capitalize;
-  font-size: 19px;
-  padding: 10px 0;
-}
-header .navbar nav .dropdownLogout .logout {
-  background-color: white;
-  border-radius: 10px;
-  position: absolute;
-  top: 30px;
-  right: 0;
-  transition: 0.5s;
-  display: none;
-}
-header .navbar nav .dropdownLogout .logout a {
-  color: black;
-  padding: 10px 20px;
-}
-header .navbar nav .dropdownLogout .logout:hover {
-  background-color: #cacaca;
-}
-header .navbar nav .dropdownLogout .logoutDisplay {
-  display: block;
+.on_scroll ul li {
+  color: #F30050;
+  font-weight: 500;
 }
 
 #jumbotron {
@@ -259,7 +281,7 @@ header .navbar nav .dropdownLogout .logoutDisplay {
 }
 
 #category {
-  background-color: #ffeee3;
+  background-color: #F67F41;
 }
 #category .categories {
   display: flex;
@@ -267,6 +289,7 @@ header .navbar nav .dropdownLogout .logoutDisplay {
   flex-direction: wrap;
   flex-wrap: wrap;
   padding: 50px;
+  padding-top: 70px;
 }
 #category .categories .category-card {
   width: calc((100%/6) - 60px);

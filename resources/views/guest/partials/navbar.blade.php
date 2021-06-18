@@ -8,29 +8,30 @@
          </div>
      </div>
      {{-- navbar --}}
-     <div class="navbar">
-        
+     <div class="navbar" :class="{'on_scroll': !view.topOfPage}">
         <nav class="container">
            <div class="logo">
               <img src="img/big_logo.png" alt="logo di DeviBool">
             </div>
             <ul class="navbar_elements">
+               <li>
+                  <a href="#jumbotron">Home</a>
+               </li>
                <li >
+                  <a href="#introduction">Chi siamo</a>
+               </li>
+               <li >
+                  <a href="{{ url('/info') }}">Contatti</a>
+               </li>
+               <li >
+                  <a href="#category">Ristoranti</a>
+               </li>
+               {{-- <li >
                   <i class="fas fa-tree"></i>
                   opzione 1 
                   <i class="fas fa-chevron-down"></i>
                </li>
-               <li >
-                  <i class="fas fa-tree"></i>
-                  opzione 1 
-                  <i class="fas fa-chevron-down"></i>
-               </li>
-               <li >
-                  <i class="fas fa-tree"></i>
-                  opzione 1 
-                  <i class="fas fa-chevron-down"></i>
-               </li>
-               
+                --}}
             </ul>
             
             <div class="nav_login">
@@ -55,7 +56,7 @@
                <a class="btn_primary" href="{{ route('login') }}">Login</a>
                
                @if (Route::has('register'))
-               <a class="btn_primary" href="{{ route('register') }}">Register</a>
+               <a class="btn_primary" href="{{ route('register') }}">Registrati</a>
                @endif
                @endauth
                @endif

@@ -34,3 +34,6 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
 });
 
+Route::get('/info', function () {
+    return view('guest.info');
+});

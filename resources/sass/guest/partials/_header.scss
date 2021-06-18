@@ -3,67 +3,50 @@ header{
     top: 0;
     width: 100%;
     z-index: 100;
+
     .container{
         width:90%;
         margin: auto;
     }
-.banner{
-    background-color: $pallette_blue;
-    .container{
-        display: flex;
-        justify-content: space-between;
-       p, .closeBanner{
-          padding: 20px 0;
-          color: white;
-       }
-    
-       .closeBanner{
-          cursor: pointer;
-       }
-    }
- }
- .bannerDisplayNone{
-    display: none;
- }
- .navbar{
-    width: 100%;
-    padding: 10px;
- //    background-color: transparent;
-    background-color: rgba($color: #000000, $alpha: 0.6);
-    // padding: 10px 0;
-    .logo{
-        display: inline-block;
-        width: 15%;
-        height: 60px;
-        // margin: 0 20px;
+
+    .banner{
+        background-color: $pallette_blue;
+
+        .container{
+            display: flex;
+            justify-content: space-between;
+
+            p, .closeBanner{
+                padding: 20px 0;
+                color: white;
+            }
         
-        img {
-            height: 100%;
+            .closeBanner{
+                cursor: pointer;
+            }
         }
     }
-    nav {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        
-        ul li{
+
+    .bannerDisplayNone{
+        display: none;
+    }
+    .navbar{
+        width: 100%;
+        padding: 5px 10px;
+        margin-top: 30px;
+
+    //    background-color: transparent;
+        background-color: rgba($color: white, $alpha: 0.6);
+        // padding: 10px 0;
+        .logo{
             display: inline-block;
-            position: relative;
-            text-transform: uppercase;
-            font-size: $font_text_m;  
-            font-weight: bold;
-            color: white;
-            padding: 0 20px;
+            width: 15%;
+            height: 60px;
+            // margin: 0 20px;
             
-            .fa-chevron-down{
-                font-size: $font_text_s;
-                padding-left: 5px;
+            img {
+                height: 100%;
             }
-        } 
-    
-        .nav_login {
-            margin-right: 20px;
         }
         .dropdownLogout{
             position: relative;
@@ -96,6 +79,51 @@ header{
                 display: block;
              }
         }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            
+            ul li{
+                display: inline-block;
+                position: relative;
+                text-transform: uppercase;
+                font-size: $font_text_m;  
+                font-weight: bolder;
+                color: black;
+                padding: 0 20px;
+                
+                a{
+                    text-decoration: none;
+                    color: inherit;
+
+                }
+
+                i {
+                    color: $pallette_red;
+                }
+
+                .fa-chevron-down{
+                    font-size: $font_text_s;
+                    padding-left: 5px;
+                }
+            } 
+
+            .nav_login {
+                margin-right: 20px;
+            }
+            
+            
+        }
     }
- }
+}
+.on_scroll {
+    margin-top: 0px!important;
+    background-color: $pallette_orange!important;
+    ul li {
+        color: $pallette_red;
+        font-weight: 500;
+    } 
 }

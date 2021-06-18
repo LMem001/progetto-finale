@@ -19,7 +19,12 @@ var app = new Vue(
          // end axios calls data
          logoutshow: "",
          bannerNone: '',
-         date: moment(60 * 30 * 1000)
+         date: moment(60 * 30 * 1000),
+
+         //variabile per lo scroll
+         view: {
+            topOfPage: true
+         },
       },
 
       methods: {
@@ -36,6 +41,16 @@ var app = new Vue(
          hideBanner: function (){
            this.bannerNone = "bannerDisplayNone";
          },
+
+         // Cambia classe all'header allo scroll
+         handleScroll(){
+            if(window.pageYOffset>0){
+              if(this.view.topOfPage) this.view.topOfPage = false
+            } else {
+              if(!this.view.topOfPage) this.view.topOfPage = true
+            }
+         },
+
          // get {n.} restaurant products
          getProducts: function(){
             this.restaurantProducts = [],
@@ -65,6 +80,11 @@ var app = new Vue(
             })
          }
       },
+
+      beforeMount() {
+         window.addEventListener('scroll', this.handleScroll)
+      },
+
       mounted: function(){  
 
          // banner time 
@@ -104,7 +124,7 @@ var app = new Vue(
 
             })
          // end axios call restaurantstype
-       },
+      },
 
       computed: { 
          // banner time

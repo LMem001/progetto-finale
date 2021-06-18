@@ -17292,7 +17292,11 @@ var app = new Vue({
     // end axios calls data
     logoutshow: "",
     bannerNone: '',
-    date: moment(60 * 30 * 1000)
+    date: moment(60 * 30 * 1000),
+    //variabile per lo scroll
+    view: {
+      topOfPage: true
+    }
   },
   methods: {
     logouttoggleshow: function logouttoggleshow() {
@@ -17307,6 +17311,14 @@ var app = new Vue({
     },
     hideBanner: function hideBanner() {
       this.bannerNone = "bannerDisplayNone";
+    },
+    // Cambia classe all'header allo scroll
+    handleScroll: function handleScroll() {
+      if (window.pageYOffset > 0) {
+        if (this.view.topOfPage) this.view.topOfPage = false;
+      } else {
+        if (!this.view.topOfPage) this.view.topOfPage = true;
+      }
     },
     // get {n.} restaurant products
     getProducts: function getProducts() {
@@ -17333,6 +17345,9 @@ var app = new Vue({
         _this2.restaurants = serverAnswer.data;
       });
     }
+  },
+  beforeMount: function beforeMount() {
+    window.addEventListener('scroll', this.handleScroll);
   },
   mounted: function mounted() {
     var _this3 = this;

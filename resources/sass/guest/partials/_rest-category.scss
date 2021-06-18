@@ -1,12 +1,13 @@
 #category{
-    // background-color: $pallette_orange;
-    background-color: #ffeee3;
+    background-color: $pallette_orange;
+    // background-color: #ffeee3; 
     .categories{
         display: flex;
         justify-content: space-around;
         flex-direction: wrap;
         flex-wrap: wrap;
         padding: 50px;
+        padding-top: 70px;
 
         .category-card {
             width: calc((100%/6) - 60px);
