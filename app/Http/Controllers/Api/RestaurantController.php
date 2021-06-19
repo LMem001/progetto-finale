@@ -18,7 +18,7 @@ class RestaurantController extends Controller
         }
         $restaurants = Restaurant::all();
 
-        $counter = 1;
+        $restaurant_filtered = [];
 
         // get every single restaurant
         foreach ($restaurants as $key => $restaurant) {
@@ -26,19 +26,20 @@ class RestaurantController extends Controller
             // create a support array
             foreach ($restaurant->restaurant_types as $restaurant_type) {
                 if($restaurant_type->id == $request->id) {
-                    $counter--;
                     $check_type = 1;
+                    array_push( $restaurant_filtered, $restaurant);
+
+                    if (count($restaurant_filtered) == 12) {
+                        return response()->json($restaurant_filtered);
+                    }
                 }
             }
             if($check_type == 0) {
                 unset($restaurants[$key]);
             }
-            if($counter == 0) {
-                break;
-            }
         }
         
-        return response()->json($restaurants);
+        return response()->json($restaurant_filtered);
     }
 
     public function getFood(Restaurant $restaurant)
