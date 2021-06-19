@@ -23,4 +23,5 @@ Route::namespace('Api')->group(function(){
     Route::get('/restaurants', 'RestaurantController@allRest');
     Route::get('/restaurants/{restaurant}', 'RestaurantController@getFood');
     Route::get('/types', 'RestaurantController@getTypes');
+    Route::get('/payment/process', 'PaymentsController@make')->name('payment.process');
 });
