@@ -12,7 +12,7 @@ class RestaurantController extends Controller
 {
     public function allRest(Request $request)
     {
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::take(12)->get();
         
         if ( $request->id == 0 ){
             return response()->json($restaurants);
