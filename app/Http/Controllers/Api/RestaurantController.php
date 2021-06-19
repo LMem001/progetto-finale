@@ -11,24 +11,30 @@ use App\ResType;
 class RestaurantController extends Controller
 {
     public function allRest(Request $request)
-    {
-        $restaurants = Restaurant::take(12)->get();
-        
+    {   
         if ( $request->id == 0 ){
+            $restaurants = Restaurant::take(12)->get();
             return response()->json($restaurants);
         }
-        
+        $restaurants = Restaurant::all();
+
+        $counter = 1;
+
         // get every single restaurant
         foreach ($restaurants as $key => $restaurant) {
             $check_type = 0;
             // create a support array
             foreach ($restaurant->restaurant_types as $restaurant_type) {
                 if($restaurant_type->id == $request->id) {
+                    $counter--;
                     $check_type = 1;
                 }
             }
             if($check_type == 0) {
                 unset($restaurants[$key]);
+            }
+            if($counter == 0) {
+                break;
             }
         }
         
