@@ -286,7 +286,6 @@ header .navbar nav .nav_login {
 #category .categories {
   display: flex;
   justify-content: space-around;
-  flex-direction: wrap;
   flex-wrap: wrap;
   padding: 50px;
   padding-top: 70px;

@@ -11,7 +11,7 @@
      <div class="navbar" :class="{'on_scroll': !view.topOfPage}">
         <nav class="container">
            <div class="logo">
-              <img src="img/big_logo.png" alt="logo di DeviBool">
+              <img src="/img/big_logo.png" alt="logo di DeviBool">
             </div>
             <ul class="navbar_elements">
                <li>

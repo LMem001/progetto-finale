@@ -21,7 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/restaurant/show', function () {
+Route::get('/restaurant/show/{id}', function () {
     return view('guest.show');
 })->name('restaurantShow');
 

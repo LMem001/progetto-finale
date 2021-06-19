@@ -100,34 +100,20 @@
     {{-- restaurants --}}
     <section id="restaurants">
         <div class="container">
-            <div class="restaurant_card mt_4"  v-for="(restaurant, index) in restaurants">
-                <div class="logo_rest">
-                    <img src="https://via.placeholder.com/350x150" alt="">
-                </div>
-                <div class="restaurant_info">
-                    <h3>@{{restaurant.rest_name}}</h3>
-                    <small class="orario">@{{restaurant.open_time}} - @{{restaurant.close_time}}</small>
-                    {{-- <div><small>@{{getRestTypeName}}</small></div> --}}
-                    <a href="{{route('restaurantShow')}}">menu</a>
-                </div>
+            <div class="restaurant_card mt_4" v-for="(restaurant, index) in restaurants" v-on:mouseover="restaurantIndex = index +1">
+                <a class="content" :href="'http://localhost:8000/restaurant/show/' + restaurantIndex">
+                    <div class="logo_rest">
+                        <img src="https://via.placeholder.com/350x150" alt="">
+                    </div>
+                    <div class="restaurant_info">
+                        <h3>@{{restaurant.rest_name}}</h3>
+                        <small class="orario">@{{restaurant.open_time}} - @{{restaurant.close_time}}</small>
+                        {{-- <div><small>@{{getRestTypeName}}</small></div> --}}
+                    </div>
+                </a>
             </div>
         </div>
     </section>
-        {{-- PROVA AXIOS CALLS --}}
-        {{-- <section>
-            <DIV CLASS="PROVACHIAMATEAXIOS">
-                <DIV CLASS="RESTAURANTS">
-                    <div class="RESTAURANT" v-for="(restaurant, index) in restaurants" v-on:mouseover="restaurantIndex = index" @click="getProducts">
-                        <h3>@{{restaurant.rest_name}}</h3>
-                    </div>
-                </DIV>
-                <DIV>
-                    <ul v-if="restaurantProducts.length != 0">
-                        <li v-for="product in restaurantProducts ">@{{product.name}}</li>
-                    </ul>
-                </DIV>
-            </DIV>
-        </section> --}}
 @endsection
 
 @section('script')

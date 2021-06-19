@@ -1,22 +1,28 @@
-const { kebabCase } = require("lodash");
-+ 1
 var app = new Vue(
    {
       el: "#app",
 
       data:{
+
          // axios calls data
          apiRestaurantURL: "http://localhost:8000/api/restaurants",
          apiRestaurantType: "http://localhost:8000/api/types",
-         // apiKey: "???",
-         // foodIndex: 0,
-         restaurantIndex: 0,
          restaurants: [],
-         restaurantProducts:[],
          restaurants_types:[],
-         selectedType: "0",
-         search: "",
-         // end axios calls data
+         selectedType: 0,
+         restaurantIndex: 0,
+
+         antipasti: [],
+         primi: [],
+         secondi: [],
+         dessert: [],
+         piattiunici: [],
+         fastfood: [],
+         bevande: [],
+         altro: [],
+
+         // search: "",
+
          logoutshow: "",
          bannerNone: '',
          date: moment(60 * 30 * 1000),
@@ -51,23 +57,7 @@ var app = new Vue(
             }
          },
 
-         // get {n.} restaurant products
-         getProducts: function(){
-            this.restaurantProducts = [],
-            axios.get(this.apiRestaurantURL + "/" + this.restaurantIndex,{
-               params: {
-               }
-               })
-               .then((serverAnswer) =>{
-                  serverAnswer.data.forEach((product) =>{
-                     this.restaurantProducts.push(product);
-                  })
-               })
-         },
-         // get {n.} restaurant dishes
-
          // filterrestaurants by type
-
          filtredRestaurantByType: function(){
             this.restaurants = [],
             axios.get(this.apiRestaurantURL,{
@@ -78,35 +68,28 @@ var app = new Vue(
             .then((serverAnswer) =>{
                this.restaurants = serverAnswer.data;
             })
+            console.log(this.restaurantIndex)
          }
       },
 
       beforeMount() {
-         window.addEventListener('scroll', this.handleScroll)
-      },
-
-      mounted: function(){  
-
-         // banner time 
-         setInterval(() => {
-           this.date = moment(this.date.subtract(1, 'seconds'))
-         }, 1000);
-         // end banner time
+         window.addEventListener('scroll', this.handleScroll);
 
          // axios call restaurants
          axios.get(this.apiRestaurantURL,{
             params: {
+               id: this.selectedType,
             }
             })
             .then((serverAnswer) =>{
                if (serverAnswer.data != 0){
-                  if (serverAnswer.data.length > 5){
+                  if (serverAnswer.data.lenght > 5){
                      for(let i = 0; i < 12; i++){
                         this.restaurants.push(serverAnswer.data[i]);
                      }
                   }else{
                      serverAnswer.data.forEach((restaurant) =>{
-                        this.restaurants.push(restaurant);
+                        this.restaurants.push(restaurant)
                      })
                   }
                }
@@ -124,23 +107,71 @@ var app = new Vue(
 
             })
          // end axios call restaurantstype
+
+
+         // get products
+         url = window.location.href,
+         lastParam = url.split("/").slice(-1)[0],
+         
+         this.restaurantIndex = lastParam,
+
+         axios.get(this.apiRestaurantURL + "/" + this.restaurantIndex,{
+               params: {
+                  
+               }
+               })
+               .then((serverAnswer) =>{
+
+                  serverAnswer.data.forEach((product) =>{
+                     if(product.tagCourse == "antipasto"){
+                        this.antipasti.push(product);
+                     }else if(product.tagCourse == "primo"){
+                        this.primi.push(product);
+                     }else if(product.tagCourse == "secondo"){
+                        this.secondi.push(product);
+                     }else if(product.tagCourse == "dessert"){
+                        this.dessert.push(product);
+                     }else if(product.tagCourse == "piatto_unico"){
+                        this.piattiunici.push(product);
+                     }else if(product.tagCourse == "fast_food"){
+                        this.fastfood.push(product);
+                     }else if(product.tagCourse == "bevanda"){
+                        this.bevande.push(product);
+                     }else if(product.tagCourse == "altro"){
+                        this.altro.push(product);
+                     }
+                     
+                  })
+               })
+             // get products
+      },
+
+      mounted: function(){  
+
+         // banner time 
+         setInterval(() => {
+           this.date = moment(this.date.subtract(1, 'seconds'))
+         }, 1000);
+         // end banner time
+
+         
       },
 
       computed: { 
          // banner time
 
          time: function(){
-           return this.date.format('mm:ss');
+           return this.date.format('mm:ss'); 
          },
-      },
+         
+      }
+
    });
    
 
    function changeBgJb(){
       const imgBgJb = [
           'url("img/bg_1.jpg")',
-      
-          'url("img/bg_hero2.jpeg")',
       
           'url("img/bg_hero3.jpeg")',
       ]
@@ -149,4 +180,4 @@ var app = new Vue(
       const bgJb = imgBgJb[Math.floor(Math.random() * imgBgJb.length)];
       jumbo.style.backgroundImage = bgJb;
   } 
-  setInterval(changeBgJb, 5000)
+  setInterval(changeBgJb, 5000);

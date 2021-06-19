@@ -3,7 +3,7 @@
     <div class="footer_container container">
         <div class="footer_col" id="foot_col1">
             <div class="footer_logo">
-                <img src="img/big_logo.png" alt="logo DeviBool">
+                <img src="/img/big_logo.png" alt="logo DeviBool">
             </div>
             <p class="mt_3">
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolemue launti totam aperiam, eaque ipsa quae abillo. Invente veriatis et quasi architecto beatae luptatem accusantium, remaperiamsiat. Voluptatem accusest etsium doloremque laudaien. Lorem ipsum sits dolores ets unser.
