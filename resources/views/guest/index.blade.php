@@ -102,7 +102,7 @@
     <section id="restaurants">
         <div class="container">
             <div class="restaurant_card" v-for="restaurant in restaurants">
-                <a class="content" :href="'http://localhost:8000/restaurant/show/' + restaurant.id">
+                <a class="content" :href="'http://localhost:8000/restaurant/show/' + restaurant.slug">
                     <div class="logo_rest">
                         <img src="https://via.placeholder.com/350x150" alt="">
                     </div>

@@ -17278,14 +17278,14 @@ var app = new Vue({
   el: "#app",
   data: {
     // axios calls data
-    apiRestaurantURL: "http://localhost:8000/api/restaurants",
+    apiRestaurantURL: "http://localhost:8000/api/restaurants/",
     apiRestaurantType: "http://localhost:8000/api/types",
     apiSingleRetstaurant: "http://localhost:8000/api/restaurant/",
     restaurants: [],
     restaurants_types: [],
     selectedType: 0,
     selectedRestaurant: [],
-    restaurantId: 0,
+    restaurantSlug: "",
     allrestaurantFood: [],
     antipasti: [],
     primi: [],
@@ -17302,7 +17302,7 @@ var app = new Vue({
     logoutshow: "",
     bannerNone: '',
     date: moment(60 * 30 * 1000),
-    total: 0.00,
+    sum: 0,
     //variabile per lo scroll
     view: {
       topOfPage: true
@@ -17311,28 +17311,15 @@ var app = new Vue({
     cart: []
   },
   methods: {
-    // cart
-    addtocart: function addtocart() {
-      var _this = this;
-
-      this.allrestaurantFood.forEach(function (item) {
-        if (item.id == _this.selectedFood) {
-          _this.cart.push(item);
-
-          _this.total += item.food_price;
-        }
-      });
+    add: function add(food) {
+      food.quantity += 1;
+      this.sum += food.food_price;
     },
-    removefromcart: function removefromcart() {
-      var _this2 = this;
-
-      this.cart.forEach(function (item) {
-        if (item.id === _this2.selectedFood) {
-          _this2.cart.splice(item, 1);
-
-          _this2.total -= item.food_price;
-        }
-      });
+    decrease: function decrease(food) {
+      if (food.quantity > 0) {
+        food.quantity -= 1;
+        this.sum -= food.food_price;
+      }
     },
     logouttoggleshow: function logouttoggleshow() {
       if (this.logoutshow == "") {
@@ -17357,19 +17344,19 @@ var app = new Vue({
     },
     // filterrestaurants by type
     filtredRestaurantByType: function filtredRestaurantByType() {
-      var _this3 = this;
+      var _this = this;
 
       this.restaurants = [], axios.get(this.apiRestaurantURL, {
         params: {
           id: this.selectedType + 1
         }
       }).then(function (serverAnswer) {
-        _this3.restaurants = serverAnswer.data;
+        _this.restaurants = serverAnswer.data;
       });
     }
   },
   beforeMount: function beforeMount() {
-    var _this4 = this;
+    var _this2 = this;
 
     window.addEventListener('scroll', this.handleScroll); // axios call restaurants
 
@@ -17381,11 +17368,11 @@ var app = new Vue({
       if (serverAnswer.data != 0) {
         if (serverAnswer.data.lenght > 5) {
           for (var i = 0; i < 12; i++) {
-            _this4.restaurants.push(serverAnswer.data[i]);
+            _this2.restaurants.push(serverAnswer.data[i]);
           }
         } else {
           serverAnswer.data.forEach(function (restaurant) {
-            _this4.restaurants.push(restaurant);
+            _this2.restaurants.push(restaurant);
           });
         }
       }
@@ -17396,53 +17383,56 @@ var app = new Vue({
       params: {}
     }).then(function (serverAnswer) {
       serverAnswer.data.forEach(function (type) {
-        _this4.restaurants_types.push(type);
+        _this2.restaurants_types.push(type);
       });
     }); // end axios call restaurantstype
-    // get restaurantId
+    // get restaurant slug
 
-    url = window.location.href, lastParam = url.split("/").slice(-1)[0], this.restaurantId = lastParam, // get single Restaurant
-    axios.get(this.apiSingleRetstaurant + this.restaurantId, {
-      params: {}
-    }).then(function (serverAnswer) {
-      serverAnswer.data = _this4.selectedRestaurant;
-      console.log(serverAnswer);
-    }), //get products
-    axios.get(this.apiRestaurantURL + "/" + this.restaurantId).then(function (serverAnswer) {
-      serverAnswer.data.forEach(function (product) {
-        if (product.tagCourse == "antipasto") {
-          _this4.antipasti.push(product);
-        } else if (product.tagCourse == "primo") {
-          _this4.primi.push(product);
-        } else if (product.tagCourse == "secondo") {
-          _this4.secondi.push(product);
-        } else if (product.tagCourse == "dessert") {
-          _this4.dessert.push(product);
-        } else if (product.tagCourse == "piatto_unico") {
-          _this4.piattiunici.push(product);
-        } else if (product.tagCourse == "fast_food") {
-          _this4.fastfood.push(product);
-        } else if (product.tagCourse == "bevanda") {
-          _this4.bevande.push(product);
-        } else if (product.tagCourse == "altro") {
-          _this4.altro.push(product);
-        }
-      });
-      serverAnswer.data.forEach(function (answer) {
-        if (_this4.courses.includes(answer.tagCourse)) {} else {
-          _this4.courses.push(answer.tagCourse);
-        }
+    url = window.location.href, lastParam = url.split("/").slice(-1)[0], this.restaurantSlug = lastParam == "" ? "Garfield" : lastParam, // get single Restaurant
+    axios.get(this.apiSingleRetstaurant + this.restaurantSlug).then(function (serverAnswer) {
+      _this2.selectedRestaurant = serverAnswer.data; // get products
 
-        _this4.allrestaurantFood = serverAnswer.data;
-      });
-    }); // get products
+      axios.get(_this2.apiRestaurantURL + _this2.selectedRestaurant.id).then(function (serverAnswer) {
+        serverAnswer.data.forEach(function (product) {
+          product["quantity"] = 0;
+
+          if (product.tagCourse == "antipasto") {
+            _this2.antipasti.push(product);
+          } else if (product.tagCourse == "primo") {
+            _this2.primi.push(product);
+          } else if (product.tagCourse == "secondo") {
+            _this2.secondi.push(product);
+          } else if (product.tagCourse == "dessert") {
+            _this2.dessert.push(product);
+          } else if (product.tagCourse == "piatto_unico") {
+            _this2.piattiunici.push(product);
+          } else if (product.tagCourse == "fast_food") {
+            _this2.fastfood.push(product);
+          } else if (product.tagCourse == "bevanda") {
+            _this2.bevande.push(product);
+          } else if (product.tagCourse == "altro") {
+            _this2.altro.push(product);
+          }
+        });
+        serverAnswer.data.forEach(function (product) {
+          product["quantity"] = 0;
+
+          _this2.cart.push(product);
+        });
+        serverAnswer.data.forEach(function (answer) {
+          if (_this2.courses.includes(answer.tagCourse)) {} else {
+            _this2.courses.push(answer.tagCourse);
+          }
+        });
+      }); // get products
+    });
   },
   mounted: function mounted() {
-    var _this5 = this;
+    var _this3 = this;
 
     // banner time 
     setInterval(function () {
-      _this5.date = moment(_this5.date.subtract(1, 'seconds'));
+      _this3.date = moment(_this3.date.subtract(1, 'seconds'));
     }, 1000); // end banner time
   },
   computed: {
@@ -17451,16 +17441,17 @@ var app = new Vue({
       return this.date.format('mm:ss');
     }
   }
-}); //    function changeBgJb(){
-//       const imgBgJb = [
-//           'url("img/bg_1.jpg")',
-//           'url("img/bg_hero3.jpeg")',
-//       ]
-//       const jumbo = document.getElementById("jumbotron")
-//       const bgJb = imgBgJb[Math.floor(Math.random() * imgBgJb.length)];
-//       jumbo.style.backgroundImage = bgJb;
-//   } 
-//   setInterval(changeBgJb, 5000);
+}); // function changeBgJb(){
+//    const imgBgJb = [
+//        'url("img/bg_1.jpg")',
+//        'url("img/bg_hero1.jpeg")',
+//        'url("img/bg_hero3.jpeg")',
+//    ]
+//    const jumbo = document.getElementById("jumbotron")
+//          const bgJb = imgBgJb[Math.floor(Math.random() * imgBgJb.length)];
+//          jumbo.style.backgroundImage = bgJb;
+//    setInterval(changeBgJb, 1000);
+//    }
 })();
 
 /******/ })()

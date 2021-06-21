@@ -7,14 +7,14 @@ var app = new Vue(
       data:{
 
          // axios calls data
-         apiRestaurantURL: "http://localhost:8000/api/restaurants",
+         apiRestaurantURL: "http://localhost:8000/api/restaurants/",
          apiRestaurantType: "http://localhost:8000/api/types",
          apiSingleRetstaurant: "http://localhost:8000/api/restaurant/",
          restaurants: [],
          restaurants_types:[],
          selectedType: 0,
          selectedRestaurant: [],
-         restaurantId: 0,
+         restaurantSlug: "",
          allrestaurantFood: [],
          antipasti: [],
          primi: [],
@@ -32,7 +32,7 @@ var app = new Vue(
          logoutshow: "",
          bannerNone: '',
          date: moment(60 * 30 * 1000),
-         total: 0.00,
+         sum: 0,
 
          //variabile per lo scroll
          view: {
@@ -45,22 +45,16 @@ var app = new Vue(
       },
 
       methods: {
-         // cart
-         addtocart: function(){
-            this.allrestaurantFood.forEach(item => {
-               if(item.id == this.selectedFood){
-                  this.cart.push(item);
-                  this.total += item.food_price;
-               }
-            });
-         },
-         removefromcart: function(){
-            this.cart.forEach(item => {
-               if(item.id === this.selectedFood){
-                  this.cart.splice(item, 1);
-                  this.total -= item.food_price
-               }
-            });
+         add(food) {
+            food.quantity+=1;
+            this.sum += food.food_price;
+          },
+
+          decrease(food) {
+            if(food.quantity > 0){
+               food.quantity-=1;
+               this.sum -= food.food_price;
+            }
          },
 
          logouttoggleshow: function(){
@@ -138,33 +132,30 @@ var app = new Vue(
          // end axios call restaurantstype
 
 
-         // get restaurantId
+         // get restaurant slug
          url = window.location.href,
          lastParam = url.split("/").slice(-1)[0],
          
-         this.restaurantId = lastParam,
+         this.restaurantSlug = (lastParam == "" ? "Garfield" : lastParam),
 
-         
+
          // get single Restaurant
-            axios.get(this.apiSingleRetstaurant + this.restaurantId,{
-               params: {
-               
-               }
-            })
-            .then((serverAnswer) =>{
-               serverAnswer.data = this.selectedRestaurant;
-               console.log(serverAnswer)
-            }),
-            
          
-        
+         axios.get(this.apiSingleRetstaurant + this.restaurantSlug,)
+            .then((serverAnswer) =>{
+
+               
+
+               this.selectedRestaurant = serverAnswer.data;
 
 
-         //get products
-         axios.get(this.apiRestaurantURL + "/" + this.restaurantId,)
+               // get products
+               axios.get(this.apiRestaurantURL + this.selectedRestaurant.id,)
                .then((serverAnswer) =>{
 
                   serverAnswer.data.forEach((product) =>{
+                     product["quantity"] = 0;
+
                      if(product.tagCourse == "antipasto"){
                         this.antipasti.push(product);
                      }else if(product.tagCourse == "primo"){
@@ -184,18 +175,24 @@ var app = new Vue(
                      }
                      
                   })
+
+                  serverAnswer.data.forEach((product) =>{
+                     product["quantity"] = 0;
+                     this.cart.push(product);
+                  })
+
+
                   serverAnswer.data.forEach((answer) =>{
                      if(this.courses.includes(answer.tagCourse)){
                      }else{
                         this.courses.push(answer.tagCourse);
                      }
-
-                     this.allrestaurantFood = serverAnswer.data;
                   })
+                  
                })
-             // get products
-
-             
+   
+         // get products
+         })       
       },
 
       mounted: function(){  
@@ -206,7 +203,6 @@ var app = new Vue(
          }, 1000);
          // end banner time
 
-         
       },
 
       computed: { 
@@ -215,21 +211,25 @@ var app = new Vue(
          time: function(){
            return this.date.format('mm:ss'); 
          },
+
          
-      }
+             
+      },
 
    });
    
 
-//    function changeBgJb(){
-//       const imgBgJb = [
-//           'url("img/bg_1.jpg")',
+   // function changeBgJb(){
+   //    const imgBgJb = [
+   //        'url("img/bg_1.jpg")',
+   //        'url("img/bg_hero1.jpeg")',
+   //        'url("img/bg_hero3.jpeg")',
+   //    ]
+   //    const jumbo = document.getElementById("jumbotron")
       
-//           'url("img/bg_hero3.jpeg")',
-//       ]
-//       const jumbo = document.getElementById("jumbotron")
+   //          const bgJb = imgBgJb[Math.floor(Math.random() * imgBgJb.length)];
+   //          jumbo.style.backgroundImage = bgJb;
+         
+   //    setInterval(changeBgJb, 1000);
+   //    }
       
-//       const bgJb = imgBgJb[Math.floor(Math.random() * imgBgJb.length)];
-//       jumbo.style.backgroundImage = bgJb;
-//   } 
-//   setInterval(changeBgJb, 5000);

@@ -28,7 +28,7 @@
         <section id="restaurant-profile">
             <div class="rest-img-background"></div>
             <div class="rest-info-container">
-                <div class="rest-info" v-if="restaurants[restaurantId]">
+                <div class="rest-info">
                     <div class="rest-logo">
                         <img src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2019/10/attachment_103367090-e1571110045215.jpg?auto=format&q=60&fit=max&w=930" alt="">
                     </div>
@@ -68,8 +68,10 @@
                                     <p></p>
                                     <p class="food-price">@{{ food.food_price }}</p>
                                     <div class="addCart">
-                                    </div>
-                                    
+                                        <i class="fas fa-minus" @click="decrease(food)"></i>
+                                        <p class="quantity">@{{ food.quantity }}</p>
+                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
+                                    </div>  
                                 </div>
                             </li>
                         </ul>
@@ -85,8 +87,9 @@
                                     <p></p>
                                     <p class="food-price">@{{ food.food_price }}</p>
                                     <div class="addCart">
-                                        <i class="fas fa-minus" @click="removefromcart"></i>
-                                        <i class="fas fa-plus" @click="addtocart"></i>
+                                        <i class="fas fa-minus" @click="decrease(food)"></i>
+                                        <p class="quantity">@{{ food.quantity }}</p>
+                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
                                     </div>
                                 </div>
                             </li>
@@ -102,6 +105,11 @@
                                     <h3>@{{ food.name }}</h3>
                                     <p></p>
                                     <p class="food-price">@{{ food.food_price }}</p>
+                                    <div class="addCart">
+                                        <i class="fas fa-minus" @click="decrease(food)"></i>
+                                        <p class="quantity">@{{ food.quantity }}</p>
+                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -116,6 +124,11 @@
                                     <h3>@{{ food.name }}</h3>
                                     <p></p>
                                     <p class="food-price">@{{ food.food_price }}</p>
+                                    <div class="addCart">
+                                        <i class="fas fa-minus" @click="decrease(food)"></i>
+                                        <p class="quantity">@{{ food.quantity }}</p>
+                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -130,6 +143,11 @@
                                     <h3>@{{ food.name }}</h3>
                                     <p></p>
                                     <p class="food-price">@{{ food.food_price }}</p>
+                                    <div class="addCart">
+                                        <i class="fas fa-minus" @click="decrease(food)"></i>
+                                        <p class="quantity">@{{ food.quantity }}</p>
+                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -144,6 +162,11 @@
                                     <h3>@{{ food.name }}</h3>
                                     <p></p>
                                     <p class="food-price">@{{ food.food_price }}</p>
+                                    <div class="addCart">
+                                        <i class="fas fa-minus" @click="decrease(food)"></i>
+                                        <p class="quantity">@{{ food.quantity }}</p>
+                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -158,6 +181,11 @@
                                     <h3>@{{ food.name }}</h3>
                                     <p></p>
                                     <p class="food-price">@{{ food.food_price }}</p>
+                                    <div class="addCart">
+                                        <i class="fas fa-minus" @click="decrease(food)"></i>
+                                        <p class="quantity">@{{ food.quantity }}</p>
+                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -172,6 +200,11 @@
                                     <h3>@{{ food.name }}</h3>
                                     <p></p>
                                     <p class="food-price">@{{ food.food_price }}</p>
+                                    <div class="addCart">
+                                        <i class="fas fa-minus" @click="decrease(food)"></i>
+                                        <p class="quantity">@{{ food.quantity }}</p>
+                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -186,11 +219,15 @@
                     <div class="cart-content">
                         <ul>
                             <li v-for="food in cart">
-                                @{{food.name}} <span class="price">@{{food.food_price}}</span>
+                                <div v-if="food.quantity > 0" class="product">
+                                    @{{food.name}} 
+                                    <span class="quantity">@{{food.quantity}}</span>
+                                    <span class="price">@{{(food.food_price * food.quantity).toFixed(2)}}</span>
+                                </div>
                             </li>
                         </ul>
                         <div class="total">
-                            <h3>prezzo totale: @{{total}}€</h3>
+                            <h3>prezzo totale: @{{sum.toFixed(2)}}€</h3>
                         </div>
                     </div>
                 </div>
