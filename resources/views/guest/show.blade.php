@@ -59,157 +59,24 @@
             <section id="rest-menu">
                 <div class="rest-menu-container">
                     <!-- antipsati -->
-                    <div id="antipasto" class="course" v-if="antipasti.length > 0"> 
-                        <h2>Antipasti</h2>
+                    <div v-for="course in restaurantFoods" :id="course.id" class="course" v-if="course.food.length > 0"> 
+                        <h2>@{{course.course}}</h2>
                         <ul>
-                            <li v-for="food in antipasti">
-                                <div class="rest-menu-item">
+                            <li v-for="food in course.food">
+                                <div class="rest-menu-item" v-on:mouseover="foodId = food.id">
                                     <h3>@{{food.name }}</h3>
                                     <p></p>
                                     <p class="food-price">@{{ food.food_price }}</p>
                                     <div class="addCart">
-                                        <i class="fas fa-minus" @click="decrease(food)"></i>
+                                        <i class="fas fa-minus" @click="removeItem"></i>
                                         <p class="quantity">@{{ food.quantity }}</p>
-                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
+                                        <i class="fas fa-plus" @click="addItem"></i>
                                     </div>  
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <!-- /antipsati -->
-                    <!-- primi -->
-                    <div id="primo" class="course" v-if="primi.length > 0"> 
-                        <h2>Primi</h2>
-                        <ul>
-                            <li v-for="food in primi">
-                                <div class="rest-menu-item" v-on:mouseover="selectedFood = food.id">
-                                    <h3>@{{ food.name }}</h3>
-                                    <p></p>
-                                    <p class="food-price">@{{ food.food_price }}</p>
-                                    <div class="addCart">
-                                        <i class="fas fa-minus" @click="decrease(food)"></i>
-                                        <p class="quantity">@{{ food.quantity }}</p>
-                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /primi -->
-                    <!-- secondi -->
-                    <div id="secondo" class="course" v-if="secondi.length > 0"> 
-                        <h2>Secondi</h2>
-                        <ul>
-                            <li v-for="food in secondi">
-                                <div class="rest-menu-item">
-                                    <h3>@{{ food.name }}</h3>
-                                    <p></p>
-                                    <p class="food-price">@{{ food.food_price }}</p>
-                                    <div class="addCart">
-                                        <i class="fas fa-minus" @click="decrease(food)"></i>
-                                        <p class="quantity">@{{ food.quantity }}</p>
-                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /secondi -->
-                    <!-- dessert -->
-                    <div id="dessert" class="course" v-if="dessert.length > 0"> 
-                        <h2>Dessert</h2>
-                        <ul>
-                            <li v-for="food in dessert">
-                                <div class="rest-menu-item">
-                                    <h3>@{{ food.name }}</h3>
-                                    <p></p>
-                                    <p class="food-price">@{{ food.food_price }}</p>
-                                    <div class="addCart">
-                                        <i class="fas fa-minus" @click="decrease(food)"></i>
-                                        <p class="quantity">@{{ food.quantity }}</p>
-                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /dessert -->
-                    <!-- piatti unici -->
-                    <div id="piatto_unico" class="course" v-if="piattiunici.length > 0"> 
-                        <h2>Piatti unici</h2>
-                        <ul>
-                            <li v-for="food in piattiunici">
-                                <div class="rest-menu-item">
-                                    <h3>@{{ food.name }}</h3>
-                                    <p></p>
-                                    <p class="food-price">@{{ food.food_price }}</p>
-                                    <div class="addCart">
-                                        <i class="fas fa-minus" @click="decrease(food)"></i>
-                                        <p class="quantity">@{{ food.quantity }}</p>
-                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /piatti unici -->
-                    <!-- fast food -->
-                    <div id="fast_food" class="course" v-if="fastfood.length > 0"> 
-                        <h2>Fast food</h2>
-                        <ul>
-                            <li v-for="food in fastfood">
-                                <div class="rest-menu-item">
-                                    <h3>@{{ food.name }}</h3>
-                                    <p></p>
-                                    <p class="food-price">@{{ food.food_price }}</p>
-                                    <div class="addCart">
-                                        <i class="fas fa-minus" @click="decrease(food)"></i>
-                                        <p class="quantity">@{{ food.quantity }}</p>
-                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /fast food -->
-                    <!-- bevande -->
-                    <div id="bevanda" class="course" v-if="bevande.length > 0"> 
-                        <h2>Drinks</h2>
-                        <ul>
-                            <li v-for="food in bevande">
-                                <div class="rest-menu-item">
-                                    <h3>@{{ food.name }}</h3>
-                                    <p></p>
-                                    <p class="food-price">@{{ food.food_price }}</p>
-                                    <div class="addCart">
-                                        <i class="fas fa-minus" @click="decrease(food)"></i>
-                                        <p class="quantity">@{{ food.quantity }}</p>
-                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /bevande -->
-                    <!-- altro -->
-                    <div id="altro" class="course" v-if="altro.length > 0"> 
-                        <h2>Altro</h2>
-                        <ul>
-                            <li v-for="food in altro">
-                                <div class="rest-menu-item">
-                                    <h3>@{{ food.name }}</h3>
-                                    <p></p>
-                                    <p class="food-price">@{{ food.food_price }}</p>
-                                    <div class="addCart">
-                                        <i class="fas fa-minus" @click="decrease(food)"></i>
-                                        <p class="quantity">@{{ food.quantity }}</p>
-                                        <i class="fas fa-plus" @click="add(food, food.id)"></i>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /altro -->
             </section>
     
             <!-- cart -->
@@ -227,7 +94,8 @@
                             </li>
                         </ul>
                         <div class="total">
-                            <h3>prezzo totale: @{{sum.toFixed(2)}}€</h3>
+                            <h3>prezzo totale: @{{sum.toFixed(2)}} €</h3>
+                            <small>di cui iva 22%  -  @{{(sum * 0.22).toFixed(2)}} €</small>
                         </div>
                     </div>
                 </div>

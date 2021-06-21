@@ -17286,18 +17286,42 @@ var app = new Vue({
     selectedType: 0,
     selectedRestaurant: [],
     restaurantSlug: "",
-    allrestaurantFood: [],
-    antipasti: [],
-    primi: [],
-    secondi: [],
-    dessert: [],
-    piattiunici: [],
-    fastfood: [],
-    bevande: [],
-    altro: [],
+    foodId: 0,
+    restaurantFoods: [{
+      id: "antipasto",
+      course: "Antipasti",
+      food: []
+    }, {
+      id: "primo",
+      course: "Primi",
+      food: []
+    }, {
+      id: "secondo",
+      course: "Secondi",
+      food: []
+    }, {
+      id: "dessert",
+      course: "Dessert",
+      food: []
+    }, {
+      id: "piatto_unico",
+      course: "Piatti Unici",
+      food: []
+    }, {
+      id: "fast_food",
+      course: "Fast Food",
+      food: []
+    }, {
+      id: "bevanda",
+      course: "Drinks",
+      food: []
+    }, {
+      id: "altro",
+      course: "Altro",
+      food: []
+    }],
     courses: [],
     selectedFood: '',
-    quantity: 1,
     // search: "",
     logoutshow: "",
     bannerNone: '',
@@ -17311,15 +17335,61 @@ var app = new Vue({
     cart: []
   },
   methods: {
-    add: function add(food) {
-      food.quantity += 1;
-      this.sum += food.food_price;
+    addItem: function addItem() {
+      var _this = this;
+
+      this.restaurantFoods.forEach(function (element) {
+        element.food.forEach(function (item) {
+          if (item.id === _this.foodId) {
+            item.quantity += 1;
+          }
+
+          ;
+        });
+      });
+      this.cart.forEach(function (cartit) {
+        if (cartit.id === _this.foodId) {
+          cartit.quantity += 1;
+          _this.sum += cartit.food_price;
+        }
+
+        ;
+      });
+      localStorage.setItem("refreshsum", JSON.stringify(this.sum));
+      localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
+      localStorage.setItem("refreshCart", JSON.stringify(this.cart));
     },
-    decrease: function decrease(food) {
-      if (food.quantity > 0) {
-        food.quantity -= 1;
-        this.sum -= food.food_price;
-      }
+    removeItem: function removeItem() {
+      var _this2 = this;
+
+      this.restaurantFoods.forEach(function (element) {
+        element.food.forEach(function (item) {
+          if (item.id === _this2.foodId) {
+            if (item.quantity > 0) {
+              item.quantity -= 1;
+            }
+
+            ;
+          }
+
+          ;
+        });
+      });
+      this.cart.forEach(function (cartit) {
+        if (cartit.id === _this2.foodId) {
+          if (cartit.quantity > 0) {
+            cartit.quantity -= 1;
+            _this2.sum -= cartit.food_price;
+          }
+
+          ;
+        }
+
+        ;
+      });
+      localStorage.setItem("refreshsum", JSON.stringify(this.sum));
+      localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
+      localStorage.setItem("refreshCart", JSON.stringify(this.cart));
     },
     logouttoggleshow: function logouttoggleshow() {
       if (this.logoutshow == "") {
@@ -17344,19 +17414,19 @@ var app = new Vue({
     },
     // filterrestaurants by type
     filtredRestaurantByType: function filtredRestaurantByType() {
-      var _this = this;
+      var _this3 = this;
 
-      this.restaurants = [], axios.get(this.apiRestaurantURL, {
+      axios.get(this.apiRestaurantURL, {
         params: {
           id: this.selectedType + 1
         }
       }).then(function (serverAnswer) {
-        _this.restaurants = serverAnswer.data;
+        _this3.restaurants = serverAnswer.data;
       });
     }
   },
   beforeMount: function beforeMount() {
-    var _this2 = this;
+    var _this4 = this;
 
     window.addEventListener('scroll', this.handleScroll); // axios call restaurants
 
@@ -17368,11 +17438,11 @@ var app = new Vue({
       if (serverAnswer.data != 0) {
         if (serverAnswer.data.lenght > 5) {
           for (var i = 0; i < 12; i++) {
-            _this2.restaurants.push(serverAnswer.data[i]);
+            _this4.restaurants.push(serverAnswer.data[i]);
           }
         } else {
           serverAnswer.data.forEach(function (restaurant) {
-            _this2.restaurants.push(restaurant);
+            _this4.restaurants.push(restaurant);
           });
         }
       }
@@ -17383,56 +17453,67 @@ var app = new Vue({
       params: {}
     }).then(function (serverAnswer) {
       serverAnswer.data.forEach(function (type) {
-        _this2.restaurants_types.push(type);
+        _this4.restaurants_types.push(type);
       });
     }); // end axios call restaurantstype
     // get restaurant slug
 
-    url = window.location.href, lastParam = url.split("/").slice(-1)[0], this.restaurantSlug = lastParam == "" ? "Garfield" : lastParam, // get single Restaurant
+    url = window.location.href, lastParam = url.split("/").slice(-1)[0], this.restaurantSlug = lastParam == "" ? this.restaurants[0].slug : lastParam, // get single Restaurant
     axios.get(this.apiSingleRetstaurant + this.restaurantSlug).then(function (serverAnswer) {
-      _this2.selectedRestaurant = serverAnswer.data; // get products
+      _this4.selectedRestaurant = serverAnswer.data; // get products
 
-      axios.get(_this2.apiRestaurantURL + _this2.selectedRestaurant.id).then(function (serverAnswer) {
+      axios.get(_this4.apiRestaurantURL + _this4.selectedRestaurant.id).then(function (serverAnswer) {
         serverAnswer.data.forEach(function (product) {
-          product["quantity"] = 0;
+          if (localStorage.getItem('order') != null) {
+            _this4.restaurantFoods = JSON.parse(localStorage.getItem("order"));
+          } else {
+            product["quantity"] = 0;
 
-          if (product.tagCourse == "antipasto") {
-            _this2.antipasti.push(product);
-          } else if (product.tagCourse == "primo") {
-            _this2.primi.push(product);
-          } else if (product.tagCourse == "secondo") {
-            _this2.secondi.push(product);
-          } else if (product.tagCourse == "dessert") {
-            _this2.dessert.push(product);
-          } else if (product.tagCourse == "piatto_unico") {
-            _this2.piattiunici.push(product);
-          } else if (product.tagCourse == "fast_food") {
-            _this2.fastfood.push(product);
-          } else if (product.tagCourse == "bevanda") {
-            _this2.bevande.push(product);
-          } else if (product.tagCourse == "altro") {
-            _this2.altro.push(product);
+            if (product.tagCourse == "antipasto") {
+              _this4.restaurantFoods[0].food.push(product);
+            } else if (product.tagCourse == "primo") {
+              _this4.restaurantFoods[1].food.push(product);
+            } else if (product.tagCourse == "secondo") {
+              _this4.restaurantFoods[2].food.push(product);
+            } else if (product.tagCourse == "dessert") {
+              _this4.restaurantFoods[3].food.push(product);
+            } else if (product.tagCourse == "piatto_unico") {
+              _this4.restaurantFoods[4].food.push(product);
+            } else if (product.tagCourse == "fast_food") {
+              _this4.restaurantFoods[5].food.push(product);
+            } else if (product.tagCourse == "bevanda") {
+              _this4.restaurantFoods[6].food.push(product);
+            } else if (product.tagCourse == "altro") {
+              _this4.restaurantFoods[7].foodpush(product);
+            }
           }
         });
-        serverAnswer.data.forEach(function (product) {
-          product["quantity"] = 0;
-
-          _this2.cart.push(product);
-        });
         serverAnswer.data.forEach(function (answer) {
-          if (_this2.courses.includes(answer.tagCourse)) {} else {
-            _this2.courses.push(answer.tagCourse);
+          if (_this4.courses.includes(answer.tagCourse)) {} else {
+            _this4.courses.push(answer.tagCourse);
+          }
+        });
+      });
+      axios.get(_this4.apiRestaurantURL + _this4.selectedRestaurant.id).then(function (serverAnswer) {
+        serverAnswer.data.forEach(function (product) {
+          if (localStorage.getItem('refreshCart') != null) {
+            _this4.cart = JSON.parse(localStorage.getItem("refreshCart"));
+            _this4.sum = JSON.parse(localStorage.getItem("refreshsum"));
+          } else {
+            product["quantity"] = 0;
+
+            _this4.cart.push(product);
           }
         });
       }); // get products
     });
   },
   mounted: function mounted() {
-    var _this3 = this;
+    var _this5 = this;
 
     // banner time 
     setInterval(function () {
-      _this3.date = moment(_this3.date.subtract(1, 'seconds'));
+      _this5.date = moment(_this5.date.subtract(1, 'seconds'));
     }, 1000); // end banner time
   },
   computed: {

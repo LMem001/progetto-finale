@@ -15,18 +15,51 @@ var app = new Vue(
          selectedType: 0,
          selectedRestaurant: [],
          restaurantSlug: "",
-         allrestaurantFood: [],
-         antipasti: [],
-         primi: [],
-         secondi: [],
-         dessert: [],
-         piattiunici: [],
-         fastfood: [],
-         bevande: [],
-         altro: [],
+         foodId: 0,
+         restaurantFoods: [
+            {
+               id: "antipasto",
+               course: "Antipasti",
+               food: [],
+            },
+            {
+               id: "primo",
+               course: "Primi",
+               food: [],
+            },
+            {
+               id: "secondo",
+               course: "Secondi",
+               food: [],
+            },
+            {
+               id: "dessert",
+               course: "Dessert",
+               food: [],
+            },
+            {
+               id: "piatto_unico",
+               course: "Piatti Unici",
+               food: [],
+            },
+            {
+               id: "fast_food",
+               course: "Fast Food",
+               food: [],
+            },
+            {
+               id: "bevanda",
+               course: "Drinks",
+               food: [],
+            },
+            {
+               id: "altro",
+               course: "Altro",
+               food: [],
+            },     
+         ], 
          courses: [],
          selectedFood: '',
-         quantity: 1,
          // search: "",
 
          logoutshow: "",
@@ -45,16 +78,47 @@ var app = new Vue(
       },
 
       methods: {
-         add(food) {
-            food.quantity+=1;
-            this.sum += food.food_price;
+         addItem() {
+            this.restaurantFoods.forEach(element => {
+               element.food.forEach(item => {
+                  if(item.id === this.foodId){
+                     item.quantity += 1;
+                  };
+               });
+            });
+            this.cart.forEach(cartit => {
+               if(cartit.id === this.foodId){
+                  cartit.quantity += 1;
+                  this.sum += cartit.food_price;
+               };
+            });
+            localStorage.setItem("refreshsum", JSON.stringify(this.sum));
+            localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
+            localStorage.setItem("refreshCart", JSON.stringify(this.cart));
           },
 
-          decrease(food) {
-            if(food.quantity > 0){
-               food.quantity-=1;
-               this.sum -= food.food_price;
-            }
+         removeItem() {
+            this.restaurantFoods.forEach(element => {
+               element.food.forEach(item => {
+                  if(item.id === this.foodId){
+                     if(item.quantity > 0){
+                        item.quantity -= 1;
+                     };
+                  };
+               });
+            });
+            this.cart.forEach(cartit => {
+               if(cartit.id === this.foodId){
+                  if(cartit.quantity > 0){
+                     cartit.quantity -= 1;
+                     this.sum -= cartit.food_price;
+                  };
+                  
+               };
+            });
+            localStorage.setItem("refreshsum", JSON.stringify(this.sum));
+            localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
+            localStorage.setItem("refreshCart", JSON.stringify(this.cart));
          },
 
          logouttoggleshow: function(){
@@ -82,7 +146,7 @@ var app = new Vue(
 
          // filterrestaurants by type
          filtredRestaurantByType: function(){
-            this.restaurants = [],
+            
             axios.get(this.apiRestaurantURL,{
                params: {
                   id: this.selectedType + 1,
@@ -104,6 +168,7 @@ var app = new Vue(
             }
             })
             .then((serverAnswer) =>{
+               
                if (serverAnswer.data != 0){
                   if (serverAnswer.data.lenght > 5){
                      for(let i = 0; i < 12; i++){
@@ -136,8 +201,7 @@ var app = new Vue(
          url = window.location.href,
          lastParam = url.split("/").slice(-1)[0],
          
-         this.restaurantSlug = (lastParam == "" ? "Garfield" : lastParam),
-
+         this.restaurantSlug = (lastParam == "" ? this.restaurants[0].slug : lastParam),
 
          // get single Restaurant
          
@@ -154,33 +218,30 @@ var app = new Vue(
                .then((serverAnswer) =>{
 
                   serverAnswer.data.forEach((product) =>{
-                     product["quantity"] = 0;
-
-                     if(product.tagCourse == "antipasto"){
-                        this.antipasti.push(product);
-                     }else if(product.tagCourse == "primo"){
-                        this.primi.push(product);
-                     }else if(product.tagCourse == "secondo"){
-                        this.secondi.push(product);
-                     }else if(product.tagCourse == "dessert"){
-                        this.dessert.push(product);
-                     }else if(product.tagCourse == "piatto_unico"){
-                        this.piattiunici.push(product);
-                     }else if(product.tagCourse == "fast_food"){
-                        this.fastfood.push(product);
-                     }else if(product.tagCourse == "bevanda"){
-                        this.bevande.push(product);
-                     }else if(product.tagCourse == "altro"){
-                        this.altro.push(product);
-                     }
                      
+                     if(localStorage.getItem('order') != null){
+                        this.restaurantFoods = JSON.parse(localStorage.getItem("order"))
+                     }else{
+                        product["quantity"] = 0;
+                        if(product.tagCourse == "antipasto"){
+                           this.restaurantFoods[0].food.push(product);
+                        }else if(product.tagCourse == "primo"){
+                           this.restaurantFoods[1].food.push(product);
+                        }else if(product.tagCourse == "secondo"){
+                           this.restaurantFoods[2].food.push(product);
+                        }else if(product.tagCourse == "dessert"){
+                           this.restaurantFoods[3].food.push(product);
+                        }else if(product.tagCourse == "piatto_unico"){
+                           this.restaurantFoods[4].food.push(product);
+                        }else if(product.tagCourse == "fast_food"){
+                           this.restaurantFoods[5].food.push(product);
+                        }else if(product.tagCourse == "bevanda"){
+                           this.restaurantFoods[6].food.push(product);
+                        }else if(product.tagCourse == "altro"){
+                           this.restaurantFoods[7].foodpush(product);
+                        }
+                     }  
                   })
-
-                  serverAnswer.data.forEach((product) =>{
-                     product["quantity"] = 0;
-                     this.cart.push(product);
-                  })
-
 
                   serverAnswer.data.forEach((answer) =>{
                      if(this.courses.includes(answer.tagCourse)){
@@ -190,19 +251,34 @@ var app = new Vue(
                   })
                   
                })
+               axios.get(this.apiRestaurantURL + this.selectedRestaurant.id,)
+               .then((serverAnswer) =>{
+
+                  serverAnswer.data.forEach((product) =>{
+                     if(localStorage.getItem('refreshCart') != null){
+                        this.cart = JSON.parse(localStorage.getItem("refreshCart"));
+                        this.sum = JSON.parse(localStorage.getItem("refreshsum"));
+                     }else{
+                        product["quantity"] = 0;
+                        this.cart.push(product);
+                     }
+                  })
+            })
    
          // get products
-         })       
+         })   
+         
+         
       },
 
-      mounted: function(){  
+      mounted (){  
 
          // banner time 
          setInterval(() => {
            this.date = moment(this.date.subtract(1, 'seconds'))
          }, 1000);
          // end banner time
-
+         
       },
 
       computed: { 
@@ -212,10 +288,8 @@ var app = new Vue(
            return this.date.format('mm:ss'); 
          },
 
-         
              
       },
-
    });
    
 
