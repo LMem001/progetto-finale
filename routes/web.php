@@ -16,11 +16,10 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('guest.index');
-});
+})->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/restaurant/show/{id}', function () {
     return view('guest.show');
 })->name('restaurantShow');

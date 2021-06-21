@@ -1,3 +1,4 @@
+
 @extends('layouts/main')
 
 @section('cdn')
@@ -15,25 +16,27 @@
 @endsection
 
 
+
 @section('css')
 <link rel="stylesheet" href="{{asset('css/guest.css')}}">
 @endsection
 
 @section('content')
+<main>
     <!-- info -->
     <div class="container-show">
         <section id="restaurant-profile">
             <div class="rest-img-background"></div>
             <div class="rest-info-container">
-                <div class="rest-info" v-if="restaurants[restaurantIndex]">
+                <div class="rest-info" v-if="restaurants[restaurantId]">
                     <div class="rest-logo">
                         <img src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2019/10/attachment_103367090-e1571110045215.jpg?auto=format&q=60&fit=max&w=930" alt="">
                     </div>
                     <div class="rest-info-content">
-                        <h2>@{{ restaurants[restaurantIndex].rest_name }}</h2>
-                        <h3>@{{ restaurants[restaurantIndex].rest_type }}</h3>
-                        <p>@{{ restaurants[restaurantIndex].adress }}</p> 
-                        <p>Aperto dalle @{{ restaurants[restaurantIndex].open_time }} alle  @{{ restaurants[restaurantIndex].close_time }}</p>
+                        <h2>@{{selectedRestaurant.rest_name}}</h2>
+                        <h3>@{{selectedRestaurant.rest_type}}</h3>
+                        <p>@{{selectedRestaurant.address}}</p> 
+                        <p>Aperto dalle @{{selectedRestaurant.open_time }} alle @{{selectedRestaurant.close_time }}</p>
                     </div>
                 </div>
             </div>
@@ -45,10 +48,9 @@
             <!-- selction -->
             <section id="food-type-selection">
                 <div class="food-selection-container">
+                    <h2>Portata</h2>
                     <ul>
-                        <li>Food Type (Ex. Pizze Rosse)</li>
-                        <li>Food Type (Ex. Pizze Bianche)</li>
-                        <li>Food Type (Ex. Dessert)</li>
+                        <li v-for="course in courses"><a :href="'#' + course">@{{course}}</a></li>
                     </ul>
                 </div>
             </section>
@@ -57,35 +59,42 @@
             <section id="rest-menu">
                 <div class="rest-menu-container">
                     <!-- antipsati -->
-                    <div class="course" v-if="antipasti.length > 0"> 
+                    <div id="antipasto" class="course" v-if="antipasti.length > 0"> 
                         <h2>Antipasti</h2>
                         <ul>
                             <li v-for="food in antipasti">
                                 <div class="rest-menu-item">
-                                    <h3>@{{ food.name }}</h3>
+                                    <h3>@{{food.name }}</h3>
                                     <p></p>
                                     <p class="food-price">@{{ food.food_price }}</p>
+                                    <div class="addCart">
+                                    </div>
+                                    
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <!-- /antipsati -->
                     <!-- primi -->
-                    <div class="course" v-if="primi.length > 0"> 
+                    <div id="primo" class="course" v-if="primi.length > 0"> 
                         <h2>Primi</h2>
                         <ul>
                             <li v-for="food in primi">
-                                <div class="rest-menu-item">
+                                <div class="rest-menu-item" v-on:mouseover="selectedFood = food.id">
                                     <h3>@{{ food.name }}</h3>
                                     <p></p>
                                     <p class="food-price">@{{ food.food_price }}</p>
+                                    <div class="addCart">
+                                        <i class="fas fa-minus" @click="removefromcart"></i>
+                                        <i class="fas fa-plus" @click="addtocart"></i>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <!-- /primi -->
                     <!-- secondi -->
-                    <div class="course" v-if="secondi.length > 0"> 
+                    <div id="secondo" class="course" v-if="secondi.length > 0"> 
                         <h2>Secondi</h2>
                         <ul>
                             <li v-for="food in secondi">
@@ -99,7 +108,7 @@
                     </div>
                     <!-- /secondi -->
                     <!-- dessert -->
-                    <div class="course" v-if="dessert.length > 0"> 
+                    <div id="dessert" class="course" v-if="dessert.length > 0"> 
                         <h2>Dessert</h2>
                         <ul>
                             <li v-for="food in dessert">
@@ -113,7 +122,7 @@
                     </div>
                     <!-- /dessert -->
                     <!-- piatti unici -->
-                    <div class="course" v-if="piattiunici.length > 0"> 
+                    <div id="piatto_unico" class="course" v-if="piattiunici.length > 0"> 
                         <h2>Piatti unici</h2>
                         <ul>
                             <li v-for="food in piattiunici">
@@ -127,7 +136,7 @@
                     </div>
                     <!-- /piatti unici -->
                     <!-- fast food -->
-                    <div class="course" v-if="fastfood.length > 0"> 
+                    <div id="fast_food" class="course" v-if="fastfood.length > 0"> 
                         <h2>Fast food</h2>
                         <ul>
                             <li v-for="food in fastfood">
@@ -141,7 +150,7 @@
                     </div>
                     <!-- /fast food -->
                     <!-- bevande -->
-                    <div class="course" v-if="bevande.length > 0"> 
+                    <div id="bevanda" class="course" v-if="bevande.length > 0"> 
                         <h2>Drinks</h2>
                         <ul>
                             <li v-for="food in bevande">
@@ -155,7 +164,7 @@
                     </div>
                     <!-- /bevande -->
                     <!-- altro -->
-                    <div class="course" v-if="altro.length > 0"> 
+                    <div id="altro" class="course" v-if="altro.length > 0"> 
                         <h2>Altro</h2>
                         <ul>
                             <li v-for="food in altro">
@@ -176,15 +185,19 @@
                     <h2>Il tuo ordine</h2>
                     <div class="cart-content">
                         <ul>
-                            <li>iTem selected 1</li>
-                            <li>item selected 2</li>
-                            <li>item selected 3</li>
+                            <li v-for="food in cart">
+                                @{{food.name}} <span class="price">@{{food.food_price}}</span>
+                            </li>
                         </ul>
+                        <div class="total">
+                            <h3>prezzo totale: @{{total}}€</h3>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
     </div>
+</main>
 @endsection
 
 @section('script')

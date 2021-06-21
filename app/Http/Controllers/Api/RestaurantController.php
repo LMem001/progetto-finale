@@ -42,6 +42,12 @@ class RestaurantController extends Controller
         return response()->json($restaurant_filtered);
     }
 
+    public function getSingleRestaurant(Restaurant $restaurant)
+    {   
+        $singlerestaurant = Restaurant::where('id', $restaurant->id)->first();
+        return response()->json($singlerestaurant);
+    }
+
     public function getFood(Restaurant $restaurant)
     {
         $food = Food::where('restaurant_id', $restaurant->id)->get();

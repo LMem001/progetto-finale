@@ -20,6 +20,7 @@
 
 @section('content')
 
+<main>
     {{-- jumbotron --}}
     <section id="jumbotron">
         <div class="jumbo-content">
@@ -71,7 +72,7 @@
         </div>
     </section>
 
-    
+
     {{-- category --}}
     <section id="category">
         <div class="categories container">
@@ -100,8 +101,8 @@
     {{-- restaurants --}}
     <section id="restaurants">
         <div class="container">
-            <div class="restaurant_card" v-for="(restaurant, index) in restaurants" v-on:mouseover="restaurantIndex = index +1">
-                <a class="content" :href="'http://localhost:8000/restaurant/show/' + restaurantIndex">
+            <div class="restaurant_card" v-for="restaurant in restaurants">
+                <a class="content" :href="'http://localhost:8000/restaurant/show/' + restaurant.id">
                     <div class="logo_rest">
                         <img src="https://via.placeholder.com/350x150" alt="">
                     </div>
@@ -114,7 +115,8 @@
             </div>
         </div>
     </section>
-@endsection
+    @endsection
+</main>
 
 @section('script')
 <script src="{{asset('js/guest.js')}}"></script>

@@ -1,3 +1,5 @@
+const { includes } = require("lodash");
+
 var app = new Vue(
    {
       el: "#app",
@@ -7,11 +9,13 @@ var app = new Vue(
          // axios calls data
          apiRestaurantURL: "http://localhost:8000/api/restaurants",
          apiRestaurantType: "http://localhost:8000/api/types",
+         apiSingleRetstaurant: "http://localhost:8000/api/restaurant/",
          restaurants: [],
          restaurants_types:[],
          selectedType: 0,
-         restaurantIndex: 0,
-
+         selectedRestaurant: [],
+         restaurantId: 0,
+         allrestaurantFood: [],
          antipasti: [],
          primi: [],
          secondi: [],
@@ -20,20 +24,45 @@ var app = new Vue(
          fastfood: [],
          bevande: [],
          altro: [],
-
+         courses: [],
+         selectedFood: '',
+         quantity: 1,
          // search: "",
 
          logoutshow: "",
          bannerNone: '',
          date: moment(60 * 30 * 1000),
+         total: 0.00,
 
          //variabile per lo scroll
          view: {
             topOfPage: true
          },
+
+         // cart
+         cart: [],
+
       },
 
       methods: {
+         // cart
+         addtocart: function(){
+            this.allrestaurantFood.forEach(item => {
+               if(item.id == this.selectedFood){
+                  this.cart.push(item);
+                  this.total += item.food_price;
+               }
+            });
+         },
+         removefromcart: function(){
+            this.cart.forEach(item => {
+               if(item.id === this.selectedFood){
+                  this.cart.splice(item, 1);
+                  this.total -= item.food_price
+               }
+            });
+         },
+
          logouttoggleshow: function(){
             if(this.logoutshow == ""){
                this.logoutshow = "logoutDisplay";
@@ -68,7 +97,6 @@ var app = new Vue(
             .then((serverAnswer) =>{
                this.restaurants = serverAnswer.data;
             })
-            console.log(this.restaurantIndex)
          }
       },
 
@@ -93,6 +121,7 @@ var app = new Vue(
                      })
                   }
                }
+               
             })
          // end axios call restaurants
          // axios call restaurantstype
@@ -109,17 +138,30 @@ var app = new Vue(
          // end axios call restaurantstype
 
 
-         // get products
+         // get restaurantId
          url = window.location.href,
          lastParam = url.split("/").slice(-1)[0],
          
-         this.restaurantIndex = lastParam,
+         this.restaurantId = lastParam,
 
-         axios.get(this.apiRestaurantURL + "/" + this.restaurantIndex,{
+         
+         // get single Restaurant
+            axios.get(this.apiSingleRetstaurant + this.restaurantId,{
                params: {
-                  
+               
                }
-               })
+            })
+            .then((serverAnswer) =>{
+               serverAnswer.data = this.selectedRestaurant;
+               console.log(serverAnswer)
+            }),
+            
+         
+        
+
+
+         //get products
+         axios.get(this.apiRestaurantURL + "/" + this.restaurantId,)
                .then((serverAnswer) =>{
 
                   serverAnswer.data.forEach((product) =>{
@@ -142,8 +184,18 @@ var app = new Vue(
                      }
                      
                   })
+                  serverAnswer.data.forEach((answer) =>{
+                     if(this.courses.includes(answer.tagCourse)){
+                     }else{
+                        this.courses.push(answer.tagCourse);
+                     }
+
+                     this.allrestaurantFood = serverAnswer.data;
+                  })
                })
              // get products
+
+             
       },
 
       mounted: function(){  
@@ -169,15 +221,15 @@ var app = new Vue(
    });
    
 
-   function changeBgJb(){
-      const imgBgJb = [
-          'url("img/bg_1.jpg")',
+//    function changeBgJb(){
+//       const imgBgJb = [
+//           'url("img/bg_1.jpg")',
       
-          'url("img/bg_hero3.jpeg")',
-      ]
-      const jumbo = document.getElementById("jumbotron")
+//           'url("img/bg_hero3.jpeg")',
+//       ]
+//       const jumbo = document.getElementById("jumbotron")
       
-      const bgJb = imgBgJb[Math.floor(Math.random() * imgBgJb.length)];
-      jumbo.style.backgroundImage = bgJb;
-  } 
-  setInterval(changeBgJb, 5000);
+//       const bgJb = imgBgJb[Math.floor(Math.random() * imgBgJb.length)];
+//       jumbo.style.backgroundImage = bgJb;
+//   } 
+//   setInterval(changeBgJb, 5000);

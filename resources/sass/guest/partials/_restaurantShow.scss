@@ -104,12 +104,48 @@
             width: 250px;
             display: flex;
             justify-content: center;
+            position: relative;
             .cart-container{
                 width: 100%;
                 padding: 10px 0;
                 background-color: white;
                 border-radius: 15px;
+                li{
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 5px 10px;
+                    .price{
+                        text-align: right;
+                    }
+                }
+                .total{
+                    position: absolute;
+                    bottom: 10px;
+                    left: 10px;
+                }
             }
+        }
+    }
+    .addCart{
+        display: flex;
+        align-items: center;
+        i{
+            background-color: $yellow;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            color: $indigo;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s all;
+            cursor: pointer;
+            &:hover{
+                background-color: $orange;
+            }
+        }
+        .display{
+            margin: 0 15px;
         }
     }
 }

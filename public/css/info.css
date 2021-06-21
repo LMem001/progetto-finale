@@ -83,6 +83,7 @@ i {
   color: white;
 }
 
+  scroll-behavior: smooth;
 .fa-facebook-f {
   padding: 10px 12px 10px 14px;
   background-color: #3c5998;
