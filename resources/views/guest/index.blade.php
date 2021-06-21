@@ -45,11 +45,11 @@
         </div>
         {{-- presentation --}}
         <div class="presentation">
-            <div class="content">
+            <div class="box_container container">
                 <div class="box">
                     <div class="box_content">
-                        <img src="img/point_moped.png" alt="scooter">
                         <h3>velocissimi</h3>
+                        <img src="img/point_moped.png" alt="scooter">
                         <p>I piatti che prefeisci dai tuoi ristoranti preferiti. in meno di 15 minuti o all'ora che desideri tu</p>
                     </div>
                 </div>
@@ -62,8 +62,8 @@
                 </div>
                 <div class="box">
                     <div class="box_content">
-                        <img src="img/points_relax.png" alt="sofa">
                         <h3>comodo</h3>
+                        <img src="img/points_relax.png" alt="sofa">
                         <p>Puoi ordinare comodamente dal tuo dovano in pieno relax allo stesso prezzo di sempre se se orndini nei prossimi  @{{time}} minuti riceverai uno sconto del 20%</p>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
     
     {{-- category --}}
     <section id="category">
-        <div class="categories">
+        <div class="categories container">
 
             <div class="category-card" v-on:mouseover="selectedType = -1" @click='filtredRestaurantByType'>
                 <div class="icon">
@@ -100,7 +100,7 @@
     {{-- restaurants --}}
     <section id="restaurants">
         <div class="container">
-            <div class="restaurant_card mt_4" v-for="(restaurant, index) in restaurants" v-on:mouseover="restaurantIndex = index +1">
+            <div class="restaurant_card" v-for="(restaurant, index) in restaurants" v-on:mouseover="restaurantIndex = index +1">
                 <a class="content" :href="'http://localhost:8000/restaurant/show/' + restaurantIndex">
                     <div class="logo_rest">
                         <img src="https://via.placeholder.com/350x150" alt="">

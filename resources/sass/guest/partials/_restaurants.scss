@@ -1,73 +1,171 @@
 //? Section 4 : Restaurants
 #restaurants {
-   .container {
-       max-width: $max_width;
-       width: 90%;
-       margin: auto;
-       margin-bottom: 40px;
-       
-       display: flex;
-       flex-direction: row;
-       justify-content: space-between;
-       flex-wrap: wrap;
+    margin-bottom: 30px;
+    
+    .container {
+        flex-wrap: wrap;
+        
+        .restaurant_card {
+            
+            width: 33%;
+            margin-left: -20px;
+            margin-right: 20px;
+            margin-top: 20px;
+            position: relative;
+            
+            a.content {
+                text-decoration: none;
+                color: black;
+                display: flex;
+                flex-direction: row;
 
-       .restaurant_card {
-           display: flex;
-           flex-direction: row;
-           justify-content: center;
-           width: 30%;
-           margin-left: -20px;
-           margin-right: 20px;
+                .logo_rest {
+                    width: 50%;
+                
+                    img{
+                        width: 100%;
+                        border-radius: 50%;
+                        border: $pallette_red 8px solid;
+                    }
+                }
+                .restaurant_info{
+                    width: 49%;
+                    padding-left: 10px;
+                    h3{
+                        font-size: $font_text_l;
+                        position: relative;
+                        margin-bottom: 5px;
+                        background-color: $pallette_red;
+                        border-radius: 20px;
+                        padding: 2px 10px;
+                    }
+                   
+                    small {
+                        font-size: $font_text_s;
+                    }
+                }
+            }
+            
+        }
+        /*
+        .restaurant_card ::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 2px;
+            height: 30px;
+            background: rgb(255,255,255);        
+            background: linear-gradient(270deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 15%, rgba(243,0,80,1) 50%, rgba(243,0,80,1) 100%);
+            z-index: -1;               
+        }
+        */
+        .restaurant_card:nth-child(6n + 4),
+        .restaurant_card:nth-child(6n + 5),
+        .restaurant_card:nth-child(6n + 6) {
+            
+            margin-right: -20px;
+            margin-left: 20px;
+            text-align: right;
+            
+            a.content{
+                flex-direction: row-reverse;
+                .restaurant_info{
+                    padding-right: 10px;
 
+                    h3{
+                        font-size: $font_text_m;
+                    }
+                    small{
+                        font-size: $font_text_xs;
+                    }
+                }
+            }
+            // a.content::before {
+            //     left: 0px;
+            //     right: -140px;                        
+            //     background: linear-gradient(90deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 15%, rgba(243,0,80,1) 50%, rgba(243,0,80,1) 100%)!important;
+            // }
+        }
+        
+    }
+}
 
-           .logo_rest {
-               width: 100%;
+/* //?  LARGE 1200-768px */
+@media screen and (max-width:1200px) {
 
-               img{
-                   width: 100%;
-                   border-radius: 50%;
-                   border: $pallette_red 8px solid;
-               }
-           }
-           .restaurant_info{
-               padding-left: 10px;
-               width: 49%;
-               h3{
-                   position: relative;
-                   margin-bottom: 5px;
-               }
-               h3::before {
-                   content: "";
-                   position: absolute;
-                   left: -140px;
-                   top: 0;
-                   width: 270px;
-                   height: 30px;
-                   background: rgb(255,255,255);
-                   background: linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(243,0,80,1) 100%);
-                   z-index: -1;               
-               }
-               small {
-                   font-size: $font_text_s;
-               }
-           }
-       }
-   }
-   .restaurant_card:nth-child(6n + 4),
-   .restaurant_card:nth-child(6n + 5),
-   .restaurant_card:nth-child(6n + 6) {
-       margin-right: -20px;
-       margin-left: 20px;
-       flex-direction: row-reverse;
-       text-align: right;
+    a.content{
+        padding: 5px 2.5px;
+        .restaurant_info{
+            padding: 0px!important;
+        }
+    }
 
-       .restaurant_info{
-           padding-right: 10px;
-           
-           h3::before {
-               left: -20px;
-               background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(243,0,80,1) 100%);
-           }
-       }
-   }
+}
+/* //?  MEDIUM 768-480px  */
+@media screen  and (max-width:768px) {
+    // *  {
+    //     border: 2px solid  greenyellow!important;
+    // }
+
+    #restaurants {
+        .container .restaurant_card {
+            width: 49%;            
+            margin-left: -20px;
+            margin-right: 20px;
+            text-align: left;
+
+            a.content {
+                flex-direction: row;
+
+                .logo_rest {
+                    width: 50%;
+                }
+                .restaurant_info{
+                    width: 49%;
+                    padding-left: 10;
+                }
+            }
+            
+        }
+        .restaurant_card:nth-child(6n + 4),
+        .restaurant_card:nth-child(6n + 5),
+        .restaurant_card:nth-child(6n + 6) {
+            
+            margin-left: -20px;
+            margin-right: 20px;
+            text-align: left;
+            
+            a.content{
+                flex-direction: row;
+            }
+        }
+        .restaurant_card:nth-child(4n + 3),
+        .restaurant_card:nth-child(4n + 4) {
+            margin-right: -20px;
+            margin-left: 20px;
+            text-align: right;
+            a.content{
+                background-color: salmon;
+                flex-direction: row-reverse;
+                .restaurant_info{
+                    padding-right: 10px;
+
+                    h3{
+                        font-size: $font_text_m;
+                    }
+                    small{
+                        font-size: $font_text_xs;
+                    }
+            }
+        } 
+        
+    }
+    }
+}
+/* //?  SMALL 480-320 */
+@media screen and (max-width:480px) {
+    *  {
+        border: 2px solid  pink!important;
+    }
 }

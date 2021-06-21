@@ -10,7 +10,6 @@
     font-size: $font_text_m;
     text-decoration: none;
     padding: 8px 12px;
-    margin: 0 10px;
     border-radius: 5px;
     background-color: $pallette_yellow;
     border: solid $pallette_yellow_dark 1px;
@@ -38,21 +37,73 @@ h1, h2 {
     font-weight: lighter;
 }
 
-// section{
-//     padding-top: 80px;
-// }
+.container{
+    width:90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
 
-// prove
-.PROVACHIAMATEAXIOS{
-    .RESTAURANTS{
-        display: flex;
-        flex-wrap: wrap;
-        width:80%;
-        margin: auto;
-        .RESTAURANT{
-            margin: 40px 0;
-            width: calc(100% / 3);
-            text-align: center;
-        } 
-    }    
+// ? list socials
+i {
+    border-radius: 5px;
+    color: white;
+}
+
+.fa-facebook-f {
+    padding: 10px 12px 10px 14px;
+    background-color: #3c5998;
+}
+.fa-twitter {
+    padding: 10px;
+    background-color: #54acee;
+}
+.fa-instagram {
+    padding: 10px 11px;
+    background-color: #3f729b;
+}
+.fa-youtube {
+    padding: 10px 9px;
+    background-color: #cd201f;
+}
+/* //?  MEDIUM 768-480px  */
+@media screen  and (max-width:768px) {
+
+    .fa-facebook-f {
+        padding: 6px 8px 6px 10px;
+    }
+    .fa-twitter {
+        padding: 6px;
+    }
+    .fa-instagram {
+        padding: 6px 7px;
+    }
+    .fa-youtube {
+        padding: 6px 5px;
+    }
+}
+
+
+
+
+//* MEDIA QUERY RESPONSIVE
+
+/* //?  LARGE 1200-768px */
+@media screen and (max-width:1200px) {
+
+}
+
+/* //?  MEDIUM 768-480px  */
+@media screen  and (max-width:768px) {
+
+}
+
+/* //?  SMALL 480-320 */
+@media screen and (max-width:480px) {
+
+}
+
+/* //? EXTRA SMALL 320-0 */
+@media screen and  (max-width:320px) {
+
 }

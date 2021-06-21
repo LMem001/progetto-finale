@@ -1,16 +1,17 @@
 //? Section 1: introduction
 #introduction{
     // background-color: $pallette_yellow;
-    padding: 150px 0;
+    padding: 100px 0;
     
     .titles{
-        width: 80%;
+        width: 70%;
         margin: auto;
         text-align: center;
 
         h2{
             color: $pallette_orange;
             font-size: $font_titles_s;
+            margin-bottom: 10px;
         }
         p {
             padding: 20px;
@@ -20,28 +21,69 @@
     }
     //? Presentation
     .presentation {
-        .content {
-            width: 85%;
-            margin: auto;
+        .box_container {
             text-align: center;
-            display: flex;
-            justify-content: space-between;
+            margin-top: 60px;
+
             .box {
-                width: calc((100% / 3)- 60);
-                margin: 0px 30px;
+                width: calc(99% / 3);
+
                 .box_content{
-                img{
-                   width: 100%;
-                   margin-bottom: 40px;
-                }
-                h3{
-                   font-size: $font_titles_s;
-                   color: $pallette_orange;
-                   text-transform: uppercase;
-                }
-            }
- 
+                    img{
+                        width: 100%;
+                        margin-top: -60px;
+                    }
+
+                    h3{
+                        font-size: $font_titles_s;
+                        font-family: $veganStyle;
+                        letter-spacing: 3px;
+                        color: $pallette_orange;
+                        text-transform: uppercase;
+                    }
+                    p {
+                        padding: 20px 15px;
+                        font-size: $font_text_m;
+                    }
+            } 
         }
     }
  }
 }
+
+/* //?  LARGE 1200-768px */
+@media screen and (max-width:1200px) {
+
+    #introduction {
+        .titles{
+            h2 {
+                font-size: $font_text_l;
+            }
+        }
+        // .presentation
+        h3 {
+            font-size: $font_text_l!important;   
+        }        
+    }
+}
+/* //?  MEDIUM 768-480px  */
+@media screen  and (max-width:768px) {
+
+    #introduction {
+        .titles{
+            h2 {
+                font-size: $font_text_l;
+            }
+        }
+        h3 {
+            font-size: $font_text_m!important;   
+        }  
+    }
+}
+/* //?  SMALL 480-320 */
+@media screen and (max-width:480px) {
+    *  {
+        border: 2px solid  pink!important;
+    }
+}
+

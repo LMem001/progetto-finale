@@ -4,35 +4,26 @@ header{
     width: 100%;
     z-index: 100;
 
-    .container{
-        width:90%;
-        margin: auto;
-    }
-
     .banner{
         background-color: $pallette_blue;
+        font-size: $font_text_m;
 
-        .container{
-            display: flex;
-            justify-content: space-between;
-
-            p, .closeBanner{
-                padding: 20px 0;
-                color: white;
-            }
-        
-            .closeBanner{
-                cursor: pointer;
-            }
+        p, .closeBanner{
+            padding: 20px 0;
+            color: white;
+        }
+    
+        .closeBanner{
+            cursor: pointer;
         }
     }
 
     .bannerDisplayNone{
         display: none;
     }
+
     .navbar{
         width: 100%;
-        padding: 5px 10px;
         margin-top: 30px;
 
     //    background-color: transparent;
@@ -42,24 +33,29 @@ header{
             display: inline-block;
             width: 15%;
             height: 60px;
+            min-width: 200px;
             // margin: 0 20px;
             
             img {
                 height: 100%;
+                width: 100%;
+                margin-top: 5px;
             }
         }
-        .dropdownLogout{
+
+        .dropDownLogout{
             position: relative;
+            padding: 10px;
             a{
                 cursor: pointer;
                 text-decoration: none;
-                color: #fff;
                 text-transform: capitalize;
-                font-size: $font_text_m;  
+                font-size: $font_text_m;
+                font-weight: bolder;  
                 padding: 10px 0;
             }
             .logout{
-                background-color: white;
+                background-color: rgba(246, 180, 37, 0.7);
                 border-radius: 10px;
                 position: absolute;
                 top: 30px;
@@ -74,17 +70,18 @@ header{
                     background-color: #cacaca;
                 }
                 // display: none;
+                margin-top: 20px;
+                background-color: rgba(246, 180, 37, 0.4);
             }
             .logoutDisplay{
                 display: block;
+                margin-top: 50px;
              }
         }
 
         nav {
-            display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: space-between;
             
             ul li{
                 display: inline-block;
@@ -93,7 +90,7 @@ header{
                 font-size: $font_text_m;  
                 font-weight: bolder;
                 color: black;
-                padding: 0 20px;
+                padding-right: 20px;
                 
                 a{
                     text-decoration: none;
@@ -110,20 +107,56 @@ header{
                     padding-left: 5px;
                 }
             } 
-
-            .nav_login {
-                margin-right: 20px;
+            .registration {
+                padding-left: 20px;
             }
-            
-            
         }
     }
 }
+
 .on_scroll {
     margin-top: 0px!important;
-    background-color: $pallette_orange!important;
+    background-color: rgb(253, 240, 211)!important;
     ul li {
         color: $pallette_red;
         font-weight: 500;
     } 
+}
+
+/* //?  LARGE 1200-768px */
+@media screen and (max-width:1200px) {
+
+    header{
+
+        .banner{
+            font-size: $font_text_s;
+        }
+        
+        .navbar{
+            
+            ul {
+                
+                display: none;
+
+                li {
+                    font-size: $font_text_s;
+                }
+            }
+        }
+    }
+}
+/* //?  MEDIUM 768-480px  */
+@media screen  and (max-width:768px) {
+    header {
+
+        .banner {
+            display: none;
+        }
+    }
+}
+/* //?  SMALL 480-320 */
+@media screen and (max-width:480px) {
+    * {
+        border: 2px solid  pink!important;
+    }
 }

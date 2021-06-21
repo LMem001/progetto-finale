@@ -3,14 +3,14 @@
     <div class="footer_container container">
         <div class="footer_col" id="foot_col1">
             <div class="footer_logo">
-                <img src="/img/big_logo.png" alt="logo DeviBool">
+                <img src="/img/bigger_logo.png" alt="logo DeviBool">
             </div>
             <p class="mt_3">
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolemue launti totam aperiam, eaque ipsa quae abillo. Invente veriatis et quasi architecto beatae luptatem accusantium, remaperiamsiat. Voluptatem accusest etsium doloremque laudaien. Lorem ipsum sits dolores ets unser.
             </p>
 
-            <h4>Potete trovarci anche sui social </h4>
-            <ul>
+            <h4>Anche sui social !</h4>
+            <ul >
                 <li>
                     <a href="facebook.com">
                         <i class="fab fa-facebook-f"></i>
@@ -33,30 +33,26 @@
                 </li>
             </ul>
         </div>
-
-        <div class="footer_col"  id="foot_col2">
-            <h3>Contatti</h3>
-            <div class="contact_info">
-                <ul> 
-                    <li>
-                        <i class="fas fa-map-marker"></i>
-                        indirizzo
-                    </li>
-                    <li>
-                        <i class="fas fa-phone"></i>
-                        telefono
-                    </li>
-                </ul>
-            </div>
         
-            <div class="slider_comments">
-                <p>qui ci potrebbero andare dei commenti super fake che consigliano di usare il nostro sito e sputtanano gli altri </p>
+        <div class="footer_menu">
+            <div class="footer_col"  id="foot_col2">
+                <h3>Contatti</h3>
+                <div class="contact_info">
+                    <ul> 
+                        <li>
+                            <i class="fas fa-map-marker"></i>
+                            indirizzo
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            telefono
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <div class="footer_col" id="foot_col3">
-            <div class="foot_col_upper mt_2">
-
+            <div class="footer_col" id="foot_col3">
+                
                 <h3>Servizio clienti</h3>
                 <ul> 
                     <li>
@@ -70,23 +66,36 @@
                     </li>
                 </ul>
             </div>
-            <div class="foot_col_lower mt_2">
+            
+            <div class="footer_col" id="foot_col4">
                 <h3>Scarica la nostra APP</h3>
                 <ul> 
                     <li>
-                        immagine del playstore
+                        <a href="">
+                            <img src="/img/playstore.png" alt="compra con playstore">
+                        </a>
                     </li>
                     <li>
-                       immagine apple store
+                        <a href="">
+                            <img src="/img/applestore.png" alt="compra con applestore">
+                        </a>
                     </li>
                     <li>
-                       immagine windows store... perchè noi siamo avanti
+                        <a href="">
+                            <img src="/img/appgallery.png" alt="compra con appgallery">
+                        </a>
                     </li>
-                </ul>
+                </ul>  
+            </div>
+
+            <div class="slider_comments">
+                <p>qui ci potrebbero andare dei commenti super fake che consigliano di usare il nostro sito e sputtanano gli altri </p>
             </div>
         </div>
+        
+        
     </div>
-
+    
     <div class="footer_row">
         <ul>
             <li id="copyright">

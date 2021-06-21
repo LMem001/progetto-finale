@@ -9,10 +9,11 @@
      </div>
      {{-- navbar --}}
      <div class="navbar" :class="{'on_scroll': !view.topOfPage}">
-        <nav class="container">
-           <div class="logo">
-              <img src="/img/big_logo.png" alt="logo di DeviBool">
+         <nav class="container">
+            <div class="logo">
+               <img src="img/bigger_logo.png" alt="logo di DeviBool">
             </div>
+            
             <ul class="navbar_elements">
                <li>
                   <a href="#jumbotron">Home</a>
@@ -31,20 +32,23 @@
                   opzione 1 
                   <i class="fas fa-chevron-down"></i>
                </li>
-                --}}
+               --}}
             </ul>
             
             <div class="nav_login">
                @if (Route::has('login'))
                @auth
-               <div class="dropdownLogout" v-on:mouseleave="hidelogout">
-                  <a @click="logouttoggleshow" href="#">{{ Auth::user()->name }} <i class="fas fa-chevron-down"></i></a>
+               <div class="dropDownLogout btn_primary" v-on:mouseleave="hidelogout">
+                  <a @click="logouttoggleshow" href="#">{{ Auth::user()->name }}
+                     <i class="fas fa-chevron-down"></i>
+                  </a>
                      <div :class="logoutshow" class="logout">
                         <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
-                                      document.getElementById('logout-form').submit();">
-                         {{ __('Logout') }}
+                                    document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
                         </a>
+                        <p>hello</p>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
                            @csrf
                         </form>
@@ -53,17 +57,16 @@
                </div>
                {{-- <a class="btn_primary" href="{{ url('/home') }}">Home</a> --}}
                @else
-               <a class="btn_primary" href="{{ route('login') }}">Login</a>
+               <a class="btn_primary registration" href="{{ route('login') }}">Login</a>
                
                @if (Route::has('register'))
-               <a class="btn_primary" href="{{ route('register') }}">Registrati</a>
+               <a class="btn_primary registration" href="{{ route('register') }}">Registrati</a>
                @endif
                @endauth
                @endif
-            </div>
-         </nav>
-         
-      </div>
+            </nav>
+      </nav>
+   </div>
       {{-- navbar --}}
 </header>
                             

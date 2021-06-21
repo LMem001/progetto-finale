@@ -10,14 +10,15 @@
     transition: 0.5s ease;
 
     .jumbo-content{
-        margin-left: 20%;
-        background-color: rgba($color: black, $alpha: 0.3);
+        margin-left: calc(20% - 100px);
         // text-align: center;
+        width: calc(40% + 100px);
+        min-width: 550px;
+        padding: 20px;
         color: white;
-        padding: 25px;
-        width: 40%;
-        border: 1px solid white;
         border-radius: 10px;
+        border: 1px solid white;
+        background-color: rgba($color: black, $alpha: 0.3);
 
         h1{
             font-size: $font_titles_l;
@@ -45,5 +46,47 @@
             }
         }
         
+    }
+}
+
+//!!! MEDIA QUERIES
+/* //?  LARGE 1200-768px */
+@media screen and (max-width:1200px) {
+
+    #jumbotron{
+        .jumbo-content{
+            margin-left: 10%;
+        }
+
+    }
+}
+/* //?  MEDIUM 768-480px  */
+@media screen  and (max-width:768px) {
+    #jumbotron{
+        .jumbo-content{
+            width: 80%;
+            margin: auto;
+            min-width: 300px;
+            padding: 15px;
+            h1{
+                font-size: $font_titles_s;
+            }            
+            h2{
+                font-size: $font_text_l;
+            }
+            .input-jumbotron-container{
+                color: white;
+                
+                input{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+/* //?  SMALL 480-320 */
+@media screen and (max-width:480px) {
+    *  {
+        border: 2px solid  pink!important;
     }
 }
