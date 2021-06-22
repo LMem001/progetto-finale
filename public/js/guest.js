@@ -17281,6 +17281,7 @@ var app = new Vue({
     apiRestaurantURL: "http://localhost:8000/api/restaurants/",
     apiRestaurantType: "http://localhost:8000/api/types",
     apiSingleRetstaurant: "http://localhost:8000/api/restaurant/",
+    localStoreSlug: localStorage.getItem('savedrestaurantSlug'),
     restaurants: [],
     restaurants_types: [],
     selectedType: 0,
@@ -17359,6 +17360,7 @@ var app = new Vue({
       localStorage.setItem("refreshsum", JSON.stringify(this.sum));
       localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
       localStorage.setItem("refreshCart", JSON.stringify(this.cart));
+      localStorage.setItem("savedrestaurantSlug", JSON.stringify(this.selectedRestaurant.slug));
     },
     removeItem: function removeItem() {
       var _this2 = this;
@@ -17392,6 +17394,7 @@ var app = new Vue({
       localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
       localStorage.setItem("refreshCart", JSON.stringify(this.cart));
     },
+    clearCart: function clearCart() {},
     logouttoggleshow: function logouttoggleshow() {
       if (this.logoutshow == "") {
         this.logoutshow = "display";
@@ -17474,10 +17477,12 @@ var app = new Vue({
       _this4.selectedRestaurant = serverAnswer.data; // get products
 
       axios.get(_this4.apiRestaurantURL + _this4.selectedRestaurant.id).then(function (serverAnswer) {
+        _this4.restaurantSlug = '"' + _this4.restaurantSlug + '"';
         serverAnswer.data.forEach(function (product) {
-          if (localStorage.getItem('order') != null) {
+          if (localStorage.getItem('order') != null && _this4.localStoreSlug == _this4.restaurantSlug) {
             _this4.restaurantFoods = JSON.parse(localStorage.getItem("order"));
           } else {
+            localStorage.clear();
             product["quantity"] = 0;
 
             if (product.tagCourse == "antipasto") {

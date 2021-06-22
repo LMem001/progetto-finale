@@ -14,7 +14,7 @@
                <div class="logo_btn displayNone">
                   <button>insert logo Icon</button>
                </div>
-               <img src="img/bigger_logo.png" alt="logo di DeviBool">
+               <img src="/img/bigger_logo.png" alt="logo di DeviBool">
             </div>
             
             <ul class="navbar_elements">

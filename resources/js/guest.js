@@ -10,6 +10,7 @@ var app = new Vue(
          apiRestaurantURL: "http://localhost:8000/api/restaurants/",
          apiRestaurantType: "http://localhost:8000/api/types",
          apiSingleRetstaurant: "http://localhost:8000/api/restaurant/",
+         localStoreSlug: localStorage.getItem('savedrestaurantSlug'),
          restaurants: [],
          restaurants_types:[],
          selectedType: 0,
@@ -96,6 +97,7 @@ var app = new Vue(
             localStorage.setItem("refreshsum", JSON.stringify(this.sum));
             localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
             localStorage.setItem("refreshCart", JSON.stringify(this.cart));
+            localStorage.setItem("savedrestaurantSlug", JSON.stringify(this.selectedRestaurant.slug));
           },
 
          removeItem() {
@@ -120,6 +122,10 @@ var app = new Vue(
             localStorage.setItem("refreshsum", JSON.stringify(this.sum));
             localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
             localStorage.setItem("refreshCart", JSON.stringify(this.cart));
+         },
+
+         clearCart: function(){
+            
          },
 
          logouttoggleshow: function(){
@@ -213,7 +219,7 @@ var app = new Vue(
          lastParam = url.split("/").slice(-1)[0],
          
          this.restaurantSlug = (lastParam == "" ? this.restaurants[0].slug : lastParam),
-
+            
          // get single Restaurant
          
          axios.get(this.apiSingleRetstaurant + this.restaurantSlug,)
@@ -227,12 +233,13 @@ var app = new Vue(
                // get products
                axios.get(this.apiRestaurantURL + this.selectedRestaurant.id,)
                .then((serverAnswer) =>{
-
+                  
+                  this.restaurantSlug = '"' + this.restaurantSlug + '"';
                   serverAnswer.data.forEach((product) =>{
-                     
-                     if(localStorage.getItem('order') != null){
+                     if(localStorage.getItem('order') != null &&  this.localStoreSlug == this.restaurantSlug){
                         this.restaurantFoods = JSON.parse(localStorage.getItem("order"))
                      }else{
+                        localStorage.clear();
                         product["quantity"] = 0;
                         if(product.tagCourse == "antipasto"){
                            this.restaurantFoods[0].food.push(product);
@@ -251,7 +258,7 @@ var app = new Vue(
                         }else if(product.tagCourse == "altro"){
                            this.restaurantFoods[7].foodpush(product);
                         }
-                     }  
+                     }
                   })
 
                   serverAnswer.data.forEach((answer) =>{

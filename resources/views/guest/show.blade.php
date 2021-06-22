@@ -22,6 +22,7 @@
 @endsection
 
 @section('content')
+
 <main>
     <!-- info -->
     <div class="container-show">
@@ -85,8 +86,8 @@
                     <h2>Il tuo ordine</h2>
                     <div class="cart-content">
                         <ul>
-                            <li v-for="food in cart">
-                                <div v-if="food.quantity > 0" class="product">
+                            <li v-if="food.quantity > 0" v-for="food in cart">
+                                <div class="product">
                                     @{{food.name}} 
                                     <span class="quantity">@{{food.quantity}}</span>
                                     <span class="price">@{{(food.food_price * food.quantity).toFixed(2)}}</span>

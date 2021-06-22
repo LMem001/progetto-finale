@@ -145,6 +145,74 @@ html {
   scroll-behavior: smooth;
 }
 
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  opacity: 0;
+  background-color: #643863;
+  background-image: url("../img/skyline_roma.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100%;
+  -webkit-animation-name: preloader;
+          animation-name: preloader;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+@media screen and (max-width: 1200px) {
+  .preloader {
+    width: 1200px;
+    background-position: bottom 50%;
+  }
+}
+@-webkit-keyframes preloader {
+  0% {
+    opacity: 1;
+    height: 100%;
+  }
+  60% {
+    opacity: 1;
+  }
+  99% {
+    height: 100%;
+  }
+  100% {
+    height: 0;
+    opacity: 0;
+  }
+}
+@keyframes preloader {
+  0% {
+    opacity: 1;
+    height: 100%;
+  }
+  60% {
+    opacity: 1;
+  }
+  99% {
+    height: 100%;
+  }
+  100% {
+    height: 0;
+    opacity: 0;
+  }
+}
+.preloader .city {
+  position: absolute;
+  bottom: -10px;
+  right: 0%;
+}
+.preloader .city img {
+  width: 100%;
+  min-width: 1200px;
+}
+
 header {
   position: fixed;
   top: 0;
