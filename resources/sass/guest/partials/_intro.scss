@@ -35,7 +35,7 @@
                     }
 
                     h3{
-                        font-size: $font_titles_s;
+                        font-size: $font_titles_m;
                         font-family: $veganStyle;
                         letter-spacing: 3px;
                         color: $pallette_orange;
@@ -54,36 +54,102 @@
 /* //?  LARGE 1200-768px */
 @media screen and (max-width:1200px) {
 
-    #introduction {
-        .titles{
-            h2 {
-                font-size: $font_text_l;
+    #introduction{
+        padding: 80px 0;
+        //? Presentation
+        .presentation {
+            .box_container {
+                text-align: center;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                // margin-top: 60px;
+    
+                .box {
+                    width: 50%;
+                    margin: auto;
+
+                }
             }
         }
-        // .presentation
-        h3 {
-            font-size: $font_text_l!important;   
-        }        
     }
 }
 /* //?  MEDIUM 768-480px  */
 @media screen  and (max-width:768px) {
 
-    #introduction {
-        .titles{
-            h2 {
-                font-size: $font_text_l;
+    #introduction{
+        padding: 70px 0;
+        
+        //? Presentation
+        .presentation {
+            .box_container {
+                padding: 30px;
+
+                .box {
+                    width: 100%;
+    
+                    .box_content{
+
+                        img{
+                            width: 60%;
+                            margin: auto;
+                            margin-top: -100px;
+                        }
+
+                        h3{
+                            font-size: $font_titles_s;
+                        }
+                        p {
+                            position: relative;
+                            padding: 20px 15px;
+                            font-size: $font_text_l;
+                        }
+                        // p::after {
+                        //     content: "";
+                        //     position: absolute;
+                        //     left: 10%;
+                        //     right: 10%;
+                        //     bottom: -10px;
+                        //     height: 6px;
+                        //     background-color: $pallette_red;
+                        //     box-shadow: 1px 1px 2px rgb(0, 0, 0);
+                        // }
+                    } 
+                }
             }
         }
-        h3 {
-            font-size: $font_text_m!important;   
-        }  
     }
 }
 /* //?  SMALL 480-320 */
 @media screen and (max-width:480px) {
-    *  {
-        border: 2px solid  pink!important;
+
+    #introduction{
+        padding: 70px 0;
+
+        //? Presentation
+        .presentation {
+            .box_container {
+                text-align: center;
+                flex-wrap: wrap;
+                // margin-top: 60px;
+    
+                .box {
+                    .box_content{
+                        img{
+                            width: 70%;
+                            margin: auto;
+                            margin-top: -50px;
+                        }
+                        h3{
+                            font-size: $font_text_m;
+                        }
+                        p {
+                            font-size: $font_text_m;
+                        }
+                    } 
+                }
+            }
+        }
     }
 }
+
 

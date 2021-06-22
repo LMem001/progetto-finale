@@ -6,7 +6,7 @@
 }
 
 .btn_primary {
-    color: black;
+    color: white;
     font-size: $font_text_m;
     text-decoration: none;
     padding: 8px 12px;
@@ -16,7 +16,7 @@
     -webkit-box-shadow: 3px 3px 0px 0px rgba(246, 180, 37, 1);
     -moz-box-shadow:    3px 3px 0px 0px rgba(246, 180, 37, 1);
     box-shadow:         3px 3px 0px 0px rgba(246, 180, 37, 1);
-
+    text-shadow: 1px 1px 0px rgb(0, 0, 0);
 }
 
 //* margins generator: mt_1 => margint-top : 10px;
@@ -39,9 +39,16 @@ h1, h2 {
 
 .container{
     width:90%;
+    max-width: 1400px;
     margin: auto;
     display: flex;
     justify-content: space-between;
+}
+.display{
+    display: block;
+ }
+ .displayNone{
+    display: none;
 }
 
 // ? list socials
@@ -68,7 +75,10 @@ i {
 }
 /* //?  MEDIUM 768-480px  */
 @media screen  and (max-width:768px) {
-
+    .container{
+        width: 100%;
+        padding: 20px;
+    }
     .fa-facebook-f {
         padding: 6px 8px 6px 10px;
     }
@@ -80,6 +90,7 @@ i {
     }
     .fa-youtube {
         padding: 6px 5px;
+        background-color: #cd201f;
     }
 }
 

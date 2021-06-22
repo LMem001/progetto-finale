@@ -17324,6 +17324,7 @@ var app = new Vue({
     selectedFood: '',
     // search: "",
     logoutshow: "",
+    menushow: "",
     bannerNone: '',
     date: moment(60 * 30 * 1000),
     sum: 0,
@@ -17393,16 +17394,26 @@ var app = new Vue({
     },
     logouttoggleshow: function logouttoggleshow() {
       if (this.logoutshow == "") {
-        this.logoutshow = "logoutDisplay";
+        this.logoutshow = "display";
       } else {
         this.logoutshow = "";
+      }
+    },
+    menutoggleshow: function menutoggleshow() {
+      if (this.menushow == "") {
+        this.menushow = "display";
+      } else {
+        this.menushow = "";
       }
     },
     hidelogout: function hidelogout() {
       this.logoutshow = "";
     },
+    hidemenu: function hidemenu() {
+      this.logoutshow = "";
+    },
     hideBanner: function hideBanner() {
-      this.bannerNone = "bannerDisplayNone";
+      this.bannerNone = "displayNone";
     },
     // Cambia classe all'header allo scroll
     handleScroll: function handleScroll() {

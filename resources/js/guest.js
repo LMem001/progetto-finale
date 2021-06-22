@@ -63,6 +63,7 @@ var app = new Vue(
          // search: "",
 
          logoutshow: "",
+         menushow:"",
          bannerNone: '',
          date: moment(60 * 30 * 1000),
          sum: 0,
@@ -123,16 +124,26 @@ var app = new Vue(
 
          logouttoggleshow: function(){
             if(this.logoutshow == ""){
-               this.logoutshow = "logoutDisplay";
+               this.logoutshow = "display";
             }else{
             this.logoutshow = "";
+            }
+         },
+         menutoggleshow: function(){
+            if(this.menushow == ""){
+               this.menushow = "display";
+            }else{
+            this.menushow = "";
             }
          },
          hidelogout: function(){
             this.logoutshow = "";
          },
+         hidemenu: function(){
+            this.logoutshow = "";
+         },
          hideBanner: function (){
-           this.bannerNone = "bannerDisplayNone";
+           this.bannerNone = "displayNone";
          },
 
          // Cambia classe all'header allo scroll

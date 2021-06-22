@@ -18,9 +18,7 @@ header{
         }
     }
 
-    .bannerDisplayNone{
-        display: none;
-    }
+
 
     .navbar{
         width: 100%;
@@ -31,40 +29,44 @@ header{
         // padding: 10px 0;
         .logo{
             display: inline-block;
-            width: 15%;
             height: 60px;
-            min-width: 200px;
             // margin: 0 20px;
             
             img {
                 height: 100%;
-                width: 100%;
                 margin-top: 5px;
             }
         }
 
-        .dropDownLogout{
+        .dropDownLogout,
+        .dropDownMenu{
             position: relative;
-            padding: 10px;
+
             a{
                 cursor: pointer;
                 text-decoration: none;
                 text-transform: capitalize;
                 font-size: $font_text_m;
                 font-weight: bolder;  
-                padding: 10px 0;
+                padding: 5px 5px;
             }
-            .logout{
+            .logout, .menu{
                 background-color: rgba(246, 180, 37, 0.7);
                 border-radius: 10px;
                 position: absolute;
-                top: 30px;
-                right: 0;
+                top: 0;
+                right: -30px;
                 transition: 0.5s;
                 display: none;
-                a{
-                    color: black;
-                    padding: 10px 20px;
+                
+                ul {
+                    text-align: end;
+
+                    li {
+                        a{
+                            color: black;
+                        }
+                    }
                 }
                 &:hover{
                     background-color: #cacaca;
@@ -73,16 +75,15 @@ header{
                 margin-top: 20px;
                 background-color: rgba(246, 180, 37, 0.4);
             }
-            .logoutDisplay{
+            .display{
                 display: block;
-                margin-top: 50px;
+                margin-top: 70px;
              }
         }
 
         nav {
             flex-direction: row;
-            align-items: center;
-            
+            align-items: center;          
             ul li{
                 display: inline-block;
                 position: relative;
@@ -113,7 +114,6 @@ header{
         }
     }
 }
-
 .on_scroll {
     margin-top: 0px!important;
     background-color: rgb(253, 240, 211)!important;
@@ -127,19 +127,13 @@ header{
 @media screen and (max-width:1200px) {
 
     header{
-
         .banner{
             font-size: $font_text_s;
         }
-        
         .navbar{
-            
-            ul {
-                
-                display: none;
-
-                li {
-                    font-size: $font_text_s;
+            nav {               
+                small {
+                    display: none;
                 }
             }
         }
@@ -147,16 +141,31 @@ header{
 }
 /* //?  MEDIUM 768-480px  */
 @media screen  and (max-width:768px) {
-    header {
 
-        .banner {
+    header{
+        .banner{
             display: none;
+            font-size: $font_text_s;
+        }
+        .navbar{
+            .navbar_elements {
+                display: none;
+                // todo navbar con pulsantino
+            }
         }
     }
 }
 /* //?  SMALL 480-320 */
 @media screen and (max-width:480px) {
-    * {
-        border: 2px solid  pink!important;
+
+    header {
+        .logo_btn{
+            display: inline-block;
+        }
+        .logo{
+            img {
+                display: none;
+            }
+        }
     }
 }

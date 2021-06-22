@@ -2,13 +2,12 @@
     background-color: $pallette_orange;
     // background-color: #ffeee3; 
     .categories{
-        margin-top: 50px;
-        margin-bottom: 30px; 
+
         justify-content: space-around;
         flex-wrap: wrap;
+        margin-top: 20px;
 
         .category-card {
-            margin-top: 20px;
             margin-bottom: 20px;
             width: calc( 100% / 6);
             transition: 0.5s;
@@ -40,7 +39,6 @@
 
     #category{
         .categories {
-            margin-top: 40px; 
             .category-card{
                 padding: 3px;
                 h4 {
@@ -55,7 +53,7 @@
 
     #category{
         .categories {
-            margin-top: 20px; 
+            margin-top: 0px; 
             flex-wrap: nowrap;
             justify-content: start;
             overflow-x: auto;

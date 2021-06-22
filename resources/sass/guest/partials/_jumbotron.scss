@@ -86,7 +86,26 @@
 }
 /* //?  SMALL 480-320 */
 @media screen and (max-width:480px) {
-    *  {
-        border: 2px solid  pink!important;
+
+    #jumbotron{
+        .jumbo-content{
+            width: 90%;
+            margin: auto;
+            min-width: 250px;
+            padding: 0;
+            h1{
+                font-size: $font_text_l;
+            }            
+            h2{
+                font-size: $font_text_s;
+            }
+            .input-jumbotron-container{
+                color: white;
+                
+                input{
+                    width: 100%;
+                }
+            }
+        }
     }
 }

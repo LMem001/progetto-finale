@@ -10,7 +10,7 @@
 }
 
 .btn_primary {
-  color: black;
+  color: white;
   font-size: 19px;
   text-decoration: none;
   padding: 8px 12px;
@@ -18,6 +18,7 @@
   background-color: #F8DC2A;
   border: solid #F6b425 1px;
   box-shadow: 3px 3px 0px 0px #f6b425;
+  text-shadow: 1px 1px 0px black;
 }
 
 .mt_1 {
@@ -73,9 +74,18 @@ h1, h2 {
 
 .container {
   width: 90%;
+  max-width: 1400px;
   margin: auto;
   display: flex;
   justify-content: space-between;
+}
+
+.display {
+  display: block;
+}
+
+.displayNone {
+  display: none;
 }
 
 i {
@@ -105,6 +115,11 @@ i {
 
 /* //?  MEDIUM 768-480px  */
 @media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 20px;
+  }
+
   .fa-facebook-f {
     padding: 6px 8px 6px 10px;
   }
@@ -119,6 +134,7 @@ i {
 
   .fa-youtube {
     padding: 6px 5px;
+    background-color: #cd201f;
   }
 }
 /* //?  LARGE 1200-768px */
@@ -146,9 +162,6 @@ header .banner p, header .banner .closeBanner {
 header .banner .closeBanner {
   cursor: pointer;
 }
-header .bannerDisplayNone {
-  display: none;
-}
 header .navbar {
   width: 100%;
   margin-top: 30px;
@@ -156,48 +169,57 @@ header .navbar {
 }
 header .navbar .logo {
   display: inline-block;
-  width: 15%;
   height: 60px;
-  min-width: 200px;
 }
 header .navbar .logo img {
   height: 100%;
-  width: 100%;
   margin-top: 5px;
 }
-header .navbar .dropDownLogout {
+header .navbar .dropDownLogout,
+header .navbar .dropDownMenu {
   position: relative;
-  padding: 10px;
 }
-header .navbar .dropDownLogout a {
+header .navbar .dropDownLogout a,
+header .navbar .dropDownMenu a {
   cursor: pointer;
   text-decoration: none;
   text-transform: capitalize;
   font-size: 19px;
   font-weight: bolder;
-  padding: 10px 0;
+  padding: 5px 5px;
 }
-header .navbar .dropDownLogout .logout {
+header .navbar .dropDownLogout .logout, header .navbar .dropDownLogout .menu,
+header .navbar .dropDownMenu .logout,
+header .navbar .dropDownMenu .menu {
   background-color: rgba(246, 180, 37, 0.7);
   border-radius: 10px;
   position: absolute;
-  top: 30px;
-  right: 0;
+  top: 0;
+  right: -30px;
   transition: 0.5s;
   display: none;
   margin-top: 20px;
   background-color: rgba(246, 180, 37, 0.4);
 }
-header .navbar .dropDownLogout .logout a {
-  color: black;
-  padding: 10px 20px;
+header .navbar .dropDownLogout .logout ul, header .navbar .dropDownLogout .menu ul,
+header .navbar .dropDownMenu .logout ul,
+header .navbar .dropDownMenu .menu ul {
+  text-align: end;
 }
-header .navbar .dropDownLogout .logout:hover {
+header .navbar .dropDownLogout .logout ul li a, header .navbar .dropDownLogout .menu ul li a,
+header .navbar .dropDownMenu .logout ul li a,
+header .navbar .dropDownMenu .menu ul li a {
+  color: black;
+}
+header .navbar .dropDownLogout .logout:hover, header .navbar .dropDownLogout .menu:hover,
+header .navbar .dropDownMenu .logout:hover,
+header .navbar .dropDownMenu .menu:hover {
   background-color: #cacaca;
 }
-header .navbar .dropDownLogout .logoutDisplay {
+header .navbar .dropDownLogout .display,
+header .navbar .dropDownMenu .display {
   display: block;
-  margin-top: 50px;
+  margin-top: 70px;
 }
 header .navbar nav {
   flex-direction: row;
@@ -241,23 +263,27 @@ header .navbar nav .registration {
   header .banner {
     font-size: 15px;
   }
-  header .navbar ul {
+  header .navbar nav small {
     display: none;
-  }
-  header .navbar ul li {
-    font-size: 15px;
   }
 }
 /* //?  MEDIUM 768-480px  */
 @media screen and (max-width: 768px) {
   header .banner {
     display: none;
+    font-size: 15px;
+  }
+  header .navbar .navbar_elements {
+    display: none;
   }
 }
 /* //?  SMALL 480-320 */
 @media screen and (max-width: 480px) {
-  * {
-    border: 2px solid pink !important;
+  header .logo_btn {
+    display: inline-block;
+  }
+  header .logo img {
+    display: none;
   }
 }
 #jumbotron {
@@ -324,7 +350,7 @@ header .navbar nav .registration {
     padding: 15px;
   }
   #jumbotron .jumbo-content h1 {
-    font-size: 36px;
+    font-size: 29px;
   }
   #jumbotron .jumbo-content h2 {
     font-size: 23px;
@@ -338,8 +364,23 @@ header .navbar nav .registration {
 }
 /* //?  SMALL 480-320 */
 @media screen and (max-width: 480px) {
-  * {
-    border: 2px solid pink !important;
+  #jumbotron .jumbo-content {
+    width: 90%;
+    margin: auto;
+    min-width: 250px;
+    padding: 0;
+  }
+  #jumbotron .jumbo-content h1 {
+    font-size: 23px;
+  }
+  #jumbotron .jumbo-content h2 {
+    font-size: 15px;
+  }
+  #jumbotron .jumbo-content .input-jumbotron-container {
+    color: white;
+  }
+  #jumbotron .jumbo-content .input-jumbotron-container input {
+    width: 100%;
   }
 }
 #introduction {
@@ -352,7 +393,7 @@ header .navbar nav .registration {
 }
 #introduction .titles h2 {
   color: #F67F41;
-  font-size: 36px;
+  font-size: 29px;
   margin-bottom: 10px;
 }
 #introduction .titles p {
@@ -385,39 +426,74 @@ header .navbar nav .registration {
 
 /* //?  LARGE 1200-768px */
 @media screen and (max-width: 1200px) {
-  #introduction .titles h2 {
-    font-size: 23px;
+  #introduction {
+    padding: 80px 0;
   }
-  #introduction h3 {
-    font-size: 23px !important;
+  #introduction .presentation .box_container {
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  #introduction .presentation .box_container .box {
+    width: 50%;
+    margin: auto;
   }
 }
 /* //?  MEDIUM 768-480px  */
 @media screen and (max-width: 768px) {
-  #introduction .titles h2 {
-    font-size: 23px;
+  #introduction {
+    padding: 70px 0;
   }
-  #introduction h3 {
-    font-size: 19px !important;
+  #introduction .presentation .box_container {
+    padding: 30px;
+  }
+  #introduction .presentation .box_container .box {
+    width: 100%;
+  }
+  #introduction .presentation .box_container .box .box_content img {
+    width: 60%;
+    margin: auto;
+    margin-top: -100px;
+  }
+  #introduction .presentation .box_container .box .box_content h3 {
+    font-size: 29px;
+  }
+  #introduction .presentation .box_container .box .box_content p {
+    position: relative;
+    padding: 20px 15px;
+    font-size: 23px;
   }
 }
 /* //?  SMALL 480-320 */
 @media screen and (max-width: 480px) {
-  * {
-    border: 2px solid pink !important;
+  #introduction {
+    padding: 70px 0;
+  }
+  #introduction .presentation .box_container {
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  #introduction .presentation .box_container .box .box_content img {
+    width: 70%;
+    margin: auto;
+    margin-top: -50px;
+  }
+  #introduction .presentation .box_container .box .box_content h3 {
+    font-size: 19px;
+  }
+  #introduction .presentation .box_container .box .box_content p {
+    font-size: 19px;
   }
 }
 #category {
   background-color: #F67F41;
 }
 #category .categories {
-  margin-top: 50px;
-  margin-bottom: 30px;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 #category .categories .category-card {
-  margin-top: 20px;
   margin-bottom: 20px;
   width: calc( 100% / 6);
   transition: 0.5s;
@@ -439,9 +515,6 @@ header .navbar nav .registration {
 
 /* //?  LARGE 1200-768px */
 @media screen and (max-width: 1200px) {
-  #category .categories {
-    margin-top: 40px;
-  }
   #category .categories .category-card {
     padding: 3px;
   }
@@ -452,7 +525,7 @@ header .navbar nav .registration {
 /* //?  MEDIUM 768-480px  */
 @media screen and (max-width: 768px) {
   #category .categories {
-    margin-top: 20px;
+    margin-top: 0px;
     flex-wrap: nowrap;
     justify-content: start;
     overflow-x: auto;
@@ -472,20 +545,8 @@ header .navbar nav .registration {
   margin-bottom: 30px;
 }
 #restaurants .container {
+  width: 95%;
   flex-wrap: wrap;
-  /*
-  .restaurant_card ::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 2px;
-      height: 30px;
-      background: rgb(255,255,255);        
-      background: linear-gradient(270deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 15%, rgba(243,0,80,1) 50%, rgba(243,0,80,1) 100%);
-      z-index: -1;               
-  }
-  */
 }
 #restaurants .container .restaurant_card {
   width: 33%;
@@ -535,35 +596,82 @@ header .navbar nav .registration {
 #restaurants .container .restaurant_card:nth-child(6n+6) a.content {
   flex-direction: row-reverse;
 }
-#restaurants .container .restaurant_card:nth-child(6n+4) a.content .restaurant_info,
-#restaurants .container .restaurant_card:nth-child(6n+5) a.content .restaurant_info,
-#restaurants .container .restaurant_card:nth-child(6n+6) a.content .restaurant_info {
-  padding-right: 10px;
-}
-#restaurants .container .restaurant_card:nth-child(6n+4) a.content .restaurant_info h3,
-#restaurants .container .restaurant_card:nth-child(6n+5) a.content .restaurant_info h3,
-#restaurants .container .restaurant_card:nth-child(6n+6) a.content .restaurant_info h3 {
-  font-size: 19px;
-}
-#restaurants .container .restaurant_card:nth-child(6n+4) a.content .restaurant_info small,
-#restaurants .container .restaurant_card:nth-child(6n+5) a.content .restaurant_info small,
-#restaurants .container .restaurant_card:nth-child(6n+6) a.content .restaurant_info small {
-  font-size: 12px;
+
+/*
+.restaurant_card ::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 2px;
+    height: 30px;
+    background: rgb(255,255,255);        
+    background: linear-gradient(270deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 15%, rgba(243,0,80,1) 50%, rgba(243,0,80,1) 100%);
+    z-index: -1;               
 }
 
+.restaurant_card:nth-child(6n + 4),
+.restaurant_card:nth-child(6n + 5),
+.restaurant_card:nth-child(6n + 6) {
+
+    margin-right: -20px;
+    margin-left: 20px;
+    text-align: right;
+
+    a.content{
+        flex-direction: row-reverse;
+        .restaurant_info{
+            padding-right: 10px;
+
+            h3{
+                font-size: $font_text_m;
+            }
+            small{
+                font-size: $font_text_xs;
+            }
+        }
+    }
+    */
 /* //?  LARGE 1200-768px */
 @media screen and (max-width: 1200px) {
-  a.content {
-    padding: 5px 2.5px;
+  #restaurants .container .restaurant_card {
+    width: 49%;
+    margin-left: -20px;
+    margin-right: 20px;
+    text-align: left;
+    position: relative;
   }
-  a.content .restaurant_info {
-    padding: 0px !important;
+  #restaurants .container .restaurant_card:nth-child(6n+4),
+#restaurants .container .restaurant_card:nth-child(6n+5),
+#restaurants .container .restaurant_card:nth-child(6n+6) {
+    margin-left: -20px;
+    margin-right: 20px;
+    text-align: left;
+  }
+  #restaurants .container .restaurant_card:nth-child(6n+4) a.content,
+#restaurants .container .restaurant_card:nth-child(6n+5) a.content,
+#restaurants .container .restaurant_card:nth-child(6n+6) a.content {
+    flex-direction: row;
+  }
+  #restaurants .container .restaurant_card:nth-child(4n+3),
+#restaurants .container .restaurant_card:nth-child(4n+4) {
+    margin-right: -20px;
+    margin-left: 20px;
+    text-align: right;
+  }
+  #restaurants .container .restaurant_card:nth-child(4n+3) a.content,
+#restaurants .container .restaurant_card:nth-child(4n+4) a.content {
+    flex-direction: row-reverse;
+  }
+  #restaurants .container .restaurant_card:nth-child(4n+3) a.content .restaurant_info,
+#restaurants .container .restaurant_card:nth-child(4n+4) a.content .restaurant_info {
+    padding-right: 10px;
   }
 }
 /* //?  MEDIUM 768-480px  */
 @media screen and (max-width: 768px) {
   #restaurants .container .restaurant_card {
-    width: 49%;
+    width: 100%;
     margin-left: -20px;
     margin-right: 20px;
     text-align: left;
@@ -571,53 +679,34 @@ header .navbar nav .registration {
   #restaurants .container .restaurant_card a.content {
     flex-direction: row;
   }
-  #restaurants .container .restaurant_card a.content .logo_rest {
-    width: 50%;
-  }
   #restaurants .container .restaurant_card a.content .restaurant_info {
-    width: 49%;
     padding-left: 10;
   }
-  #restaurants .restaurant_card:nth-child(6n+4),
-#restaurants .restaurant_card:nth-child(6n+5),
-#restaurants .restaurant_card:nth-child(6n+6) {
+  #restaurants .container .restaurant_card:nth-child(4n+3),
+#restaurants .container .restaurant_card:nth-child(4n+4) {
     margin-left: -20px;
     margin-right: 20px;
     text-align: left;
   }
-  #restaurants .restaurant_card:nth-child(6n+4) a.content,
-#restaurants .restaurant_card:nth-child(6n+5) a.content,
-#restaurants .restaurant_card:nth-child(6n+6) a.content {
+  #restaurants .container .restaurant_card:nth-child(4n+3) a.content,
+#restaurants .container .restaurant_card:nth-child(4n+4) a.content {
     flex-direction: row;
   }
-  #restaurants .restaurant_card:nth-child(4n+3),
-#restaurants .restaurant_card:nth-child(4n+4) {
+  #restaurants .container .restaurant_card:nth-child(4n+3) a.content .restaurant_info,
+#restaurants .container .restaurant_card:nth-child(4n+4) a.content .restaurant_info {
+    padding-left: 10px;
+  }
+  #restaurants .container .restaurant_card:nth-child(2n) {
     margin-right: -20px;
     margin-left: 20px;
     text-align: right;
   }
-  #restaurants .restaurant_card:nth-child(4n+3) a.content,
-#restaurants .restaurant_card:nth-child(4n+4) a.content {
-    background-color: salmon;
+  #restaurants .container .restaurant_card:nth-child(2n) a.content {
+    background-color: indigo;
     flex-direction: row-reverse;
   }
-  #restaurants .restaurant_card:nth-child(4n+3) a.content .restaurant_info,
-#restaurants .restaurant_card:nth-child(4n+4) a.content .restaurant_info {
+  #restaurants .container .restaurant_card:nth-child(2n) a.content .restaurant_info {
     padding-right: 10px;
-  }
-  #restaurants .restaurant_card:nth-child(4n+3) a.content .restaurant_info h3,
-#restaurants .restaurant_card:nth-child(4n+4) a.content .restaurant_info h3 {
-    font-size: 19px;
-  }
-  #restaurants .restaurant_card:nth-child(4n+3) a.content .restaurant_info small,
-#restaurants .restaurant_card:nth-child(4n+4) a.content .restaurant_info small {
-    font-size: 12px;
-  }
-}
-/* //?  SMALL 480-320 */
-@media screen and (max-width: 480px) {
-  * {
-    border: 2px solid pink !important;
   }
 }
 footer {
@@ -708,8 +797,8 @@ footer .footer_container .footer_menu .footer_col#foot_col4 ul li {
   list-style: none;
   text-align: center;
 }
-footer .footer_container .footer_menu .footer_col#foot_col4 ul li a img {
-  height: 50px;
+footer .footer_container .footer_menu .footer_col#foot_col4 ul li img {
+  width: 60%;
   border-radius: 10px;
 }
 footer .footer_container .slider_comments {
@@ -726,19 +815,20 @@ footer .footer_container .slider_comments p {
   margin: auto;
   padding: 25px 10px;
 }
-footer .footer_row {
-  margin-top: 100px;
+
+.footer_row {
+  margin-top: -50px;
   background-color: #000;
   padding: 5px 0;
 }
-footer .footer_row ul li {
+.footer_row ul li {
   position: relative;
   display: inline-block;
   font-size: 12px;
   color: #a8a9ae;
   padding: 5px 10px;
 }
-footer .footer_row ul li::after {
+.footer_row ul li::after {
   content: "";
   position: absolute;
   left: 0;
@@ -748,11 +838,11 @@ footer .footer_row ul li::after {
   height: 15px;
   background-color: #a8a9ae;
 }
-footer .footer_row ul li#copyright i {
+.footer_row ul li#copyright i {
   color: inherit;
   padding: 0 10px;
 }
-footer .footer_row ul li#copyright::after {
+.footer_row ul li#copyright::after {
   background-color: transparent;
 }
 
@@ -793,6 +883,17 @@ footer .footer_row ul li#copyright::after {
 @media screen and (max-width: 768px) {
   footer .footer_container {
     flex-wrap: wrap;
+    text-align: center;
+  }
+  footer .footer_container .footer_col#foot_col1 {
+    width: 100%;
+  }
+  footer .footer_container .footer_col#foot_col1 img {
+    width: 50%;
+    margin: auto;
+  }
+  footer .footer_container .footer_menu {
+    margin: auto;
   }
   footer .footer_container .footer_menu .footer_col#foot_col4 {
     margin-bottom: 20px;
@@ -811,21 +912,17 @@ footer .footer_row ul li#copyright::after {
     left: 0;
     right: 0;
     bottom: 0;
+    margin-bottom: 40px;
   }
   footer .footer_container #foot_col4 h3,
 footer .footer_container #foot_col4 ul {
     width: 100% !important;
   }
-  footer .footer_row ul li {
+
+  .footer_row ul li {
     font-size: 9px !important;
     padding: 2px 2.5px !important;
     margin-top: 0;
-  }
-}
-/* //?  SMALL 480-320 */
-@media screen and (max-width: 480px) {
-  * {
-    border: 2px solid pink !important;
   }
 }
 .container-show {

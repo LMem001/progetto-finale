@@ -89,28 +89,29 @@
             </div>
 
             <div class="slider_comments">
-                <p>qui ci potrebbero andare dei commenti super fake che consigliano di usare il nostro sito e sputtanano gli altri </p>
+                <p>qui ci potrebbero andare dei commenti super fake  </p>
             </div>
         </div>
         
         
     </div>
     
-    <div class="footer_row">
-        <ul>
-            <li id="copyright">
-                <i class="far fa-copyright"></i>
-                Copyright 2012-2012  
-            </li>
-            <li>
-                Made with &#9829; by TEAM 1
-            </li>
-            <li>
-                All rights Reserved
-            </li>
-            <li>
-                Powered by renewable energies only (and laravel)
-            </li>
-        </ul>
-    </div>
 </footer>
+
+<div class="footer_row">
+    <ul>
+        <li id="copyright">
+            <i class="far fa-copyright"></i>
+            Copyright 2012-2012  
+        </li>
+        <li>
+            Made with &#9829; by TEAM 1
+        </li>
+        <li>
+            All rights Reserved
+        </li>
+        <li>
+            Powered by renewable energies only (and laravel)
+        </li>
+    </ul>
+</div>

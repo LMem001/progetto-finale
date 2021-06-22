@@ -3,6 +3,7 @@
     margin-bottom: 30px;
     
     .container {
+        width: 95%;
         flex-wrap: wrap;
         
         .restaurant_card {
@@ -47,7 +48,20 @@
             }
             
         }
-        /*
+                
+        .restaurant_card:nth-child(6n + 4),
+        .restaurant_card:nth-child(6n + 5),
+        .restaurant_card:nth-child(6n + 6) {
+            
+            margin-right: -20px;
+            margin-left: 20px;
+            text-align: right;
+            a.content{
+                flex-direction: row-reverse;
+            }
+        }
+    }
+}        /*
         .restaurant_card ::before {
             content: "";
             position: absolute;
@@ -59,7 +73,7 @@
             background: linear-gradient(270deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 15%, rgba(243,0,80,1) 50%, rgba(243,0,80,1) 100%);
             z-index: -1;               
         }
-        */
+
         .restaurant_card:nth-child(6n + 4),
         .restaurant_card:nth-child(6n + 5),
         .restaurant_card:nth-child(6n + 6) {
@@ -72,7 +86,7 @@
                 flex-direction: row-reverse;
                 .restaurant_info{
                     padding-right: 10px;
-
+                    
                     h3{
                         font-size: $font_text_m;
                     }
@@ -81,91 +95,107 @@
                     }
                 }
             }
+            */
+
             // a.content::before {
             //     left: 0px;
             //     right: -140px;                        
             //     background: linear-gradient(90deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 15%, rgba(243,0,80,1) 50%, rgba(243,0,80,1) 100%)!important;
             // }
-        }
-        
-    }
-}
+
 
 /* //?  LARGE 1200-768px */
 @media screen and (max-width:1200px) {
 
-    a.content{
-        padding: 5px 2.5px;
-        .restaurant_info{
-            padding: 0px!important;
+    //? Section 4 : Restaurants
+    #restaurants {       
+        .container {
+            .restaurant_card {
+                
+                width: 49%;            
+                margin-left: -20px;
+                margin-right: 20px;
+                text-align: left;
+                position: relative;
+                
+            }
+            .restaurant_card:nth-child(6n + 4),
+            .restaurant_card:nth-child(6n + 5),
+            .restaurant_card:nth-child(6n + 6) {
+                margin-left: -20px;
+                margin-right: 20px;
+                text-align: left;
+                a.content{
+                    flex-direction: row;
+                }
+            }
+            .restaurant_card:nth-child(4n + 3),
+            .restaurant_card:nth-child(4n + 4) {
+                
+                margin-right: -20px;
+                margin-left: 20px;
+                text-align: right;
+                
+                a.content{
+                    flex-direction: row-reverse;
+                    .restaurant_info{
+                        padding-right: 10px;
+                    }
+                }
+            }
+            
         }
     }
 
 }
 /* //?  MEDIUM 768-480px  */
 @media screen  and (max-width:768px) {
-    // *  {
-    //     border: 2px solid  greenyellow!important;
-    // }
 
     #restaurants {
-        .container .restaurant_card {
-            width: 49%;            
-            margin-left: -20px;
-            margin-right: 20px;
-            text-align: left;
+        .container {
 
-            a.content {
-                flex-direction: row;
+            .restaurant_card {
+                width: 100%;            
+                margin-left: -20px;
+                margin-right: 20px;
+                text-align: left;
 
-                .logo_rest {
-                    width: 50%;
-                }
-                .restaurant_info{
-                    width: 49%;
-                    padding-left: 10;
-                }
-            }
-            
-        }
-        .restaurant_card:nth-child(6n + 4),
-        .restaurant_card:nth-child(6n + 5),
-        .restaurant_card:nth-child(6n + 6) {
-            
-            margin-left: -20px;
-            margin-right: 20px;
-            text-align: left;
-            
-            a.content{
-                flex-direction: row;
-            }
-        }
-        .restaurant_card:nth-child(4n + 3),
-        .restaurant_card:nth-child(4n + 4) {
-            margin-right: -20px;
-            margin-left: 20px;
-            text-align: right;
-            a.content{
-                background-color: salmon;
-                flex-direction: row-reverse;
-                .restaurant_info{
-                    padding-right: 10px;
+                a.content {
+                    flex-direction: row;
 
-                    h3{
-                        font-size: $font_text_m;
+                    .restaurant_info{
+                        padding-left: 10;
                     }
-                    small{
-                        font-size: $font_text_xs;
-                    }
+                }
+                
             }
-        } 
-        
-    }
-    }
-}
-/* //?  SMALL 480-320 */
-@media screen and (max-width:480px) {
-    *  {
-        border: 2px solid  pink!important;
+            .restaurant_card:nth-child(4n + 3),
+            .restaurant_card:nth-child(4n + 4) {
+                
+                margin-left: -20px;
+                margin-right: 20px;
+                text-align: left;
+                
+                a.content{
+                    flex-direction: row;
+                    .restaurant_info{
+                        padding-left: 10px;
+                    }
+                }
+            }
+            .restaurant_card:nth-child(2n) {
+                margin-right: -20px;
+                margin-left: 20px;
+                text-align: right;
+                
+                a.content{
+                    background-color: indigo;
+                    flex-direction: row-reverse;
+                    .restaurant_info{
+                        padding-right: 10px;
+                    }
+                }
+            }
+        }
     }
 }
