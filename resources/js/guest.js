@@ -11,6 +11,7 @@ var app = new Vue(
          apiRestaurantType: "http://localhost:8000/api/types",
          apiSingleRetstaurant: "http://localhost:8000/api/restaurant/",
          localStoreSlug: localStorage.getItem('savedrestaurantSlug'),
+         total: localStorage.getItem('refreshsum'), 
          restaurants: [],
          restaurants_types:[],
          selectedType: 0,
@@ -229,12 +230,13 @@ var app = new Vue(
 
                this.selectedRestaurant = serverAnswer.data;
 
-
+               
                // get products
                axios.get(this.apiRestaurantURL + this.selectedRestaurant.id,)
                .then((serverAnswer) =>{
                   
                   this.restaurantSlug = '"' + this.restaurantSlug + '"';
+
                   serverAnswer.data.forEach((product) =>{
                      if(localStorage.getItem('order') != null &&  this.localStoreSlug == this.restaurantSlug){
                         this.restaurantFoods = JSON.parse(localStorage.getItem("order"))

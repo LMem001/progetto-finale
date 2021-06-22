@@ -97,6 +97,10 @@
                         <div class="total">
                             <h3>prezzo totale: @{{sum.toFixed(2)}} €</h3>
                             <small>di cui iva 22%  -  @{{(sum * 0.22).toFixed(2)}} €</small>
+                            <div><a class="btn_primary" href="{{route('payment')}}">paga</a></div>
+
+                           
+                            
                         </div>
                     </div>
                 </div>

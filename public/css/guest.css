@@ -993,6 +993,16 @@ footer .footer_container #foot_col4 ul {
     margin-top: 0;
   }
 }
+.success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.success h1 {
+  font-size: 45px;
+  padding: 300px 0;
+}
+
 .container-show {
   height: 600vh;
   background-color: orange;

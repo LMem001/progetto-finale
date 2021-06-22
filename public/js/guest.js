@@ -17282,6 +17282,7 @@ var app = new Vue({
     apiRestaurantType: "http://localhost:8000/api/types",
     apiSingleRetstaurant: "http://localhost:8000/api/restaurant/",
     localStoreSlug: localStorage.getItem('savedrestaurantSlug'),
+    total: localStorage.getItem('refreshsum'),
     restaurants: [],
     restaurants_types: [],
     selectedType: 0,
