@@ -7,7 +7,7 @@
   <title>Braintree-Demo</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <script src="https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js"></script>
+  <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.min.js"></script>
 
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -20,25 +20,21 @@
        </div>
      </div>
   </div>
+  <script src="{{asset('js/payments.js')}}"></script>
   <script>
-    var button = document.querySelector('#submit-button');
+     var button = document.querySelector('#submit-button');
 
-    braintree.dropin.create({
-      authorization: "{{ Braintree_ClientToken::generate() }}",
-      container: '#dropin-container'
-    }, function (createErr, instance) {
-      button.addEventListener('click', function () {
-        instance.requestPaymentMethod(function (err, payload) {
-          $.get('{{ route('payment.process') }}', {payload}, function (response) {
-            if (response.success) {
-              alert('Payment successfull!');
-            } else {
-              alert('Payment failed');
-            }
-          }, 'json');
+      braintree.dropin.create({
+        authorization: 'CLIENT_AUTHORIZATION',
+        container: '#dropin-container'
+      }, function (createErr, instance) {
+        button.addEventListener('click', function () {
+          instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
+            // Submit payload.nonce to your server
+          });
         });
       });
-    });
   </script>
 </body>
+
 </html>

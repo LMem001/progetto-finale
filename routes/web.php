@@ -37,3 +37,6 @@ Route::get('/info', function () {
     return view('guest.info');
 });
 
+Route::get('/payment', function () {
+    return view('welcome');
+});

@@ -16,6 +16,8 @@ class PaymentsController extends Controller
             'privateKey' => 'b3532888dc5b7a9627e8904228ed3ba0'
         ]);
 
+        $clientToken = $gateway->clientToken()->generate();
+
         $result = $gateway->transaction()->sale([
             'amount' => $request->input('amount'),
             'paymentMethodNonce' => $request->input('paymentMethodNonce'),
