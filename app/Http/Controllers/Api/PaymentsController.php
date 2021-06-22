@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Braintree\Gateway as Gateway;
 
 class PaymentsController extends Controller
 {
     public function make(Request $request)
     {
-        $gateway = new \Braintree\Gateway([
+        $gateway = new Gateway([
             'environment' => 'sandbox',
             'merchantId' => '35y89qdcrmqjxbm4',
             'publicKey' => 'cy7zcsmnv7shw32h',
@@ -26,6 +27,6 @@ class PaymentsController extends Controller
                 ]
             ]);
     
-            return response()->json($result);
+            return redirect()->route('home');
     }
 }

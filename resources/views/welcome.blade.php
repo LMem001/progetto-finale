@@ -12,13 +12,49 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-     <div class="row">
-       <div class="col-md-8 col-md-offset-2">
-         <div id="dropin-container"></div>
-         <button id="submit-button">Request payment method</button>
-       </div>
-     </div>
+  <div class="text-center">
+    <div class="container">
+        <div class="box">
+            <form id="payment-form" action="{{ route('payment.process') }}" method="post">
+                <div class="wrapper">
+                    <div class="input-data">
+                        <input type="text" required>
+                        <div class="underline"></div>
+                        <label>Nome utente</label>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <div class="input-data">
+                        <input type="text" required>
+                        <div class="underline"></div>
+                        <label>Cognome utente</label>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <div class="input-data">
+                        <input type="text" required>
+                        <div class="underline"></div>
+                        <label>Indirizzo di consegna</label>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <div id="dropin-container"></div>
+                </div>
+
+                <div class="wrapper payment">
+                    <span class="btn btn-outline-secondary btn-total" for="amount">Totale:</span>
+                    <input
+                    class="btn btn-primary btn-pay" type="submit" value="Paga ora"/>
+                    <input type="hidden" id="nonce" name="payment_method_nonce"/>
+                    <input type="hidden" :value="finalPrice" id="amount" name="amount"/>
+                </div>
+
+            </form>
+        </div>
+    </div>
   </div>
   <script src="{{asset('js/payments.js')}}"></script>
   <script>
