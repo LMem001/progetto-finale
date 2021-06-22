@@ -37,3 +37,19 @@ Route::get('/info', function () {
     return view('guest.info');
 });
 
+Route::get('/payment', function () {
+    return view('welcome');
+});
+
+Route::get('/payment/success', function () {
+    $gateway = new \Braintree\Gateway([
+        'environment' => 'sandbox',
+        'merchantId' => '35y89qdcrmqjxbm4',
+        'publicKey' => 'cy7zcsmnv7shw32h',
+        'privateKey' => 'b3532888dc5b7a9627e8904228ed3ba0'
+    ]);
+
+    $clientToken = $gateway->clientToken()->generate();
+
+    return view('payed', compact('clientToken'));
+});
