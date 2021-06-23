@@ -18,52 +18,25 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-  <div id="app">
-    <div class="text-center">
-    <div class="container">
-        <div class="box">
-            <form id="payment-form" action="{{ route('payment.process') }}" method="post">
-                <div class="wrapper">
-                    <div class="input-data">
-                        <input type="text" required>
-                        <div class="underline"></div>
-                        <label>Nome utente</label>
-                    </div>
-                </div>
+  <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.js"></script>
 
-                <div class="wrapper">
-                    <div class="input-data">
-                        <input type="text" required>
-                        <div class="underline"></div>
-                        <label>Cognome utente</label>
-                    </div>
-                </div>
+  <div id="dropin-container"></div>
+  <button id="submit-button" class="button button--small button--green">Purchase</button> 
+  <script src="{{asset('js/payments.js')}}"></script>
+  <script>
+    var button = document.querySelector('#submit-button');
 
-                <div class="wrapper">
-                    <div class="input-data">
-                        <input type="text" required>
-                        <div class="underline"></div>
-                        <label>Indirizzo di consegna</label>
-                    </div>
-                </div>
+    braintree.dropin.create({
+      authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
+      selector: '#dropin-container'
+    }, function (err, instance) {
+      button.addEventListener('click', function () {
+        instance.requestPaymentMethod(function (err, payload) {
+          // Submit payload.nonce to your server
+        });
+      })
+    });
+  </script>
+</body>
 
-                <div class="wrapper">
-                    <div id="dropin-container"></div>
-                </div>
-
-                <div class="wrapper payment">
-                  <span class="btn btn-outline-secondary btn-total" for="amount">Totale: @{{total}} €</span>
-                  <input
-                  class="btn btn-primary btn-pay" type="submit" value="Paga ora"/>
-                  {{-- @click="puliziaCache"  --}}
-                  <input type="hidden" id="nonce" name="payment_method_nonce"/>
-                  {{-- <input type="hidden" :value="finalPrice" id="amount" name="amount"/> --}}
-                </div>
-
-            </form>
-        </div>
-    </div>
-  </div>
-</div>
-<script src="{{asset('js/guest.js')}}"></script>
 </html>
