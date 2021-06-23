@@ -31,7 +31,8 @@ Route::get('/successpayment', function() {
 Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
     Route::resource('restaurant', 'RestaurantController');
     Route::resource('food', 'FoodController');
-
+    Route::get('orderlist', 'OrderController@storeOrder')->name('storeorder');
+    Route::post('makePayment', 'OrderController@makePayment')->name('makepayment');
     Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
 });
 

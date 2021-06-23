@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-
+            $table->foreignId('restaurant_id')->constrained()->onDelete('cascade');
             $table->dateTime('pickup_date');
             $table->boolean('status')->default(0);
             $table->string('payment_type', 20);

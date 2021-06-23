@@ -2,15 +2,17 @@
 
 namespace App;
 
+use App\Restaurant;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $guarded [
+    protected $guarded = [
         'id'
     ];
 
-    public function foods(){
-        return $this->belongsToMany('App\Food');
+    public function restaurant(){
+        return $this->belongsTo('App\Restaurant');
     }
+
 }
