@@ -10,6 +10,8 @@ class PaymentsController extends Controller
 {
     public function make(Request $request)
     {
+
+        dd($request);
         $gateway = new Gateway([
             'environment' => 'sandbox',
             'merchantId' => '35y89qdcrmqjxbm4',

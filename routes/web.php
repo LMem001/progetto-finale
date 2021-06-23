@@ -31,7 +31,8 @@ Route::get('/successpayment', function() {
 Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
     Route::resource('restaurant', 'RestaurantController');
     Route::resource('food', 'FoodController');
-
+    Route::post('payorder', 'OrderController@make')->name("makepayment");
+    Route::get('pay', 'OrderController@checkout')->name("payment");
     Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
 });
 
@@ -39,9 +40,9 @@ Route::get('/info', function () {
     return view('guest.info');
 });
 
-Route::get('/payment', function () {
-    return view('welcome');
-})->name('payment');
+// Route::get('/payment', function () {
+//     return view('welcome');
+// })->name('payment');
 
 Route::get('/payment/success', function () {
     $gateway = new \Braintree\Gateway([
