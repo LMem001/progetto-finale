@@ -1,16 +1,23 @@
 @extends('layouts.app')
+{{-- (Prende il layout di app.blade.php e riempie gli spazi "vuoti" con i section) --}}
+
+@section('page-title')
+    Login
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="container login">
+    <div class="login_windows">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">
+                    <h2>Login </h2>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
+                        {{-- EMAIL --}}
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -25,8 +32,10 @@
                             </div>
                         </div>
 
+                        {{-- PASSWORD --}}
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">Password </label>
+                            {{-- <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label> --}}
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -36,9 +45,19 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+
+                                {{-- Dimenticato la password ? --}}
+                                <div class="forgotten_pw">
+                                    @if (Route::has('password.request'))
+                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
+                                    @endif
+                                </div>
                             </div>
                         </div>
 
+                        {{-- CHECKBOX --}}
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
@@ -51,19 +70,29 @@
                             </div>
                         </div>
 
+                        {{-- LOGIN/RESETTA PASSWORD --}}
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                            <div class="col-md-6 offset-md-4 bottoni">
+                                <a href="#">
+                                    <button type="submit" class=" btn_primary">
+                                        {{ __('Login') }}
+                                    </button>
+                                </a>
+                                <a class=" btn_primary" href="{{ route('register') }}">Registrati</a>
+                            </div>
+                            <div class="col-md-2 reg_hover">
+                                <p>Ancora non sei registrato ?
+                                <br>
+                                 Che aspetti, registrati subito !</p>
                             </div>
                         </div>
+                        
+                        {{-- LOGIN/RESETTA PASSWORD --}}
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>

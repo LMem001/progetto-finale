@@ -11,12 +11,14 @@
     @yield('css')
 
     <!-- titolo pagina -->
-    <title>@yield('page-title')</title>
+    <title>DeviBool | @yield('page-title')</title>
     
 </head>
     <body>
         <div id="app">
+            <!-- header -->
             @include('guest.partials.navbar')
+            
             <!-- main -->
             @yield('content')
 

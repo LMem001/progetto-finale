@@ -39,7 +39,7 @@
             @if (Route::has('login'))
             @auth
             <div class="dropdownLogout" v-on:mouseleave="hidelogout">
-               <a @click="logouttoggleshow" href="#">{{ Auth::user()->name }} <i class="fas fa-chevron-down"></i></a>
+               <a class ="btn_primary" @click="logouttoggleshow" href="#">{{ Auth::user()->name }} <i class="fas fa-chevron-down"></i></a>
                   <div :class="logoutshow" class="logout">
                      <a href="{{ route('logout') }}"
                      onclick="event.preventDefault();

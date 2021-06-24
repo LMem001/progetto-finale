@@ -20,11 +20,12 @@ footer {
         margin-top: 20px;
         list-style: none;
         color: black;
+        font-size: $font_text_m;
         line-height: $font_text_l;
     }
 
     .footer_container {
-        padding-top: 30px;
+        padding: 30px 0 100px 0;
         position: relative;
 
         .footer_col#foot_col1 {
@@ -58,14 +59,13 @@ footer {
 
         .footer_menu {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             flex-wrap: wrap;
-            width: 74%;
-
+            width: 75%;
+            padding: 30px 0;
             .footer_col {
-                width: 33%;
+                width: 30%;
                 min-width: 265px;
-                padding: 2.5px;
 
                 h3 {
                     font-size: $font_text_m;
@@ -89,7 +89,7 @@ footer {
                 }
 
                 &#foot_col4{
-                    margin-bottom: 150px;
+
                     ul li {
                         list-style: none;
                         text-align: center;
@@ -169,6 +169,7 @@ footer {
                 .footer_col {
                     flex-grow: 2!important;
                     text-align: center;
+                    width: 40%;
 
                     h3 {
                         margin: 0 35px;
@@ -180,7 +181,8 @@ footer {
                     }
 
                     &#foot_col4{
-
+                        margin-top: 60px;
+                        padding-left: 20px;
                         h3{
                             display: inline-block;
                             width: 30%;
@@ -215,26 +217,36 @@ footer {
             text-align: center;
 
             .footer_col#foot_col1{
-                width: 100%;
+                width: 80%;
+                margin: auto;
                 img{
                     width: 50%;
                     margin: auto;
+                }
+                ul {
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    li {
+                        width: 25%;
+                    }
                 }
             }
             .footer_menu {
                 margin: auto;
                 .footer_col {                
-                    &#foot_col4{
-                        margin-bottom: 20px;
+                    margin-top: 20px;
+                    &#foot_col4 ul{
+                        margin-top: 20px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        li {
+                            width: 80%;
+                            margin: auto;
+                            img {
+                                width: 80%;
+                            }
+                        }
                     }
-                    
-                }
-            }
-            .footer_col#foot_col1 ul {
-                flex-wrap: wrap;
-                text-align: center;
-                li {
-                    width: 49%;
                 }
             }
             .slider_comments {
@@ -250,6 +262,7 @@ footer {
             #foot_col4 ul {
                 width: 100%!important;
             }
+
         }
     }
     .footer_row ul li{

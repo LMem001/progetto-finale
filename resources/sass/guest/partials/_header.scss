@@ -69,16 +69,19 @@ header{
                     }
                 }
                 &:hover{
-                    background-color: #cacaca;
+                    background-color: rgba(246, 180, 37, 0.4);
                 }
                 // display: none;
                 margin-top: 20px;
-                background-color: rgba(246, 180, 37, 0.4);
             }
+            // .at_hover{
+            //     display: block;
+            //     margin-top: 30px;
+            // }
             .display{
                 display: block;
                 margin-top: 70px;
-             }
+            }
         }
 
         nav {
@@ -131,7 +134,7 @@ header{
             font-size: $font_text_s;
         }
         .navbar{
-            nav {               
+            nav {              
                 small {
                     display: none;
                 }

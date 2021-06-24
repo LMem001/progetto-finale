@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center big_contenitore">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">
+                    <h2>Registrati</h2>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -70,6 +71,8 @@
                                 @enderror
                             </div>
                         </div>
+
+                        {{-- Conferma Password --}}
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
@@ -138,10 +141,10 @@
                             </div>                        
                         </div>
 
-
+                        {{-- Registrati (bottone) --}}
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn_primary">
                                     {{ __('Register') }}
                                 </button>
                             </div>
@@ -151,5 +154,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

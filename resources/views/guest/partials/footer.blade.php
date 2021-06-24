@@ -88,9 +88,9 @@
                 </ul>  
             </div>
 
-            <div class="slider_comments">
+            {{-- <div class="slider_comments  displayNone">
                 <p>qui ci potrebbero andare dei commenti super fake  </p>
-            </div>
+            </div> --}}
         </div>
         
         

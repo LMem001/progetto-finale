@@ -10,7 +10,7 @@
 }
 
 .btn_primary {
-  color: white;
+  color: black !important;
   font-size: 19px;
   text-decoration: none;
   padding: 8px 12px;
@@ -117,7 +117,6 @@ i {
 @media screen and (max-width: 768px) {
   .container {
     width: 100%;
-    padding: 20px;
   }
 
   .fa-facebook-f {
@@ -199,7 +198,6 @@ header .navbar .dropDownMenu .menu {
   transition: 0.5s;
   display: none;
   margin-top: 20px;
-  background-color: rgba(246, 180, 37, 0.4);
 }
 header .navbar .dropDownLogout .logout ul, header .navbar .dropDownLogout .menu ul,
 header .navbar .dropDownMenu .logout ul,
@@ -214,7 +212,7 @@ header .navbar .dropDownMenu .menu ul li a {
 header .navbar .dropDownLogout .logout:hover, header .navbar .dropDownLogout .menu:hover,
 header .navbar .dropDownMenu .logout:hover,
 header .navbar .dropDownMenu .menu:hover {
-  background-color: #cacaca;
+  background-color: rgba(246, 180, 37, 0.4);
 }
 header .navbar .dropDownLogout .display,
 header .navbar .dropDownMenu .display {
@@ -409,10 +407,11 @@ footer ul li {
   margin-top: 20px;
   list-style: none;
   color: black;
+  font-size: 19px;
   line-height: 23px;
 }
 footer .footer_container {
-  padding-top: 30px;
+  padding: 30px 0 100px 0;
   position: relative;
 }
 footer .footer_container .footer_col#foot_col1 {
@@ -442,14 +441,14 @@ footer .footer_container .footer_col#foot_col1 h4::before {
 }
 footer .footer_container .footer_menu {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   flex-wrap: wrap;
-  width: 74%;
+  width: 75%;
+  padding: 30px 0;
 }
 footer .footer_container .footer_menu .footer_col {
-  width: 33%;
+  width: 30%;
   min-width: 265px;
-  padding: 2.5px;
 }
 footer .footer_container .footer_menu .footer_col h3 {
   font-size: 19px;
@@ -468,9 +467,6 @@ footer .footer_container .footer_menu .footer_col i {
   padding: 0 5px;
   color: #F8DC2A;
   font-size: 23px;
-}
-footer .footer_container .footer_menu .footer_col#foot_col4 {
-  margin-bottom: 150px;
 }
 footer .footer_container .footer_menu .footer_col#foot_col4 ul li {
   list-style: none;
@@ -530,6 +526,7 @@ footer .footer_container .slider_comments p {
   footer .footer_container .footer_menu .footer_col {
     flex-grow: 2 !important;
     text-align: center;
+    width: 40%;
   }
   footer .footer_container .footer_menu .footer_col h3 {
     margin: 0 35px;
@@ -537,6 +534,10 @@ footer .footer_container .slider_comments p {
   footer .footer_container .footer_menu .footer_col h3::after {
     right: 20% !important;
     left: 20% !important;
+  }
+  footer .footer_container .footer_menu .footer_col#foot_col4 {
+    margin-top: 60px;
+    padding-left: 20px;
   }
   footer .footer_container .footer_menu .footer_col#foot_col4 h3 {
     display: inline-block;
@@ -565,24 +566,37 @@ footer .footer_container .slider_comments p {
     text-align: center;
   }
   footer .footer_container .footer_col#foot_col1 {
-    width: 100%;
+    width: 80%;
+    margin: auto;
   }
   footer .footer_container .footer_col#foot_col1 img {
     width: 50%;
     margin: auto;
   }
+  footer .footer_container .footer_col#foot_col1 ul {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  footer .footer_container .footer_col#foot_col1 ul li {
+    width: 25%;
+  }
   footer .footer_container .footer_menu {
     margin: auto;
   }
-  footer .footer_container .footer_menu .footer_col#foot_col4 {
-    margin-bottom: 20px;
+  footer .footer_container .footer_menu .footer_col {
+    margin-top: 20px;
   }
-  footer .footer_container .footer_col#foot_col1 ul {
+  footer .footer_container .footer_menu .footer_col#foot_col4 ul {
+    margin-top: 20px;
+    display: flex;
     flex-wrap: wrap;
-    text-align: center;
   }
-  footer .footer_container .footer_col#foot_col1 ul li {
-    width: 49%;
+  footer .footer_container .footer_menu .footer_col#foot_col4 ul li {
+    width: 80%;
+    margin: auto;
+  }
+  footer .footer_container .footer_menu .footer_col#foot_col4 ul li img {
+    width: 80%;
   }
   footer .footer_container .slider_comments {
     position: relative;

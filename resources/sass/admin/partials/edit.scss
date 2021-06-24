@@ -1,0 +1,22 @@
+.edit_container{
+    width: 90%;
+    margin: 200px auto;
+
+    .edit_bottom,
+    .edit_top {
+        border: blue solid 3px;
+        width: 80%;
+        margin: auto;
+        
+    }
+    .edit_top{
+        padding: 5px 40px;
+        border-radius: 15px 15px 0 0;
+
+    }
+    .edit_bottom {
+        border-radius: 0 0 15px 15px;
+        padding: 40px;
+    }
+    
+}

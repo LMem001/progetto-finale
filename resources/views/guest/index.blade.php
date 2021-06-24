@@ -30,11 +30,11 @@
             <h2  class="mt_3" >Secondo Slogan Super Figo (solo che un po' più piccolo e si spera venga anche un po' più lungo)</h2>
 
             <!-- search a restaurant -->
-            <div class="input-jumbotron-container mt_4">
+            {{-- <div class="input-jumbotron-container mt_4">
                 <form action="">
                     <input type="search" placeholder="Inserisci il nome del ristorante"/>
                 </form>
-            </div>            
+            </div>             --}}
         </div>
     </section>
 
