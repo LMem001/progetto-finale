@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Braintree\Gateway as Gateway;
 use App\Order;
 use App\Food;
+use App\Restaurant;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -52,5 +54,6 @@ class OrderController extends Controller
         dd($result);
         return redirect()->route('successpayment');
     }
+
 }
 

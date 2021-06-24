@@ -34,6 +34,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
     Route::post('payorder', 'OrderController@make')->name("makepayment");
     Route::get('pay', 'OrderController@checkout')->name("payment");
     Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
+    Route::get('dashboard/{order}', 'DashboardController@show')->name('dashboard.show');
 });
 
 Route::get('/info', function () {
