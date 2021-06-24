@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('pageTitle')
+    Register
+@endsection
+
 @section('content')
     <div class="row justify-content-center big_contenitore">
         <div class="col-md-8">

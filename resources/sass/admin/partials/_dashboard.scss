@@ -5,6 +5,12 @@
    width: 100%;
    background-color: royalblue;
    height: 20vh;
+   overflow: hidden;
+   img {
+      object-fit: contain;
+      width: 100%;
+      margin: auto;
+   }
 }
 .contenuto {
    width: 90%;
