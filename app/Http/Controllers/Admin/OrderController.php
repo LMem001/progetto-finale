@@ -19,7 +19,7 @@ class OrderController extends Controller
 
         $token = $gateway->ClientToken()->generate();
 
-        return view('welcome', compact('token'));
+        return view('guest.payment', compact('token'));
     }
 
     public function make(Request $request)
