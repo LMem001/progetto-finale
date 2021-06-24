@@ -19,13 +19,13 @@
             
             <ul class="navbar_elements">
                <li >
-                  <a href="#introduction">Chi siamo</a>
+                  <a href="{{route("chiSiamo")}}">Contatti</a>
                </li>
                <li >
-                  <a href="{{ url('/info') }}">Contatti</a>
+                  <a href="{{route("home")}}#category">Ristoranti</a>
                </li>
                <li >
-                  <a href="#category">Ristoranti</a>
+                  <a href="{{route("home")}}#introduction">Chi siamo</a>
                </li>
                {{-- <li >
                   <i class="fas fa-tree"></i>

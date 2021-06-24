@@ -38,7 +38,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
 
 Route::get('/info', function () {
     return view('guest.info');
-});
+})->name("chiSiamo");
 
 // Route::get('/payment', function () {
 //     return view('welcome');
