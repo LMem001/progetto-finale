@@ -26,12 +26,8 @@
 <main>
     <!-- info -->
     <div class="container-show">
-
-        {{-- Profilo ristorante --}}
         <section id="restaurant-profile">
-            <div class="rest-img-background">
-                {{-- vuoto --}}
-            </div>
+            <div class="rest-img-background"></div>
             <div class="rest-info-container">
                 <div class="rest-info">
                     <div class="rest-logo">
@@ -47,9 +43,11 @@
             </div>
         </section>
 
-        <main class="container">
-            <!-- left sidebar -->
-            <section id="left_col_index" class="side_col">
+        
+        <main>
+
+            <!-- selction -->
+            <section id="food-type-selection">
                 <div class="food-selection-container">
                     <h2>Portata</h2>
                     <ul>
@@ -57,11 +55,11 @@
                     </ul>
                 </div>
             </section>
-            
+
             <!-- menu -->
-            <section id="center_col_menu" >
-                <div class="center_col_menu">
-                    <!-- antipasti -->
+            <section id="rest-menu">
+                <div class="rest-menu-container">
+                    <!-- antipsati -->
                     <div v-for="course in restaurantFoods" :id="course.id" class="course" v-if="course.food.length > 0"> 
                         <h2>@{{course.course}}</h2>
                         <ul>
@@ -79,10 +77,11 @@
                             </li>
                         </ul>
                     </div>
+                    <!-- /antipsati -->
             </section>
     
-            <!-- right sidebar (cart) -->
-            <section id="right_col_cart" class="side_col">
+            <!-- cart -->
+            <section id="cart">
                 <div class="cart-container">
                     <h2>Il tuo ordine</h2>
                     <div class="cart-content">
@@ -96,19 +95,12 @@
                             </li>
                         </ul>
                         <div class="total">
-                            <h3>
-                                prezzo totale: 
-                                <span class"price"> @{{sum.toFixed(2)}} €  </span> 
-                            </h3>
+                            <h3>prezzo totale: @{{sum.toFixed(2)}} €</h3>
+                            <small>di cui iva 22%  -  @{{(sum * 0.22).toFixed(2)}} €</small>
+                            <div><a class="btn_primary" href="{{route('admin.payment')}}">paga</a></div>
+
+                           
                             
-                            <small>di cui iva 22%  - 
-                                <span class"price">@{{(sum * 0.22).toFixed(2)}} €  </span>
-                            </small>
-                            
-                            <hr>
-                            <div>
-                                <a class="btn_primary" href="{{route('payment')}}">paga</a>
-                            </div>                            
                         </div>
                     </div>
                 </div>
