@@ -10524,6 +10524,13 @@ footer .footer_container #foot_col4 ul {
   width: 100%;
   background-color: royalblue;
   height: 20vh;
+  overflow: hidden;
+}
+.coverImage img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  margin: auto;
 }
 
 .contenuto {

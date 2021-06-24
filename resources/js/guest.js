@@ -16,8 +16,13 @@ var app = new Vue(
          restaurants_types:[],
          selectedType: 0,
          selectedRestaurant: [],
+         
          restaurantSlug: "",
          foodId: 0,
+         itemsQT: (localStorage.getItem('itemsQT')),
+         orderdItemsQt: 0,
+         foodsInOrder: [],
+
          restaurantFoods: [
             {
                id: "antipasto",
@@ -93,12 +98,16 @@ var app = new Vue(
                if(cartit.id === this.foodId){
                   cartit.quantity += 1;
                   this.sum += cartit.food_price;
+
                };
             });
+            this.orderdItemsQt += 1;
+            localStorage.setItem("itemsQT", JSON.stringify(this.orderdItemsQt));
             localStorage.setItem("refreshsum", JSON.stringify(this.sum));
             localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
             localStorage.setItem("refreshCart", JSON.stringify(this.cart));
             localStorage.setItem("savedrestaurantSlug", JSON.stringify(this.selectedRestaurant.slug));
+            localStorage.setItem("savedrestaurantId", JSON.stringify(this.selectedRestaurant.id));
           },
 
          removeItem() {
@@ -120,6 +129,8 @@ var app = new Vue(
                   
                };
             });
+            this.orderdItemsQt -= 1;
+            localStorage.setItem("itemsQT", JSON.stringify(this.orderdItemsQt));
             localStorage.setItem("refreshsum", JSON.stringify(this.sum));
             localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
             localStorage.setItem("refreshCart", JSON.stringify(this.cart));
