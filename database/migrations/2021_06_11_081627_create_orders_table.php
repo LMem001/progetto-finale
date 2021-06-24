@@ -15,12 +15,11 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-
+            $table->integer('restaurant_ID');
             $table->dateTime('pickup_date');
             $table->boolean('status')->default(0);
             $table->string('payment_type', 20);
             $table->smallInteger('total_order');
-
             $table->timestamps();
         });
     }

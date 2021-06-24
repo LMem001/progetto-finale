@@ -5,9 +5,20 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Braintree\Gateway as Gateway;
+use App\Order;
+use App\Food;
 
 class OrderController extends Controller
 {
+    protected $validation = [
+        'client_name' => 'required|string',
+        'client_lastname' => 'required|string',
+        'client_adress' => 'required|string',
+        'client_phone' => 'required|string',
+        'client_email' => 'required|string',
+        'savedrestaurantId' => 'required|numeric'
+    ];
+
     public function checkout()
     {       
         $gateway = new Gateway([
@@ -23,7 +34,7 @@ class OrderController extends Controller
     }
 
     public function make(Request $request)
-    {
+    {   
         $gateway = new Gateway([
             'environment' => 'sandbox',
             'merchantId' => '35y89qdcrmqjxbm4',
