@@ -133,7 +133,7 @@ var app = new Vue(
             localStorage.setItem("itemsQT", JSON.stringify(this.orderdItemsQt));
             localStorage.setItem("refreshsum", JSON.stringify(this.sum));
             localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
-            localStorage.setItem("refreshCart", JSON.stringify(this.cart));
+            localStorage.setItem("refreshCart", JSON(this.cart));
          },
 
          clearCart: function(){

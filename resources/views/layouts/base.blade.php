@@ -7,7 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.min.js"></script>
+
     @yield('cnd')
+    
     <title> BASE | @yield('pageTitle')</title>
 
 

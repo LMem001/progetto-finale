@@ -49,7 +49,7 @@ class OrderController extends Controller
                 'submitForSettlement' => True
                 ]
             ]);
-        dd($result);
+        dd($request);
         return redirect()->route('successpayment');
     }
 }
