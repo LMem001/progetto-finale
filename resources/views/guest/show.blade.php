@@ -27,11 +27,13 @@
     <!-- info -->
     <div class="container-show">
         <section id="restaurant-profile">
-            <div class="rest-img-background"></div>
+            <div class="coverImage">
+                <img :src="selectedRestaurant.img_cover" alt="cover restaurant">
+            </div>
             <div class="rest-info-container">
                 <div class="rest-info">
                     <div class="rest-logo">
-                        <img src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2019/10/attachment_103367090-e1571110045215.jpg?auto=format&q=60&fit=max&w=930" alt="">
+                        <img :src="selectedRestaurant.img_profile" alt="profile img">
                     </div>
                     <div class="rest-info-content">
                         <h2>@{{selectedRestaurant.rest_name}}</h2>
