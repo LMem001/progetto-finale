@@ -6,26 +6,24 @@
    bottom: 0;
    z-index: 10000;
    opacity: 0;
+   height: 0%;
    background-color: $pallette_purple ;
-   background-image: url("../img/skyline_roma.png");
-   background-repeat: no-repeat;
-   background-position: bottom center;
-   background-size: 100%;
-   @media screen and (max-width:1200px){
-      width: 1200px;
-      background-position:bottom 50%;
-  }
    animation-name: preloader;
-   animation-duration: 4s;
-   animation-timing-function: linear; 
+   animation-duration: 5s;
+   animation-timing-function: linear;
+   
    @keyframes preloader {
       0%{
       opacity: 1;
       height: 100%;
       }
       60%{
-         opacity: 1;
+         background-color: $pallette_purple ;
       }
+      90%{
+         background-color: black;
+         opacity: 1;
+      }  
       99%{
       height: 100%;
       }
@@ -34,14 +32,121 @@
       opacity: 0;
       }
    }
-   .city{
+   .line{
+      position: absolute;
+      top: calc(20% + 158px);
+      width: 100%;
+      height: 1px;
+      background-color: black;
+   }
+   .acrobata{
+      width: 10%;
+      position: absolute;
+      top: 20%;
+      animation-name: ride;
+      animation-duration: 5s;
+      animation-timing-function: linear;
+         @keyframes ride {
+            0%{
+               left: -20%;
+            }
+            20%{
+               left: -20%; 
+            }
+            100%{
+               left: 120%;
+            }
+         }
+      .monocicle{
+         position: relative;
+         width: 10%;
+         .rightArm{
+            position: absolute;
+            top: 16%;
+            left: 24.3%;        
+            transform: rotate(-20deg);
+            animation-name: moverightarm;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            @keyframes moverightarm {
+               0%{
+                  transform: rotate(-20deg);
+               }
+               25%{
+                  transform: rotate(-80deg);
+               }
+               50%{
+                  transform: rotate(-20deg);
+               }
+               75%{
+                  transform: rotate(-80deg);
+               }
+               100%{
+                  transform: rotate(-20deg);
+               }
+            }
+         }
+         .leftArm{
+            position: absolute;
+            top: 3%;
+            left: 63.2%;
+            animation-name: moveleftarm;
+            animation-duration: 2.1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            @keyframes moveleftarm {
+               0%{
+                  transform: rotate(0);
+               }
+               25%{
+                  transform: rotate(50deg);
+               }
+               50%{
+                  transform: rotate(0);
+               }
+               75%{
+                  transform: rotate(50deg);
+               }
+               100%{
+                  transform: rotate(0);
+               }
+            }
+         }
+         
+         .wheel{
+            position: absolute;
+            top: 65.3%;
+            left: 205%;
+            animation-name: wheelrotate;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            @keyframes wheelrotate {
+               0%{
+                  transform: rotate(0deg);
+               }
+               100%{
+                  transform: rotate(360deg);
+               }
+            }
+         }
+      }
+   }
+
+   
+   .skyline{
+      width: 100%;
       position: absolute;
       bottom: -10px;
-      right: 0%;
-
+      display: flex;
+      justify-content: center;
       img{
          width: 100%;
-         min-width: 1200px;
+         min-width: 800px;
+         @media screen and (max-width: 800px) {
+            min-width: 600px;;
+            }
       }
    }
 }

@@ -23,7 +23,24 @@
     <title>DeviBool | @yield('page-title')</title>
     
 </head>
+
     <body>
+        <div class="preloader">
+            <div class="acrobata">
+                <div class="monocicle">
+                        <img class="leftArm" src="/img/preloader/left_arm.png" alt="">
+                        <img class="acrobatbody" src="/img/preloader/base_monocik.png" alt="">
+                        <img class="rightArm" src="/img/preloader/right_arm.png" alt="">   
+                        <img class="wheel" src="/img/preloader/wheel.png" alt="">       
+                </div>
+            </div>
+            
+            <div class="line"></div>
+            <div class="skyline">
+                <img src="/img/skyline_roma.png" alt="">
+            </div>
+        </div>
+
         <div id="app">
             <!-- header -->
             @include('guest.partials.navbar')

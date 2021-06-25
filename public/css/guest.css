@@ -152,23 +152,14 @@ html {
   bottom: 0;
   z-index: 10000;
   opacity: 0;
+  height: 0%;
   background-color: #643863;
-  background-image: url("../img/skyline_roma.png");
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: 100%;
   -webkit-animation-name: preloader;
           animation-name: preloader;
-  -webkit-animation-duration: 4s;
-          animation-duration: 4s;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
-}
-@media screen and (max-width: 1200px) {
-  .preloader {
-    width: 1200px;
-    background-position: bottom 50%;
-  }
 }
 @-webkit-keyframes preloader {
   0% {
@@ -176,6 +167,10 @@ html {
     height: 100%;
   }
   60% {
+    background-color: #643863;
+  }
+  90% {
+    background-color: black;
     opacity: 1;
   }
   99% {
@@ -192,6 +187,10 @@ html {
     height: 100%;
   }
   60% {
+    background-color: #643863;
+  }
+  90% {
+    background-color: black;
     opacity: 1;
   }
   99% {
@@ -202,14 +201,189 @@ html {
     opacity: 0;
   }
 }
-.preloader .city {
+.preloader .line {
+  position: absolute;
+  top: calc(20% + 158px);
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+.preloader .acrobata {
+  width: 10%;
+  position: absolute;
+  top: 20%;
+  -webkit-animation-name: ride;
+          animation-name: ride;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+@-webkit-keyframes ride {
+  0% {
+    left: -20%;
+  }
+  20% {
+    left: -20%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+@keyframes ride {
+  0% {
+    left: -20%;
+  }
+  20% {
+    left: -20%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+.preloader .acrobata .monocicle {
+  position: relative;
+  width: 10%;
+}
+.preloader .acrobata .monocicle .rightArm {
+  position: absolute;
+  top: 16%;
+  left: 24.3%;
+  transform: rotate(-20deg);
+  -webkit-animation-name: moverightarm;
+          animation-name: moverightarm;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+@-webkit-keyframes moverightarm {
+  0% {
+    transform: rotate(-20deg);
+  }
+  25% {
+    transform: rotate(-80deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(-80deg);
+  }
+  100% {
+    transform: rotate(-20deg);
+  }
+}
+@keyframes moverightarm {
+  0% {
+    transform: rotate(-20deg);
+  }
+  25% {
+    transform: rotate(-80deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(-80deg);
+  }
+  100% {
+    transform: rotate(-20deg);
+  }
+}
+.preloader .acrobata .monocicle .leftArm {
+  position: absolute;
+  top: 3%;
+  left: 63.2%;
+  -webkit-animation-name: moveleftarm;
+          animation-name: moveleftarm;
+  -webkit-animation-duration: 2.1s;
+          animation-duration: 2.1s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+@-webkit-keyframes moveleftarm {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(50deg);
+  }
+  50% {
+    transform: rotate(0);
+  }
+  75% {
+    transform: rotate(50deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+@keyframes moveleftarm {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(50deg);
+  }
+  50% {
+    transform: rotate(0);
+  }
+  75% {
+    transform: rotate(50deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+.preloader .acrobata .monocicle .wheel {
+  position: absolute;
+  top: 65.3%;
+  left: 205%;
+  -webkit-animation-name: wheelrotate;
+          animation-name: wheelrotate;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+@-webkit-keyframes wheelrotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes wheelrotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.preloader .skyline {
+  width: 100%;
   position: absolute;
   bottom: -10px;
-  right: 0%;
+  display: flex;
+  justify-content: center;
 }
-.preloader .city img {
+.preloader .skyline img {
   width: 100%;
-  min-width: 1200px;
+  min-width: 800px;
+}
+@media screen and (max-width: 800px) {
+  .preloader .skyline img {
+    min-width: 600px;
+  }
 }
 
 header {

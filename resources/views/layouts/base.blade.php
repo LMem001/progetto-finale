@@ -9,7 +9,7 @@
     <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.min.js"></script>
 
     @yield('cnd')
-    
+
     <title> BASE | @yield('pageTitle')</title>
 
 
@@ -27,6 +27,8 @@
 </head>
 
 <body>
+
+
     <div id="app">
 		
         <!-- header -->
