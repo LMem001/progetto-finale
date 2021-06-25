@@ -89,6 +89,7 @@ var app = new Vue(
         });
         console.log(this.foodDB);
         this.foodfordb = this.foodDB.toString();
+        this.foodfordb = this.foodfordb.substring(0,this.foodfordb.length-1);
         console.log(this.foodfordb);
       }
       
