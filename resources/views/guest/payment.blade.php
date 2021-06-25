@@ -2,9 +2,15 @@
 
 @section('cdn')
 <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.min.js"></script>
+
+
 @endsection
 
+
+
 @section('content')
+{{-- moment.js --}}
+<script src="https://momentjs.com/downloads/moment.js"></script>
 {{-- VUE development version, includes helpful console warnings --}}
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <div id="paymentApp">
@@ -37,7 +43,7 @@
 
     <div class="form-group">
       <label for="pickup_date">Orario consegna</label>
-      <input type="time" id="pickup_date" name="pickup_date" min="09:00" max="18:00" required>
+      <input type="time" id="pickup_date" name="pickup_date" min="time" max="18:00" required>
     </div>
 
     <input type="hidden" id="restaurant_ID" name="restaurant_ID" :value="restID">
@@ -48,7 +54,7 @@
     </div>
 
     <div>
-      <input type="hidden" id="total" name="total" :value="sum">
+      <input type="hidden" id="total_order" name="total_order" :value="sum">
     </div>
 
     
@@ -79,9 +85,19 @@ var app = new Vue(
         orderFoods: JSON.parse(localStorage.getItem('refreshCart')),
         foodDB: [],
         foodfordb: "",
+        time:'',
+      },
+      methods: {
+        moment: function () {
+          return moment();
+        },
       },
       beforeMount() {
-        
+
+        setInterval(() => {
+         this.time = moment().format('HH:mm')
+        }, 1000); 
+
         this.orderFoods.forEach(element => {
           if(element.quantity > 0){
             product = [];
@@ -91,15 +107,12 @@ var app = new Vue(
             this.foodDB.push(product + "/");
           }
         });
-        console.log(this.foodDB);
         this.foodfordb = this.foodDB.toString();
         this.foodfordb = this.foodfordb.substring(0,this.foodfordb.length-1);
-        console.log(this.foodfordb);
       }
       
   });
   
-        
     var idRistorante = localStorage.getItem('savedrestaurantId');
     var totale = localStorage.getItem('refreshsum');
     const form = document.getElementById('payment-form');
