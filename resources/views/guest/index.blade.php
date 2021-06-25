@@ -16,18 +16,12 @@
     <main>
         {{-- jumbotron --}}
         <section id="jumbotron">
-            <div class="jumbo-content">
 
-                <h1 class="mt_3">Slogan Super Figo</h1>
-
-                <h2  class="mt_3" >Secondo Slogan Super Figo (solo che un po' più piccolo e si spera venga anche un po' più lungo)</h2>
-
-                <!-- search a restaurant -->
-                {{-- <div class="input-jumbotron-container mt_4">
-                    <form action="">
-                        <input type="search" placeholder="Inserisci il nome del ristorante"/>
-                    </form>
-                </div>             --}}
+            <video id="foodvideo" poster="/img/poster.png" autoplay muted loop><source src="img/video_jumbo.mp4" type="video/mp4"></video>
+                
+            <div class="jumbo">
+                <h1 class="mt_3">Fate l'amore con il sapore</h1>
+                <h2  class="mt_3">Un Buon cibo, porta con se dei buoni momenti, e noi lo accompagniamo al caldo fino alla tua porta</h2>
             </div>
         </section>
 

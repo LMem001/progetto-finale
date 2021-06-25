@@ -527,33 +527,39 @@ header .navbar nav .registration {
   }
 }
 #jumbotron {
-  background-image: url("https://wallpaperaccess.com/full/462860.jpg");
-  background-size: cover;
-  background-position: center;
   height: 100vh;
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
-  transition: 0.5s ease;
+  align-items: center;
 }
-#jumbotron .jumbo-content {
-  margin-left: calc(20% - 100px);
+#jumbotron #foodvideo {
+  position: absolute;
+  z-index: -20;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#jumbotron .jumbo {
+  margin-left: 200px;
   width: calc(40% + 100px);
   min-width: 550px;
-  padding: 20px;
+  padding: 50px;
   color: white;
   border-radius: 10px;
   border: 1px solid white;
   background-color: rgba(0, 0, 0, 0.3);
 }
-#jumbotron .jumbo-content h1 {
+#jumbotron .jumbo h1 {
   font-size: 45px;
 }
-#jumbotron .jumbo-content .input-jumbotron-container {
+#jumbotron .jumbo .input-jumbotron-container {
   color: white;
 }
-#jumbotron .jumbo-content .input-jumbotron-container input {
+#jumbotron .jumbo .input-jumbotron-container input {
   border: 2px solid white;
   background: rgba(0, 0, 0, 0.4);
   width: 50%;
@@ -562,16 +568,16 @@ header .navbar nav .registration {
   padding: 10px;
   font-size: 19px;
 }
-#jumbotron .jumbo-content .input-jumbotron-container input::-moz-placeholder {
+#jumbotron .jumbo .input-jumbotron-container input::-moz-placeholder {
   color: #F86A71;
 }
-#jumbotron .jumbo-content .input-jumbotron-container input:-ms-input-placeholder {
+#jumbotron .jumbo .input-jumbotron-container input:-ms-input-placeholder {
   color: #F86A71;
 }
-#jumbotron .jumbo-content .input-jumbotron-container input::placeholder {
+#jumbotron .jumbo .input-jumbotron-container input::placeholder {
   color: #F86A71;
 }
-#jumbotron .jumbo-content .input-jumbotron-container input:focus {
+#jumbotron .jumbo .input-jumbotron-container input:focus {
   outline: 0;
 }
 

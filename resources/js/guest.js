@@ -321,20 +321,4 @@ var app = new Vue(
 
              
       },
-   });
-   
-
-   // function changeBgJb(){
-   //    const imgBgJb = [
-   //        'url("img/bg_1.jpg")',
-   //        'url("img/bg_hero1.jpeg")',
-   //        'url("img/bg_hero3.jpeg")',
-   //    ]
-   //    const jumbo = document.getElementById("jumbotron")
-      
-   //          const bgJb = imgBgJb[Math.floor(Math.random() * imgBgJb.length)];
-   //          jumbo.style.backgroundImage = bgJb;
-         
-   //    setInterval(changeBgJb, 1000);
-   //    }
-      
+});
