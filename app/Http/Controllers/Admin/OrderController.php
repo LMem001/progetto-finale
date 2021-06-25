@@ -9,6 +9,8 @@ use App\Order;
 use App\Food;
 use App\Restaurant;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\SendNewMail;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -43,7 +45,7 @@ class OrderController extends Controller
             'publicKey' => 'cy7zcsmnv7shw32h',
             'privateKey' => 'b3532888dc5b7a9627e8904228ed3ba0'
         ]);
-        $total = floatval($request->total);
+        $total = floatval($request->total_order);
 
         $result = $gateway->transaction()->sale([
             'amount' => $total,
@@ -55,8 +57,9 @@ class OrderController extends Controller
 
         $food_array = explode("/,",$request->ordered_food);
 
-        $timezone = date('Y-m-d H:i:s');
-        dd($timezone);
+        $timezone = date('Y-m-d'). ' ' .$request->pickup_date;
+
+        // dd($request->client_email);
 
         $newOrder = new Order();
         $newOrder -> restaurant_ID =  $request->restaurant_ID;
@@ -65,6 +68,20 @@ class OrderController extends Controller
         $newOrder -> payment_type = 'credit card';
         $newOrder -> total_order = $total;
         $newOrder->save();
+
+        foreach ($food_array as $value) {
+            $value =  explode(",",$value);
+            if ($value[1] > 1){
+                for ($i = 0; $i < $value[1]; $i++){
+                    $newOrder ->foods()->attach($value[0]);
+                }
+            }
+            else{
+                $newOrder ->foods()->attach($value[0]);
+            }
+        }
+
+        Mail::to($request->client_email)->send(new SendNewMail($newOrder));
 
         return redirect()->route('successpayment');
     }
