@@ -47,6 +47,10 @@
       <input type="hidden" id="ordered_food" name="ordered_food" :value="foodfordb">
     </div>
 
+    <div>
+      <input type="hidden" id="total" name="total" :value="sum">
+    </div>
+
     
 
     {{-- braintree  --}}
