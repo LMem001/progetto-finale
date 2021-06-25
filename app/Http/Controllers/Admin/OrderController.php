@@ -9,6 +9,8 @@ use App\Order;
 use App\Food;
 use App\Restaurant;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\SendNewMail;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -57,6 +59,8 @@ class OrderController extends Controller
 
         $timezone = date('Y-m-d'). ' ' .$request->pickup_date;
 
+        // dd($request->client_email);
+
         $newOrder = new Order();
         $newOrder -> restaurant_ID =  $request->restaurant_ID;
         $newOrder -> pickup_date = $timezone;
@@ -76,6 +80,8 @@ class OrderController extends Controller
                 $newOrder ->foods()->attach($value[0]);
             }
         }
+
+        Mail::to($request->client_email)->send(new SendNewMail($newOrder));
 
         return redirect()->route('successpayment');
     }
