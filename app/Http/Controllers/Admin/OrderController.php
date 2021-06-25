@@ -43,15 +43,29 @@ class OrderController extends Controller
             'publicKey' => 'cy7zcsmnv7shw32h',
             'privateKey' => 'b3532888dc5b7a9627e8904228ed3ba0'
         ]);
-        
+        $total = floatval($request->total);
+
         $result = $gateway->transaction()->sale([
-            'amount' => 10,
+            'amount' => $total,
             'paymentMethodNonce' => $request->payment_method_nonce,
             'options' => [
                 'submitForSettlement' => True
                 ]
-            ]);
-        dd($request);
+        ]);
+
+        $food_array = explode("/,",$request->ordered_food);
+
+        $timezone = date('Y-m-d H:i:s');
+        dd($timezone);
+
+        $newOrder = new Order();
+        $newOrder -> restaurant_ID =  $request->restaurant_ID;
+        $newOrder -> pickup_date = $timezone;
+        $newOrder -> status = $result->success;
+        $newOrder -> payment_type = 'credit card';
+        $newOrder -> total_order = $total;
+        $newOrder->save();
+
         return redirect()->route('successpayment');
     }
 
