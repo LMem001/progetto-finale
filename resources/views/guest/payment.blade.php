@@ -42,11 +42,10 @@
 
     <input type="hidden" id="restaurant_ID" name="restaurant_ID" :value="restID">
 
-    <div>
-      <input type="hidden" id="ordered_food" name="ordered_food" :value="orderFoods ">
-    </div>
-    
 
+    <div>
+      <input type="hidden" id="ordered_food" name="ordered_food" :value="foodfordb">
+    </div>
 
     
 
@@ -73,11 +72,26 @@ var app = new Vue(
       data:{
         sum: localStorage.getItem('refreshsum'),
         restID: localStorage.getItem('savedrestaurantId'),
-        orderFoods: localStorage.getItem('refreshCart'),
+        orderFoods: JSON.parse(localStorage.getItem('refreshCart')),
+        foodDB: [],
+        foodfordb: "",
       },
       beforeMount() {
-        console.log(this.orderFoods);
+        
+        this.orderFoods.forEach(element => {
+          if(element.quantity > 0){
+            product = [];
+            product.push(element.id.toString());
+            product.push(element.quantity.toString());
+            product.push(element.food_price.toString());
+            this.foodDB.push(product + "/");
+          }
+        });
+        console.log(this.foodDB);
+        this.foodfordb = this.foodDB.toString();
+        console.log(this.foodfordb);
       }
+      
   });
   
         
