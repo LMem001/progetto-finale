@@ -201,6 +201,11 @@ html {
     opacity: 0;
   }
 }
+.preloader h1 {
+  font-size: 45px;
+  margin-top: 22%;
+  text-align: center;
+}
 .preloader .line {
   position: absolute;
   top: calc(20% + 158px);
@@ -226,6 +231,12 @@ html {
   20% {
     left: -20%;
   }
+  50% {
+    left: 40%;
+  }
+  70% {
+    left: 40%;
+  }
   100% {
     left: 120%;
   }
@@ -237,18 +248,24 @@ html {
   20% {
     left: -20%;
   }
+  50% {
+    left: 40%;
+  }
+  70% {
+    left: 40%;
+  }
   100% {
     left: 120%;
   }
 }
 .preloader .acrobata .monocicle {
   position: relative;
-  width: 10%;
+  width: 163px;
 }
 .preloader .acrobata .monocicle .rightArm {
   position: absolute;
   top: 16%;
-  left: 24.3%;
+  left: 2%;
   transform: rotate(-20deg);
   -webkit-animation-name: moverightarm;
           animation-name: moverightarm;
@@ -295,8 +312,8 @@ html {
 }
 .preloader .acrobata .monocicle .leftArm {
   position: absolute;
-  top: 3%;
-  left: 63.2%;
+  top: 4%;
+  left: 7%;
   -webkit-animation-name: moveleftarm;
           animation-name: moveleftarm;
   -webkit-animation-duration: 2.1s;
@@ -343,7 +360,7 @@ html {
 .preloader .acrobata .monocicle .wheel {
   position: absolute;
   top: 65.3%;
-  left: 205%;
+  left: 18%;
   -webkit-animation-name: wheelrotate;
           animation-name: wheelrotate;
   -webkit-animation-duration: 2s;

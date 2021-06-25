@@ -20,8 +20,8 @@
             <video id="foodvideo" poster="/img/poster.png" autoplay muted loop><source src="img/video_jumbo.mp4" type="video/mp4"></video>
                 
             <div class="jumbo">
-                <h1 class="mt_3">Fate l'amore con il sapore</h1>
-                <h2  class="mt_3">Un Buon cibo, porta con se dei buoni momenti, e noi lo accompagniamo al caldo fino alla tua porta</h2>
+                <h1 class="mt_3">Con noi il cibo arriva subito</h1>
+                <h2  class="mt_3">Un Buon cibo, risveglia i tutti sensi.. <br>Noi ci occupiamo di portarlo caldo alla tua tavola</h2>
             </div>
         </section>
 

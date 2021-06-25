@@ -32,6 +32,11 @@
       opacity: 0;
       }
    }
+   h1{
+      font-size: $font_titles_l;
+      margin-top: 22%;
+      text-align: center;
+   }
    .line{
       position: absolute;
       top: calc(20% + 158px);
@@ -53,17 +58,23 @@
             20%{
                left: -20%; 
             }
+            50%{
+               left: 40%;
+            }
+            70%{
+               left: 40%;
+            }
             100%{
                left: 120%;
             }
          }
       .monocicle{
          position: relative;
-         width: 10%;
+         width: 163px;
          .rightArm{
             position: absolute;
             top: 16%;
-            left: 24.3%;        
+            left: 2%;       
             transform: rotate(-20deg);
             animation-name: moverightarm;
             animation-duration: 2s;
@@ -89,8 +100,8 @@
          }
          .leftArm{
             position: absolute;
-            top: 3%;
-            left: 63.2%;
+            top: 4%;
+            left: 7%;
             animation-name: moveleftarm;
             animation-duration: 2.1s;
             animation-timing-function: linear;
@@ -117,7 +128,7 @@
          .wheel{
             position: absolute;
             top: 65.3%;
-            left: 205%;
+            left: 18%;
             animation-name: wheelrotate;
             animation-duration: 2s;
             animation-timing-function: linear;

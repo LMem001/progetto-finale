@@ -26,12 +26,13 @@
 
     <body>
         <div class="preloader">
+            <h1>Deviboo</h1>
             <div class="acrobata">
                 <div class="monocicle">
-                        <img class="leftArm" src="/img/preloader/left_arm.png" alt="">
-                        <img class="acrobatbody" src="/img/preloader/base_monocik.png" alt="">
-                        <img class="rightArm" src="/img/preloader/right_arm.png" alt="">   
-                        <img class="wheel" src="/img/preloader/wheel.png" alt="">       
+                    <img class="leftArm" src="/img/preloader/left_arm.png" alt="">
+                    <img class="acrobatbody" src="/img/preloader/base_monocik.png" alt="">
+                    <img class="wheel" src="/img/preloader/wheel.png" alt="">  
+                    <img class="rightArm" src="/img/preloader/right_arm.png" alt="">   
                 </div>
             </div>
             
