@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Restaurant;
+use App\Order;
 
 class DashboardController extends Controller
 {
@@ -24,6 +25,13 @@ class DashboardController extends Controller
             return redirect()->route('admin.restaurant.create');
         }
 
-        return view('admin.dashboard.index', compact('restaurant'));
+        $orders = Order::where('restaurant_id', $restaurant->id)->get();
+
+        return view('admin.dashboard.index', compact('restaurant', 'orders'));
+    }
+
+    public function show(Order $order)
+    {
+        return view('admin.dashboard.show', compact('order'));
     }
 }
