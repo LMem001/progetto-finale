@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Mail;
 class OrderController extends Controller
 {
     protected $validation = [
-        'client_name' => 'required|string',
-        'client_lastname' => 'required|string',
-        'client_adress' => 'required|string',
-        'client_phone' => 'required|string',
-        'client_email' => 'required|string',
+        'client_name' => 'required|string|max:50',
+        'client_lastname' => 'required|string|max:50',
+        'client_adress' => 'required|string|max:100',
+        'client_phone' => 'required|string|max:16|min:10|',
+        'client_email' => 'required|string|max:100',
         'savedrestaurantId' => 'required|numeric'
     ];
 

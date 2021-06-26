@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Storage;
 class RestaurantController extends Controller
 {
     protected $validation = [
-        'rest_name' => 'required|string|unique:restaurants',
-        'open_time' => 'required|string',
-        'close_time' => 'required|string',
-        'rest_email' => 'required|string|email|unique:restaurants',
-        'phone' => 'required|string|max:16|unique:restaurants',
-        'address' => 'required|string',
+        'rest_name' => 'required|string|unique:restaurants|max:100',
+        'open_time' => 'required|string|max:15',
+        'close_time' => 'required|string|max:15',
+        'rest_email' => 'required|string|email|unique:restaurants|max:100',
+        'phone' => 'required|string|max:16|min:10|unique:restaurants',
+        'address' => 'required|string|max:100',
         'img_cover' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'img_profile' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
     ];
