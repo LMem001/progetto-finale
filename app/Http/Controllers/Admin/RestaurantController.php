@@ -17,7 +17,7 @@ class RestaurantController extends Controller
         'open_time' => 'required|string',
         'close_time' => 'required|string',
         'rest_email' => 'required|string|email|unique:restaurants',
-        'phone' => 'required|string|digits:16|unique:restaurants',
+        'phone' => 'required|string|max:16|unique:restaurants',
         'address' => 'required|string',
         'img_cover' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'img_profile' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
@@ -30,6 +30,18 @@ class RestaurantController extends Controller
      */
     public function create()
     {
+        $user_id = Auth::id();
+
+        if($user_id == null){
+            return redirect()->route('login')->with('message', 'Effettua il Login per visualizzare la pagina');
+        }
+
+        $restaurant = Restaurant::where('user_id', $user_id)->first();
+
+        if($restaurant != null) {
+            return redirect()->route('admin.dashboard.index')->with('message', 'Hai già registrato un ristorante');;
+        }
+        
         $types = ResType::all();
 
         return view('admin.restaurant.create', compact('types'));    
@@ -43,6 +55,18 @@ class RestaurantController extends Controller
      */
     public function store(Restaurant $restaurant, Request $request)
     {
+        $user_id = Auth::id();
+
+        if($user_id == null){
+            return redirect()->route('login')->with('message', 'Effettua il Login per visualizzare la pagina');
+        }
+
+        $restaurant = Restaurant::where('user_id', $user_id)->first();
+
+        if($restaurant != null) {
+            return redirect()->route('admin.dashboard.index')->with('message', 'Hai già registrato un ristorante');;
+        }
+        
         $validation = $this->validation;
 
         $request->validate($this->validation);

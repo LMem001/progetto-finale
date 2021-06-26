@@ -33,12 +33,13 @@
 				{{-- orario apertura --}}
 				<div class="form-group">
 					<label for="open_time">Orario apertura</label>
-					<input type="text" class="form-control" id="open_time" name="open_time" placeholder="Orario apertura">
+					<input type="time" id="open_time" name="open_time" required>
 				</div>
 				{{-- orario chiusura --}}
 				<div class="form-group">
 					<label for="close_time">Orario chiusura</label>
-					<input type="text" class="form-control" id="close_time" name="close_time" placeholder="Orario chiusura">
+					<input type="time" id="close_time" name="close_time" required>
+
 				</div>
 
 				{{-- allega immagini1 --}}
