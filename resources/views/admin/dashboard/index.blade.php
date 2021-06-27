@@ -135,6 +135,32 @@
                     </tbody>
                 </table>
             </div>
+
+            
+        </div>
+        <div class="order_list">
+            @foreach ($orders as $order)
+                <div class="order_id">
+                    {{$order->id}}
+                </div>
+                <div class="order_id">
+                    {{$order->payment_type}}
+                </div>
+                <div class="order_id">
+                    {{$order->total_order}}
+                </div>
+                <div class="order_id">
+                    {{$order->pickup_date}}
+                </div>
+                
+                @foreach ($order->foods as $food)
+                    <div>
+                        {{$food->name}}
+                    </div>
+                @endforeach 
+                <br>
+                
+            @endforeach
         </div>
     </div>
     @if (session('message'))
