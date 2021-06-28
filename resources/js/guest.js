@@ -209,42 +209,25 @@ var app = new Vue(
                      })
                   }
                }
-               
-            })
-         // end axios call restaurants
-         // axios call restaurantstype
-         axios.get(this.apiRestaurantType,{
-            params: {
-            }
-            })
-            .then((serverAnswer) =>{
-               serverAnswer.data.forEach((type) =>{
-                  this.restaurants_types.push(type)
-               })
+               // get restaurant slug
 
-            })
-         // end axios call restaurantstype
+               url = window.location.href;
+               lastParam = url.split("/").slice(-1)[0];
+               this.restaurantSlug = (lastParam == "" ? this.restaurants[1].slug : lastParam);
+
+               // end get restaurant slug
 
 
-         // get restaurant slug
-         url = window.location.href,
-         lastParam = url.split("/").slice(-1)[0],
-         
-         this.restaurantSlug = (lastParam == "" ? this.restaurants[0].slug : lastParam),
-            
-         // get single Restaurant
-         
-         axios.get(this.apiSingleRetstaurant + this.restaurantSlug,)
-            .then((serverAnswer) =>{
+               // get single  restaurant
+
+               axios.get(this.apiSingleRetstaurant + this.restaurantSlug,)
+                  .then((serverAnswer) =>{
+                     this.selectedRestaurant = serverAnswer.data;
 
                
-
-               this.selectedRestaurant = serverAnswer.data;
-
-               
-               // get products
+               // get restaurant products
                axios.get(this.apiRestaurantURL + this.selectedRestaurant.id,)
-               .then((serverAnswer) =>{
+                  .then((serverAnswer) =>{
                   
                   this.restaurantSlug = '"' + this.restaurantSlug + '"';
 
@@ -269,7 +252,7 @@ var app = new Vue(
                         }else if(product.tagCourse == "bevanda"){
                            this.restaurantFoods[6].food.push(product);
                         }else if(product.tagCourse == "altro"){
-                           this.restaurantFoods[7].foodpush(product);
+                           this.restaurantFoods[7].food.push(product);
                         }
                      }
                   })
@@ -294,12 +277,22 @@ var app = new Vue(
                         this.cart.push(product);
                      }
                   })
+               })
             })
-   
-         // get products
-         })   
-         
-         
+
+         })
+         // end axios call restaurants
+         // axios call restaurantstype
+         axios.get(this.apiRestaurantType,{
+            params: {
+            }
+         })
+         .then((serverAnswer) =>{
+            serverAnswer.data.forEach((type) =>{
+               this.restaurants_types.push(type)
+            })
+
+         })  
       },
 
       mounted (){  
@@ -308,8 +301,7 @@ var app = new Vue(
          setInterval(() => {
            this.date = moment(this.date.subtract(1, 'seconds'))
          }, 1000);
-         // end banner time
-         
+         // end banner time   
       },
 
       computed: { 
