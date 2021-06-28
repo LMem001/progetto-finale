@@ -18,7 +18,7 @@
             <div class="rest">
 
                 <div class="logo_rest">
-                <img src="{{ asset('storage/' . $restaurant->img_logo) }}" alt="logo del ristorante">            
+                <img src="{{ asset('storage/' . $restaurant->img_profile) }}" alt="logo del ristorante">            
                 
                 </div>
 

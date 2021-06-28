@@ -9,7 +9,7 @@
    height: 0%;
    background-color: $pallette_purple ;
    animation-name: preloader;
-   animation-duration: 5s;
+   animation-duration: 6s;
    animation-timing-function: linear;
    
    @keyframes preloader {
@@ -49,20 +49,33 @@
       position: absolute;
       top: 20%;
       animation-name: ride;
-      animation-duration: 5s;
+      animation-duration: 6s;
       animation-timing-function: linear;
          @keyframes ride {
             0%{
                left: -20%;
             }
-            20%{
+            30%{
                left: -20%; 
             }
-            50%{
-               left: 40%;
+            60%{
+               left: 45%;
+            }
+            62%{
+               top: 20%;
+            }
+            64%{
+               top: 19%;
+            }
+            66%{
+               top: 20%;
+            }
+            68%{
+               top: 18%;
             }
             70%{
-               left: 40%;
+               top: 20%;
+               left: 45%;
             }
             100%{
                left: 120%;

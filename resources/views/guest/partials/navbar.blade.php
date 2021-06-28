@@ -10,12 +10,12 @@
      {{-- navbar --}}
      <div class="navbar" >
          <nav class="container">
-            <div class="logo">
+            <a  href="{{route("home")}}" class="logo">
                <div class="logo_btn displayNone">
                   <button>insert logo Icon</button>
                </div>
                <img src="/img/bigger_logo.png" alt="logo di DeviBool">
-            </div>
+            </a>
             
             <ul class="navbar_elements">
                <li >
