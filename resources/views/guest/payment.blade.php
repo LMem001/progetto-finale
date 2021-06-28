@@ -43,7 +43,7 @@
 
     <div class="form-group">
       <label for="pickup_date">Orario consegna</label>
-      <input type="time" id="pickup_date" name="pickup_date" min="time" max="18:00" required>
+      <input type="time" id="pickup_date" name="pickup_date" :min="time" max="18:00" required>
     </div>
 
     <input type="hidden" id="restaurant_ID" name="restaurant_ID" :value="restID">
@@ -93,10 +93,8 @@ var app = new Vue(
         },
       },
       beforeMount() {
-
-        setInterval(() => {
          this.time = moment().format('HH:mm')
-        }, 1000); 
+        console.log(this.time)
 
         this.orderFoods.forEach(element => {
           if(element.quantity > 0){

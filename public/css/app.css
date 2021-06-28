@@ -10046,6 +10046,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.navbar-brand img {
+  width: 15%;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -10646,7 +10650,6 @@ footer .footer_container #foot_col4 ul {
   margin: 20px 0;
   font-size: 19px;
   line-height: 1.4;
-  text-transform: capitalize;
 }
 .contenuto .dashboard span.data {
   color: #F30050;

@@ -91,7 +91,7 @@
                 <div class="restaurant_card" v-for="restaurant in restaurants">
                     <a class="content" :href="'http://localhost:8000/restaurant/show/' + restaurant.slug">
                         <div class="logo_rest">
-                            <img :src="restaurant.img_profile" alt="">
+                            <img :src="'storage/' +restaurant.img_profile" alt="">
                         </div>
                         <div class="restaurant_info">
                             <h3>@{{restaurant.rest_name}}</h3>

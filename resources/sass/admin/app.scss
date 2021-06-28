@@ -1,12 +1,15 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import '../variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
+.navbar-brand{
+   img{
+      width: 15%;
+   }
+};
 @import '../guest/partials/mix';
 @import '../guest/partials/header';
 @import '../guest/partials/footer';

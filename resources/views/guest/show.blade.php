@@ -19,12 +19,12 @@
     <!-- info -->
     <section id="restaurant-profile">
         <div class="coverImage">
-            <img :src="selectedRestaurant.img_cover" alt="cover restaurant">
+            <img :src='"/storage/" + selectedRestaurant.img_cover' alt="cover restaurant">
         </div>
         <div class="rest-info-container">
             <div class="rest-info">
                 <div class="rest-logo">
-                    <img :src="selectedRestaurant.img_profile" alt="profile img">
+                    <img :src='"/storage/" + selectedRestaurant.img_profile' alt="profile img">
                 </div>
                 <div class="rest-info-content">
                     <h2>@{{selectedRestaurant.rest_name}}</h2>

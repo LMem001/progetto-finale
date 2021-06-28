@@ -8,8 +8,6 @@
 @section('content')
     <div class="coverImage">
         <img src="{{ asset('storage/' . $restaurant->img_cover) }}" alt="immagine di copertina">
-        {{-- <img src="{{ asset('img/' . $restaurant->img_cover) }}" alt="immagine di copertina... (2)" /> --}}
-        {{-- <img src="{{$restaurant->img_cover}}" alt=""> --}}
     </div>
     <div class="contenuto">
         <div class="dashboard">
@@ -31,7 +29,7 @@
                         <li>
                             Utente :
                             <span class="data">
-                                {{$restaurant->rest_name}}
+                                {{$restaurant->user->name}} {{$restaurant->user->lastname}}
                             </span> 
                         </li>
                         <li>
@@ -49,7 +47,7 @@
                         <li>
                             Indirizzo : 
                             <span class="data">
-                                {{$restaurant->adress}}
+                                {{$restaurant->address}}
                             </span> 
                         </li>
                         <li>
@@ -133,8 +131,6 @@
                     </tbody>
                 </table>
             </div>
-
-            
         </div>
         <div class="order_list">
             @foreach ($orders as $order)
@@ -149,8 +145,7 @@
                 </div>
                 <div class="order_id">
                     {{$order->pickup_date}}
-                </div>
-                
+                </div>     
                 @foreach ($order->foods as $food)
                     <div>
                         {{$food->name}}
