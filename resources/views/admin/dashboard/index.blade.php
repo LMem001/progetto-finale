@@ -5,8 +5,6 @@
   
 @endsection
 
-
-
 @section('content')
     <div class="coverImage">
         <img src="{{ asset('storage/' . $restaurant->img_cover) }}" alt="immagine di copertina">

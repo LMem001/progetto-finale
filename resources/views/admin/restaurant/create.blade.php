@@ -1,15 +1,15 @@
 @extends('layouts.base')
 
 @section('pageTitle')
-	Aggiungi un ristorante
+	Aggiungi ristorante
 @endsection
 
 @section('content')
-	<div class="edit_container">
-		<div class="edit_top">
+	<div class="edit_container card">
+		<div class="card-header">
 			<h2>Aggiungi un ristorante</h2>
 		</div>
-		<div class="edit_bottom">
+		<div class="card-body">
 			@if ($errors->any())
 				<div class="alert alert-danger">
 					<ul>
@@ -73,11 +73,11 @@
 
 				{{-- sezione tags --}}
 				<div class="mt-3 tag_section">
-					<h3>Tipologia ristorante</h3>
+					<h3 class="fake_label">Tipologia ristorante</h3>
 					@foreach ($types as $type)
 						<div class="form-check">
 							<input class="form-check-input" type="checkbox" value="{{$type->id}}" id="{{$type->restaurant_type}}" name="types[]">
-							<label class="form-check-label" for="{{$type->restaurant_type}}">
+							<label class="tag form-check-label" for="{{$type->restaurant_type}}">
 								{{$type->restaurant_type}}
 							</label>
 						</div>
@@ -85,13 +85,10 @@
 				</div>
 
 				{{-- bottone --}}
-				<div class="mt-3">
-					<button type="submit" class="btn btn-primary">Crea</button>
+				<div class="mt-4 btn_center">
+					<button type="submit" class="btn btn_primary">Crea</button>
 				</div>
-
 			</form>
 		</div>
-		
 	</div>
-
 @endsection

@@ -10128,6 +10128,16 @@ h1, h2 {
   justify-content: space-between;
 }
 
+.fake_label {
+  font-size: 15px;
+  color: #F30050;
+  text-shadow: 1px 1px 2px black;
+}
+
+.btn_center {
+  text-align: center;
+}
+
 .display {
   display: block;
 }
@@ -10159,6 +10169,11 @@ i {
 .fa-youtube {
   padding: 10px 9px;
   background-color: #cd201f;
+}
+
+.fa-tripadvisor {
+  padding: 10px 8px;
+  background-color: #31d99c;
 }
 
 /* //?  MEDIUM 768-480px  */
@@ -10629,14 +10644,14 @@ footer .footer_container #foot_col4 ul {
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 20px 0;
-  font-size: 23px;
+  font-size: 19px;
   line-height: 1.4;
   text-transform: capitalize;
 }
 .contenuto .dashboard span.data {
   color: #F30050;
   font-weight: bold;
-  font-size: 29px;
+  font-size: 23px;
 }
 .contenuto .dashboard .rest {
   display: flex;
@@ -10781,6 +10796,7 @@ header .navbar nav i {
 .container.login .card-body form label:not(label[for=remember]) {
   font-size: 15px;
   color: #F30050;
+  text-transform: capitalize;
   text-shadow: 1px 1px 2px black;
 }
 .container.login .card-body .forgotten_pw {
@@ -10840,21 +10856,50 @@ header .navbar nav i {
   align-content: flex-end;
 }
 
-.edit_container {
-  width: 90%;
-  margin: 200px auto;
+.edit_container.card {
+  margin-top: 150px;
+  margin-bottom: 70px;
 }
-.edit_container .edit_bottom,
-.edit_container .edit_top {
-  border: blue solid 3px;
-  width: 80%;
-  margin: auto;
+.edit_container.card .card-body .form-check {
+  display: inline-block;
+  width: 24%;
 }
-.edit_container .edit_top {
-  padding: 5px 40px;
-  border-radius: 15px 15px 0 0;
+
+.container_create_food.card {
+  margin-top: 150px;
+  margin-bottom: 70px;
 }
-.edit_container .edit_bottom {
-  border-radius: 0 0 15px 15px;
-  padding: 40px;
+.container_create_food.card .card-body form .form-check {
+  display: inline-block;
+  width: 24%;
+}
+.container_create_food.card .card-body form .tag_section label {
+  color: black;
+  text-shadow: none;
+}
+
+/* //?  LARGE 1200-768px */
+@media screen and (max-width: 1200px) {
+  .edit_container.card .card-body .form-check {
+    display: inline-block;
+    width: 30%;
+  }
+}
+/* //?  MEDIUM 768-480px  */
+@media screen and (max-width: 768px) {
+  .edit_container.card .card-body .form-check {
+    width: 49%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .edit_container.card {
+    width: 85%;
+  }
+  .edit_container.card .card-body .form-check {
+    display: block;
+    margin-left: 20px;
+  }
+  .edit_container.card .form-check-input {
+    margin-left: -2.25rem;
+  }
 }

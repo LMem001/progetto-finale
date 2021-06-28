@@ -1,22 +1,70 @@
-.edit_container{
-    width: 90%;
-    margin: 200px auto;
+// !CREATE RESTAURANT
+.edit_container.card{
+    margin-top: 150px;
+    margin-bottom: 70px;
 
-    .edit_bottom,
-    .edit_top {
-        border: blue solid 3px;
-        width: 80%;
-        margin: auto;
+    .card-body{
+        .form-check {
+            display: inline-block;
+            width: 24%;
+        }
+
+    }
+}
+// !CREATE FOOD
+.container_create_food.card {
+    margin-top: 150px;
+    margin-bottom: 70px;
+    .card-body form{
+        .form-check {
+            display: inline-block;
+            width: 24%;
+        }
+        .tag_section {
+            label {
+                color: black;
+                text-shadow: none;
+            }
+        }
+
+    }
+    
+}
+
+/* //?  LARGE 1200-768px */
+@media screen and (max-width:1200px) {
+    .edit_container.card{
+
+        .card-body .form-check {
+            display: inline-block;
+            width: 30%;
+        }
+    }
+    
+}
+
+/* //?  MEDIUM 768-480px  */
+@media screen  and (max-width:768px) {
+    .edit_container.card{
+        .card-body .form-check {
+            width: 49%;
+        }
+    }
         
-    }
-    .edit_top{
-        padding: 5px 40px;
-        border-radius: 15px 15px 0 0;
+}
 
-    }
-    .edit_bottom {
-        border-radius: 0 0 15px 15px;
-        padding: 40px;
+// ? SMALL
+@media screen and (max-width:480px) {
+    .edit_container.card{
+        width: 85%;
+        .card-body .form-check {
+            display: block;
+            margin-left: 20px;
+        }
+        .form-check-input {
+
+            margin-left: -2.25rem;
+        }
     }
     
 }

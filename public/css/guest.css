@@ -124,6 +124,16 @@ h1, h2 {
   justify-content: space-between;
 }
 
+.fake_label {
+  font-size: 15px;
+  color: #F30050;
+  text-shadow: 1px 1px 2px black;
+}
+
+.btn_center {
+  text-align: center;
+}
+
 .display {
   display: block;
 }
@@ -155,6 +165,11 @@ i {
 .fa-youtube {
   padding: 10px 9px;
   background-color: #cd201f;
+}
+
+.fa-tripadvisor {
+  padding: 10px 8px;
+  background-color: #31d99c;
 }
 
 /* //?  MEDIUM 768-480px  */

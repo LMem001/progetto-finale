@@ -1,6 +1,3 @@
-// * {
-//    border: black solid 1px;
-// }
 .coverImage{
    width: 100%;
    background-color: royalblue;
@@ -25,13 +22,13 @@
       flex-wrap: wrap;
       margin: 20px 0;
 
-      font-size: $font_text_l;
+      font-size: $font_text_m;
       line-height: 1.4;
       text-transform: capitalize;
       span.data {
          color: $pallette_red;
          font-weight: bold;
-         font-size: $font_titles_s;
+         font-size: $font_text_l;
       }
       .rest{
          display: flex;
