@@ -1,1 +1,1 @@
-<h1>ciao fra</h1>
+<h1>ciao fra {{$rest_name}}</h1>
