@@ -209,78 +209,78 @@ var app = new Vue(
                      })
                   }
                }
-               // get restaurant slug
+         })
 
-               url = window.location.href;
-               lastParam = url.split("/").slice(-1)[0];
-               this.restaurantSlug = (lastParam == "" ? this.restaurants[1].slug : lastParam);
+         // get restaurant slug
 
-               // end get restaurant slug
+         url = window.location.href;
+         lastParam = url.split("/").slice(-1)[0];
+         this.restaurantSlug = (lastParam == "" ? this.restaurants[1].slug : lastParam);
+
+         // end get restaurant slug
 
 
-               // get single  restaurant
+         // get single  restaurant
 
-               axios.get(this.apiSingleRetstaurant + this.restaurantSlug,)
-                  .then((serverAnswer) =>{
-                     this.selectedRestaurant = serverAnswer.data;
+         axios.get(this.apiSingleRetstaurant + this.restaurantSlug,)
+            .then((serverAnswer) =>{
+               this.selectedRestaurant = serverAnswer.data;
 
-               
-               // get restaurant products
-               axios.get(this.apiRestaurantURL + this.selectedRestaurant.id,)
-                  .then((serverAnswer) =>{
-                  
-                  this.restaurantSlug = '"' + this.restaurantSlug + '"';
+         
+         // get restaurant products
+         axios.get(this.apiRestaurantURL + this.selectedRestaurant.id,)
+            .then((serverAnswer) =>{
+            
+            this.restaurantSlug = '"' + this.restaurantSlug + '"';
 
-                  serverAnswer.data.forEach((product) =>{
-                     if(localStorage.getItem('order') != null &&  this.localStoreSlug == this.restaurantSlug){
-                        this.restaurantFoods = JSON.parse(localStorage.getItem("order"))
-                     }else{
-                        localStorage.clear();
-                        product["quantity"] = 0;
-                        if(product.tagCourse == "antipasto"){
-                           this.restaurantFoods[0].food.push(product);
-                        }else if(product.tagCourse == "primo"){
-                           this.restaurantFoods[1].food.push(product);
-                        }else if(product.tagCourse == "secondo"){
-                           this.restaurantFoods[2].food.push(product);
-                        }else if(product.tagCourse == "dessert"){
-                           this.restaurantFoods[3].food.push(product);
-                        }else if(product.tagCourse == "piatto_unico"){
-                           this.restaurantFoods[4].food.push(product);
-                        }else if(product.tagCourse == "fast_food"){
-                           this.restaurantFoods[5].food.push(product);
-                        }else if(product.tagCourse == "bevanda"){
-                           this.restaurantFoods[6].food.push(product);
-                        }else if(product.tagCourse == "altro"){
-                           this.restaurantFoods[7].food.push(product);
-                        }
-                     }
-                  })
-
-                  serverAnswer.data.forEach((answer) =>{
-                     if(this.courses.includes(answer.tagCourse)){
-                     }else{
-                        this.courses.push(answer.tagCourse);
-                     }
-                  })
-                  
-               })
-               axios.get(this.apiRestaurantURL + this.selectedRestaurant.id,)
-               .then((serverAnswer) =>{
-
-                  serverAnswer.data.forEach((product) =>{
-                     if(localStorage.getItem('refreshCart') != null){
-                        this.cart = JSON.parse(localStorage.getItem("refreshCart"));
-                        this.sum = JSON.parse(localStorage.getItem("refreshsum"));
-                     }else{
-                        product["quantity"] = 0;
-                        this.cart.push(product);
-                     }
-                  })
-               })
+            serverAnswer.data.forEach((product) =>{
+               if(localStorage.getItem('order') != null &&  this.localStoreSlug == this.restaurantSlug){
+                  this.restaurantFoods = JSON.parse(localStorage.getItem("order"))
+               }else{
+                  localStorage.clear();
+                  product["quantity"] = 0;
+                  if(product.tagCourse == "antipasto"){
+                     this.restaurantFoods[0].food.push(product);
+                  }else if(product.tagCourse == "primo"){
+                     this.restaurantFoods[1].food.push(product);
+                  }else if(product.tagCourse == "secondo"){
+                     this.restaurantFoods[2].food.push(product);
+                  }else if(product.tagCourse == "dessert"){
+                     this.restaurantFoods[3].food.push(product);
+                  }else if(product.tagCourse == "piatto_unico"){
+                     this.restaurantFoods[4].food.push(product);
+                  }else if(product.tagCourse == "fast_food"){
+                     this.restaurantFoods[5].food.push(product);
+                  }else if(product.tagCourse == "bevanda"){
+                     this.restaurantFoods[6].food.push(product);
+                  }else if(product.tagCourse == "altro"){
+                     this.restaurantFoods[7].food.push(product);
+                  }
+               }
             })
 
+            serverAnswer.data.forEach((answer) =>{
+               if(this.courses.includes(answer.tagCourse)){
+               }else{
+                  this.courses.push(answer.tagCourse);
+               }
+            })
+            
          })
+         axios.get(this.apiRestaurantURL + this.selectedRestaurant.id,)
+         .then((serverAnswer) =>{
+
+            serverAnswer.data.forEach((product) =>{
+               if(localStorage.getItem('refreshCart') != null){
+                  this.cart = JSON.parse(localStorage.getItem("refreshCart"));
+                  this.sum = JSON.parse(localStorage.getItem("refreshsum"));
+               }else{
+                  product["quantity"] = 0;
+                  this.cart.push(product);
+               }
+            })
+         })
+      })
          // end axios call restaurants
          // axios call restaurantstype
          axios.get(this.apiRestaurantType,{

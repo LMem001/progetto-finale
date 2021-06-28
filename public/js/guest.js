@@ -17468,79 +17468,16 @@ var app = new Vue({
             _this4.restaurants.push(restaurant);
           });
         }
-      } // get restaurant slug
+      }
+    }); // get restaurant slug
 
+    url = window.location.href;
+    lastParam = url.split("/").slice(-1)[0];
+    this.restaurantSlug = lastParam == "" ? this.restaurants[1].slug : lastParam; // end get restaurant slug
+    // get single  restaurant
 
-      url = window.location.href;
-      lastParam = url.split("/").slice(-1)[0];
-      _this4.restaurantSlug = lastParam == "" ? _this4.restaurants[1].slug : lastParam; // end get restaurant slug
-      // get single  restaurant
-
-      axios.get(_this4.apiSingleRetstaurant + _this4.restaurantSlug).then(function (serverAnswer) {
-        _this4.selectedRestaurant = serverAnswer.data; // get restaurant products
-
-        axios.get(_this4.apiRestaurantURL + _this4.selectedRestaurant.id).then(function (serverAnswer) {
-          _this4.restaurantSlug = '"' + _this4.restaurantSlug + '"';
-          serverAnswer.data.forEach(function (product) {
-            if (localStorage.getItem('order') != null && _this4.localStoreSlug == _this4.restaurantSlug) {
-              _this4.restaurantFoods = JSON.parse(localStorage.getItem("order"));
-            } else {
-              localStorage.clear();
-              product["quantity"] = 0;
-
-              if (product.tagCourse == "antipasto") {
-                _this4.restaurantFoods[0].food.push(product);
-              } else if (product.tagCourse == "primo") {
-                _this4.restaurantFoods[1].food.push(product);
-              } else if (product.tagCourse == "secondo") {
-                _this4.restaurantFoods[2].food.push(product);
-              } else if (product.tagCourse == "dessert") {
-                _this4.restaurantFoods[3].food.push(product);
-              } else if (product.tagCourse == "piatto_unico") {
-                _this4.restaurantFoods[4].food.push(product);
-              } else if (product.tagCourse == "fast_food") {
-                _this4.restaurantFoods[5].food.push(product);
-              } else if (product.tagCourse == "bevanda") {
-                _this4.restaurantFoods[6].food.push(product);
-              } else if (product.tagCourse == "altro") {
-                _this4.restaurantFoods[7].food.push(product);
-              }
-            }
-          });
-          serverAnswer.data.forEach(function (answer) {
-            if (_this4.courses.includes(answer.tagCourse)) {} else {
-              _this4.courses.push(answer.tagCourse);
-            }
-          });
-        });
-        axios.get(_this4.apiRestaurantURL + _this4.selectedRestaurant.id).then(function (serverAnswer) {
-          serverAnswer.data.forEach(function (product) {
-            if (localStorage.getItem('refreshCart') != null) {
-              _this4.cart = JSON.parse(localStorage.getItem("refreshCart"));
-              _this4.sum = JSON.parse(localStorage.getItem("refreshsum"));
-            } else {
-              product["quantity"] = 0;
-
-              _this4.cart.push(product);
-            }
-          });
-        });
-      });
-    }); // end axios call restaurants
-    // axios call restaurantstype
-
-    axios.get(this.apiRestaurantType, {
-      params: {}
-    }).then(function (serverAnswer) {
-      serverAnswer.data.forEach(function (type) {
-        _this4.restaurants_types.push(type);
-      });
-    }); // end axios call restaurantstype
-    // get restaurant slug
-
-    url = window.location.href, lastParam = url.split("/").slice(-1)[0], this.restaurantSlug = lastParam == "" ? this.restaurants[0].slug : lastParam, // get single Restaurant
     axios.get(this.apiSingleRetstaurant + this.restaurantSlug).then(function (serverAnswer) {
-      _this4.selectedRestaurant = serverAnswer.data; // get products
+      _this4.selectedRestaurant = serverAnswer.data; // get restaurant products
 
       axios.get(_this4.apiRestaurantURL + _this4.selectedRestaurant.id).then(function (serverAnswer) {
         _this4.restaurantSlug = '"' + _this4.restaurantSlug + '"';
@@ -17587,7 +17524,16 @@ var app = new Vue({
             _this4.cart.push(product);
           }
         });
-      }); // get products
+      });
+    }); // end axios call restaurants
+    // axios call restaurantstype
+
+    axios.get(this.apiRestaurantType, {
+      params: {}
+    }).then(function (serverAnswer) {
+      serverAnswer.data.forEach(function (type) {
+        _this4.restaurants_types.push(type);
+      });
     });
   },
   mounted: function mounted() {

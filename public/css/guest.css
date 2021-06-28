@@ -507,11 +507,9 @@ header .navbar .logo img {
   height: 100%;
   margin-top: 5px;
 }
-header .navbar .dropDownLogout,
 header .navbar .dropDownMenu {
   position: relative;
 }
-header .navbar .dropDownLogout a,
 header .navbar .dropDownMenu a {
   cursor: pointer;
   text-decoration: none;
@@ -520,47 +518,64 @@ header .navbar .dropDownMenu a {
   font-weight: bolder;
   padding: 5px 5px;
 }
-header .navbar .dropDownLogout .logout, header .navbar .dropDownLogout .menu,
-header .navbar .dropDownMenu .logout,
 header .navbar .dropDownMenu .menu {
   background-color: rgba(246, 180, 37, 0.7);
   border-radius: 10px;
   position: absolute;
-  top: 0;
+  top: 72px;
   right: 0;
   transition: 0.5s;
   display: none;
-  margin-top: 20px;
 }
-header .navbar .dropDownLogout .logout ul, header .navbar .dropDownLogout .menu ul,
-header .navbar .dropDownMenu .logout ul,
 header .navbar .dropDownMenu .menu ul {
-  text-align: end;
+  text-align: right;
 }
-header .navbar .dropDownLogout .logout ul li, header .navbar .dropDownLogout .menu ul li,
-header .navbar .dropDownMenu .logout ul li,
 header .navbar .dropDownMenu .menu ul li {
   padding: 5px 10px;
 }
-header .navbar .dropDownLogout .logout ul li a, header .navbar .dropDownLogout .menu ul li a,
-header .navbar .dropDownMenu .logout ul li a,
 header .navbar .dropDownMenu .menu ul li a {
   color: black;
 }
-header .navbar .dropDownLogout .logout ul li a:hover, header .navbar .dropDownLogout .menu ul li a:hover,
-header .navbar .dropDownMenu .logout ul li a:hover,
 header .navbar .dropDownMenu .menu ul li a:hover {
   color: #F30050;
 }
-header .navbar .dropDownLogout .logout:hover, header .navbar .dropDownLogout .menu:hover,
-header .navbar .dropDownMenu .logout:hover,
 header .navbar .dropDownMenu .menu:hover {
   background-color: rgba(246, 180, 37, 0.4);
 }
-header .navbar .dropDownLogout .display,
 header .navbar .dropDownMenu .display {
   display: block;
-  margin-top: 70px;
+}
+header .navbar .dropdownLogout {
+  position: relative;
+}
+header .navbar .logout {
+  border-radius: 10px;
+  top: 65px;
+  right: 0;
+  transition: 0.5s;
+  padding: 5px 10px;
+  display: none;
+  position: absolute;
+  background-color: rgba(246, 180, 37, 0.7);
+}
+header .navbar .logout:hover {
+  background-color: rgba(246, 180, 37, 0.4);
+}
+header .navbar .logout a {
+  padding: 5px 10px;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 19px;
+  font-weight: bolder;
+  padding: 5px 5px;
+}
+header .navbar .logout a:hover {
+  color: #F30050;
+}
+header .navbar .display {
+  display: block;
 }
 header .navbar nav {
   flex-direction: row;
