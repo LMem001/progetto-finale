@@ -17469,8 +17469,14 @@ var app = new Vue({
           });
         }
       }
-    }); // get restaurant slug
-
+    }), // axios call restaurantstype
+    axios.get(this.apiRestaurantType, {
+      params: {}
+    }).then(function (serverAnswer) {
+      serverAnswer.data.forEach(function (type) {
+        _this4.restaurants_types.push(type);
+      });
+    }), // get restaurant slug
     url = window.location.href;
     lastParam = url.split("/").slice(-1)[0];
     this.restaurantSlug = lastParam == "" ? this.restaurants[1].slug : lastParam; // end get restaurant slug
@@ -17526,15 +17532,6 @@ var app = new Vue({
         });
       });
     }); // end axios call restaurants
-    // axios call restaurantstype
-
-    axios.get(this.apiRestaurantType, {
-      params: {}
-    }).then(function (serverAnswer) {
-      serverAnswer.data.forEach(function (type) {
-        _this4.restaurants_types.push(type);
-      });
-    });
   },
   mounted: function mounted() {
     var _this5 = this;
