@@ -108,6 +108,7 @@ var app = new Vue(
             localStorage.setItem("refreshCart", JSON.stringify(this.cart));
             localStorage.setItem("savedrestaurantSlug", JSON.stringify(this.selectedRestaurant.slug));
             localStorage.setItem("savedrestaurantId", JSON.stringify(this.selectedRestaurant.id));
+            localStorage.setItem("slelectedRestTime", JSON.stringify(this.selectedRestaurant.close_time));
           },
 
          removeItem() {
@@ -236,7 +237,6 @@ var app = new Vue(
          axios.get(this.apiSingleRetstaurant + this.restaurantSlug,)
             .then((serverAnswer) =>{
                this.selectedRestaurant = serverAnswer.data;
-
          
          // get restaurant products
          axios.get(this.apiRestaurantURL + this.selectedRestaurant.id,)

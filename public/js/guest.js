@@ -17368,6 +17368,7 @@ var app = new Vue({
       localStorage.setItem("refreshCart", JSON.stringify(this.cart));
       localStorage.setItem("savedrestaurantSlug", JSON.stringify(this.selectedRestaurant.slug));
       localStorage.setItem("savedrestaurantId", JSON.stringify(this.selectedRestaurant.id));
+      localStorage.setItem("slelectedRestTime", JSON.stringify(this.selectedRestaurant.close_time));
     },
     removeItem: function removeItem() {
       var _this2 = this;

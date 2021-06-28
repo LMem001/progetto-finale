@@ -43,7 +43,7 @@
 
     <div class="form-group">
       <label for="pickup_date">Orario consegna</label>
-      <input type="time" id="pickup_date" name="pickup_date" :min="time" max="18:00" required>
+      <input type="time" id="pickup_date" name="pickup_date" :min="time" :max="colsingTime" required>
     </div>
 
     <input type="hidden" id="restaurant_ID" name="restaurant_ID" :value="restID">
@@ -83,6 +83,7 @@ var app = new Vue(
         sum: localStorage.getItem('refreshsum'),
         restID: localStorage.getItem('savedrestaurantId'),
         orderFoods: JSON.parse(localStorage.getItem('refreshCart')),
+        colsingTime: JSON.parse(localStorage.getItem('slelectedRestTime')),
         foodDB: [],
         foodfordb: "",
         time:'',
