@@ -142,6 +142,10 @@ h1, h2 {
   display: none;
 }
 
+section {
+  scroll-margin-top: 100px;
+}
+
 i {
   border-radius: 5px;
   color: white;
@@ -192,13 +196,15 @@ i {
 
   .fa-youtube {
     padding: 6px 5px;
-    background-color: #cd201f;
+  }
+
+  .fa-tripadvisor {
+    padding: 6px 4px;
   }
 }
 /* //?  LARGE 1200-768px */
 /* //?  MEDIUM 768-480px  */
 /* //?  SMALL 480-320 */
-/* //? EXTRA SMALL 320-0 */
 html {
   scroll-behavior: smooth;
 }

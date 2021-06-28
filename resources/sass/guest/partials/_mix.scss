@@ -63,6 +63,9 @@ h1, h2 {
  .displayNone{
     display: none;
 }
+section {    
+    scroll-margin-top: 100px;
+}
 
 // ? list socials
 i {
@@ -107,7 +110,9 @@ i {
     }
     .fa-youtube {
         padding: 6px 5px;
-        background-color: #cd201f;
+    }
+    .fa-tripadvisor {
+        padding: 6px 4px;
     }
 }
 
@@ -130,12 +135,6 @@ i {
 @media screen and (max-width:480px) {
 
 }
-
-/* //? EXTRA SMALL 320-0 */
-@media screen and  (max-width:320px) {
-
-}
-
 
 
 // scroll smooth

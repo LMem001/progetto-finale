@@ -14,68 +14,84 @@
 {{-- VUE development version, includes helpful console warnings --}}
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <div id="paymentApp">
+  <div class="row justify-content-center big_contenitore">
+    <div class="payment_container">
+      <div class="card">
+          <div class="card-header">
+              <h2 class="mt_2">Pagamento</h2>
+          </div>
+          <div class="card-body">
 
-  <p>importo totale: @{{sum}} €</p>
-  <form id="payment-form" action="{{route('admin.makepayment')}}" enctype="multipart/form-data" method="POST">
-    @csrf
-    @method('POST')
-    
-    <div class="form-group">
-      <label for="client_name">Nome</label>
-      <input type="text" class="form-control" id="client_name" name="client_name" placeholder="Inserisci il tuo nome">
+            <form id="payment-form" action="{{route('admin.makepayment')}}" enctype="multipart/form-data" method="POST">
+              @csrf
+              @method('POST')
+              {{-- nome --}}
+              <div class="form-group">
+                <label for="client_name">Nome</label>
+                <input type="text" class="form-control" id="client_name" name="client_name" placeholder="Inserisci il tuo nome">
+              </div>
+              {{-- cognome --}}
+              <div class="form-group">
+                <label for="client_lastname">Cognome</label>
+                <input type="text" class="form-control" id="client_lastname" name="client_lastname" placeholder="Inserisci il tuo cognome">
+              </div>
+              {{-- indirizzo consegna --}}
+              <div class="form-group">
+                <label for="client_adress">Indirizzo di consegna</label>
+                <input type="text" class="form-control" id="client_adress" name="client_adress" placeholder="Inserisci l'ndirizzo di consegna">
+              </div>
+              {{-- telefono --}}
+              <div class="form-group">
+                <label for="client_phone">Telefono</label>
+                <input type="text" class="form-control" id="client_phone" name="client_phone" placeholder="Telefono">
+              </div>
+              {{-- email  --}}
+              <div class="form-group">
+                <label for="client_email">Email</label>
+                <input type="email" class="form-control" id="client_email" name="client_email" placeholder="Email">
+              </div>
+              {{-- orario_consegna --}}
+              <div class="form-group">
+                <label for="pickup_date">Orario consegna</label>
+                <input type="time" id="pickup_date" name="pickup_date" :min="time" max="18:00" required>
+              </div>
+              <div class="importo_finale">
+                <p class="special_price">
+                  Importo Totale: <span> @{{sum}} € </span>
+                </p>
+              </div>
+              {{-- hidden stuff braintree magic o1--}}
+              <input type="hidden" id="restaurant_ID" name="restaurant_ID" :value="restID">
+              <div>
+                <input type="hidden" id="ordered_food" name="ordered_food" :value="foodfordb">
+              </div>
+              <div>
+                <input type="hidden" id="total_order" name="total_order" :value="sum">
+              </div>
+
+              {{-- braintree magic p2 --}}
+              <div id="dropin-container"></div>
+              <input type="hidden" id="nonce" name="payment_method_nonce"/>
+
+              <div class="btn_container">
+                <button id="submit-button" class="button btn_primary">Paga</button> 
+              </div>
+            
+            </form>
+
+
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="client_lastname">Cognome</label>
-      <input type="text" class="form-control" id="client_lastname" name="client_lastname" placeholder="Inserisci il tuo cognome">
-    </div>
-    <div class="form-group">
-      <label for="client_adress">Indirizzo di consegna</label>
-      <input type="text" class="form-control" id="client_adress" name="client_adress" placeholder="Inserisci l'ndirizzo di consegna">
-    </div>
-    <div class="form-group">
-      <label for="client_phone">Telefono</label>
-      <input type="text" class="form-control" id="client_phone" name="client_phone" placeholder="Telefono">
-    </div>
-    <div class="form-group">
-      <label for="client_email">Email</label>
-      <input type="email" class="form-control" id="client_email" name="client_email" placeholder="Email">
-    </div>
-
-    <div class="form-group">
-      <label for="pickup_date">Orario consegna</label>
-      <input type="time" id="pickup_date" name="pickup_date" :min="time" :max="colsingTime" required>
-    </div>
-
-    <input type="hidden" id="restaurant_ID" name="restaurant_ID" :value="restID">
-
-
-    <div>
-      <input type="hidden" id="ordered_food" name="ordered_food" :value="foodfordb">
-    </div>
-
-    <div>
-      <input type="hidden" id="total_order" name="total_order" :value="sum">
-    </div>
-
-    
-
-    {{-- braintree  --}}
-    
-
-    <div id="dropin-container"></div>
-    <input type="hidden" id="nonce" name="payment_method_nonce"/>
-    <button id="submit-button" class="button button--small button--green">Purchase</button> 
-    
-  </form>
-</div>
-  
-
-
-
-
+  </div>    
+</div>        
+          
+          
+          
 <script>
-
-var app = new Vue(
+            
+        var app = new Vue(
    {
       el: "#paymentApp",
 
