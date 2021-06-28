@@ -106,6 +106,10 @@ body {
   background-color: rgba(246, 180, 37, 0.2);
 }
 
+h1 {
+  text-align: center;
+}
+
 h1, h2 {
   font-family: "veganFontStyle";
   letter-spacing: 2px;
@@ -306,6 +310,7 @@ header .navbar nav .registration {
 
 .on_scroll {
   top: 0px;
+  padding: 5px;
 }
 .on_scroll ul li {
   color: #F30050;
@@ -340,20 +345,25 @@ header .navbar nav .registration {
 }
 /* //?  SMALL 480-320 */
 @media screen and (max-width: 480px) {
-  header .logo_btn {
-    display: inline-block;
+  header {
+    padding: 0;
   }
-  header .logo img {
-    display: none;
+  header .navbar .logo img {
+    height: 80%;
+    margin: auto;
+    margin-top: 5px;
   }
 }
 #introduction {
-  padding: 100px 0;
+  padding: 60px 0;
 }
 #introduction .titles {
   width: 70%;
   margin: auto;
   text-align: center;
+  border-radius: 25px;
+  background-color: rgba(246, 180, 37, 0.2);
+  padding: 40px 20px;
 }
 #introduction .titles h2 {
   color: #F67F41;
@@ -372,19 +382,22 @@ header .navbar nav .registration {
 #introduction .presentation .box_container .box {
   width: calc(99% / 3);
 }
+#introduction .presentation .box_container .box .box_content {
+  margin-top: 30px;
+}
 #introduction .presentation .box_container .box .box_content img {
   width: 100%;
-  margin-top: -60px;
+  margin-top: -100px;
 }
 #introduction .presentation .box_container .box .box_content h3 {
-  font-size: 36px;
+  font-size: 29px;
   font-family: "veganFontStyle";
   letter-spacing: 3px;
   color: #F67F41;
   text-transform: uppercase;
 }
 #introduction .presentation .box_container .box .box_content p {
-  padding: 20px 15px;
+  padding: 20px 40px;
   font-size: 19px;
 }
 
@@ -443,7 +456,7 @@ header .navbar nav .registration {
     margin-top: -50px;
   }
   #introduction .presentation .box_container .box .box_content h3 {
-    font-size: 19px;
+    font-size: 23px;
   }
   #introduction .presentation .box_container .box .box_content p {
     font-size: 19px;

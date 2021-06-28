@@ -132,7 +132,7 @@
 
                         {{-- IBAN --}}
                         <div class="form-group row">
-                            <label for="iban" class="col-md-4 col-form-label text-md-right">{{ __('iban') }}</label>
+                            <label for="iban" class="col-md-4 col-form-label text-md-right">{{ __('Iban') }}</label>
 
                             <div class="col-md-6">
                                 <input id="iban" type="text" minlength="27" maxlength="27" class="form-control  @error('iban') is-invalid @enderror" name="iban" value="{{ old('iban') }}"  autofocus>
@@ -147,10 +147,12 @@
 
                         {{-- Registrati (bottone) --}}
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-4 access_register">
                                 <button type="submit" class="btn btn_primary">
-                                    {{ __('Register') }}
+                                    Registrati
                                 </button>
+                                <small>oppure se hai già un account</small>
+                                <a class=" btn_primary" href="{{ route('login') }}">Login</a>
                             </div>
                         </div>
                     </form>

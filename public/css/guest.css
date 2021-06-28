@@ -106,6 +106,10 @@ body {
   background-color: rgba(246, 180, 37, 0.2);
 }
 
+h1 {
+  text-align: center;
+}
+
 h1, h2 {
   font-family: "veganFontStyle";
   letter-spacing: 2px;
@@ -591,6 +595,7 @@ header .navbar nav .registration {
 
 .on_scroll {
   top: 0px;
+  padding: 5px;
 }
 .on_scroll ul li {
   color: #F30050;
@@ -625,11 +630,13 @@ header .navbar nav .registration {
 }
 /* //?  SMALL 480-320 */
 @media screen and (max-width: 480px) {
-  header .logo_btn {
-    display: inline-block;
+  header {
+    padding: 0;
   }
-  header .logo img {
-    display: none;
+  header .navbar .logo img {
+    height: 80%;
+    margin: auto;
+    margin-top: 5px;
   }
 }
 #jumbotron {
@@ -650,17 +657,19 @@ header .navbar nav .registration {
      object-fit: cover;
 }
 #jumbotron .jumbo {
-  margin-left: 200px;
   width: calc(40% + 100px);
   min-width: 550px;
-  padding: 50px;
+  padding: 25px;
   color: white;
-  border-radius: 10px;
+  border-radius: 30px;
   border: 1px solid white;
   background-color: rgba(0, 0, 0, 0.3);
 }
 #jumbotron .jumbo h1 {
   font-size: 45px;
+}
+#jumbotron .jumbo h1, #jumbotron .jumbo h2 {
+  text-shadow: 1px 1px 5px black;
 }
 #jumbotron .jumbo .input-jumbotron-container {
   color: white;
@@ -723,7 +732,7 @@ header .navbar nav .registration {
     width: 90%;
     margin: auto;
     min-width: 250px;
-    padding: 0;
+    padding: 20px;
   }
   #jumbotron .jumbo .input-jumbotron-container {
     color: white;
@@ -733,12 +742,15 @@ header .navbar nav .registration {
   }
 }
 #introduction {
-  padding: 100px 0;
+  padding: 60px 0;
 }
 #introduction .titles {
   width: 70%;
   margin: auto;
   text-align: center;
+  border-radius: 25px;
+  background-color: rgba(246, 180, 37, 0.2);
+  padding: 40px 20px;
 }
 #introduction .titles h2 {
   color: #F67F41;
@@ -757,19 +769,22 @@ header .navbar nav .registration {
 #introduction .presentation .box_container .box {
   width: calc(99% / 3);
 }
+#introduction .presentation .box_container .box .box_content {
+  margin-top: 30px;
+}
 #introduction .presentation .box_container .box .box_content img {
   width: 100%;
-  margin-top: -60px;
+  margin-top: -100px;
 }
 #introduction .presentation .box_container .box .box_content h3 {
-  font-size: 36px;
+  font-size: 29px;
   font-family: "veganFontStyle";
   letter-spacing: 3px;
   color: #F67F41;
   text-transform: uppercase;
 }
 #introduction .presentation .box_container .box .box_content p {
-  padding: 20px 15px;
+  padding: 20px 40px;
   font-size: 19px;
 }
 
@@ -828,7 +843,7 @@ header .navbar nav .registration {
     margin-top: -50px;
   }
   #introduction .presentation .box_container .box .box_content h3 {
-    font-size: 19px;
+    font-size: 23px;
   }
   #introduction .presentation .box_container .box .box_content p {
     font-size: 19px;
@@ -875,12 +890,12 @@ header .navbar nav .registration {
 /* //?  MEDIUM 768-480px  */
 @media screen and (max-width: 768px) {
   #category .categories {
-    margin-top: 0px;
     flex-wrap: nowrap;
     justify-content: start;
     overflow-x: auto;
   }
   #category .categories .category-card {
+    margin-bottom: 0px;
     min-width: 120px;
     padding: 0 5px;
   }
@@ -895,15 +910,18 @@ header .navbar nav .registration {
   margin-bottom: 30px;
 }
 #restaurants .container {
-  width: 95%;
+  width: 90%;
   flex-wrap: wrap;
 }
 #restaurants .container .restaurant_card {
   width: 33%;
+  padding: 10px;
   margin-left: -20px;
   margin-right: 20px;
   margin-top: 20px;
   position: relative;
+  border: 2px solid #F67F41;
+  border-radius: 15px;
 }
 #restaurants .container .restaurant_card a.content {
   text-decoration: none;
@@ -920,17 +938,22 @@ header .navbar nav .registration {
 }
 #restaurants .container .restaurant_card a.content .restaurant_info {
   width: 49%;
-  padding-left: 10px;
+  padding: 0 10px;
+}
+#restaurants .container .restaurant_card a.content .restaurant_info i {
+  color: #F67F41;
 }
 #restaurants .container .restaurant_card a.content .restaurant_info h3 {
   font-size: 23px;
   position: relative;
   margin-bottom: 5px;
-  background-color: #F30050;
+  background-color: rgba(246, 127, 65, 0.5);
   border-radius: 20px;
   padding: 2px 10px;
 }
 #restaurants .container .restaurant_card a.content .restaurant_info small {
+  display: block;
+  line-height: 20px;
   font-size: 15px;
 }
 #restaurants .container .restaurant_card:nth-child(6n+4),
@@ -939,8 +962,6 @@ header .navbar nav .registration {
   margin-right: -20px;
   margin-left: 20px;
   text-align: right;
-  background: white;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.2889530812) 25%, #f8dc2a 35%, rgba(243, 0, 80, 0.4906337535) 50%, rgba(248, 220, 42, 0.4906337535) 65%, rgba(255, 255, 255, 0) 75%);
 }
 #restaurants .container .restaurant_card:nth-child(6n+4) a.content,
 #restaurants .container .restaurant_card:nth-child(6n+5) a.content,
@@ -948,41 +969,6 @@ header .navbar nav .registration {
   flex-direction: row-reverse;
 }
 
-/*
-.restaurant_card ::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 2px;
-    height: 30px;
-    background: rgb(255,255,255);        
-    background: linear-gradient(270deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 15%, rgba(243,0,80,1) 50%, rgba(243,0,80,1) 100%);
-    z-index: -1;               
-}
-
-.restaurant_card:nth-child(6n + 4),
-.restaurant_card:nth-child(6n + 5),
-.restaurant_card:nth-child(6n + 6) {
-
-    margin-right: -20px;
-    margin-left: 20px;
-    text-align: right;
-
-    a.content{
-        flex-direction: row-reverse;
-        .restaurant_info{
-            padding-right: 10px;
-
-            h3{
-                font-size: $font_text_m;
-            }
-            small{
-                font-size: $font_text_xs;
-            }
-        }
-    }
-    */
 /* //?  LARGE 1200-768px */
 @media screen and (max-width: 1200px) {
   #restaurants .container .restaurant_card {
@@ -991,6 +977,10 @@ header .navbar nav .registration {
     margin-right: 20px;
     text-align: left;
     position: relative;
+  }
+  #restaurants .container .restaurant_card a.content .restaurant_info small {
+    font-size: 19px;
+    line-height: 25px;
   }
   #restaurants .container .restaurant_card:nth-child(6n+4),
 #restaurants .container .restaurant_card:nth-child(6n+5),
@@ -1004,6 +994,11 @@ header .navbar nav .registration {
 #restaurants .container .restaurant_card:nth-child(6n+6) a.content {
     flex-direction: row;
   }
+  #restaurants .container .restaurant_card:nth-child(6n+4) a.content .restaurant_info,
+#restaurants .container .restaurant_card:nth-child(6n+5) a.content .restaurant_info,
+#restaurants .container .restaurant_card:nth-child(6n+6) a.content .restaurant_info {
+    padding-right: 10px;
+  }
   #restaurants .container .restaurant_card:nth-child(4n+3),
 #restaurants .container .restaurant_card:nth-child(4n+4) {
     margin-right: -20px;
@@ -1014,15 +1009,12 @@ header .navbar nav .registration {
 #restaurants .container .restaurant_card:nth-child(4n+4) a.content {
     flex-direction: row-reverse;
   }
-  #restaurants .container .restaurant_card:nth-child(4n+3) a.content .restaurant_info,
-#restaurants .container .restaurant_card:nth-child(4n+4) a.content .restaurant_info {
-    padding-right: 10px;
-  }
 }
 /* //?  MEDIUM 768-480px  */
 @media screen and (max-width: 768px) {
   #restaurants .container .restaurant_card {
     width: 100%;
+    padding: 15px 30px;
     margin-left: -20px;
     margin-right: 20px;
     text-align: left;
@@ -1030,8 +1022,13 @@ header .navbar nav .registration {
   #restaurants .container .restaurant_card a.content {
     flex-direction: row;
   }
-  #restaurants .container .restaurant_card a.content .restaurant_info {
-    padding-left: 10;
+  #restaurants .container .restaurant_card a.content .restaurant_info h3 {
+    font-size: 29px;
+  }
+  #restaurants .container .restaurant_card a.content .restaurant_info small {
+    width: 90%;
+    margin: auto;
+    font-size: 15px;
   }
   #restaurants .container .restaurant_card:nth-child(4n+3),
 #restaurants .container .restaurant_card:nth-child(4n+4) {
@@ -1053,11 +1050,51 @@ header .navbar nav .registration {
     text-align: right;
   }
   #restaurants .container .restaurant_card:nth-child(2n) a.content {
-    background-color: indigo;
     flex-direction: row-reverse;
   }
-  #restaurants .container .restaurant_card:nth-child(2n) a.content .restaurant_info {
-    padding-right: 10px;
+}
+/* //?  SMALL 480-320 */
+@media screen and (max-width: 480px) {
+  #restaurants .container .restaurant_card {
+    margin-right: 10px !important;
+    margin-left: 10px !important;
+    text-align: center !important;
+  }
+  #restaurants .container .restaurant_card a.content .logo_rest {
+    width: 100%;
+  }
+  #restaurants .container .restaurant_card a.content .logo_rest img::after {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  #restaurants .container .restaurant_card a.content .restaurant_info {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 15px;
+    border: solid #F30050 2px;
+  }
+  #restaurants .container .restaurant_card a.content .restaurant_info h3 {
+    font-size: 23px;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 5px;
+    margin-top: 30px;
+    padding: 5px 15px;
+  }
+  #restaurants .container .restaurant_card a.content .restaurant_info small {
+    font-size: 19px;
   }
 }
 footer {

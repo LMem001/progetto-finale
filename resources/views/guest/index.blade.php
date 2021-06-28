@@ -95,8 +95,13 @@
                         </div>
                         <div class="restaurant_info">
                             <h3>@{{restaurant.rest_name}}</h3>
-                            <small class="orario">@{{restaurant.open_time}} - @{{restaurant.close_time}}</small>
-                            
+                            <small class="orario">
+                                <i class="fas fa-map-marker-alt"></i>
+                                @{{restaurant.address}}
+                                <br>
+                                <i class="far fa-clock"></i>
+                                @{{restaurant.open_time}} - @{{restaurant.close_time}} 
+                            </small>
                             {{-- <div><small>@{{getRestTypeName}}</small></div> --}}
                         </div>
                     </a>

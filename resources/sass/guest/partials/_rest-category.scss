@@ -34,7 +34,7 @@
     }
 }
 
-// ! MEDIA
+// ! MEDIA QUESRY
 /* //?  LARGE 1200-768px */
 @media screen and (max-width:1200px) {
 
@@ -54,12 +54,12 @@
 
     #category{
         .categories {
-            margin-top: 0px; 
             flex-wrap: nowrap;
             justify-content: start;
             overflow-x: auto;
             
             .category-card{
+                margin-bottom: 0px; 
                 min-width: 120px;
                 padding: 0 5px;
             }

@@ -10110,6 +10110,10 @@ body {
   background-color: rgba(246, 180, 37, 0.2);
 }
 
+h1 {
+  text-align: center;
+}
+
 h1, h2 {
   font-family: "veganFontStyle";
   letter-spacing: 2px;
@@ -10310,6 +10314,7 @@ header .navbar nav .registration {
 
 .on_scroll {
   top: 0px;
+  padding: 5px;
 }
 .on_scroll ul li {
   color: #F30050;
@@ -10344,11 +10349,13 @@ header .navbar nav .registration {
 }
 /* //?  SMALL 480-320 */
 @media screen and (max-width: 480px) {
-  header .logo_btn {
-    display: inline-block;
+  header {
+    padding: 0;
   }
-  header .logo img {
-    display: none;
+  header .navbar .logo img {
+    height: 80%;
+    margin: auto;
+    margin-top: 5px;
   }
 }
 footer {
@@ -10719,6 +10726,36 @@ header .navbar nav i {
   display: none;
 }
 
+.card {
+  width: 70%;
+  margin: auto;
+  border-radius: 15px;
+  background-color: rgba(246, 180, 37, 0.4);
+}
+.card .card-header {
+  background-color: rgba(246, 127, 65, 0.5);
+  padding: 0;
+}
+.card .card-header h2 {
+  font-size: 36px;
+  text-align: center;
+  color: #F30050;
+  text-shadow: 1px 1px 2px black;
+  padding: 5px 0;
+}
+.card .card-body {
+  padding: 20px;
+}
+.card .card-body form label:not(label[for=remember]) {
+  font-size: 15px;
+  color: #F30050;
+  text-shadow: 1px 1px 2px black;
+}
+
+.card-header:first-child {
+  border-radius: 15px 15px 0 0;
+}
+
 .container.login {
   display: block;
 }
@@ -10726,53 +10763,41 @@ header .navbar nav i {
   padding-top: 150px;
   height: 100vh;
 }
-.container.login .login_windows .card {
-  width: 70%;
-  margin: auto;
-  border-radius: 15px;
-  background-color: rgba(246, 180, 37, 0.4);
-}
-.container.login .login_windows .card .card-header {
-  background-color: rgba(246, 127, 65, 0.5);
-  padding: 0;
-}
-.container.login .login_windows .card .card-header h2 {
-  font-size: 36px;
-  text-align: center;
-  color: #F30050;
-  text-shadow: 1px 1px 2px black;
-  padding: 5px 0;
-}
-.container.login .login_windows .card .card-body {
-  padding: 20px;
-}
-.container.login .login_windows .card .card-body form label:not(label[for=remember]) {
+.container.login .card-body form label:not(label[for=remember]) {
   font-size: 15px;
   color: #F30050;
   text-shadow: 1px 1px 2px black;
 }
-.container.login .login_windows .card .card-body .forgotten_pw {
+.container.login .card-body .forgotten_pw {
   text-align: right;
 }
-.container.login .login_windows .card .card-body .bottoni {
+.container.login .card-body .bottoni {
   display: flex;
   line-height: 26px;
   justify-content: space-between;
 }
-.container.login .login_windows .card .card-body .reg_hover {
+.container.login .card-body .reg_hover {
   position: relative;
   display: none;
   background-color: red;
   padding: 15px;
 }
-.container.login .login_windows .card .card-body .reg_hover:hover {
+.container.login .card-body .reg_hover:hover {
   display: inline-block;
   position: absolute;
   right: 0;
   bottom: 0;
 }
-.container.login .login_windows .card-header:first-child {
-  border-radius: 15px 15px 0 0;
+
+.email_container {
+  width: 90%;
+  margin: auto;
+  margin-top: 30vh;
+  margin-bottom: 30vh;
+  display: block;
+}
+.email_container label {
+  padding-top: 20px;
 }
 
 .big_contenitore {
@@ -10793,6 +10818,11 @@ header .navbar nav i {
   font-size: 19px;
   color: #F30050;
   text-shadow: 1px 1px 2px black;
+}
+.big_contenitore .access_register {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-end;
 }
 
 .edit_container {

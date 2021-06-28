@@ -21,8 +21,6 @@ header{
         }
     }
 
-
-
     .navbar{
         width: 100%;
         margin-top: 10px;
@@ -128,6 +126,8 @@ header{
 }
 .on_scroll {
     top: 0px;
+    padding: 5px;
+
     ul li {
         color: $pallette_red;
         font-weight: 500;
@@ -176,15 +176,19 @@ header{
 }
 /* //?  SMALL 480-320 */
 @media screen and (max-width:480px) {
-
-    header {
-        .logo_btn{
-            display: inline-block;
-        }
-        .logo{
-            img {
-                display: none;
+    header  {
+        padding: 0;
+        .navbar{
+            .logo{
+                img {
+                    height: 80%;
+                   margin: auto;
+                    margin-top: 5px;
+                }
             }
         }
+        // .container {
+        //     width: 100%;
+        // }
     }
 }

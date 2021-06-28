@@ -1,12 +1,14 @@
 //? Section 1: introduction
-#introduction{
-    // background-color: $pallette_yellow;
-    padding: 100px 0;
-    
+#introduction{    
+    padding: 60px 0;
     .titles{
         width: 70%;
         margin: auto;
         text-align: center;
+        border-radius: 25px;
+        background-color:rgba($color: $pallette_yellow_dark, $alpha: 0.2);
+        padding: 40px 20px;
+
 
         h2{
             color: $pallette_orange;
@@ -29,20 +31,23 @@
                 width: calc(99% / 3);
 
                 .box_content{
+                    margin-top: 30px;
+
                     img{
                         width: 100%;
-                        margin-top: -60px;
+                        margin-top: -100px;
                     }
 
                     h3{
-                        font-size: $font_titles_m;
+                        font-size: $font_titles_s;
                         font-family: $veganStyle;
                         letter-spacing: 3px;
                         color: $pallette_orange;
                         text-transform: uppercase;
                     }
                     p {
-                        padding: 20px 15px;
+
+                        padding: 20px 40px;
                         font-size: $font_text_m;
                     }
             } 
@@ -103,16 +108,6 @@
                             padding: 20px 15px;
                             font-size: $font_text_l;
                         }
-                        // p::after {
-                        //     content: "";
-                        //     position: absolute;
-                        //     left: 10%;
-                        //     right: 10%;
-                        //     bottom: -10px;
-                        //     height: 6px;
-                        //     background-color: $pallette_red;
-                        //     box-shadow: 1px 1px 2px rgb(0, 0, 0);
-                        // }
                     } 
                 }
             }
@@ -140,7 +135,7 @@
                             margin-top: -50px;
                         }
                         h3{
-                            font-size: $font_text_m;
+                            font-size: $font_text_l;
                         }
                         p {
                             font-size: $font_text_m;

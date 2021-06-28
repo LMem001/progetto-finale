@@ -15,17 +15,20 @@
         object-fit: cover;
     }
     .jumbo{
-        margin-left: 200px;
         width: calc(40% + 100px);
         min-width: 550px;
-        padding: 50px;
+        padding: 25px;
         color: white;
-        border-radius: 10px;
+        border-radius: 30px;
         border: 1px solid white;
         background-color: rgba($color: black, $alpha: 0.3);
 
         h1{
             font-size: $font_titles_l;
+        }
+        h1, h2{
+            text-shadow: 1px 1px 5px rgb(0, 0, 0);
+
         }
         
         .input-jumbotron-container{
@@ -100,7 +103,7 @@
             width: 90%;
             margin: auto;
             min-width: 250px;
-            padding: 0;
+            padding: 20px;
 
             .input-jumbotron-container{
                 color: white;

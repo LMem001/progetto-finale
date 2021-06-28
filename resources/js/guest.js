@@ -191,11 +191,11 @@ var app = new Vue(
          window.addEventListener('scroll', this.handleScroll);
 
          // axios call restaurants
-         axios.get(this.apiRestaurantURL,{
+         axios.get(this.apiRestaurantURL, {
             params: {
                id: this.selectedType,
             }
-            })
+             })
             .then((serverAnswer) =>{
                
                if (serverAnswer.data != 0){

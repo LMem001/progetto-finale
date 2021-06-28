@@ -32,7 +32,9 @@ body {
     background-color: rgba($color: $pallette_yellow_dark, $alpha: 0.2);
 }
 
-
+h1{
+    text-align: center;
+}
 h1, h2 {
     font-family: $veganStyle;
     letter-spacing: 2px;

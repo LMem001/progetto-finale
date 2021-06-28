@@ -3,16 +3,19 @@
     margin-bottom: 30px;
     
     .container {
-        width: 95%;
+        width: 90%;
         flex-wrap: wrap;
         
         .restaurant_card {
             
             width: 33%;
+            padding: 10px;
             margin-left: -20px;
             margin-right: 20px;
             margin-top: 20px;
             position: relative;
+            border: 2px solid $pallette_orange;
+            border-radius: 15px;
             
             a.content {
                 text-decoration: none;
@@ -30,18 +33,23 @@
                     }
                 }
                 .restaurant_info{
+                    i {
+                        color: $pallette_orange;
+                    }
                     width: 49%;
-                    padding-left: 10px;
+                    padding: 0 10px ;
                     h3{
                         font-size: $font_text_l;
                         position: relative;
                         margin-bottom: 5px;
-                        background-color: $pallette_red;
+                        background-color: rgba($color: $pallette_orange, $alpha: 0.5);
                         border-radius: 20px;
                         padding: 2px 10px;
                     }
                    
                     small {
+                        display: block;
+                        line-height: 20px;
                         font-size: $font_text_s;
                     }
                 }
@@ -59,57 +67,15 @@
             a.content{
                 flex-direction: row-reverse;
             }
-            background: rgb(255,255,255);
-            background: radial-gradient(circle, rgba(255,255,255,0.28895308123249297) 25%, rgba(248,220,42,1) 35%, rgba(243,0,80,0.4906337535014006) 50%, rgba(248,220,42,0.4906337535014006) 65%, rgba(255,255,255,0) 75%);    
+//             background: rgb(243,0,80);
+// background: linear-gradient(99deg, rgba(243,0,80,0) 0%, rgba(243,0,80,0.5998774509803921) 28%, rgba(248,220,42,0.5886729691876751) 53%, rgba(255,255,255,0) 100%);
         }
     }
-}        /*
-        .restaurant_card ::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 2px;
-            height: 30px;
-            background: rgb(255,255,255);        
-            background: linear-gradient(270deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 15%, rgba(243,0,80,1) 50%, rgba(243,0,80,1) 100%);
-            z-index: -1;               
-        }
-
-        .restaurant_card:nth-child(6n + 4),
-        .restaurant_card:nth-child(6n + 5),
-        .restaurant_card:nth-child(6n + 6) {
-            
-            margin-right: -20px;
-            margin-left: 20px;
-            text-align: right;
-            
-            a.content{
-                flex-direction: row-reverse;
-                .restaurant_info{
-                    padding-right: 10px;
-                    
-                    h3{
-                        font-size: $font_text_m;
-                    }
-                    small{
-                        font-size: $font_text_xs;
-                    }
-                }
-            }
-            */
-
-            // a.content::before {
-            //     left: 0px;
-            //     right: -140px;                        
-            //     background: linear-gradient(90deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 15%, rgba(243,0,80,1) 50%, rgba(243,0,80,1) 100%)!important;
-            // }
-
+}       
 
 /* //?  LARGE 1200-768px */
 @media screen and (max-width:1200px) {
 
-    //? Section 4 : Restaurants
     #restaurants {       
         .container {
             .restaurant_card {
@@ -119,8 +85,19 @@
                 margin-right: 20px;
                 text-align: left;
                 position: relative;
+
+                a.content{
+                    .restaurant_info{
+                        small {
+                            font-size: $font_text_m;
+                            line-height: 25px;
+                        }
+                    }
+                }
                 
             }
+
+            // reset delle posizioni per media query differnte
             .restaurant_card:nth-child(6n + 4),
             .restaurant_card:nth-child(6n + 5),
             .restaurant_card:nth-child(6n + 6) {
@@ -129,6 +106,9 @@
                 text-align: left;
                 a.content{
                     flex-direction: row;
+                    .restaurant_info{
+                        padding-right: 10px;
+                    }
                 }
             }
             .restaurant_card:nth-child(4n + 3),
@@ -140,9 +120,7 @@
                 
                 a.content{
                     flex-direction: row-reverse;
-                    .restaurant_info{
-                        padding-right: 10px;
-                    }
+
                 }
             }
             
@@ -157,20 +135,30 @@
         .container {
 
             .restaurant_card {
-                width: 100%;            
+                width: 100%;     
+                padding: 15px 30px;       
                 margin-left: -20px;
                 margin-right: 20px;
                 text-align: left;
 
                 a.content {
                     flex-direction: row;
+                    .restaurant_info {
+                        h3  {
+                            font-size: $font_titles_s;
+                        }
+                        small{
+                            width: 90%;
+                            margin: auto;
+                            font-size: $font_text_s;
 
-                    .restaurant_info{
-                        padding-left: 10;
+                        }
                     }
                 }
                 
+                
             }
+            
             .restaurant_card:nth-child(4n + 3),
             .restaurant_card:nth-child(4n + 4) {
                 
@@ -191,13 +179,69 @@
                 text-align: right;
                 
                 a.content{
-                    background-color: indigo;
+                    // background-color: indigo;
                     flex-direction: row-reverse;
-                    .restaurant_info{
-                        padding-right: 10px;
-                    }
+
                 }
             }
         }
     }
+}
+
+/* //?  SMALL 480-320 */
+@media screen and (max-width:480px) {
+    #restaurants {
+        .container {
+            
+            .restaurant_card {
+                margin-right: 10px!important;
+                margin-left: 10px!important;
+                text-align: center!important;
+
+                a.content {
+    
+                    .logo_rest {
+                        width: 100%;
+                
+                        img::after{
+                            content: "";
+                            position: absolute;
+                            top: 0%;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background-color: rgba($color: #fff, $alpha: 0.4);
+                        }
+
+                    }
+                    .restaurant_info{
+                        width: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: rgba($color: white, $alpha: 0.7);
+                        padding-left: 0px;
+                        padding-right: 0px;
+                        border-radius: 15px;
+                        border: solid $pallette_red 2px;
+
+                        h3{
+                            font-size: $font_text_l;
+                            width: 80%;
+                            margin: auto;
+                            margin-bottom: 5px;
+                            margin-top: 30px;
+                            padding: 5px 15px;
+                        }
+                       
+                        small {
+                            font-size: $font_text_m;
+                        }
+                    }
+                }
+            }                       
+        }
+    }       
 }
