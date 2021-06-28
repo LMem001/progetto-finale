@@ -90,7 +90,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="tel" class="form-control" minlength="10" maxlength="16" @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="tel" autofocus>
+                                <input id="phone" type="tel" minlength="10" maxlength="16" class="form-control  @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="tel" autofocus>
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -105,7 +105,7 @@
                             <label for="vat" class="col-md-4 col-form-label text-md-right">{{ __('VAT') }}</label>
 
                             <div class="col-md-6">
-                                <input id="vat" type="text" class="form-control" maxlength="11" @error('vat') is-invalid @enderror" name="vat" value="{{ old('vat') }}"  autofocus>
+                                <input id="vat" type="text" maxlength="11" class="form-control @error('vat') is-invalid @enderror" name="vat" value="{{ old('vat') }}"  autofocus>
 
                                 @error('vat')
                                     <span class="invalid-feedback" role="alert">
@@ -135,7 +135,7 @@
                             <label for="iban" class="col-md-4 col-form-label text-md-right">{{ __('iban') }}</label>
 
                             <div class="col-md-6">
-                                <input id="iban" type="text" class="form-control" minlength="27" maxlength="27" @error('iban') is-invalid @enderror name="iban" value="{{ old('iban') }}"  autofocus>
+                                <input id="iban" type="text" minlength="27" maxlength="27" class="form-control  @error('iban') is-invalid @enderror" name="iban" value="{{ old('iban') }}"  autofocus>
 
                                 @error('iban')
                                     <span class="invalid-feedback" role="alert">
