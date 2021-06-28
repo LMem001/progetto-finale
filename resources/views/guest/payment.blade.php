@@ -53,7 +53,7 @@
               {{-- orario_consegna --}}
               <div class="form-group">
                 <label for="pickup_date">Orario consegna</label>
-                <input type="time" id="pickup_date" name="pickup_date" :min="time" max="18:00" required>
+                <input type="time" id="pickup_date" name="pickup_date" :min="time" :max="colsingTime" required>
               </div>
               <div class="importo_finale">
                 <p class="special_price">

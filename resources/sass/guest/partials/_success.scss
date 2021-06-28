@@ -2,8 +2,23 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   h1{
-      font-size: $font_titles_l;
-      padding: 300px 0;
+   height: 100vh;
+   background-image: url("../img/colesseoBike.jpg");
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   .text{
+      width: calc(40% + 100px);
+      min-width: 550px;
+      padding: 25px;
+      color: white;
+      border-radius: 30px;
+      border: 1px solid white;
+      background-color: rgba($color: black, $alpha: 0.3);
+      h1{
+         color: chartreuse;
+         font-size: $font_titles_l;
+         text-shadow: 1px 1px 5px rgb(0, 0, 0);
+      }
    }
 }

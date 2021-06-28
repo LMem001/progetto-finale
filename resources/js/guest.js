@@ -126,15 +126,14 @@ var app = new Vue(
                   if(cartit.quantity > 0){
                      cartit.quantity -= 1;
                      this.sum -= cartit.food_price;
+                     localStorage.setItem("itemsQT", JSON.stringify(this.orderdItemsQt));
+                     localStorage.setItem("refreshsum", JSON.stringify(this.sum));
+                     localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
+                     localStorage.setItem("refreshCart", JSON(this.cart));
                   };
-                  
                };
             });
             this.orderdItemsQt -= 1;
-            localStorage.setItem("itemsQT", JSON.stringify(this.orderdItemsQt));
-            localStorage.setItem("refreshsum", JSON.stringify(this.sum));
-            localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
-            localStorage.setItem("refreshCart", JSON(this.cart));
          },
 
          clearCart: function(){

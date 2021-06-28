@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.main')
 
 @section('cdn')
    {{-- development version, includes helpful console warnings --}}
@@ -23,7 +23,9 @@
 
 @section('content')
    <div class="success">
-      <h1>il pagamento é andato a buon fine</h1>
+      <div class="text">
+         <h1>il pagamento é andato a buon fine</h1>
+      </div>
    </div>
 @endsection
 

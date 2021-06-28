@@ -1376,10 +1376,25 @@ footer .footer_container #foot_col4 ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  background-image: url("../img/colesseoBike.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-.success h1 {
+.success .text {
+  width: calc(40% + 100px);
+  min-width: 550px;
+  padding: 25px;
+  color: white;
+  border-radius: 30px;
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.success .text h1 {
+  color: chartreuse;
   font-size: 45px;
-  padding: 300px 0;
+  text-shadow: 1px 1px 5px black;
 }
 
 #restaurant-profile .coverImage {
