@@ -1,0 +1,204 @@
+header{
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    z-index: 100;
+    transition: 0.8s;
+    padding: 15px 20px;
+    background-color: rgba($color: white, $alpha: 0.6);
+
+    .banner{
+        display: none;
+    }
+
+    .navbar{
+        width: 100%;
+        margin-top: 10px;
+        padding: 7px 0;
+        .logo{
+            display: inline-block;
+            transition: 0.6s;
+            height: 60px;
+            img {
+                height: 100%;
+                margin-top: 5px;
+            }
+        }
+
+        .dropDownMenu{
+            position: relative;
+            a{
+                cursor: pointer;
+                text-decoration: none;
+                text-transform: capitalize;
+                font-size: $font_text_m;
+                font-weight: bolder;  
+                padding: 5px 5px;
+            }
+            .menu{
+                background-color: rgba(246, 180, 37, 0.7);
+                border-radius: 10px;
+                position: absolute;
+                top: 72px;
+                right: 0;
+                transition: 0.5s;
+                display: none;
+                
+                ul {
+                    text-align: right;
+                    li {
+                        padding: 5px 10px;
+                        a{
+                            color: black;
+                            &:hover{
+                                color: $pallette_red;
+                            }
+                        }
+                    }
+                }
+                &:hover{
+                    background-color: rgba(246, 180, 37, 0.4);
+                }
+            }
+            .display{
+                display: block;
+            }
+        }
+        .dropdownLogout{
+            position: relative;
+        }
+        .logout{
+            border-radius: 10px;
+            top: 65px;
+            right: 0;
+            transition: 0.5s;
+            padding: 5px 10px;
+            display: none;
+            position: absolute;
+            background-color: rgba(246, 180, 37, 0.7);
+            &:hover{
+                background-color: rgba(246, 180, 37, 0.4);
+            }
+            a{
+                padding: 5px 10px;
+                cursor: pointer;
+                color: black;
+                text-decoration: none;
+                text-transform: capitalize;
+                font-size: $font_text_m;
+                font-weight: bolder;  
+                padding: 5px 5px;
+                
+                &:hover{
+                    color: $pallette_red;
+                }
+            }
+        }
+        .display{
+            display: block;
+        }
+
+
+        nav {
+            flex-direction: row;
+            align-items: center;          
+            ul li{
+                display: inline-block;
+                position: relative;
+                text-transform: uppercase;
+                font-size: $font_text_m;  
+                font-weight: bolder;
+                color: black;
+                padding-right: 20px;
+                
+                a{
+                    text-decoration: none;
+                    color: inherit;
+                    &:hover{
+                        color: $pallette_red;
+                    }
+                }
+
+                i:hover, a:hover {
+                    color: $pallette_red;
+                }
+
+                .fa-chevron-down{
+                    font-size: $font_text_s;
+                    padding-left: 5px;
+                }
+            } 
+            .registration {
+                padding-left: 20px;
+            }
+        }
+    }
+}
+.on_scroll {
+    top: 0px;
+    padding: 5px;
+
+    ul li {
+        color: $pallette_red;
+        font-weight: 500;
+    } 
+    .navbar{
+        padding: 0;
+        margin-top: 0;
+    }
+}
+
+
+/* //?  LARGE 1200-768px */
+@media screen and (max-width:1200px) {
+
+    header{
+        .banner{
+            font-size: $font_text_s;
+        }
+        .navbar{
+            nav {              
+                small {
+                    display: none;
+                }
+            }
+        }
+        .container {
+            width: 90%;
+        }
+    }
+}
+/* //?  MEDIUM 768-480px  */
+@media screen  and (max-width:768px) {
+
+    header{
+        .banner{
+            display: none;
+            font-size: $font_text_s;
+        }
+        .navbar{
+            .navbar_elements {
+                display: none;
+                // todo navbar con pulsantino
+            }
+        }
+    }
+}
+/* //?  SMALL 480-320 */
+@media screen and (max-width:480px) {
+    header  {
+        padding: 0;
+        .navbar{
+            .logo{
+                img {
+                    height: 80%;
+                   margin: auto;
+                    margin-top: 5px;
+                }
+            }
+        }
+        // .container {
+        //     width: 100%;
+        // }
+    }
+}

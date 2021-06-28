@@ -1,0 +1,44 @@
+#paymentApp {
+    .payment_container {
+        width: 80%;
+        margin: auto;
+        .importo_finale .special_price {
+            text-align: center;
+            font-size: $font_text_m;
+            font-weight: bold;
+            
+            &span {
+                color: $pallette_red;
+                font-size: $font_text_l;
+                font-weight: bolder;
+            }
+        }
+        
+        .btn_container {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+/* //?  MEDIUM 768-480px  */
+@media screen  and (max-width:768px) {
+    #paymentApp {
+        .card {
+            width: 90%;
+            margin: auto;
+        }
+    }
+}
+
+/* //?  SMALL 480-320 */
+@media screen and (max-width:480px) {
+    #paymentApp {
+        .card {
+            width: 95%;
+            margin: auto;
+        }
+    }
+}
+
+

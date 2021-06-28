@@ -22,22 +22,30 @@
       flex-wrap: wrap;
       margin: 20px 0;
 
-      font-size: $font_text_m;
+      font-size: $font_text_s;
       line-height: 1.4;
+      text-transform: capitalize;
+
       span.data {
-         color: $pallette_red;
+         color: $pallette_orange;
+         text-transform: capitalize;
          font-weight: bold;
-         font-size: $font_text_l;
+         font-size: $font_text_m;
       }
       .rest{
          display: flex;
          justify-content: flex-start;
-         width: 59%;
+         width: 75%;
+         margin: auto;
+         background-color: white;
+         border: $pallette_orange 2px solid;
+         border-radius: 25px;
+         padding: 5px;
 
          .logo_rest{
-            width: 50%;
+            width: 40%;
             border-radius: 15px;
-            margin: 20px;
+            margin: 10px;
             background-color: royalblue;
    
             img{
@@ -47,24 +55,30 @@
    
          .info_rest{
             width: 50%;
-         
+            margin: 10px;
          }
       }
       .rest_social{
-         // width: 40%;
-         padding: 20px;
+         width: 20%;
+         margin: auto;
          text-align: right;
          border-radius: 15px;
-         border: $pallette_red 3px solid;
+         // border: $pallette_red 3px solid;
          
          h3{
+            text-align: center;
             margin: 20px 0;
             font-family: $veganStyle;
          }
 
-         ul li {
-            list-style: none;
-            display: inline-block;
+         ul  {
+            width: 100%;
+            li {
+               padding: 5px;
+               list-style: none;
+               text-align: left;
+               color: black;
+            }
          }
       }
       .add_product{
@@ -75,7 +89,7 @@
       }
    }
    .my_table{
-      width: 80%;
+      width: 85%;
       margin: 40px auto;
 
 
@@ -83,8 +97,7 @@
          color: $pallette_red;
          background-color: $pallette_yellow_dark;
          font-size: $font_text_m;
-         text-transform: uppercase;   
-               
+         text-transform: uppercase;                
       }
       .buttons{
          display: flex;
@@ -122,17 +135,104 @@
    }
 }
 
-/*
-.dashboard{
-   .my_table{
-      padding-top: 40px;
 
-      
-      .products_row{
-         &:hover .buttons{
-            visibility: visible;
+//* MEDIA QUERY RESPONSIVE
+
+/* //?  LARGE 1200-768px */
+@media screen and (max-width:1200px) {
+   .contenuto{
+      .my_table{
+         width: 90%;   
+      }
+   }
+}
+
+/* //?  MEDIUM 768-480px  */
+@media screen  and (max-width:768px) {
+
+   .contenuto {   
+      .dashboard {
+         width: 100%;
+            
+         span.data {
+
+            font-size: $font_text_m;
+         }
+         .rest{
+            flex-wrap: wrap;
+   
+            .logo_rest{
+               width: 100%;
+            }
+            .info_rest{
+               width: 100%;
+               margin: 10px;
+            }
+         }
+
+         .rest_social{
+            width: auto;
+
+            ul  {
+               width: 100%;
+               li {
+                  display: inline-block;
+                  padding: 15px;
+               }
+            }
+         }
+
+      }
+      .my_table{
+         width: 95%;
+
+         table thead{
+            font-size: $font_text_s;
          }
       }
    }
 }
-*/
+
+/* //?  SMALL 480-320 */
+@media screen and (max-width:480px) {
+   .contenuto {
+      width: 100%;
+      margin: auto;
+      margin: 50px 20px;
+   
+   
+      .dashboard {
+         width: 100%;
+         display: flex;
+         justify-content: space-between;
+         flex-wrap: wrap;
+         margin: 20px 0;
+   
+         font-size: $font_text_s;
+         line-height: 1.4;
+         text-transform: capitalize;
+   
+         span.data {
+            color: $pallette_orange;
+            text-transform: capitalize;
+            font-weight: bold;
+            font-size: $font_text_m;
+         }
+         
+         
+         .add_product{
+            padding: 20px 40px;
+            text-align: center;
+            margin-top: 60px;
+            width: 100%;
+         }
+      }
+
+      .my_table{
+   
+         table thead{
+            font-size: $font_text_s;
+         }
+      }
+   }
+}

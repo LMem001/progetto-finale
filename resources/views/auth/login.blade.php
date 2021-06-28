@@ -10,7 +10,7 @@
         <div class="login_windows">
                 <div class="card">
                     <div class="card-header">
-                        <h2>Login </h2>
+                        <h2 class="mt_2">Login </h2>
                     </div>
 
                     <div class="card-body">

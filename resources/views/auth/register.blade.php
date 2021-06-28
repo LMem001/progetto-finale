@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h2>Registrati</h2>
+                    <h2 class="mt_2">Registrati</h2>
                 </div>
 
                 <div class="card-body">

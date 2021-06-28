@@ -76,7 +76,9 @@
                 <!-- card  -->
                 <div class="category-card" v-for="(type, index) in restaurants_types" v-on:mouseover="selectedType = index" @click='filtredRestaurantByType'>
                     <div class="icon">
-                        <img :src="'img/icon/' + type.restaurant_type + '.png'" alt="type icon">
+                        <a href="#restaurants">
+                            <img :src="'img/icon/' + type.restaurant_type + '.png'" alt="type icon">
+                        </a>
                     </div>
                     <div class="type-name">
                         <h4>@{{type.restaurant_type}}</h4>
