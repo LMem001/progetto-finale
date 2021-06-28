@@ -135,7 +135,7 @@
                             <label for="iban" class="col-md-4 col-form-label text-md-right">{{ __('iban') }}</label>
 
                             <div class="col-md-6">
-                                <input id="iban" type="text" class="form-control" maxlength="27" @error('iban') is-invalid @enderror" name="iban" value="{{ old('iban') }}"  autofocus>
+                                <input id="iban" type="text" class="form-control" minlength="27" maxlength="27" @error('iban') is-invalid @enderror name="iban" value="{{ old('iban') }}"  autofocus>
 
                                 @error('iban')
                                     <span class="invalid-feedback" role="alert">

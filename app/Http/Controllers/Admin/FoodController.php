@@ -14,7 +14,6 @@ class FoodController extends Controller
         'name' => 'required|string|max:50',
         'food_price' => 'required|numeric|min:1',
         'tagCourse' => 'required|string|max:25',
-        // 'allergens' => 'string|max:100'
     ];
     /**
      * Display a listing of the resource.
