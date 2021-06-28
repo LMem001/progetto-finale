@@ -58,3 +58,39 @@ $mq_small : 480px;
 $mq_medium : 768px;
 $mq_large : 1200px;
 $mq_extra_large : 1400px;
+
+//! Scrollbar webpage
+ul::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+}
+ul::-webkit-scrollbar-thumb {
+    background: #f30050;
+    border-radius: 15px;
+}
+ul::-webkit-scrollbar-thumb:hover{
+    background: radial-gradient(circle, #f8dc2a 19%,#f30050 100%);
+}
+ul::-webkit-scrollbar-track{
+    background: #f8dc2a;
+    border-radius: 15px;
+    box-shadow: inset -1px 2px 30px #f0f0f0;
+}
+
+//! Scrollbar interne
+ul::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+}
+ul::-webkit-scrollbar-thumb {
+    background: #f30050;
+    border-radius: 15px;
+}
+ul::-webkit-scrollbar-thumb:hover{
+    background: radial-gradient(circle, #f8dc2a 19%,#f30050 100%);
+}
+ul::-webkit-scrollbar-track{
+    background: #f8dc2a;
+    border-radius: 15px;
+    box-shadow: inset -1px 2px 30px #f0f0f0;
+}

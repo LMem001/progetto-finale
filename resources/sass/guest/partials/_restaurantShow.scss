@@ -1,172 +1,241 @@
-// restaurant profile
-.container-show{
-    padding-top: 30px;
-    height: 200vh;
-    background-color: orange;
+#restaurant-profile{
 
-    #restaurant-profile{
-        .coverImage{
-            width: 100%;
-            background-color: royalblue;
-            height: 20vh;
-            overflow: hidden;
-            img {
-               object-fit: contain;
-               width: 100%;
-               margin: auto;
-            }
-         }
-        .rest-info-container{
-            display: flex;
-            justify-content: center;
-            margin-top: -80px;
-            
-            .rest-info{
-                position: relative;
-                background-color: white;
-                border-radius: 15px;
-                margin-top: -10%;
-                width: 45%;
-                margin: auto ;
-                padding-bottom: 40px;
+    .coverImage{
+        width: 100%;
+        background-color: royalblue;
+        height: 35vh;
+        overflow: hidden;
+        img {
+           object-fit: contain;
+           width: 100%;
+           margin: auto;
+        }
+     }
+    .rest-info-container{
+        display: flex;
+        justify-content: center;
+        margin-top: -80px;
+        
+        .rest-info{
+            position: relative;
+            background-color: white;
+            border-radius: 15px;
+            margin-top: -10%;
+            width: 45%;
+            margin: auto ;
+            padding-bottom: 40px;
 
-                .rest-logo{
-                    width: 100px;
-                    height: 100px;
-                    margin: 0 auto;
+            .rest-logo{
+                width: 100px;
+                height: 100px;
+                margin: 0 auto;
+                border-radius: 100%;
+                position: relative;  
+                
+                img{
+                    width: 100%;
+                    height: 100%;
                     border-radius: 100%;
-                    position: relative;  
-                    
-                    img{
-                        width: 100%;
-                        height: 100%;
-                        border-radius: 100%;
-                        position: absolute;
-                        top: -50%;
-                    }        
-                }
-                .rest-info-content{
-                    text-align: center;
-                    h2{
-                        padding-bottom: 25px;
-                    }
-                    h3{
-                        padding-bottom: 10px;
-                    }
-                }
+                    position: absolute;
+                    top: -50%;
+                }        
             }
-        }
-    }
-    
-    
+            .rest-info-content{
+                text-align: center;
+                margin-top: -30px;
 
-    /* main */
-    main{
-        display: flex;
-        justify-content: space-between;
-        margin-top: -100px;
-        
-        .side_col {
-            display: flex;
-            text-align: center;
-            // justify-content: center;
-            background-color: white;
-            width: 18%;
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: -40px;
-
-        }
-
-            /* selection */
-        #left_col_index{
-            
-            .food-selection-container{
-                width: 100%;
-            }
-        }
-        
-        /* restaurant menu */
-        #center_col_menu{
-            width: 50%;
-            display: flex;
-            justify-content: center;
-            margin-top: 140px;
-            border-radius: 15px;
-            background-color: white;
-            
-            .center_col_menu{
-                width: 600px;
-                border-radius: 15px;
-                padding: 0 25px;
                 h2{
-                    margin-top: 20px;
-                    text-align: center;
+                    padding-bottom: 25px;
                 }
-
-                .rest-menu-item{
-                    border-radius: 15px;
-                    border: 2px solid $pallette_yellow_dark;
-                    padding: 10px 15px;
-                    margin: 25px 0;
-
-
-                    .food-price{
-                        padding-top: 10px;
-                        color: $pallette_orange;
-                    }
+                h3{
+                    padding-bottom: 10px;
                 }
             }
-        }
-        
-
-        #right_col_cart{
-            .cart-container{
-                width: 100%;
-
-                padding: 10px 0;
-                ul{                
-                    li{
-                        display: flex;
-                        justify-content: space-between;
-                        margin: 5px 10px;
-                    }
-                }
-                .total{
-                    margin-top: 30px;
-                    hr {
-                        margin: 10px 0 20px 0;
-                    }
-                    // h3 {
-                    //     color: ;
-                    // }
-                }
-            }
-        }
-    }
-    .addCart{
-        display: flex;
-        align-items: center;
-        i{
-            background-color: $yellow;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            color: $indigo;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.4s all;
-            cursor: pointer;
-            &:hover{
-                background-color: $orange;
-            }
-        }
-        .display{
-            margin: 0 15px;
         }
     }
 }
+
+h2{
+    margin-top: 10px;
+    text-align: center;
+    font-size: $font_titles_m;
+    color: $pallette_red;
+}
+main{
+    // restaurant profile
+    
+    .container-show{
+        display: flex;
+        width: 100%;
+        // margin: auto 5%;
+        justify-content: space-evenly;
+        padding-top: 60px;
+        // background-color: orange;
+
+    }
+
+    .side_col {
+        display: flex;
+        position: sticky;
+        top: 23%;
+        text-align: center;
+        width: 20%;
+        height: 500px;
+        // justify-content: center;
+        background-color: white;
+        // width: 18%;
+        padding: 10px;
+        border-radius: 15px;
+        margin-top: -40px;
+
+    }
+        /* selection */
+    #food-type-selection{    
+        .food-selection-container{
+            width: 100%;
+            
+            ul {
+                text-align: left;
+                padding: 20px;
+
+                li {
+                    position: relative;
+                    a{
+                        text-decoration: none;
+                        font-size: $font_text_l;
+                        color: black;
+                        padding: 10px 0;
+                        text-transform: capitalize;
+                    }
+                }
+            }
+        
+            li::before {
+                content: "";
+                position: absolute;
+                left: -10px;
+                bottom: 0;
+                top: 0;
+                width: 3px;
+                height: 20px;
+                background-color: #F30050;
+                box-shadow: 1px 1px 2px black;
+            }
+        }
+    }
+    
+    /* restaurant menu */
+    #rest-menu{
+        // width: 50%;
+        display: flex;
+        justify-content: center;
+        // margin-top: 140px;
+        border-radius: 15px;
+        background-color: white;
+        margin-bottom: 50px;
+        
+        .rest-menu-container{
+            width: 600px;
+            border-radius: 15px;
+            padding: 0 25px;
+
+
+            .rest-menu-item{
+                display: flex;
+                justify-content: space-between;
+                border-radius: 15px;
+                border: 2px solid $pallette_yellow_dark;
+                padding: 10px 15px;
+                margin: 25px 0;
+
+                .addCart{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    i{
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+                        padding-left: 7px;
+                        background-color: $pallette_yellow;
+                        color: $pallette_red;
+                        border-radius: 50%;
+                        transition: 0.4s all;
+                        cursor: pointer;
+                        &:hover{
+                            background-color: $pallette_orange;
+                        }
+                    }
+                    p {
+                        padding: 0 10px;
+                    }
+                }
+            }
+
+            h4{
+                width: 40%;
+            }         
+        }
+    }
+    
+
+
+    #cart{
+
+        .cart-container{
+            width: 100%;
+            padding-bottom: 20px;
+            position: relative;
+            ul{  
+                padding: 5px;
+                height: 285px;
+                overflow-y: auto;
+
+                li{
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 5px 0px;
+                    .product{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+
+                        .cart_item_name{
+                            width: 60%;
+                            text-align: left;
+                        }
+                    }
+                }
+                li::after{
+                    content: "";
+                    position: absolute;
+                    bottom: 10px;
+                    left: 5px;
+                    right: 5px;
+                }
+            }
+            .total{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin-top: 30px;
+            
+            .btn_pay {
+                margin: 20px 0;
+            }
+                // h3 {
+                //     color: ;
+                // }
+            }
+        }
+    }
+}
+    
+
+    /* main */
+
 
 
 

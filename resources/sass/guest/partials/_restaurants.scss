@@ -26,7 +26,7 @@
                     img{
                         width: 100%;
                         border-radius: 50%;
-                        border: $pallette_red 8px solid;
+                        // border: $pallette_red 8px solid;
                     }
                 }
                 .restaurant_info{
@@ -59,6 +59,8 @@
             a.content{
                 flex-direction: row-reverse;
             }
+            background: rgb(255,255,255);
+            background: radial-gradient(circle, rgba(255,255,255,0.28895308123249297) 25%, rgba(248,220,42,1) 35%, rgba(243,0,80,0.4906337535014006) 50%, rgba(248,220,42,0.4906337535014006) 65%, rgba(255,255,255,0) 75%);    
         }
     }
 }        /*

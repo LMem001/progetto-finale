@@ -1,8 +1,11 @@
 header{
     position: fixed;
-    top: 0;
+    top: 10px;
     width: 100%;
     z-index: 100;
+    transition: 0.8s;
+    padding: 15px 20px;
+    background-color: rgba($color: white, $alpha: 0.6);
 
     .banner{
         background-color: $pallette_blue;
@@ -22,13 +25,13 @@ header{
 
     .navbar{
         width: 100%;
-        margin-top: 30px;
-
+        margin-top: 10px;
+        padding: 7px 0;
     //    background-color: transparent;
-        background-color: rgba($color: white, $alpha: 0.6);
         // padding: 10px 0;
         .logo{
             display: inline-block;
+            transition: 0.6s;
             height: 60px;
             // margin: 0 20px;
             
@@ -55,7 +58,7 @@ header{
                 border-radius: 10px;
                 position: absolute;
                 top: 0;
-                right: -30px;
+                right: 0;
                 transition: 0.5s;
                 display: none;
                 
@@ -63,8 +66,12 @@ header{
                     text-align: end;
 
                     li {
+                        padding: 5px 10px;
                         a{
                             color: black;
+                            &:hover{
+                                color: $pallette_red;
+                            }
                         }
                     }
                 }
@@ -99,10 +106,12 @@ header{
                 a{
                     text-decoration: none;
                     color: inherit;
-
+                    &:hover{
+                        color: $pallette_red;
+                    }
                 }
 
-                i {
+                i:hover, a:hover {
                     color: $pallette_red;
                 }
 
@@ -118,13 +127,17 @@ header{
     }
 }
 .on_scroll {
-    margin-top: 0px!important;
-    background-color: rgb(253, 240, 211)!important;
+    top: 0px;
     ul li {
         color: $pallette_red;
         font-weight: 500;
     } 
+    .navbar{
+        padding: 0;
+        margin-top: 0;
+    }
 }
+
 
 /* //?  LARGE 1200-768px */
 @media screen and (max-width:1200px) {
@@ -139,6 +152,9 @@ header{
                     display: none;
                 }
             }
+        }
+        .container {
+            width: 90%;
         }
     }
 }

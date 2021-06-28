@@ -2,6 +2,46 @@
   font-family: veganFontStyle;
   src: url(../fonts/VeganStylePersonal.ttf);
 }
+ul::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: #f30050;
+  border-radius: 15px;
+}
+
+ul::-webkit-scrollbar-thumb:hover {
+  background: radial-gradient(circle, #f8dc2a 19%, #f30050 100%);
+}
+
+ul::-webkit-scrollbar-track {
+  background: #f8dc2a;
+  border-radius: 15px;
+  box-shadow: inset -1px 2px 30px #f0f0f0;
+}
+
+ul::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: #f30050;
+  border-radius: 15px;
+}
+
+ul::-webkit-scrollbar-thumb:hover {
+  background: radial-gradient(circle, #f8dc2a 19%, #f30050 100%);
+}
+
+ul::-webkit-scrollbar-track {
+  background: #f8dc2a;
+  border-radius: 15px;
+  box-shadow: inset -1px 2px 30px #f0f0f0;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -146,9 +186,12 @@ html {
 
 header {
   position: fixed;
-  top: 0;
+  top: 10px;
   width: 100%;
   z-index: 100;
+  transition: 0.8s;
+  padding: 15px 20px;
+  background-color: rgba(255, 255, 255, 0.6);
 }
 header .banner {
   background-color: #2BA4C3;
@@ -163,11 +206,12 @@ header .banner .closeBanner {
 }
 header .navbar {
   width: 100%;
-  margin-top: 30px;
-  background-color: rgba(255, 255, 255, 0.6);
+  margin-top: 10px;
+  padding: 7px 0;
 }
 header .navbar .logo {
   display: inline-block;
+  transition: 0.6s;
   height: 60px;
 }
 header .navbar .logo img {
@@ -194,7 +238,7 @@ header .navbar .dropDownMenu .menu {
   border-radius: 10px;
   position: absolute;
   top: 0;
-  right: -30px;
+  right: 0;
   transition: 0.5s;
   display: none;
   margin-top: 20px;
@@ -204,10 +248,20 @@ header .navbar .dropDownMenu .logout ul,
 header .navbar .dropDownMenu .menu ul {
   text-align: end;
 }
+header .navbar .dropDownLogout .logout ul li, header .navbar .dropDownLogout .menu ul li,
+header .navbar .dropDownMenu .logout ul li,
+header .navbar .dropDownMenu .menu ul li {
+  padding: 5px 10px;
+}
 header .navbar .dropDownLogout .logout ul li a, header .navbar .dropDownLogout .menu ul li a,
 header .navbar .dropDownMenu .logout ul li a,
 header .navbar .dropDownMenu .menu ul li a {
   color: black;
+}
+header .navbar .dropDownLogout .logout ul li a:hover, header .navbar .dropDownLogout .menu ul li a:hover,
+header .navbar .dropDownMenu .logout ul li a:hover,
+header .navbar .dropDownMenu .menu ul li a:hover {
+  color: #F30050;
 }
 header .navbar .dropDownLogout .logout:hover, header .navbar .dropDownLogout .menu:hover,
 header .navbar .dropDownMenu .logout:hover,
@@ -236,7 +290,10 @@ header .navbar nav ul li a {
   text-decoration: none;
   color: inherit;
 }
-header .navbar nav ul li i {
+header .navbar nav ul li a:hover {
+  color: #F30050;
+}
+header .navbar nav ul li i:hover, header .navbar nav ul li a:hover {
   color: #F30050;
 }
 header .navbar nav ul li .fa-chevron-down {
@@ -248,12 +305,15 @@ header .navbar nav .registration {
 }
 
 .on_scroll {
-  margin-top: 0px !important;
-  background-color: #fdf0d3 !important;
+  top: 0px;
 }
 .on_scroll ul li {
   color: #F30050;
   font-weight: 500;
+}
+.on_scroll .navbar {
+  padding: 0;
+  margin-top: 0;
 }
 
 /* //?  LARGE 1200-768px */
@@ -263,6 +323,9 @@ header .navbar nav .registration {
   }
   header .navbar nav small {
     display: none;
+  }
+  header .container {
+    width: 90%;
   }
 }
 /* //?  MEDIUM 768-480px  */
@@ -618,6 +681,56 @@ footer .footer_container #foot_col4 ul {
     margin-top: 0;
   }
 }
+main {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 150px;
+}
+
+section {
+  width: 50%;
+  padding: 100px 20px;
+}
+
+.preloader, .navbar nav ul, .banner {
+  display: none;
+}
+
 #info {
-  background-color: blue;
+  width: 80%;
+  margin: auto;
+  padding: 30px;
+}
+#info h1 {
+  font-size: 36px;
+  color: #F30050;
+}
+#info p {
+  line-height: 1.5;
+  margin-top: 20px;
+  width: 75%;
+}
+#info li {
+  padding: 10px;
+}
+
+#sidebar {
+  display: flex;
+  width: 80%;
+  line-height: 1.7;
+  margin: auto;
+  padding: 20px;
+}
+#sidebar .sidebar_container {
+  width: 90%;
+  margin: auto;
+}
+#sidebar .sidebar_container ul li {
+  padding: 10px;
+  margin: 10px 0;
+}
+#sidebar .sidebar_container h3 {
+  margin: 20px 0;
 }

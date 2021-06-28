@@ -4,6 +4,57 @@
 @import 'partials/intro';
 @import 'partials/footer';
 
-#info {
-    background-color: blue;
+main {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 150px;
+}
+
+section{
+    width: 50%;
+    padding: 100px 20px;
+
+}
+.preloader, .navbar nav ul, .banner {
+    display: none;
+}
+#info{
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+
+    h1{
+        font-size: $font_titles_m;
+        color: $pallette_red;
+    }
+    p {
+        line-height: 1.5;  
+        margin-top: 20px;
+        width: 75%;
+    }
+    li{
+        padding: 10px;
+    }
+}
+#sidebar{
+    display: flex;
+    width: 80%;
+    line-height: 1.7;  
+    margin: auto;
+    padding: 20px;
+
+    .sidebar_container{
+        width: 90%;
+        margin: auto;
+
+        ul li{
+            padding: 10px;
+            margin: 10px 0;
+        }
+        h3{
+            margin: 20px 0;
+        }
+    }
 }

@@ -26,7 +26,7 @@
 
     <body>
         <div class="preloader">
-            <h1>Deviboo</h1>
+            <h1>DeviBool</h1>
             <div class="acrobata">
                 <div class="monocicle">
                     <img class="leftArm" src="/img/preloader/left_arm.png" alt="">

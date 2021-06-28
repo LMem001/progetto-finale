@@ -4,13 +4,7 @@
 @section('cdn')
 {{-- development version, includes helpful console warnings --}}
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-{{-- fontawesome --}}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-{{-- moment.js --}}
-<script src="https://momentjs.com/downloads/moment.js"></script>
-{{-- google fonts --}}
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+
 {{-- axios --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
 @endsection
@@ -22,38 +16,37 @@
 @endsection
 
 @section('content')
-
-<main>
     <!-- info -->
-    <div class="container-show">
-        <section id="restaurant-profile">
-            <div class="coverImage">
-                <img :src="selectedRestaurant.img_cover" alt="cover restaurant">
-            </div>
-            <div class="rest-info-container">
-                <div class="rest-info">
-                    <div class="rest-logo">
-                        <img :src="selectedRestaurant.img_profile" alt="profile img">
-                    </div>
-                    <div class="rest-info-content">
-                        <h2>@{{selectedRestaurant.rest_name}}</h2>
-                        <h3>@{{selectedRestaurant.rest_type}}</h3>
-                        <p>@{{selectedRestaurant.address}}</p> 
-                        <p>Aperto dalle @{{selectedRestaurant.open_time }} alle @{{selectedRestaurant.close_time }}</p>
-                    </div>
+    <section id="restaurant-profile">
+        <div class="coverImage">
+            <img :src="selectedRestaurant.img_cover" alt="cover restaurant">
+        </div>
+        <div class="rest-info-container">
+            <div class="rest-info">
+                <div class="rest-logo">
+                    <img :src="selectedRestaurant.img_profile" alt="profile img">
+                </div>
+                <div class="rest-info-content">
+                    <h2>@{{selectedRestaurant.rest_name}}</h2>
+                    <h3>@{{selectedRestaurant.rest_type}}</h3>
+                    <p>@{{selectedRestaurant.address}}</p> 
+                    <p>Aperto dalle @{{selectedRestaurant.open_time }} alle @{{selectedRestaurant.close_time }}</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+    
+    <main>
+        <div class="container-show">
 
-        
-        <main>
-
-            <!-- selction -->
-            <section id="food-type-selection">
+            <!-- Portata -->
+            <section id="food-type-selection" class="side_col">
                 <div class="food-selection-container">
                     <h2>Portata</h2>
                     <ul>
-                        <li v-for="course in courses"><a :href="'#' + course">@{{course}}</a></li>
+                        <li v-for="course in courses">
+                            <a :href="'#' + course">@{{course}}</a>
+                        </li>
                     </ul>
                 </div>
             </section>
@@ -62,54 +55,63 @@
             <section id="rest-menu">
                 <div class="rest-menu-container">
                     <!-- antipsati -->
-                    <div v-for="course in restaurantFoods" :id="course.id" class="course" v-if="course.food.length > 0"> 
+                    <div class="course" v-for="course in restaurantFoods" :id="course.id"  v-if="course.food.length > 0"> 
                         <h2>@{{course.course}}</h2>
                         <ul>
                             <li v-for="food in course.food">
                                 <div class="rest-menu-item" v-on:mouseover="foodId = food.id">
-                                    <h3>@{{food.name }}</h3>
-                                    <p></p>
-                                    <p class="food-price">@{{ food.food_price }}</p>
+                                    <h4>@{{food.name }}</h4>
+                                    
                                     <div class="addCart">
                                         <i class="fas fa-minus" @click="removeItem"></i>
                                         <p class="quantity">@{{ food.quantity }}</p>
                                         <i class="fas fa-plus" @click="addItem"></i>
-                                    </div>  
+                                    </div> 
+                                    <p class="food-price">@{{ food.food_price }} €</p>
+ 
                                 </div>
                             </li>
                         </ul>
                     </div>
-                    <!-- /antipsati -->
             </section>
     
             <!-- cart -->
-            <section id="cart">
+            <section id="cart" class="side_col">
                 <div class="cart-container">
                     <h2>Il tuo ordine</h2>
                     <div class="cart-content">
                         <ul>
                             <li v-if="food.quantity > 0" v-for="food in cart">
                                 <div class="product">
-                                    @{{food.name}} 
-                                    <span class="quantity">@{{food.quantity}}</span>
-                                    <span class="price">@{{(food.food_price * food.quantity).toFixed(2)}}</span>
+                                    <div class="cart_item_name">
+                                        @{{food.name}} 
+                                    </div>
+                                    <div class="cart_item_quantity">
+                                        @{{food.quantity}}
+                                    </div>
+                                    <div class="cart_item_price">
+                                        @{{(food.food_price * food.quantity).toFixed(2)}}
+                                    </div>
+                                    {{-- <span class="quantity">@{{food.quantity}}</span>
+                                    <span class="price">@{{(food.food_price * food.quantity).toFixed(2)}}</span> --}}
                                 </div>
                             </li>
                         </ul>
+                        
                         <div class="total">
-                            <h3>prezzo totale: @{{sum.toFixed(2)}} €</h3>
+                            <h3>Totale: @{{sum.toFixed(2)}} €</h3>
                             <small>di cui iva 22%  -  @{{(sum * 0.22).toFixed(2)}} €</small>
-                            <div><a class="btn_primary" href="{{route('admin.payment')}}">paga</a></div>
-
-                           
                             
+                            <div class="btn_pay">
+
+                                <a class="btn_primary" href="{{route('admin.payment')}}">paga</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-        </main>
-    </div>
-</main>
+        </div>
+    </main>
 @endsection
 
 @section('script')

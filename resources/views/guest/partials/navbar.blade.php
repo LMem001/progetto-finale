@@ -1,4 +1,4 @@
-<header>
+<header :class="{'on_scroll': !view.topOfPage}">
        {{-- banner --}}
        <div :class="bannerNone" class="banner">
          <div class="container">
@@ -8,7 +8,7 @@
          </div>
      </div>
      {{-- navbar --}}
-     <div class="navbar" :class="{'on_scroll': !view.topOfPage}">
+     <div class="navbar" >
          <nav class="container">
             <div class="logo">
                <div class="logo_btn displayNone">
@@ -85,6 +85,6 @@
       </nav>
       
    </div>
-   {{-- END navbar --}}
+
 </header>
                             

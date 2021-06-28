@@ -4,14 +4,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
     #foodvideo{
-    position:absolute;
-    z-index: -20;
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width:100%;
-    object-fit: cover;
+        position:absolute;
+        z-index: -20;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width:100%;
+        object-fit: cover;
     }
     .jumbo{
         margin-left: 200px;
@@ -57,8 +58,15 @@
 @media screen and (max-width:1200px) {
 
     #jumbotron{
-        .jumbo-content{
+        .jumbo{
             margin-left: 10%;
+            
+            h1{
+                font-size: $font_titles_m;
+            }
+            h2 {
+                font-size: $font_text_l;
+            }
         }
 
     }
@@ -66,7 +74,7 @@
 /* //?  MEDIUM 768-480px  */
 @media screen  and (max-width:768px) {
     #jumbotron{
-        .jumbo-content{
+        .jumbo{
             width: 80%;
             margin: auto;
             min-width: 300px;
@@ -74,9 +82,6 @@
             h1{
                 font-size: $font_titles_s;
             }            
-            h2{
-                font-size: $font_text_l;
-            }
             .input-jumbotron-container{
                 color: white;
                 
@@ -91,17 +96,12 @@
 @media screen and (max-width:480px) {
 
     #jumbotron{
-        .jumbo-content{
+        .jumbo{
             width: 90%;
             margin: auto;
             min-width: 250px;
             padding: 0;
-            h1{
-                font-size: $font_text_l;
-            }            
-            h2{
-                font-size: $font_text_s;
-            }
+
             .input-jumbotron-container{
                 color: white;
                 
