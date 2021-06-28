@@ -1,3 +1,4 @@
+
 #restaurant-profile{
 
     .coverImage{
@@ -61,17 +62,16 @@ h2{
     font-size: $font_titles_m;
     color: $pallette_red;
 }
-main{
+#show-main{
     // restaurant profile
     
     .container-show{
         display: flex;
         width: 100%;
         // margin: auto 5%;
-        justify-content: space-evenly;
-        padding-top: 60px;
+        justify-content: center;
+        padding-top: 100px;
         // background-color: orange;
-
     }
 
     .side_col {
@@ -79,7 +79,7 @@ main{
         position: sticky;
         top: 23%;
         text-align: center;
-        width: 20%;
+        width: 250px;
         height: 500px;
         // justify-content: center;
         background-color: white;
@@ -87,6 +87,9 @@ main{
         padding: 10px;
         border-radius: 15px;
         margin-top: -40px;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 50px;
 
     }
         /* selection */
@@ -121,6 +124,7 @@ main{
                 background-color: #F30050;
                 box-shadow: 1px 1px 2px black;
             }
+
         }
     }
     
@@ -129,10 +133,11 @@ main{
         // width: 50%;
         display: flex;
         justify-content: center;
-        // margin-top: 140px;
+        margin-top: -35px;
         border-radius: 15px;
         background-color: white;
         margin-bottom: 50px;
+        
         
         .rest-menu-container{
             width: 600px;
@@ -181,7 +186,6 @@ main{
 
 
     #cart{
-
         .cart-container{
             width: 100%;
             padding-bottom: 20px;
@@ -202,9 +206,11 @@ main{
                         justify-content: space-between;
 
                         .cart_item_name{
-                            width: 60%;
+                            width: 50%;
                             text-align: left;
                         }
+
+                        
                     }
                 }
                 li::after{
@@ -225,17 +231,143 @@ main{
             .btn_pay {
                 margin: 20px 0;
             }
-                // h3 {
-                //     color: ;
-                // }
+               
             }
         }
     }
 }
-    
+#mini-cart{
+    display: none;
+}
 
     /* main */
 
+
+
+//?  LARGE 1200-768px 
+@media screen and (max-width:1200px) {
+
+    .rest-info{
+        width: 600px!important;
+    }
+
+    #show-main{
+        width: 600px!important;
+        margin: 0 auto !important;
+        #rest-menu{
+            .rest-menu-container{
+                width: 350px!important;
+            }
+        }
+    
+        #food-type-selection,
+        #selection-course{
+            display: none!important;
+        }
+        .side_col{ 
+            width: 250px!important;
+            margin-top: 0!important;
+            margin-bottom: 50px!important;
+            margin-left: 50px!important;
+            margin-right: 0!important;
+        }
+
+        #cart{
+            .cart_item_quantity{
+                display: none;
+            }
+        }
+    }
+
+}
+
+/* //?  MEDIUM 768-480px  */
+@media screen  and (max-width:768px) {
+
+    .rest-info{
+        width: 350px!important;
+    }
+
+    #show-main{
+        width: 350px!important;
+        margin: 0 auto !important;
+        #rest-menu{
+            margin-bottom: 0!important;
+            .rest-menu-container{
+                width: 350px!important;
+            }
+        }
+    
+        #cart{
+            display: none!important;
+        }
+    }
+
+    #mini-cart{
+        display: block;
+        width: 350px;
+        background-color: $body-bg;
+        margin: 15px auto;
+        border-radius: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        .mini-cart-content{
+            display: flex;
+            ul{
+                width: 100%;
+                margin: 0 auto;
+                .product{
+                    display: flex;
+                    padding: 10px 7px;
+                    margin: 7px 30px;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    .cart_item_name{
+                        width: 60%;
+                        text-align: left;
+                    }
+
+                    
+
+                    .cart_item_price{
+                        width: 10%;
+                    }
+                }
+            }
+        }
+
+        .mini-cart-button{
+            margin: 15px auto;
+            width: 300px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid $pallette_yellow_dark;
+            border-radius: 15px;
+            padding: 10px 7px;
+
+            .food-quantity{
+                background-color: $pallette_yellow;
+                padding: 7px 4px;
+                border-radius: 10px;
+            }
+
+            .anteprima{
+                margin: 0 50px;
+                a{
+                    text-decoration: none;
+
+                    &:visited{
+                        color: inherit;
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 

@@ -9,8 +9,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
 @endsection
 
-
-
 @section('css')
 <link rel="stylesheet" href="{{asset('css/guest.css')}}">
 @endsection
@@ -36,7 +34,7 @@
         </div>
     </section>
     
-    <main>
+    <div id="show-main">
         <div class="container-show">
 
             <!-- Portata -->
@@ -50,6 +48,7 @@
                     </ul>
                 </div>
             </section>
+            <!-- end selction food type -->
 
             <!-- menu -->
             <section id="rest-menu">
@@ -74,11 +73,14 @@
                         </ul>
                     </div>
             </section>
+            <!-- end menu -->
     
             <!-- cart -->
             <section id="cart" class="side_col">
                 <div class="cart-container">
                     <h2>Il tuo ordine</h2>
+
+                    <!-- selected item -->
                     <div class="cart-content">
                         <ul>
                             <li v-if="food.quantity > 0" v-for="food in cart">
@@ -87,7 +89,7 @@
                                         @{{food.name}} 
                                     </div>
                                     <div class="cart_item_quantity">
-                                        @{{food.quantity}}
+                                        x@{{food.quantity}}
                                     </div>
                                     <div class="cart_item_price">
                                         @{{(food.food_price * food.quantity).toFixed(2)}}
@@ -111,7 +113,43 @@
                 </div>
             </section>
         </div>
-    </main>
+    </div id="show-main">
+
+    <section id="mini-cart">
+        <div class="mini-cart-content">
+            <ul>
+                <li v-if="food.quantity > 0" v-for="food in cart">
+                    <div class="product">
+                        <div class="cart_item_name">
+                            @{{food.name}} 
+                        </div>
+                        <div class="cart_item_quantity">
+                            x@{{food.quantity}}
+                        </div>
+                        <div class="cart_item_price">
+                            @{{(food.food_price * food.quantity).toFixed(2)}}
+                        </div>
+                        {{-- <span class="quantity">@{{food.quantity}}</span>
+                        <span class="price">@{{(food.food_price * food.quantity).toFixed(2)}}</span> --}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mini-cart-button">
+            <div class="food-quantity">
+                @{{itemsQT}}
+            </div>
+
+            <div class="anteprima">
+                <a href="{{route('admin.payment')}}">Vai al pagamento</a>
+            </div>
+
+            <div class="mini-total">
+                <span>@{{sum.toFixed(2)}}€</span>
+            </div>
+        </div>
+    </section>
 @endsection
 
 @section('script')
