@@ -91,6 +91,7 @@
 
             {{-- tabella --}}
             <div class="my_table">
+                <h2>I tuoi prodotti</h2>
                 <table class="table table-striped">
                     {{-- titoli --}}
                     <thead>
@@ -124,6 +125,45 @@
 
                                 </form>
                             </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+             {{-- tabella --}}
+             <div class="my_table">
+                <h2>ordini ricevuti</h2>
+                <table class="table table-striped">
+                    {{-- titoli --}}
+                    <thead>
+                        <tr>
+                            <th>ID pagamento</th>
+                            <th>Data</th>
+                            <th>Metodo di pagamento</th>
+                            <th>Prodotti</th>
+                            <th>totale</th>
+                        </tr>
+                    </thead>
+                    {{-- righe con contenuto --}}
+                    <tbody>
+                        @foreach ($orders as $order)
+                        <tr class="products_row">
+                            <td>{{$order->id}}</td>
+                            <td>{{$order->pickup_date}}</td>
+                            <td>{{$order->payment_type}}</td>
+                            <td>
+                                <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">mostra</button>
+                                <ul class="collapse" id="collapseExample">
+                                    
+
+                                 @foreach ($order->foods as $food)
+                                    <li>
+                                        {{$food->name}}
+                                    </li>
+                                @endforeach 
+                                </ul>
+                            </td>
+                            <td>{{$order->total_order}}</td>
                         </tr>
                         @endforeach
                     </tbody>

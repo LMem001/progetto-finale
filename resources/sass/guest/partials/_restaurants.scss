@@ -25,11 +25,15 @@
 
                 .logo_rest {
                     width: 50%;
-                
+                    height: 140px;
+                    overflow: hidden;
+                    border-radius: 100%;
                     img{
+                        object-fit: cover;
+                        object-position: center;
+                        height: 100%;
                         width: 100%;
-                        border-radius: 50%;
-                        // border: $pallette_red 8px solid;
+                        transition: all 1.5s;
                     }
                 }
                 .restaurant_info{
@@ -54,7 +58,9 @@
                     }
                 }
             }
-            
+            &:hover img{
+                transform: scale(1.1);
+            }  
         }
                 
         .restaurant_card:nth-child(6n + 4),

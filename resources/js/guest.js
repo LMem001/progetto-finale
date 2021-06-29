@@ -19,7 +19,7 @@ var app = new Vue(
          
          restaurantSlug: "",
          foodId: 0,
-         itemsQT: (localStorage.getItem('itemsQT')),
+         cartProductsN: localStorage.getItem('itemsQT'),
          orderdItemsQt: 0,
          foodsInOrder: [],
 
@@ -71,6 +71,7 @@ var app = new Vue(
 
          logoutshow: "",
          menushow:"",
+         showcart:"",
          bannerNone: '',
          date: moment(60 * 30 * 1000),
          sum: 0,
@@ -82,6 +83,7 @@ var app = new Vue(
 
          // cart
          cart: [],
+         
 
       },
 
@@ -98,11 +100,11 @@ var app = new Vue(
                if(cartit.id === this.foodId){
                   cartit.quantity += 1;
                   this.sum += cartit.food_price;
-
                };
             });
             this.orderdItemsQt += 1;
             localStorage.setItem("itemsQT", JSON.stringify(this.orderdItemsQt));
+            this.cartProductsN = (localStorage.getItem('itemsQT'));
             localStorage.setItem("refreshsum", JSON.stringify(this.sum));
             localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
             localStorage.setItem("refreshCart", JSON.stringify(this.cart));
@@ -117,23 +119,28 @@ var app = new Vue(
                   if(item.id === this.foodId){
                      if(item.quantity > 0){
                         item.quantity -= 1;
+                        if(this.orderdItemsQt > 0){
+                           this.orderdItemsQt -= 1;
+                           localStorage.setItem("itemsQT", JSON.stringify(this.orderdItemsQt));
+                           this.cartProductsN = (localStorage.getItem('itemsQT'));
+                        }
                      };
                   };
                });
             });
+            
+            
             this.cart.forEach(cartit => {
                if(cartit.id === this.foodId){
                   if(cartit.quantity > 0){
                      cartit.quantity -= 1;
                      this.sum -= cartit.food_price;
-                     localStorage.setItem("itemsQT", JSON.stringify(this.orderdItemsQt));
                      localStorage.setItem("refreshsum", JSON.stringify(this.sum));
                      localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
                      localStorage.setItem("refreshCart", JSON(this.cart));
                   };
                };
             });
-            this.orderdItemsQt -= 1;
          },
 
          clearCart: function(){
@@ -145,6 +152,13 @@ var app = new Vue(
                this.logoutshow = "display";
             }else{
             this.logoutshow = "";
+            }
+         },
+         togglecart: function(){
+            if(this.showcart == ""){
+               this.showcart = "cartdisplay";
+            }else{
+            this.showcart = "";
             }
          },
          menutoggleshow: function(){
@@ -226,13 +240,13 @@ var app = new Vue(
 
          url = window.location.href;
          lastParam = url.split("/").slice(-1)[0];
-         this.restaurantSlug = (lastParam == "" ? this.restaurants[1].slug : lastParam)
+         this.restaurantSlug = (lastParam == "" ? "mexicali" : lastParam)
 
          // end get restaurant slug
 
 
          // get single  restaurant
-
+         
          axios.get(this.apiSingleRetstaurant + this.restaurantSlug,)
             .then((serverAnswer) =>{
                this.selectedRestaurant = serverAnswer.data;
@@ -248,6 +262,7 @@ var app = new Vue(
                   this.restaurantFoods = JSON.parse(localStorage.getItem("order"))
                }else{
                   localStorage.clear();
+                  this.cartProductsN = 0;
                   product["quantity"] = 0;
                   if(product.tagCourse == "antipasto"){
                      this.restaurantFoods[0].food.push(product);
@@ -291,9 +306,7 @@ var app = new Vue(
             })
          })
       })
-      // end axios call restaurants
       },
-
       mounted (){  
 
          // banner time 
@@ -301,15 +314,13 @@ var app = new Vue(
            this.date = moment(this.date.subtract(1, 'seconds'))
          }, 1000);
          // end banner time   
-      },
 
+      },
       computed: { 
          // banner time
 
          time: function(){
            return this.date.format('mm:ss'); 
          },
-
-             
       },
 });

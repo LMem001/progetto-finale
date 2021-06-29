@@ -53,10 +53,10 @@
       animation-timing-function: linear;
          @keyframes ride {
             0%{
-               left: -20%;
+               left: -40%;
             }
             30%{
-               left: -20%; 
+               left: -40%; 
             }
             60%{
                left: 45%;
@@ -78,7 +78,7 @@
                left: 45%;
             }
             100%{
-               left: 120%;
+               left: 130%;
             }
          }
       .monocicle{

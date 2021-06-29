@@ -10761,6 +10761,10 @@ footer .footer_container #foot_col4 ul {
   opacity: 1;
 }
 
+.items {
+  display: none;
+}
+
 /* //?  LARGE 1200-768px */
 @media screen and (max-width: 1200px) {
   .contenuto .my_table {

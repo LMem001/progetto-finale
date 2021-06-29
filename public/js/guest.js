@@ -17289,7 +17289,7 @@ var app = new Vue({
     selectedRestaurant: [],
     restaurantSlug: "",
     foodId: 0,
-    itemsQT: localStorage.getItem('itemsQT'),
+    cartProductsN: localStorage.getItem('itemsQT'),
     orderdItemsQt: 0,
     foodsInOrder: [],
     restaurantFoods: [{
@@ -17330,6 +17330,7 @@ var app = new Vue({
     // search: "",
     logoutshow: "",
     menushow: "",
+    showcart: "",
     bannerNone: '',
     date: moment(60 * 30 * 1000),
     sum: 0,
@@ -17363,6 +17364,7 @@ var app = new Vue({
       });
       this.orderdItemsQt += 1;
       localStorage.setItem("itemsQT", JSON.stringify(this.orderdItemsQt));
+      this.cartProductsN = localStorage.getItem('itemsQT');
       localStorage.setItem("refreshsum", JSON.stringify(this.sum));
       localStorage.setItem("order", JSON.stringify(this.restaurantFoods));
       localStorage.setItem("refreshCart", JSON.stringify(this.cart));
@@ -17378,6 +17380,12 @@ var app = new Vue({
           if (item.id === _this2.foodId) {
             if (item.quantity > 0) {
               item.quantity -= 1;
+
+              if (_this2.orderdItemsQt > 0) {
+                _this2.orderdItemsQt -= 1;
+                localStorage.setItem("itemsQT", JSON.stringify(_this2.orderdItemsQt));
+                _this2.cartProductsN = localStorage.getItem('itemsQT');
+              }
             }
 
             ;
@@ -17391,7 +17399,6 @@ var app = new Vue({
           if (cartit.quantity > 0) {
             cartit.quantity -= 1;
             _this2.sum -= cartit.food_price;
-            localStorage.setItem("itemsQT", JSON.stringify(_this2.orderdItemsQt));
             localStorage.setItem("refreshsum", JSON.stringify(_this2.sum));
             localStorage.setItem("order", JSON.stringify(_this2.restaurantFoods));
             localStorage.setItem("refreshCart", JSON(_this2.cart));
@@ -17402,7 +17409,6 @@ var app = new Vue({
 
         ;
       });
-      this.orderdItemsQt -= 1;
     },
     clearCart: function clearCart() {},
     logouttoggleshow: function logouttoggleshow() {
@@ -17410,6 +17416,13 @@ var app = new Vue({
         this.logoutshow = "display";
       } else {
         this.logoutshow = "";
+      }
+    },
+    togglecart: function togglecart() {
+      if (this.showcart == "") {
+        this.showcart = "cartdisplay";
+      } else {
+        this.showcart = "";
       }
     },
     menutoggleshow: function menutoggleshow() {
@@ -17480,7 +17493,7 @@ var app = new Vue({
     }), // get restaurant slug
     url = window.location.href;
     lastParam = url.split("/").slice(-1)[0];
-    this.restaurantSlug = lastParam == "" ? this.restaurants[1].slug : lastParam; // end get restaurant slug
+    this.restaurantSlug = lastParam == "" ? "mexicali" : lastParam; // end get restaurant slug
     // get single  restaurant
 
     axios.get(this.apiSingleRetstaurant + this.restaurantSlug).then(function (serverAnswer) {
@@ -17493,6 +17506,7 @@ var app = new Vue({
             _this4.restaurantFoods = JSON.parse(localStorage.getItem("order"));
           } else {
             localStorage.clear();
+            _this4.cartProductsN = 0;
             product["quantity"] = 0;
 
             if (product.tagCourse == "antipasto") {
@@ -17532,7 +17546,7 @@ var app = new Vue({
           }
         });
       });
-    }); // end axios call restaurants
+    });
   },
   mounted: function mounted() {
     var _this5 = this;

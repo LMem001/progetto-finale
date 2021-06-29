@@ -76,7 +76,7 @@
             <!-- end menu -->
     
             <!-- cart -->
-            <section id="cart" class="side_col">
+            <section :id="showcart"  class="cart side_col" >
                 <div class="cart-container">
                     <h2>Il tuo ordine</h2>
 
@@ -113,43 +113,16 @@
                 </div>
             </section>
         </div>
-    </div id="show-main">
 
-    <section id="mini-cart">
-        <div class="mini-cart-content">
-            <ul>
-                <li v-if="food.quantity > 0" v-for="food in cart">
-                    <div class="product">
-                        <div class="cart_item_name">
-                            @{{food.name}} 
-                        </div>
-                        <div class="cart_item_quantity">
-                            x@{{food.quantity}}
-                        </div>
-                        <div class="cart_item_price">
-                            @{{(food.food_price * food.quantity).toFixed(2)}}
-                        </div>
-                        {{-- <span class="quantity">@{{food.quantity}}</span>
-                        <span class="price">@{{(food.food_price * food.quantity).toFixed(2)}}</span> --}}
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="mini-cart-button">
-            <div class="food-quantity">
-                @{{itemsQT}}
-            </div>
-
-            <div class="anteprima">
-                <a href="{{route('admin.payment')}}">Vai al pagamento</a>
-            </div>
-
-            <div class="mini-total">
-                <span>@{{sum.toFixed(2)}}€</span>
+        <div v-if="cartProductsN > 0" class="cart_responsive" @click="togglecart" >
+            <div class="content">
+                <i class="fas fa-shopping-cart"></i>
+                <div class="itemsQT">
+                    <p> @{{cartProductsN}}</p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 @endsection
 
 @section('script')
