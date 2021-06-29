@@ -27,50 +27,78 @@
                     
                     <h1>Contatti</h1>
                     <p>Siamo sempre in crescita, e abbiamo sempre bisogno di persone nuove per arricchire il nostro staff. Per <a href="#">lavorare con noi</a> o qualsiasi altra informazione necessaria, potete trovarci nei seguenti modi</p>
-                    <ul>
+                    <ul class="contatti">
                         <li>
-                            Indirizzo : @{{deviBool_info.address}}
+                            <i class="fas fa-phone-alt"></i>
+                            Telefono :
+                            <br> @{{deviBool_info.phone}}
                         </li>
                         <li>
-                            Telefono : @{{deviBool_info.phone}}
+                            <i class="fas fa-envelope"></i>
+                            Email : <br>
+                             @{{deviBool_info.email}}
                         </li>
                         <li>
-                            Email : @{{deviBool_info.email}}
+                            <i class="fas fa-map-marker-alt"></i>
+                            Indirizzo : <br>
+                            @{{deviBool_info.address}}
                         </li>
                     </ul>
+                    <div class="google_maps">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.1437016256364!2d12.492855326300614!3d41.88976652994141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61b6532013ad%3A0x28f1c82e908503c4!2sColosseo!5e0!3m2!1sit!2sit!4v1624925908097!5m2!1sit!2sit" width="800" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>    
                 </div>
             </section>
             
-            <section class="sidebar">
+            <section id="sidebar">
                 <div class="sidebar_container">
 
                     
                     <h2>Servizio clienti </h2>
                     <ul>
-                    <li>
-                        <a href="#">FAQs</a>
-                    </li>
-                    <li>
-                        <a href="#">Contatta assistenza</a>
-                    </li>
-                    <li>
-                        <h3>Feedback</h3>
-                        <p>aiutaci a migliorare il nostro sito</p>
-                        <a href="https://docs.google.com/forms/d/1QB-_GvVulbM2lSmOjOjzmywGDgN5dZetbyX5uMlzYVQ/viewform?edit_requested=true">Invia un feedback</a>
-                    </li>
-                    <li>
-                        Scoprici anche sui social e sulle app Android, iOS e Hauwei
-                        <ul>
-                            <li>
-                                TODO social list
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+                        <li>
+                            <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fmemegenerator.net%2Finstance%2F67618623%2Fbaby-cant-take-anymore-im-all-out-of-ideas-for-faqs&psig=AOvVaw1HXhGLHkSbDyswxivm9upd&ust=1625016839707000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCLinvc7Zu_ECFQAAAAAdAAAAABAD">FAQs</a>
+                        </li>
+                        <li>
+                            <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.teldon.it%2Fhome%2Fpage%2F3%2F&psig=AOvVaw19NjSb8d9eeFrmiSq0nKXi&ust=1625016913218000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCNio2PLZu_ECFQAAAAAdAAAAABAP">Contatta assistenza</a>
+                        </li>
+                        <li>
+                            <h2>Feedback</h2>
+                            <p>aiutaci a migliorare il nostro sito</p>
+                            <a href="https://docs.google.com/forms/d/1QB-_GvVulbM2lSmOjOjzmywGDgN5dZetbyX5uMlzYVQ/viewform?edit_requested=true">Invia un feedback</a>
+                        </li>
+                        <li>
+                            <p>
+                                Scoprici anche sui social e sulle app Android, iOS e Hauwei
+                            </p>
+                            <ul class="socials">
+                                <li>
+                                    <a href="facebook.com">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tripadvisor.com">
+                                        <i class="fab fa-tripadvisor"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="instagram.com">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </section>
-        </div>    
-    </main>
+        </main>
+    </div>    
     @endsection
     
     @section('script')

@@ -25,6 +25,7 @@
    <div class="success">
       <div class="text">
          <h1>il pagamento é andato a buon fine</h1>
+         @{{}}
       </div>
    </div>
 @endsection

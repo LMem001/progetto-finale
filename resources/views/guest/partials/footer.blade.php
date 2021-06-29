@@ -6,7 +6,7 @@
                 <img src="/img/bigger_logo.png" alt="logo DeviBool">
             </div>
             <p class="mt_3">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolemue launti totam aperiam, eaque ipsa quae abillo. Invente veriatis et quasi architecto beatae luptatem accusantium, remaperiamsiat. Voluptatem accusest etsium doloremque laudaien. Lorem ipsum sits dolores ets unser.
+                Da madre cuoca e papà tassista, nasce il nostro sogno! <span class="devibool">DeviBool</span>: cosegna a domicilio il cibo più buono e il più velocemente possibile! Da ormai 3 anni io e il mio team lavoriamo non-stop per garantire qualità e velocità su tutto il territorio Laziale 
             </p>
 
             <h4>Anche sui social !</h4>
@@ -40,12 +40,17 @@
                 <div class="contact_info">
                     <ul> 
                         <li>
-                            <i class="fas fa-map-marker"></i>
-                            indirizzo
+                            <a href="{{route("chiSiamo")}}">
+                                <i class="fas fa-map-marker"></i>
+                                indirizzo
+                            </a>
                         </li>
+
                         <li>
-                            <i class="fas fa-phone"></i>
-                            telefono
+                            <a href="{{route("chiSiamo")}}">
+                                <i class="fas fa-phone"></i>
+                                telefono
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -56,13 +61,14 @@
                 <h3>Servizio clienti</h3>
                 <ul> 
                     <li>
-                        Apps
+                        <a href="#">Apps</a>
                     </li>
                     <li>
-                        Domande frequenti
+                        <a href="#"> Domande frequenti </a>
                     </li>
                     <li>
-                        Politica reso
+                        <a href="#">Politica reso</a>
+                        
                     </li>
                 </ul>
             </div>

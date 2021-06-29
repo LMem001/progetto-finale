@@ -14,9 +14,9 @@ var app2 = new Vue({
       topOfPage: true
     },
     deviBool_info: {
-      phone: "33311122564",
-      address: "Via le mani dal culo 144",
-      email: "info@devibool.com"
+      phone: "+39 753-476-1453",
+      address: "Piazza del Colosseo",
+      email: "info.Roma@devibool.com"
     }
   },
   methods: {

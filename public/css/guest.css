@@ -134,6 +134,11 @@ h1, h2 {
   text-align: center;
 }
 
+span.devibool {
+  font-family: "veganFontStyle";
+  color: #F30050;
+}
+
 .display {
   display: block;
 }
@@ -1203,6 +1208,11 @@ footer .footer_container .footer_menu {
 footer .footer_container .footer_menu .footer_col {
   width: 30%;
   min-width: 265px;
+}
+footer .footer_container .footer_menu .footer_col a {
+  text-transform: capitalize;
+  color: inherit;
+  text-decoration: none;
 }
 footer .footer_container .footer_menu .footer_col h3 {
   font-size: 19px;

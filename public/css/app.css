@@ -10142,6 +10142,11 @@ h1, h2 {
   text-align: center;
 }
 
+span.devibool {
+  font-family: "veganFontStyle";
+  color: #F30050;
+}
+
 .display {
   display: block;
 }
@@ -10461,6 +10466,11 @@ footer .footer_container .footer_menu {
 footer .footer_container .footer_menu .footer_col {
   width: 30%;
   min-width: 265px;
+}
+footer .footer_container .footer_menu .footer_col a {
+  text-transform: capitalize;
+  color: inherit;
+  text-decoration: none;
 }
 footer .footer_container .footer_menu .footer_col h3 {
   font-size: 19px;
@@ -10950,8 +10960,8 @@ header .navbar nav i {
 }
 
 .container_create_food.card {
-  margin-top: 150px;
-  margin-bottom: 70px;
+  margin-top: 80px;
+  margin-bottom: 50px;
 }
 .container_create_food.card .card-body form .form-check {
   display: inline-block;
@@ -10960,6 +10970,20 @@ header .navbar nav i {
 .container_create_food.card .card-body form .tag_section label {
   color: black;
   text-shadow: none;
+}
+
+.container_edit_food {
+  margin-top: 150px;
+  margin-bottom: 70px;
+}
+.container_edit_food .card-body form .tag_section {
+  display: flex;
+  justify-content: space-around;
+}
+.container_edit_food .card-body form .tag_section .form-check label {
+  color: black !important;
+  text-shadow: none;
+  display: inline-block;
 }
 
 /* //?  LARGE 1200-768px */
@@ -10974,6 +10998,13 @@ header .navbar nav i {
   .edit_container.card .card-body .form-check {
     width: 49%;
   }
+
+  .container_edit_food .card-body form .tag_section {
+    flex-wrap: wrap;
+  }
+  .container_edit_food .card-body form .tag_section .form-check label {
+    padding: 0px 10px 10px 10px;
+  }
 }
 @media screen and (max-width: 480px) {
   .edit_container.card {
@@ -10985,6 +11016,13 @@ header .navbar nav i {
   }
   .edit_container.card .form-check-input {
     margin-left: -2.25rem;
+  }
+
+  .container_edit_food {
+    width: 85%;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 30px;
   }
 }
 #paymentApp .payment_container {

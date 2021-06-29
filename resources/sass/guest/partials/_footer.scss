@@ -66,7 +66,12 @@ footer {
             .footer_col {
                 width: 30%;
                 min-width: 265px;
-
+                a {
+                    text-transform: capitalize;
+                    color: inherit;
+                    text-decoration: none;
+                }
+                
                 h3 {
                     font-size: $font_text_m;
                 }

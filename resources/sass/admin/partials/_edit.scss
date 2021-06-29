@@ -1,4 +1,4 @@
-// !CREATE RESTAURANT
+//!!!!!!!!!!!!! CREATE RESTAURANT
 .edit_container.card{
     margin-top: 150px;
     margin-bottom: 70px;
@@ -11,10 +11,10 @@
 
     }
 }
-// !CREATE FOOD
+//!!!!!!!!!!!! CREATE FOOD
 .container_create_food.card {
-    margin-top: 150px;
-    margin-bottom: 70px;
+    margin-top: 80px;
+    margin-bottom: 50px;
     .card-body form{
         .form-check {
             display: inline-block;
@@ -30,6 +30,30 @@
     }
     
 }
+
+//!!!!!!!!!!!!!!!!!! EDIT FOOD
+.container_edit_food {
+    margin-top: 150px;
+    margin-bottom: 70px;
+
+   .card-body form{
+       .tag_section{
+           display: flex;
+           justify-content: space-around;
+           .form-check label{
+               color: black!important;
+               text-shadow: none;
+               display: inline-block;
+            }
+        }
+    }
+}
+
+
+
+
+//????????????????????????????
+//????????????????? RESPONSIVE
 
 /* //?  LARGE 1200-768px */
 @media screen and (max-width:1200px) {
@@ -50,11 +74,21 @@
             width: 49%;
         }
     }
-        
+    .container_edit_food {
+        .card-body form{
+            .tag_section{
+                 flex-wrap: wrap;
+                 .form-check label{
+                    padding: 0px 10px 10px 10px;
+                 }
+             }
+         }
+    }
 }
 
 // ? SMALL
 @media screen and (max-width:480px) {
+
     .edit_container.card{
         width: 85%;
         .card-body .form-check {
@@ -66,4 +100,10 @@
         }
     }
     
+    .container_edit_food {
+        width: 85%;
+        margin: auto;
+        margin-top: 60px;
+        margin-bottom: 30px;
+    }
 }
